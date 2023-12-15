@@ -50,3 +50,62 @@ The backend subdomain will be automatically created with the suffix -backend.
 The global variable VITE_BACKEND_URL will be automatically created and pre-filled on the basis of this information.
 
 Use this same tab to add the other environment variables required for the project if any.
+
+READ ME :
+
+Appellations {
+
+.jsx = PascalCase
+.css = camelCase
+
+1 dossier =
+HomePage.jsx
+}
+
+Structure HTML {
+
+PAGE :
+
+<main>
+<section>
+….
+</section>
+</main>
+
+COMPONENTS :
+
+<section>
+…
+</section>
+}
+
+GIT {
+
+git commit -m “ “
+
+> commit détaillé en anglais qui commence toujours par un verbe
+
+git push
+
+> toujours sur sa propre branche
+
+pull request
+
+> toujours sur dev
+> commentaire récapitulatif en anglais
+> git pull
+> Une fois la merge terminé,toujours effectuer le git pull sur la dev
+
+git checkout -b
+
+> Créer ensuite une nouvelle branche, basculer dessus et continuer à travailler.
+
+}
+
+STYLISATION {
+
+Document CSS commun pour élément commun
+
+usage de variables pour les couleurs et les fonts
+
+}
