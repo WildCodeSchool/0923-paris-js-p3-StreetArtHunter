@@ -60,6 +60,7 @@ Appellations {
 
 1 dossier =
 HomePage.jsx
+homePage.css
 }
 
 Structure HTML {
@@ -81,13 +82,15 @@ COMPONENTS :
 
 GIT {
 
+Rappel avant de coder quoique ce soit sur VSC, basculer sur la branche et faire un git pull, une fois terminé, basculer sur une nouvelle branche et on peut coder. 
+
 git commit -m “ “
 
 > commit détaillé en anglais qui commence toujours par un verbe
 
 git push
 
-> toujours sur sa propre branche
+> toujours sur sa propre branche : origin nom-de -sa-branche
 
 pull request
 
@@ -109,3 +112,14 @@ Document CSS commun pour élément commun
 usage de variables pour les couleurs et les fonts
 
 }
+
+Pense Bête : 
+
+Front END : 
+
+- Css : Faire des noms de classes explicites selon le modèle : className = main-title-header; en aucun cas faire un css sur des balises non classées ou identifiées, ex : 
+p {
+
+} --> Interdit
+- Pour un component : Le coder en React, faire son css associé Smartphone ET Responsive. 
+-  
