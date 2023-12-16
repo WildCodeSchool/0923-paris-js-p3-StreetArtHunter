@@ -82,7 +82,7 @@ COMPONENTS :
 
 GIT {
 
-Rappel avant de coder quoique ce soit sur VSC, basculer sur la branche et faire un git pull, une fois terminé, basculer sur une nouvelle branche et on peut coder. 
+Rappel avant de coder quoique ce soit sur VSC, basculer sur la branche et faire un git pull, une fois terminé, basculer sur une nouvelle branche et on peut coder.
 
 git commit -m “ “
 
@@ -113,13 +113,14 @@ usage de variables pour les couleurs et les fonts
 
 }
 
-Pense Bête : 
+Pense Bête :
 
-Front END : 
+Front END :
 
-- Css : Faire des noms de classes explicites selon le modèle : className = main-title-header; en aucun cas faire un css sur des balises non classées ou identifiées, ex : 
-p {
+- Css : Faire des noms de classes explicites selon le modèle : className = main-title-header; en aucun cas faire un css sur des balises non classées ou identifiées, ex :
+  p {
 
 } --> Interdit
-- Pour un component : Le coder en React, faire son css associé Smartphone ET Responsive. 
--  
+
+- Pour un component : Le coder en React, faire son css associé Smartphone ET Responsive.
+- On n'installe pas de library sans informer le groupe et sans son aval.
