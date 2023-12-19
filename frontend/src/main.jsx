@@ -8,7 +8,7 @@ import IntroPage from "./pages/IntroPage/IntroPage";
 import HomePage from "./pages/HomePage/HomePage";
 import AdminProfil from "./pages/AdminProfil/AdminProfil";
 import Classement from "./pages/Classement/Classement";
-import Login from "./pages/Login /Login";
+import Login from "./pages/Login/Login";
 import Register from "./pages/Register/Register";
 import SpotZone from "./pages/SpotZone/SpotZone";
 import SubmitWork from "./pages/SubmitWork/SubmitWork";
