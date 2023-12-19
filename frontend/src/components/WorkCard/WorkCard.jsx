@@ -1,22 +1,12 @@
 import "./workCard.css";
-import imgTest from "../../assets/images/img_sample/20231203_143211.jpg";
+import WorkCardBloc1 from "../WorkCardBloc1/WorkCardBloc1";
+import Map from "../Map/Map";
 
 function WorkCard() {
   return (
-    <main>
-      <section className="workCard_container">
-        <section className="worcCard_bloc_01">
-          <img className="Work_image" src={imgTest} alt="test_image" />
-          <div className="work_infos_container">
-            <p className="work_info"> entry: </p>
-            <p className="work_info"> zone: </p>
-            <p className="work_info"> loc: </p>
-            <p className="work_info"> localisation: </p>
-            <p className="work_info"> artist: </p>
-            <p className="work_info"> submitted by: </p>
-          </div>
-        </section>
-      </section>
+    <main className="workCard_container">
+      <WorkCardBloc1 />
+      <Map />
     </main>
   );
 }
