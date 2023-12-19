@@ -1,7 +1,7 @@
 import "./homePage.css";
 
 function HomePage() {
-  return <> </>;
+  return <h1>Salut</h1>;
 }
 
 export default HomePage;
