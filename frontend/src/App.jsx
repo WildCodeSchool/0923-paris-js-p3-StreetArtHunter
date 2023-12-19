@@ -1,7 +1,12 @@
 import "./App.css";
+import WorkCard from "./components/WorkCard/WorkCard";
 
 function App() {
-  return <> </>;
+  return (
+    <main>
+      <WorkCard />
+    </main>
+  );
 }
 
 export default App;
