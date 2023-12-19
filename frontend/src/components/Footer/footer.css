@@ -1,0 +1,23 @@
+footer {
+  display: flex;
+  justify-content: space-evenly;
+  background-color: #eae9e9;
+  width: 100%;
+  padding: 0.24rem;
+  align-items: center;
+}
+
+.iconGraffiti {
+  height: 30px;
+  width: 29.855px;
+}
+
+.iconClassement {
+  height: 30px;
+  width: 29.855px;
+}
+
+.iconInfos {
+  height: 35px;
+  width: 35px;
+}
