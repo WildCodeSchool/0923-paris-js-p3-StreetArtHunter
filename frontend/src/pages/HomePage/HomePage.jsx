@@ -1,7 +1,8 @@
+import Header from "../../components/Header/Header";
 import "./homePage.css";
 
 function HomePage() {
-  return <h1>Salut</h1>;
+  return <Header />;
 }
 
 export default HomePage;

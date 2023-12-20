@@ -1,4 +1,5 @@
 import * as React from "react";
+import { useNavigate } from "react-router-dom";
 import Button from "@mui/material/Button";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
@@ -13,7 +14,7 @@ export default function PositionedMenu() {
   const handleClose = () => {
     setAnchorEl(null);
   };
-
+  const navigate = useNavigate();
   return (
     <div>
       <Button
@@ -48,19 +49,44 @@ export default function PositionedMenu() {
           horizontal: "left",
         }}
       >
-        <MenuItem className="Police-Burger-Header" onClick={handleClose}>
+        <MenuItem
+          className="Police-Burger-Header"
+          onClick={() => {
+            navigate("/");
+          }}
+        >
           ACCEUIL
         </MenuItem>
-        <MenuItem className="Police-Burger-Header" onClick={handleClose}>
+        <MenuItem
+          className="Police-Burger-Header"
+          onClick={() => {
+            navigate("/spotzone");
+          }}
+        >
           BALLADES
         </MenuItem>
-        <MenuItem className="Police-Burger-Header" onClick={handleClose}>
+        <MenuItem
+          className="Police-Burger-Header"
+          onClick={() => {
+            navigate("/userprofil");
+          }}
+        >
           PROFIL
         </MenuItem>
-        <MenuItem className="Police-Burger-Header" onClick={handleClose}>
+        <MenuItem
+          className="Police-Burger-Header"
+          onClick={() => {
+            navigate("/submitwork");
+          }}
+        >
           SUBMIT
         </MenuItem>
-        <MenuItem className="Police-Burger-Header" onClick={handleClose}>
+        <MenuItem
+          className="Police-Burger-Header"
+          onClick={() => {
+            navigate("/classement");
+          }}
+        >
           CLASSEMENT
         </MenuItem>
       </Menu>
