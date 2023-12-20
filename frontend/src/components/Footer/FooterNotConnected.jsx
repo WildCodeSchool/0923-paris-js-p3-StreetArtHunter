@@ -1,8 +1,8 @@
 import { useNavigate } from "react-router-dom";
 import infos from "../../assets/images/ico/About_ico.png";
-import "./footer_NotConnected.css";
+import "./footerNotConnected.css";
 
-function Footer() {
+function FooterNotConnected() {
   const navigate = useNavigate();
   return (
     <footer>
@@ -46,4 +46,4 @@ function Footer() {
   );
 }
 
-export default Footer;
+export default FooterNotConnected;
