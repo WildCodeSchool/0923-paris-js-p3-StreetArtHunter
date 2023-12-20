@@ -2,9 +2,9 @@ import { useNavigate } from "react-router-dom";
 import classement from "../../assets/images/ico/classement.png";
 import graffiti from "../../assets/images/ico/artiste-de-graffiti.png";
 import infos from "../../assets/images/ico/About_ico.png";
-import "./footer_Connected.css";
+import "./footerConnected.css";
 
-function Footer() {
+function FooterConnected() {
   const navigate = useNavigate();
 
   return (
@@ -75,4 +75,4 @@ function Footer() {
   );
 }
 
-export default Footer;
+export default FooterConnected;
