@@ -1,0 +1,38 @@
+.workCardBloc_content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.closed_btn_WCB_container {
+  display: none;
+}
+@media (min-width: 1440px) {
+  .workCardBloc_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    background-image: url("../../assets/images/img/wall11B.jpg");
+  }
+  .workCardBloc_content {
+    align-items: center;
+    justify-content: center;
+    gap: 8rem;
+  }
+  .closed_btn_WCB_container {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .closed_btn_WCB {
+    width: 5%;
+    background-color: rgba(255, 255, 255, 0.6);
+    border-radius: 100%;
+    padding: 10px;
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+  }
+}

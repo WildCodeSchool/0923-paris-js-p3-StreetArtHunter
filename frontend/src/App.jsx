@@ -1,10 +1,10 @@
 import "./App.css";
-import WorkCard from "./components/WorkCard/WorkCard";
+import WorkCardBloc from "./components/WorkCardBloc/WorkCardBloc";
 
 function App() {
   return (
     <main>
-      <WorkCard />
+      <WorkCardBloc />
     </main>
   );
 }

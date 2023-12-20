@@ -1,4 +1,22 @@
+.work_map_container {
+  width: 100%;
+}
+.work_map_deco {
+  position: absolute;
+  width: 101%;
+  border-radius: 10px;
+  z-index: 1;
+}
 .work_map {
   width: 100%;
   border-radius: 25px;
+}
+
+@media (min-width: 1440px) {
+  .work_map_container {
+    width: 35%;
+  }
+  .work_map_deco {
+    width: 35%;
+  }
 }
