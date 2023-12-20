@@ -4,7 +4,7 @@ import graffiti from "../../assets/images/ico/artiste-de-graffiti.png";
 import infos from "../../assets/images/ico/About_ico.png";
 import "./footerConnected.css";
 
-function footerConnected() {
+function FooterConnected() {
   const navigate = useNavigate();
 
   return (
@@ -75,4 +75,4 @@ function footerConnected() {
   );
 }
 
-export default footerConnected;
+export default FooterConnected;
