@@ -1,5 +1,5 @@
 function SubmitWork() {
-  return <> </>;
+  return <> SubmitWork</>;
 }
 
 export default SubmitWork;

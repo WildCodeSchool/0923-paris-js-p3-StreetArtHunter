@@ -1,5 +1,5 @@
 function SpotZone() {
-  return <> </>;
+  return <> SpotZone</>;
 }
 
 export default SpotZone;

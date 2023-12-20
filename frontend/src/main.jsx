@@ -13,6 +13,7 @@ import Register from "./pages/Register/Register";
 import SpotZone from "./pages/SpotZone/SpotZone";
 import SubmitWork from "./pages/SubmitWork/SubmitWork";
 import UserProfil from "./pages/UserProfil/UserProfil";
+import Information from "./pages/Information/Information";
 
 const router = createBrowserRouter([
   {
@@ -24,36 +25,40 @@ const router = createBrowserRouter([
         element: <IntroPage />,
       },
       {
-        path: "/HomePage",
+        path: "/homepage",
         element: <HomePage />,
       },
       {
-        path: "/AdminProfil",
+        path: "/adminprofil",
         element: <AdminProfil />,
       },
       {
-        path: "Classement",
+        path: "/classement",
         element: <Classement />,
       },
       {
-        path: "/Login",
+        path: "/login",
         element: <Login />,
       },
       {
-        path: "/Register",
+        path: "/register",
         element: <Register />,
       },
       {
-        path: "/SpotZone",
+        path: "/spotzone",
         element: <SpotZone />,
       },
       {
-        path: "/SubmitWork",
+        path: "/submitwork",
         element: <SubmitWork />,
       },
       {
-        path: "/UserProfil",
+        path: "/userprofil",
         element: <UserProfil />,
+      },
+      {
+        path: "/information",
+        element: <Information />,
       },
     ],
   },

@@ -1,5 +1,5 @@
 function Classement() {
-  return <> </>;
+  return <>Classement </>;
 }
 
 export default Classement;
