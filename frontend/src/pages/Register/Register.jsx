@@ -1,5 +1,11 @@
+import InputRegistration from "../../components/InputRegistration/InputRegistration";
+
 function Register() {
-  return <> Register </>;
+  return (
+    <div>
+      <InputRegistration />
+    </div>
+  );
 }
 
 export default Register;
