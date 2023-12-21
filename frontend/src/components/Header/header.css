@@ -10,7 +10,7 @@
 }
 .Title-Header {
   font-family: var(--font-02);
-  font-size: 30px;
+  font-size: 23px;
   color: var(--color-01);
   margin-left: 10%;
 }
@@ -33,7 +33,7 @@
     height: 5rem;
   }
   .Title-Header {
-    font-family: "Gochi Hand";
+    font-family: var(--font-02);
     font-size: 45px;
     color: var(--color-01);
     margin-left: 10%;
