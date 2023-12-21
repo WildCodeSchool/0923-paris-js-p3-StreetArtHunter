@@ -1,6 +1,6 @@
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import App from "./App";
 import IntroPage from "./pages/IntroPage/IntroPage";
 import HomePage from "./pages/HomePage/HomePage";
@@ -9,7 +9,8 @@ import Classement from "./pages/Classement/Classement";
 import Login from "./pages/Login/Login";
 import Register from "./pages/Register/Register";
 import SpotZone from "./pages/SpotZone/SpotZone";
-import SubmitWork from "./pages/SubmitWork/SubmitWork";
+import SubwitWorkImport from "./pages/SubmitWork/SubwitWorkImport";
+import SubmitWorkValidation from "./pages/SubmitWork/SubmitWorkValidation";
 import UserProfil from "./pages/UserProfil/UserProfil";
 import Information from "./pages/Information/Information";
 
@@ -47,8 +48,12 @@ const router = createBrowserRouter([
         element: <SpotZone />,
       },
       {
-        path: "/submitwork",
-        element: <SubmitWork />,
+        path: "/submitworkimport",
+        element: <SubwitWorkImport />,
+      },
+      {
+        path: "/submitworkvalidation",
+        element: <SubmitWorkValidation />,
       },
       {
         path: "/userprofil",
