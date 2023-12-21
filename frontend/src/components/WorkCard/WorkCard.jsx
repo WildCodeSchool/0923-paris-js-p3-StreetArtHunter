@@ -1,7 +1,7 @@
-import "./WorkCard.css";
+import "./workCard.css";
 import imgTest from "../../assets/images/img_sample/20231203_143211.jpg";
 
-function WorkCardBloc1() {
+function WorkCard() {
   return (
     <section className="workCard_container">
       <div className="workCard_content">
@@ -19,4 +19,4 @@ function WorkCardBloc1() {
   );
 }
 
-export default WorkCardBloc1;
+export default WorkCard;
