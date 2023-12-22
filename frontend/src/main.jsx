@@ -9,8 +9,9 @@ import Classement from "./pages/Classement/Classement";
 import Login from "./pages/Login/Login";
 import Register from "./pages/Register/Register";
 import SpotZone from "./pages/SpotZone/SpotZone";
-import SubwitWorkImport from "./pages/SubmitWork/SubwitWorkImport";
-import SubmitWorkValidation from "./pages/SubmitWork/SubmitWorkValidation";
+import SubwitWorkImport from "./components/InputSubmitWork/SubmitWorkImport";
+import SubmitWorkValidation from "./components/InputSubmitWork/SubmitWorkValidation";
+// import SubmitWorkThank from "./components/InputSubmitWork/SubmitWorkThank";
 import UserProfil from "./pages/UserProfil/UserProfil";
 import Information from "./pages/Information/Information";
 
@@ -55,6 +56,11 @@ const router = createBrowserRouter([
         path: "/submitworkvalidation",
         element: <SubmitWorkValidation />,
       },
+      // {
+      //   path: "/submitworkthank",
+      //   element: <SubmitWorkThank />,
+      // },
+
       {
         path: "/userprofil",
         element: <UserProfil />,

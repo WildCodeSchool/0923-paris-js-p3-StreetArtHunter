@@ -1,6 +1,8 @@
+import { useNavigate } from "react-router-dom";
 import "./submitWork.css";
 
 function SubmitWorkValidation() {
+  const navigate = useNavigate();
   return (
     <section className="blockValidation">
       <h1 className="titleSubmitWork">propose a work</h1>
@@ -21,7 +23,17 @@ function SubmitWorkValidation() {
           </label>
         </div>
       </div>
-      <div className="Button-SubmitWork">
+      <div
+        className="Button-SubmitWork"
+        role="button"
+        onClick={() => {
+          navigate("/submitworkthank");
+        }}
+        onKeyDown={() => {
+          navigate("/submitworkthank");
+        }}
+        tabIndex="0"
+      >
         <h3 className="Button-Validation">submit</h3>
       </div>
     </section>
