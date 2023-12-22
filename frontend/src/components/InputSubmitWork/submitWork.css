@@ -103,6 +103,14 @@
   border: 1px solid #000;
   background: #fff;
 }
+.Rat_Picture_Submit_right {
+  display: none;
+  width: 100%;
+}
+.Rat_Picture_Submit_left {
+  display: none;
+  width: 100%;
+}
 
 @media (min-width: 1440px) {
   .centered {
