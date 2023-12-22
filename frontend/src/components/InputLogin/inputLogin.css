@@ -81,9 +81,6 @@
     flex-direction: column;
     width: 30%;
   }
-  /* .Login {
-    width: 33%;
-  } */
   .Title_Login {
     font-family: var(--font-02);
     color: var(--color-01);
@@ -110,8 +107,6 @@
     background-color: var(--color-00);
     padding: 10px 10px;
   }
-  .Button-Login {
-  }
   .Anonymous_Login {
     display: flex;
     justify-content: center;
@@ -128,11 +123,4 @@
     transform: scaleX(-1);
     width: 100%;
   }
-  /* .fix_block_login {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 30%;
-    align-items: center;
-  } */
 }
