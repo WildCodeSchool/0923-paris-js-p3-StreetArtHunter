@@ -1,0 +1,76 @@
+.AdminProfilContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.Pseudo_admin {
+  font-family: var(--font-06);
+  font-size: 3rem;
+  color: var(--color-03);
+  text-align: center;
+  padding: 1rem 0;
+}
+.Seniority_admin_container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 95%;
+}
+.Seniority_admin {
+  font-family: var(--font-07);
+  font-size: 1rem;
+  text-align: center;
+  width: 100%;
+  padding: 0.1rem 0;
+  border: solid 1px black;
+}
+.ProfilInfos_container_admin {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: solid 1px black;
+  width: 95%;
+}
+.admin_title_box {
+  display: flex;
+  width: 100%;
+  height: 2.5rem;
+}
+
+.ProfilInfos_title_admin {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-07);
+  font-size: 1rem;
+  width: 100%;
+  border-bottom: solid 1px black;
+}
+.Profil_infos_content_admin {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 95%;
+  padding: 10px 0;
+}
+.admin_infos {
+  font-family: var(--font-07);
+  font-size: 1rem;
+}
+.admin_infos_btn {
+  border: solid 1px black;
+  display: flex;
+  justify-content: center;
+  width: 50%;
+  padding: 10px 0;
+}
+.text_admin_infos_btn {
+  font-family: var(--font-07);
+  font-size: 0.8rem;
+}
+.history_container_admin {
+}
+.historyWorkSubmit_admin {
+}
+.admin_features {
+}
