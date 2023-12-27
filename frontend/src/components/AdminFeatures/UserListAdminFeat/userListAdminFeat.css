@@ -1,0 +1,62 @@
+.ULAF_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 1rem;
+}
+.searchBar_ULAF_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem;
+  width: 95%;
+}
+.searchBar_ULAF {
+  width: 100%;
+  padding: 8px 10px;
+  border-radius: 60px;
+}
+.search_ico_ULAF {
+  width: 20%;
+}
+.hunters_count_ULAF {
+  font-family: var(--font-07);
+  font-size: 1rem;
+  text-align: center;
+  border: solid 1px black;
+  width: 95%;
+  padding: 5px 0;
+}
+.ULAF_content {
+  width: 95%;
+}
+.ULAF_toogle_Line {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.ULAF_toogle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-07);
+  font-size: 1rem;
+  width: 33%;
+  padding: 10px 0;
+  border: solid 1px black;
+}
+#ULAF_by_pseudo {
+  border-radius: 15px 0 0 0;
+}
+#ULAF_by_score {
+  border-left: 0;
+  border-right: 0;
+}
+#ULAF_by_entry {
+  border-radius: 0 15px 0 0;
+}
+.Users_List_ULAF {
+}
+.UsersList_Table_ULAF {
+}
