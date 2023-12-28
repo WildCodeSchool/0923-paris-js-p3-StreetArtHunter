@@ -3,11 +3,12 @@ import Pagination from "@mui/material/Pagination";
 import Stack from "@mui/material/Stack";
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
-
 import "./userListAdminFeat.css";
 import DataUsers from "../../../../data_sample/data_users.json";
+import SmileySearch from "../../../assets/images/ico/smilley.png";
 
 function UserListAdminFeat() {
+  // database //
   const data = DataUsers;
   const UsersCount = data.length;
 
@@ -27,6 +28,8 @@ function UserListAdminFeat() {
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+
+  // >>> return <<< //
   return (
     <section className="ULAF_container">
       <div className="searchBar_ULAF_container">
@@ -35,9 +38,13 @@ function UserListAdminFeat() {
           placeholder="Who are we looking ?"
           className="searchBar_ULAF"
         />
+        <img
+          src={SmileySearch}
+          alt="Smiley Search"
+          className="Smiley_Search_ULAF"
+        />
       </div>
       <div className="hunters_count_ULAF">
-        {" "}
         hunters : <span className="font_info_color">{UsersCount}</span>
       </div>
       <section className="ULAF_content">
