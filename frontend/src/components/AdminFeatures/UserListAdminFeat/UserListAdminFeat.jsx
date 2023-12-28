@@ -24,7 +24,7 @@ function UserListAdminFeat() {
     setCurrentPage(value);
   };
 
-  // state pagination modal //
+  // state modal //
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);

@@ -1,7 +1,9 @@
 import { useState } from "react";
 import "./adminProfil.css";
+import DataWorks from "../../../data_sample/data_works.json";
 import WorkCard from "../../components/WorkCard/WorkCard";
-import UserListAdminFeat from "../../components/AdminFeatures/UserListAdminFeat/UserListAdminFeat";
+// import UserListAdminFeat from "../../components/AdminFeatures/UserListAdminFeat/UserListAdminFeat";
+import WorksListAdminFeat from "../../components/AdminFeatures/WorksListAdminFeat/WorksListAdminFeat";
 
 function AdminProfil() {
   // Toggle Admin Profil Info //
@@ -16,6 +18,13 @@ function AdminProfil() {
   const toggleAdminHistorical = () => {
     setAdminHistoricalIsOpen(!adminHistoricalIsOpen);
   };
+
+  // simulation de données perso de la l'admin //
+
+  const bigJuliusData = DataWorks.filter(
+    (work) => work.user_sub === "Big_Julius"
+  );
+  const bjWorkscount = bigJuliusData.length;
 
   return (
     <section className="AdminProfilContainer">
@@ -94,11 +103,14 @@ function AdminProfil() {
         {adminHistoricalIsOpen && (
           <>
             <div className="historyWorkSubmit_admin">
-              {" "}
-              works submitted : 34{" "}
+              works submitted :
+              <span className="font_info_color"> {bjWorkscount}</span>
             </div>
             <div className="admin_workcard_container">
-              <WorkCard />
+              {bigJuliusData.map((data, index) => (
+                // eslint-disable-next-line react/no-array-index-key
+                <WorkCard key={index} data={data} />
+              ))}
             </div>
             <hr className="dashed_line_admin" />
             <div className="admin_trash_btn">
@@ -126,7 +138,8 @@ function AdminProfil() {
             validation
           </div>
         </div>
-        <UserListAdminFeat />
+        {/* <UserListAdminFeat /> */}
+        <WorksListAdminFeat />
       </section>
     </section>
   );
