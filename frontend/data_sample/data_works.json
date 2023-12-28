@@ -7,7 +7,8 @@
     "entry": "2022-11-11",
     "user_sub": "Chaton_Brutal",
     "location": "Paris20",
-    "artist": "space invader"
+    "artist": "space invader",
+    "validation": "true"
   },
   {
     "id": 2,
@@ -17,7 +18,8 @@
     "entry": "2022-11-11",
     "user_sub": "Soleil_Levant",
     "location": "Paris20",
-    "artist": "toto"
+    "artist": "toto",
+    "validation": "true"
   },
   {
     "id": 3,
@@ -27,7 +29,8 @@
     "entry": "2022-11-11",
     "user_sub": "Ulysse_31",
     "location": "Paris20",
-    "artist": "sohan STREET"
+    "artist": "sohan STREET",
+    "validation": "true"
   },
   {
     "id": 4,
@@ -37,7 +40,8 @@
     "entry": "2022-11-11",
     "user_sub": "Ulysse_31",
     "location": "Paris20",
-    "artist": "Peodrô!"
+    "artist": "Peodrô!",
+    "validation": "true"
   },
   {
     "id": 5,
@@ -47,7 +51,8 @@
     "entry": "2022-11-11",
     "user_sub": "Chaton_Brutal",
     "location": "Paris20",
-    "artist": "Yarps"
+    "artist": "Yarps",
+    "validation": "true"
   },
   {
     "id": 6,
@@ -57,7 +62,8 @@
     "entry": "2022-11-11",
     "user_sub": "Soleil_Levant",
     "location": "Paris20",
-    "artist": ""
+    "artist": "",
+    "validation": "true"
   },
   {
     "id": 7,
@@ -67,7 +73,8 @@
     "entry": "2022-11-11",
     "user_sub": "Big_Julius",
     "location": "Paris20",
-    "artist": ""
+    "artist": "",
+    "validation": "true"
   },
   {
     "id": 8,
@@ -77,7 +84,8 @@
     "entry": "2022-11-11",
     "user_sub": "Ulysse_31",
     "location": "Paris20",
-    "artist": ""
+    "artist": "",
+    "validation": "true"
   },
   {
     "id": 9,
@@ -87,7 +95,8 @@
     "entry": "2022-11-11",
     "user_sub": "Chaton_Brutal",
     "location": "Paris20",
-    "artist": ""
+    "artist": "",
+    "validation": "true"
   },
   {
     "id": 10,
@@ -97,7 +106,8 @@
     "entry": "2022-11-11",
     "user_sub": "Big_Julius",
     "location": "Paris20",
-    "artist": "le Long"
+    "artist": "le Long",
+    "validation": "true"
   },
   {
     "id": 11,
@@ -107,7 +117,8 @@
     "entry": "2022-11-12",
     "user_sub": "Ulysse_31",
     "location": "Paris20",
-    "artist": "Meton Joffily"
+    "artist": "Meton Joffily",
+    "validation": "true"
   },
   {
     "id": 12,
@@ -117,7 +128,8 @@
     "entry": "2022-11-13",
     "user_sub": "Big_Julius",
     "location": "Paris20",
-    "artist": ""
+    "artist": "",
+    "validation": "true"
   },
   {
     "id": 13,
@@ -127,7 +139,8 @@
     "entry": "2022-11-14",
     "user_sub": "RuBeat",
     "location": "Aubervilliers93",
-    "artist": "Jack Ardi"
+    "artist": "Jack Ardi",
+    "validation": "true"
   },
   {
     "id": 14,
@@ -137,7 +150,8 @@
     "entry": "2022-12-15",
     "user_sub": "Chaton_Brutal",
     "location": "Aubervilliers93",
-    "artist": ""
+    "artist": "",
+    "validation": "true"
   },
   {
     "id": 15,
@@ -147,7 +161,8 @@
     "entry": "2023-01-01",
     "user_sub": "",
     "location": "Aubervilliers93",
-    "artist": ""
+    "artist": "",
+    "validation": "true"
   },
   {
     "id": 16,
@@ -157,7 +172,8 @@
     "entry": "2023-01-02",
     "user_sub": "Soleil_Levant",
     "location": "Aubervilliers93",
-    "artist": ""
+    "artist": "",
+    "validation": "true"
   },
   {
     "id": 17,
@@ -167,7 +183,8 @@
     "entry": "2023-02-03",
     "user_sub": "Chaton_Brutal",
     "location": "Aubervilliers93",
-    "artist": "Warch RestA"
+    "artist": "Warch RestA",
+    "validation": "true"
   },
   {
     "id": 18,
@@ -177,7 +194,8 @@
     "entry": "2023-03-04",
     "user_sub": "Big_Julius",
     "location": "Aubervilliers93",
-    "artist": ""
+    "artist": "",
+    "validation": "true"
   },
   {
     "id": 19,
@@ -187,7 +205,8 @@
     "entry": "2023-04-05",
     "user_sub": "",
     "location": "Aubervilliers93",
-    "artist": ""
+    "artist": "",
+    "validation": "true"
   },
   {
     "id": 20,
@@ -197,7 +216,8 @@
     "entry": "2023-05-06",
     "user_sub": "RuBeat",
     "location": "Aubervilliers93",
-    "artist": "Mister Topy"
+    "artist": "Mister Topy",
+    "validation": "true"
   },
   {
     "id": 21,
@@ -207,7 +227,8 @@
     "entry": "2023-06-07",
     "user_sub": "El_Poutros",
     "location": "Aubervilliers93",
-    "artist": "Lasky"
+    "artist": "Lasky",
+    "validation": "true"
   },
   {
     "id": 22,
@@ -217,7 +238,8 @@
     "entry": "2023-07-08",
     "user_sub": "Soleil_Levant",
     "location": "Aubervilliers93",
-    "artist": "Peak LHS"
+    "artist": "Peak LHS",
+    "validation": "false"
   },
   {
     "id": 23,
@@ -227,7 +249,8 @@
     "entry": "2023-08-09",
     "user_sub": "El_Poutros",
     "location": "Aubervilliers93",
-    "artist": ""
+    "artist": "",
+    "validation": "true"
   },
   {
     "id": 24,
@@ -237,7 +260,8 @@
     "entry": "2023-10-11",
     "user_sub": "Big_Julius",
     "location": "Aubervilliers93",
-    "artist": ""
+    "artist": "",
+    "validation": "true"
   },
   {
     "id": 25,
@@ -247,7 +271,8 @@
     "entry": "2022-10-15",
     "user_sub": "RuBeat",
     "location": "Paris19",
-    "artist": ""
+    "artist": "",
+    "validation": "true"
   },
   {
     "id": 26,
@@ -257,7 +282,8 @@
     "entry": "2022-11-16",
     "user_sub": "",
     "location": "Paris19",
-    "artist": "Nô"
+    "artist": "Nô",
+    "validation": "true"
   },
   {
     "id": 27,
@@ -267,7 +293,8 @@
     "entry": "2022-12-17",
     "user_sub": "Yax2_94",
     "location": "Paris19",
-    "artist": "SkiQ"
+    "artist": "SkiQ",
+    "validation": "true"
   },
   {
     "id": 28,
@@ -277,7 +304,8 @@
     "entry": "2023-01-08",
     "user_sub": "Drifer",
     "location": "Paris19",
-    "artist": "Jack Ardi"
+    "artist": "Jack Ardi",
+    "validation": "false"
   },
   {
     "id": 29,
@@ -287,7 +315,8 @@
     "entry": "2023-02-09",
     "user_sub": "Yax2_94",
     "location": "Paris19",
-    "artist": "Dacruz"
+    "artist": "Dacruz",
+    "validation": "true"
   },
   {
     "id": 30,
@@ -297,7 +326,8 @@
     "entry": "2023-03-10",
     "user_sub": "El_Poutros",
     "location": "Paris19",
-    "artist": "Jack Ardi"
+    "artist": "Jack Ardi",
+    "validation": "true"
   },
   {
     "id": 31,
@@ -307,7 +337,8 @@
     "entry": "2023-04-11",
     "user_sub": "El_Poutros",
     "location": "Paris19",
-    "artist": "Dacruz"
+    "artist": "Dacruz",
+    "validation": "true"
   },
   {
     "id": 32,
@@ -317,7 +348,8 @@
     "entry": "2023-05-12",
     "user_sub": "KoffeeMan",
     "location": "Paris19",
-    "artist": ""
+    "artist": "",
+    "validation": "true"
   },
   {
     "id": 33,
@@ -327,7 +359,8 @@
     "entry": "2023-06-13",
     "user_sub": "LeoMiaou",
     "location": "Paris19",
-    "artist": "space invader"
+    "artist": "space invader",
+    "validation": "true"
   },
   {
     "id": 34,
@@ -337,7 +370,8 @@
     "entry": "2023-06-14",
     "user_sub": "KoffeeMan",
     "location": "Paris19",
-    "artist": ""
+    "artist": "",
+    "validation": "true"
   },
   {
     "id": 35,
@@ -347,7 +381,8 @@
     "entry": "2023-07-15",
     "user_sub": "LeoMiaou",
     "location": "Paris19",
-    "artist": ""
+    "artist": "",
+    "validation": "true"
   },
   {
     "id": 36,
@@ -357,6 +392,7 @@
     "entry": "2023-09-14",
     "user_sub": "KoffeeMan",
     "location": "Paris19",
-    "artist": ""
+    "artist": "",
+    "validation": "false"
   }
 ]

@@ -34,8 +34,10 @@
 }
 .admin_title_box {
   display: flex;
+  align-items: center;
   width: 100%;
   height: 2.5rem;
+  border-bottom: solid 1px black;
 }
 
 .ProfilInfos_title_admin {
@@ -45,7 +47,9 @@
   font-family: var(--font-07);
   font-size: 1.438rem;
   width: 100%;
-  border-bottom: solid 1px black;
+}
+.arrow_toggle_admin {
+  padding-right: 0.5rem;
 }
 .Profil_infos_content_admin {
   display: flex;
@@ -78,8 +82,10 @@
 }
 .admin_history_title_box {
   display: flex;
+  align-items: center;
   width: 100%;
   height: 2.5rem;
+  border-bottom: solid 1px black;
 }
 .history_title_admin {
   font-family: var(--font-07);
@@ -88,7 +94,6 @@
   align-items: center;
   justify-content: center;
   width: 100%;
-  border-bottom: solid 1px black;
 }
 .historyWorkSubmit_admin {
   font-family: var(--font-07);
