@@ -1,9 +1,11 @@
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 import { useState } from "react";
 import "./adminProfil.css";
 import DataWorks from "../../../data_sample/data_works.json";
 import WorkCard from "../../components/WorkCard/WorkCard";
-// import UserListAdminFeat from "../../components/AdminFeatures/UserListAdminFeat/UserListAdminFeat";
-// import WorksListAdminFeat from "../../components/AdminFeatures/WorksListAdminFeat/WorksListAdminFeat";
+import UserListAdminFeat from "../../components/AdminFeatures/UserListAdminFeat/UserListAdminFeat";
+import WorksListAdminFeat from "../../components/AdminFeatures/WorksListAdminFeat/WorksListAdminFeat";
 import ValidationAdminFeat from "../../components/AdminFeatures/ValidationAdminFeat/ValidationAdminFeat";
 
 function AdminProfil() {
@@ -26,6 +28,13 @@ function AdminProfil() {
     (work) => work.user_sub === "Big_Julius"
   );
   const bjWorkscount = bigJuliusData.length;
+
+  // Toggle Admin feature //
+  const [activeComponent, setActiveComponent] = useState("usersList");
+
+  const handleToggle = (id) => {
+    setActiveComponent(id);
+  };
 
   return (
     <section className="AdminProfilContainer">
@@ -129,19 +138,37 @@ function AdminProfil() {
       </div>
       <section className="admin_features">
         <div className="Line_BtnToggle_adminFeat">
-          <div className="BtnToggle_adminFeat" id="usersList_admin">
+          <div
+            className={`BtnToggle_adminFeat ${
+              activeComponent === "usersList" ? "active" : ""
+            }`}
+            onClick={() => handleToggle("usersList")}
+            id="usersList_admin"
+          >
             users list
           </div>
-          <div className="BtnToggle_adminFeat" id="worksList_admin">
+          <div
+            className={`BtnToggle_adminFeat ${
+              activeComponent === "worksList" ? "active" : ""
+            }`}
+            id="worksList_admin"
+            onClick={() => handleToggle("worksList")}
+          >
             works list
           </div>
-          <div className="BtnToggle_adminFeat" id="workValidation_admin">
+          <div
+            className={`BtnToggle_adminFeat ${
+              activeComponent === "workValidation" ? "active" : ""
+            }`}
+            id="workValidation_admin"
+            onClick={() => handleToggle("workValidation")}
+          >
             validation
           </div>
         </div>
-        {/* <UserListAdminFeat /> */}
-        {/* <WorksListAdminFeat /> */}
-        <ValidationAdminFeat />
+        {activeComponent === "usersList" && <UserListAdminFeat />}
+        {activeComponent === "worksList" && <WorksListAdminFeat />}
+        {activeComponent === "workValidation" && <ValidationAdminFeat />}
       </section>
     </section>
   );

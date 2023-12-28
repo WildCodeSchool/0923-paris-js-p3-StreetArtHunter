@@ -19,7 +19,7 @@ function WorksListAdminFeat() {
   );
   // pagination work card //
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 1; // Nombre d'éléments par page
+  const itemsPerPage = 1;
 
   const handlePageChange = (event, pageNumber) => {
     setCurrentPage(pageNumber);

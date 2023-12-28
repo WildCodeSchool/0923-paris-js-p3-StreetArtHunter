@@ -144,6 +144,9 @@
   padding: 10px 0;
   border: solid 1px black;
 }
+.BtnToggle_adminFeat.active {
+  color: var(--color-04);
+}
 #usersList_admin {
   border-radius: 15px 0 0 0;
 }
