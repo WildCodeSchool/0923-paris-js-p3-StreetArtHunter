@@ -3,7 +3,8 @@ import "./adminProfil.css";
 import DataWorks from "../../../data_sample/data_works.json";
 import WorkCard from "../../components/WorkCard/WorkCard";
 // import UserListAdminFeat from "../../components/AdminFeatures/UserListAdminFeat/UserListAdminFeat";
-import WorksListAdminFeat from "../../components/AdminFeatures/WorksListAdminFeat/WorksListAdminFeat";
+// import WorksListAdminFeat from "../../components/AdminFeatures/WorksListAdminFeat/WorksListAdminFeat";
+import ValidationAdminFeat from "../../components/AdminFeatures/ValidationAdminFeat/ValidationAdminFeat";
 
 function AdminProfil() {
   // Toggle Admin Profil Info //
@@ -139,7 +140,8 @@ function AdminProfil() {
           </div>
         </div>
         {/* <UserListAdminFeat /> */}
-        <WorksListAdminFeat />
+        {/* <WorksListAdminFeat /> */}
+        <ValidationAdminFeat />
       </section>
     </section>
   );

@@ -2,9 +2,9 @@
 import { useState } from "react";
 import Pagination from "@mui/material/Pagination";
 import Stack from "@mui/material/Stack";
+import "./worksListAdminFeat.css";
 import DataWorks from "../../../../data_sample/data_works.json";
 import WorkCard from "../../WorkCard/WorkCard";
-import "./worksListAdminFeat.css";
 
 function WorksListAdminFeat() {
   const data = DataWorks;
@@ -13,6 +13,7 @@ function WorksListAdminFeat() {
   const validatedWorks = data.filter((work) => work.validation === "true");
   const validatedWorksCount = validatedWorks.length;
 
+  // unique location for Zone <option> //
   const uniqueLocations = Array.from(
     new Set(data.map((item) => item.location))
   );
