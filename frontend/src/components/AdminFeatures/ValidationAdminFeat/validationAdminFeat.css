@@ -30,8 +30,9 @@
 }
 .VLAF_btn_container {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
   width: 95%;
+  gap: 2rem;
 }
 .VLAF_valid_btn {
   display: flex;

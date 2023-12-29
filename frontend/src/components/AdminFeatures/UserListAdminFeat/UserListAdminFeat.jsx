@@ -12,6 +12,23 @@ function UserListAdminFeat() {
   const data = DataUsers;
   const UsersCount = data.length;
 
+  // search bar //
+  const [search, setSearch] = useState("");
+
+  const handleTyping = (e) => {
+    let { value } = e.target;
+    value = value.replace(/-/g, "").toLowerCase();
+    setSearch(value);
+  };
+
+  const filteredUsers = data.filter((dataItem) =>
+    dataItem.pseudo
+      .toString()
+      .toLowerCase()
+      .replace(/-/g, "")
+      .includes(search.toLowerCase())
+  );
+
   // state pagination table //
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 10;
@@ -35,6 +52,8 @@ function UserListAdminFeat() {
       <div className="searchBar_ULAF_container">
         <input
           type="text"
+          value={search}
+          onChange={handleTyping}
           placeholder="Who are we looking ?"
           className="searchBar_ULAF"
         />
@@ -60,22 +79,42 @@ function UserListAdminFeat() {
           </div>
         </div>
         <section className="Users_List_ULAF">
-          <table className="UsersList_Table_ULAF">
-            {currentItems.map((users, index) => (
-              <tr
-                onClick={handleOpen}
-                className="UsersList_Tr_ULAF"
-                key={users.id}
-              >
-                <td className="UsersList_Td_ULAF">
-                  {(currentPage - 1) * itemsPerPage + index + 1}
-                </td>
-                <td className="UsersList_Td_ULAF">{users.pseudo}</td>
-                <td className="UsersList_Td_ULAF">{users.score}</td>
-                <td className="UsersList_Td_ULAF">{users.registration}</td>
-              </tr>
-            ))}
-          </table>
+          {search === "" && (
+            <table className="UsersList_Table_ULAF">
+              {currentItems.map((users, index) => (
+                <tr
+                  onClick={handleOpen}
+                  className="UsersList_Tr_ULAF"
+                  key={users.id}
+                >
+                  <td className="UsersList_Td_ULAF">
+                    {(currentPage - 1) * itemsPerPage + index + 1}
+                  </td>
+                  <td className="UsersList_Td_ULAF">{users.pseudo}</td>
+                  <td className="UsersList_Td_ULAF">{users.score}</td>
+                  <td className="UsersList_Td_ULAF">{users.registration}</td>
+                </tr>
+              ))}
+            </table>
+          )}
+          {search !== "" && (
+            <table className="UsersList_Table_ULAF">
+              {filteredUsers.map((users, index) => (
+                <tr
+                  onClick={handleOpen}
+                  className="UsersList_Tr_ULAF"
+                  key={users.id}
+                >
+                  <td className="UsersList_Td_ULAF">
+                    {(currentPage - 1) * itemsPerPage + index + 1}
+                  </td>
+                  <td className="UsersList_Td_ULAF">{users.pseudo}</td>
+                  <td className="UsersList_Td_ULAF">{users.score}</td>
+                  <td className="UsersList_Td_ULAF">{users.registration}</td>
+                </tr>
+              ))}
+            </table>
+          )}
           {/* Pagination table */}
           <Stack spacing={2} mt={2}>
             <Pagination
