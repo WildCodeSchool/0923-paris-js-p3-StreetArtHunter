@@ -19,6 +19,7 @@ function AdminProfil() {
   const toggleAdminInfo = () => {
     setAdminInfoIsOpen(!adminInfoIsOpen);
   };
+
   // Toggle historical Info //
   const [adminHistoricalIsOpen, setAdminHistoricalIsOpen] = useState(false);
 
@@ -27,7 +28,6 @@ function AdminProfil() {
   };
 
   // simulation de données perso de la l'admin //
-
   const bigJuliusData = DataWorks.filter(
     (work) => work.user_sub === "Big_Julius"
   );
@@ -55,6 +55,7 @@ function AdminProfil() {
   const smartphoneScreen = window.matchMedia("(max-width: 770px)").matches;
   const desktopScreen = window.matchMedia("(min-width: 1440px)").matches;
 
+  // >>> return <<< //
   return (
     <section className="AdminProfilContainer">
       <div className="AdminProfil_content">
