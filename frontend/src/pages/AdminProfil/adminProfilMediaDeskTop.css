@@ -63,4 +63,7 @@
   .admin_workcard_container {
     margin-bottom: 1rem;
   }
+  .BtnToggle_adminFeat {
+    font-size: 1.563rem;
+  }
 }

@@ -4,6 +4,7 @@ import Stack from "@mui/material/Stack";
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
 import "./userListAdminFeat.css";
+import "./userListAdminFeatMediaDesktop.css";
 import DataUsers from "../../../../data_sample/data_users.json";
 import SmileySearch from "../../../assets/images/ico/smilley.png";
 
@@ -41,6 +42,10 @@ function UserListAdminFeat() {
     setCurrentPage(value);
   };
 
+  const totalFilteredUsersPages = Math.ceil(
+    filteredUsers.length / itemsPerPage
+  );
+
   // state modal //
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
@@ -54,7 +59,7 @@ function UserListAdminFeat() {
           type="text"
           value={search}
           onChange={handleTyping}
-          placeholder="Who are we looking ?"
+          placeholder="Who are we looking for ?"
           className="searchBar_ULAF"
         />
         <img
@@ -118,7 +123,7 @@ function UserListAdminFeat() {
           {/* Pagination table */}
           <Stack spacing={2} mt={2}>
             <Pagination
-              count={Math.ceil(data.length / itemsPerPage)}
+              count={totalFilteredUsersPages}
               size="small"
               shape="rounded"
               variant="outlined"
