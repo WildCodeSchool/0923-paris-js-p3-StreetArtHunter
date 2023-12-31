@@ -1,0 +1,10 @@
+@media screen and (min-width: 1440px) {
+  .VLAF_container {
+    padding: 1.5rem 0;
+  }
+
+  .works_count_VLAF {
+    font-size: 1.25rem;
+    width: 50%;
+  }
+}

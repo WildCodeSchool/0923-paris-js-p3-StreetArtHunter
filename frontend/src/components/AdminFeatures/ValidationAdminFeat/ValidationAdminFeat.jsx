@@ -3,6 +3,7 @@ import { useState } from "react";
 import Pagination from "@mui/material/Pagination";
 import Stack from "@mui/material/Stack";
 import "./validationAdminFeat.css";
+import "./validationAdminFeatMediaDesktop.css";
 import DataWorks from "../../../../data_sample/data_works.json";
 import WorkCard from "../../WorkCard/WorkCard";
 
@@ -33,7 +34,7 @@ function ValidationAdminFeat() {
       </div>
       <div className="VLAF_workcard_container">
         {currentItems.map((data) => (
-          <WorkCard key={data.id} data={data} />
+          <WorkCard key={data.id} data={data} id="workCard_IAP" />
         ))}
       </div>
       {/* Pagination */}

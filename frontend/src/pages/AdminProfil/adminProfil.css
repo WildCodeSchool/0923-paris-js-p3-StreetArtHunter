@@ -75,6 +75,7 @@
   justify-content: center;
   width: 50%;
   padding: 10px 0;
+  cursor: pointer;
 }
 .text_admin_infos_btn {
   display: flex;
@@ -135,6 +136,7 @@
   border-radius: 5px;
   width: 70px;
   margin-bottom: 1rem;
+  cursor: pointer;
 }
 .admin_features {
   width: 95%;
@@ -153,6 +155,7 @@
   width: 33%;
   padding: 10px 0;
   border: solid 1px black;
+  cursor: pointer;
 }
 .BtnToggle_adminFeat.active {
   color: var(--color-04);

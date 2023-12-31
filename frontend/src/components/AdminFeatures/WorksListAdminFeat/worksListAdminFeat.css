@@ -28,18 +28,21 @@
   border: solid 1px black;
   padding: 5px;
   width: 25%;
+  cursor: pointer;
 }
 .WLAF_location_option {
   font-family: var(--font-07);
   font-size: 1rem;
   text-align: center;
   padding: 5px;
+  cursor: pointer;
 }
 .WLAF_workcard_container {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
   width: 95%;
+  cursor: pointer;
 }
 .WLAF_dashed_line {
   border: none;
@@ -55,4 +58,5 @@
   border-radius: 5px;
   width: 70px;
   margin-bottom: 0.5rem;
+  cursor: pointer;
 }
