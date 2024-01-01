@@ -1,6 +1,7 @@
 @media screen and (min-width: 1440px) {
   .VLAF_container {
     padding: 1.5rem 0;
+    height: 650px;
   }
 
   .works_count_VLAF {

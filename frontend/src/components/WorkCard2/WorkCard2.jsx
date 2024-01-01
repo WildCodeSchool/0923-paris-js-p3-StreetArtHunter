@@ -10,8 +10,6 @@ import "./workCard2.css";
 import WorkCardBloc from "../WorkCardBloc/WorkCardBloc";
 
 function WorkCard2({ data }) {
-  const { image, entry } = data;
-
   const [selectedWork, setSelectedWork] = useState(null);
 
   const openModal = () => {
@@ -26,9 +24,9 @@ function WorkCard2({ data }) {
     <>
       <section className="workCard2_container" onClick={openModal}>
         <div className="workCard2_content">
-          <img className="Work2_image" src={image} alt="work" />
+          <img className="Work2_image" src={data.image} alt="work" />
           <div className="work2_infos_container">
-            <p className="work2_info"> {entry} </p>
+            <p className="work2_info"> {data.entry} </p>
           </div>
         </div>
       </section>
@@ -41,7 +39,7 @@ function WorkCard2({ data }) {
                   X closed
                 </p>
               </div>
-              <WorkCardBloc data={selectedWork} />
+              <WorkCardBloc data={data} />
             </Container>
           </Box>
         </Modal>
