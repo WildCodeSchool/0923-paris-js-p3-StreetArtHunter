@@ -2,6 +2,8 @@ import "./workCard.css";
 
 function WorkCard({ data }) {
   const { image, entry, userSub, artist, location } = data;
+  console.info(data);
+
   return (
     <section className="workCard_container">
       <div className="workCard_content">

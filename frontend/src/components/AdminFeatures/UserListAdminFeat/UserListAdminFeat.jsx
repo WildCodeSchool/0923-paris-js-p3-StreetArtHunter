@@ -1,10 +1,14 @@
+/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 import { useState } from "react";
 import Pagination from "@mui/material/Pagination";
 import Stack from "@mui/material/Stack";
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
+import { Container } from "@mui/material";
 import "./userListAdminFeat.css";
 import "./userListAdminFeatMediaDesktop.css";
+import OtherUserBloc from "../../OtherUserBloc/OtherUserBloc";
 import DataUsers from "../../../../data_sample/data_users.json";
 import SmileySearch from "../../../assets/images/ico/smilley.png";
 
@@ -46,9 +50,15 @@ function UserListAdminFeat() {
     filteredUsers.length / itemsPerPage
   );
 
+  // User props Modal //
+  const [selectedUser, setSelectedUser] = useState(null);
+
   // state modal //
   const [open, setOpen] = useState(false);
-  const handleOpen = () => setOpen(true);
+  const handleOpen = (userData) => {
+    setSelectedUser(userData);
+    setOpen(true);
+  };
   const handleClose = () => setOpen(false);
 
   // >>> return <<< //
@@ -86,36 +96,36 @@ function UserListAdminFeat() {
         <section className="Users_List_ULAF">
           {search === "" && (
             <table className="UsersList_Table_ULAF">
-              {currentItems.map((users, index) => (
+              {currentItems.map((user, index) => (
                 <tr
-                  onClick={handleOpen}
+                  onClick={() => handleOpen(user)}
                   className="UsersList_Tr_ULAF"
-                  key={users.id}
+                  key={user.id}
                 >
                   <td className="UsersList_Td_ULAF">
                     {(currentPage - 1) * itemsPerPage + index + 1}
                   </td>
-                  <td className="UsersList_Td_ULAF">{users.pseudo}</td>
-                  <td className="UsersList_Td_ULAF">{users.score}</td>
-                  <td className="UsersList_Td_ULAF">{users.registration}</td>
+                  <td className="UsersList_Td_ULAF">{user.pseudo}</td>
+                  <td className="UsersList_Td_ULAF">{user.score}</td>
+                  <td className="UsersList_Td_ULAF">{user.registration}</td>
                 </tr>
               ))}
             </table>
           )}
           {search !== "" && (
             <table className="UsersList_Table_ULAF">
-              {filteredUsers.map((users, index) => (
+              {filteredUsers.map((user, index) => (
                 <tr
-                  onClick={handleOpen}
+                  onClick={() => handleOpen(user)}
                   className="UsersList_Tr_ULAF"
-                  key={users.id}
+                  key={user.id}
                 >
                   <td className="UsersList_Td_ULAF">
                     {(currentPage - 1) * itemsPerPage + index + 1}
                   </td>
-                  <td className="UsersList_Td_ULAF">{users.pseudo}</td>
-                  <td className="UsersList_Td_ULAF">{users.score}</td>
-                  <td className="UsersList_Td_ULAF">{users.registration}</td>
+                  <td className="UsersList_Td_ULAF">{user.pseudo}</td>
+                  <td className="UsersList_Td_ULAF">{user.score}</td>
+                  <td className="UsersList_Td_ULAF">{user.registration}</td>
                 </tr>
               ))}
             </table>
@@ -136,7 +146,14 @@ function UserListAdminFeat() {
       </section>
       <Modal open={open} onClose={handleClose}>
         <Box>
-          <div> THIS IS MODAL IN PROGRESS</div>
+          <Container maxWidth="lg">
+            <div className="modal_closed_btn_container">
+              <p onClick={handleClose} className="modal_closed_btn">
+                X closed
+              </p>
+            </div>
+            {selectedUser && <OtherUserBloc dataUser={selectedUser} />}
+          </Container>
         </Box>
       </Modal>
     </section>
