@@ -5,9 +5,10 @@
     "longitude": "2.22369",
     "image": "/src/assets/images/works_sample/20231203_141600.jpg",
     "entry": "2022-11-11",
-    "user_sub": "Chaton_Brutal",
+    "userSub": "Chaton_Brutal",
     "location": "Paris20",
-    "artist": "space invader"
+    "artist": "space invader",
+    "validation": "true"
   },
   {
     "id": 2,
@@ -15,9 +16,10 @@
     "longitude": "2.22414",
     "image": "/src/assets/images/works_sample/20231203_142006.jpg",
     "entry": "2022-11-11",
-    "user_sub": "Soleil_Levant",
+    "userSub": "Soleil_Levant",
     "location": "Paris20",
-    "artist": "toto"
+    "artist": "toto",
+    "validation": "true"
   },
   {
     "id": 3,
@@ -25,9 +27,10 @@
     "longitude": "2.22414",
     "image": "/src/assets/images/works_sample/20231203_142530.jpg",
     "entry": "2022-11-11",
-    "user_sub": "Ulysse_31",
+    "userSub": "Ulysse_31",
     "location": "Paris20",
-    "artist": "sohan STREET"
+    "artist": "sohan STREET",
+    "validation": "true"
   },
   {
     "id": 4,
@@ -35,9 +38,10 @@
     "longitude": "2.22414",
     "image": "/src/assets/images/works_sample/20231203_142618.jpg",
     "entry": "2022-11-11",
-    "user_sub": "Ulysse_31",
+    "userSub": "Ulysse_31",
     "location": "Paris20",
-    "artist": "Peodrô!"
+    "artist": "Peodrô!",
+    "validation": "true"
   },
   {
     "id": 5,
@@ -45,9 +49,10 @@
     "longitude": "2.22414",
     "image": "/src/assets/images/works_sample/20231203_142754.jpg",
     "entry": "2022-11-11",
-    "user_sub": "Chaton_Brutal",
+    "userSub": "Chaton_Brutal",
     "location": "Paris20",
-    "artist": "Yarps"
+    "artist": "Yarps",
+    "validation": "true"
   },
   {
     "id": 6,
@@ -55,9 +60,10 @@
     "longitude": "2.22426",
     "image": "/src/assets/images/works_sample/20231203_143211.jpg",
     "entry": "2022-11-11",
-    "user_sub": "Soleil_Levant",
+    "userSub": "Soleil_Levant",
     "location": "Paris20",
-    "artist": ""
+    "artist": "",
+    "validation": "true"
   },
   {
     "id": 7,
@@ -65,9 +71,10 @@
     "longitude": "2.22594",
     "image": "/src/assets/images/works_sample/20231203_145223.jpg",
     "entry": "2022-11-11",
-    "user_sub": "Big_Julius",
+    "userSub": "Big_Julius",
     "location": "Paris20",
-    "artist": ""
+    "artist": "",
+    "validation": "true"
   },
   {
     "id": 8,
@@ -75,9 +82,10 @@
     "longitude": "2.23013",
     "image": "/src/assets/images/works_sample/20231203_151236.jpg",
     "entry": "2022-11-11",
-    "user_sub": "Ulysse_31",
+    "userSub": "Ulysse_31",
     "location": "Paris20",
-    "artist": ""
+    "artist": "",
+    "validation": "true"
   },
   {
     "id": 9,
@@ -85,9 +93,10 @@
     "longitude": "2.23084",
     "image": "/src/assets/images/works_sample/20231203_151510.jpg",
     "entry": "2022-11-11",
-    "user_sub": "Chaton_Brutal",
+    "userSub": "Chaton_Brutal",
     "location": "Paris20",
-    "artist": ""
+    "artist": "",
+    "validation": "true"
   },
   {
     "id": 10,
@@ -97,7 +106,8 @@
     "entry": "2022-11-11",
     "user_sub": "Big_Julius",
     "location": "Paris20",
-    "artist": "le Long"
+    "artist": "le Long",
+    "validation": "true"
   },
   {
     "id": 11,
@@ -105,9 +115,10 @@
     "longitude": "2.23196",
     "image": "/src/assets/images/works_sample/20231203_153148.jpg",
     "entry": "2022-11-12",
-    "user_sub": "Ulysse_31",
+    "userSub": "Ulysse_31",
     "location": "Paris20",
-    "artist": "Meton Joffily"
+    "artist": "Meton Joffily",
+    "validation": "true"
   },
   {
     "id": 12,
@@ -115,9 +126,10 @@
     "longitude": "2.23222",
     "image": "/src/assets/images/works_sample/20231203_164644.jpg",
     "entry": "2022-11-13",
-    "user_sub": "Big_Julius",
+    "userSub": "Big_Julius",
     "location": "Paris20",
-    "artist": ""
+    "artist": "",
+    "validation": "true"
   },
   {
     "id": 13,
@@ -125,9 +137,10 @@
     "longitude": "2.22567",
     "image": "/src/assets/images/works_sample/20231209_124017.jpg",
     "entry": "2022-11-14",
-    "user_sub": "RuBeat",
+    "userSub": "RuBeat",
     "location": "Aubervilliers93",
-    "artist": "Jack Ardi"
+    "artist": "Jack Ardi",
+    "validation": "true"
   },
   {
     "id": 14,
@@ -135,9 +148,10 @@
     "longitude": "2.22557",
     "image": "/src/assets/images/works_sample/20231209_124153.jpg",
     "entry": "2022-12-15",
-    "user_sub": "Chaton_Brutal",
+    "userSub": "Chaton_Brutal",
     "location": "Aubervilliers93",
-    "artist": ""
+    "artist": "",
+    "validation": "true"
   },
   {
     "id": 15,
@@ -145,9 +159,10 @@
     "longitude": "2.22528",
     "image": "/src/assets/images/works_sample/20231209_124609.jpg",
     "entry": "2023-01-01",
-    "user_sub": "",
+    "userSub": "",
     "location": "Aubervilliers93",
-    "artist": ""
+    "artist": "",
+    "validation": "true"
   },
   {
     "id": 16,
@@ -155,9 +170,10 @@
     "longitude": "2.22526",
     "image": "/src/assets/images/works_sample/20231209_124642.jpg",
     "entry": "2023-01-02",
-    "user_sub": "Soleil_Levant",
+    "userSub": "Soleil_Levant",
     "location": "Aubervilliers93",
-    "artist": ""
+    "artist": "",
+    "validation": "true"
   },
   {
     "id": 17,
@@ -165,9 +181,10 @@
     "longitude": "2.22513",
     "image": "/src/assets/images/works_sample/20231209_124929.jpg",
     "entry": "2023-02-03",
-    "user_sub": "Chaton_Brutal",
+    "userSub": "Chaton_Brutal",
     "location": "Aubervilliers93",
-    "artist": "Warch RestA"
+    "artist": "Warch RestA",
+    "validation": "true"
   },
   {
     "id": 18,
@@ -175,9 +192,10 @@
     "longitude": "2.22459",
     "image": "/src/assets/images/works_sample/20231209_130034.jpg",
     "entry": "2023-03-04",
-    "user_sub": "Big_Julius",
+    "userSub": "Big_Julius",
     "location": "Aubervilliers93",
-    "artist": ""
+    "artist": "",
+    "validation": "true"
   },
   {
     "id": 19,
@@ -185,9 +203,10 @@
     "longitude": "2.22459",
     "image": "/src/assets/images/works_sample/20231209_130053.jpg",
     "entry": "2023-04-05",
-    "user_sub": "",
+    "userSub": "",
     "location": "Aubervilliers93",
-    "artist": ""
+    "artist": "",
+    "validation": "true"
   },
   {
     "id": 20,
@@ -195,9 +214,10 @@
     "longitude": "2.22477",
     "image": "/src/assets/images/works_sample/20231209_130147.jpg",
     "entry": "2023-05-06",
-    "user_sub": "RuBeat",
+    "userSub": "RuBeat",
     "location": "Aubervilliers93",
-    "artist": "Mister Topy"
+    "artist": "Mister Topy",
+    "validation": "true"
   },
   {
     "id": 21,
@@ -205,9 +225,10 @@
     "longitude": "2.22477",
     "image": "/src/assets/images/works_sample/20231209_130215.jpg",
     "entry": "2023-06-07",
-    "user_sub": "El_Poutros",
+    "userSub": "El_Poutros",
     "location": "Aubervilliers93",
-    "artist": "Lasky"
+    "artist": "Lasky",
+    "validation": "true"
   },
   {
     "id": 22,
@@ -215,9 +236,10 @@
     "longitude": "2.22495",
     "image": "/src/assets/images/works_sample/20231209_130347.jpg",
     "entry": "2023-07-08",
-    "user_sub": "Soleil_Levant",
+    "userSub": "Soleil_Levant",
     "location": "Aubervilliers93",
-    "artist": "Peak LHS"
+    "artist": "Peak LHS",
+    "validation": "false"
   },
   {
     "id": 23,
@@ -225,9 +247,10 @@
     "longitude": "2.22495",
     "image": "/src/assets/images/works_sample/20231209_130553.jpg",
     "entry": "2023-08-09",
-    "user_sub": "El_Poutros",
+    "userSub": "El_Poutros",
     "location": "Aubervilliers93",
-    "artist": ""
+    "artist": "",
+    "validation": "true"
   },
   {
     "id": 24,
@@ -235,9 +258,10 @@
     "longitude": "2.22495",
     "image": "/src/assets/images/works_sample/20231209_130652.jpg",
     "entry": "2023-10-11",
-    "user_sub": "Big_Julius",
+    "userSub": "Big_Julius",
     "location": "Aubervilliers93",
-    "artist": ""
+    "artist": "",
+    "validation": "true"
   },
   {
     "id": 25,
@@ -245,9 +269,10 @@
     "longitude": "2.23167",
     "image": "/src/assets/images/works_sample/20231210_141824.jpg",
     "entry": "2022-10-15",
-    "user_sub": "RuBeat",
+    "userSub": "RuBeat",
     "location": "Paris19",
-    "artist": ""
+    "artist": "",
+    "validation": "true"
   },
   {
     "id": 26,
@@ -255,9 +280,10 @@
     "longitude": "2.23134",
     "image": "/src/assets/images/works_sample/20231210_142701.jpg",
     "entry": "2022-11-16",
-    "user_sub": "",
+    "userSub": "",
     "location": "Paris19",
-    "artist": "Nô"
+    "artist": "Nô",
+    "validation": "true"
   },
   {
     "id": 27,
@@ -265,9 +291,10 @@
     "longitude": "2.23134",
     "image": "/src/assets/images/works_sample/20231210_143012.jpg",
     "entry": "2022-12-17",
-    "user_sub": "Yax2_94",
+    "userSub": "Yax2_94",
     "location": "Paris19",
-    "artist": "SkiQ"
+    "artist": "SkiQ",
+    "validation": "true"
   },
   {
     "id": 28,
@@ -275,9 +302,10 @@
     "longitude": "2.23134",
     "image": "/src/assets/images/works_sample/20231210_143031.jpg",
     "entry": "2023-01-08",
-    "user_sub": "Drifer",
+    "userSub": "Drifer",
     "location": "Paris19",
-    "artist": "Jack Ardi"
+    "artist": "Jack Ardi",
+    "validation": "false"
   },
   {
     "id": 29,
@@ -285,9 +313,10 @@
     "longitude": "2.23134",
     "image": "/src/assets/images/works_sample/20231210_143137.jpg",
     "entry": "2023-02-09",
-    "user_sub": "Yax2_94",
+    "userSub": "Yax2_94",
     "location": "Paris19",
-    "artist": "Dacruz"
+    "artist": "Dacruz",
+    "validation": "true"
   },
   {
     "id": 30,
@@ -295,19 +324,21 @@
     "longitude": "2.23046",
     "image": "/src/assets/images/works_sample/20231210_144731.jpg",
     "entry": "2023-03-10",
-    "user_sub": "El_Poutros",
+    "userSub": "El_Poutros",
     "location": "Paris19",
-    "artist": "Jack Ardi"
+    "artist": "Jack Ardi",
+    "validation": "true"
   },
   {
     "id": 31,
     "latitude": "48.53252",
     "longitude": "2.23025",
-    "image": "/src/images/works_sample/20231210_144909.jpg",
+    "image": "/src/assets/images/works_sample/20231210_144909.jpg",
     "entry": "2023-04-11",
-    "user_sub": "El_Poutros",
+    "userSub": "El_Poutros",
     "location": "Paris19",
-    "artist": "Dacruz"
+    "artist": "Dacruz",
+    "validation": "true"
   },
   {
     "id": 32,
@@ -315,9 +346,10 @@
     "longitude": "2.22442",
     "image": "/src/assets/images/works_sample/20231210_145717.jpg",
     "entry": "2023-05-12",
-    "user_sub": "KoffeeMan",
+    "userSub": "KoffeeMan",
     "location": "Paris19",
-    "artist": ""
+    "artist": "",
+    "validation": "true"
   },
   {
     "id": 33,
@@ -325,9 +357,10 @@
     "longitude": "2.22390",
     "image": "/src/assets/images/works_sample/20231210_150219.jpg",
     "entry": "2023-06-13",
-    "user_sub": "LeoMiaou",
+    "userSub": "LeoMiaou",
     "location": "Paris19",
-    "artist": "space invader"
+    "artist": "space invader",
+    "validation": "true"
   },
   {
     "id": 34,
@@ -335,9 +368,10 @@
     "longitude": "2.22291",
     "image": "/src/assets/images/works_sample/20231210_150935.jpg",
     "entry": "2023-06-14",
-    "user_sub": "KoffeeMan",
+    "userSub": "KoffeeMan",
     "location": "Paris19",
-    "artist": ""
+    "artist": "",
+    "validation": "true"
   },
   {
     "id": 35,
@@ -345,9 +379,10 @@
     "longitude": "2.22291",
     "image": "/src/assets/images/works_sample/20231210_151217.jpg",
     "entry": "2023-07-15",
-    "user_sub": "LeoMiaou",
+    "userSub": "LeoMiaou",
     "location": "Paris19",
-    "artist": ""
+    "artist": "",
+    "validation": "true"
   },
   {
     "id": 36,
@@ -355,8 +390,9 @@
     "longitude": "2.22442",
     "image": "/src/assets/images/works_sample/20231210_145852.jpg",
     "entry": "2023-09-14",
-    "user_sub": "KoffeeMan",
+    "userSub": "KoffeeMan",
     "location": "Paris19",
-    "artist": ""
+    "artist": "",
+    "validation": "false"
   }
 ]
