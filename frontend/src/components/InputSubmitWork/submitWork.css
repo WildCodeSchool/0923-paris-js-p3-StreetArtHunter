@@ -162,14 +162,18 @@
     border: 1px solid #000;
     margin-top: 1em;
   }
-
+  .Picture_DesKtop_Submit {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
   .Rat_Picture_Submit_right {
     display: block;
-    width: 100%;
+    width: 80%;
   }
   .Rat_Picture_Submit_left {
     display: block;
-    width: 100%;
+    width: 80%;
   }
 
   .title_Image {

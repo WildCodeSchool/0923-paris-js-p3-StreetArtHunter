@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import ratLeft from "../../assets/images/img/ratPhotoLeft.png";
-import ratRight from "../../assets/images/img/ratPhotoRight.png";
+import ratPhotographer from "../../assets/images/img/Rat_photograph.png";
 import "./submitWork.css";
 
 function SubmitWorkImport() {
@@ -14,7 +13,11 @@ function SubmitWorkImport() {
   return (
     <section className="centered">
       <div className="Picture_DesKtop_Submit">
-        <img className="Rat_Picture_Submit_left" src={ratLeft} alt="ratLeft" />
+        <img
+          className="Rat_Picture_Submit_left"
+          src={ratPhotographer}
+          alt="ratLeft"
+        />
       </div>
       <div className="title_Image">
         <div className="titleSubmitWork">propose a work</div>
@@ -60,7 +63,7 @@ function SubmitWorkImport() {
       <div className="Picture_DesKtop_Submit">
         <img
           className="Rat_Picture_Submit_right"
-          src={ratRight}
+          src={ratPhotographer}
           alt="ratRight"
         />
       </div>
