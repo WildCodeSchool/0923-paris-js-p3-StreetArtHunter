@@ -11,7 +11,7 @@ function SubmitWorkImport() {
     setSelectedImage(image);
   };
   return (
-    <section className="centered">
+    <section className="SubmitW_container">
       <div className="Picture_DesKtop_Submit">
         <img
           className="Rat_Picture_Submit_left"
@@ -20,7 +20,7 @@ function SubmitWorkImport() {
         />
       </div>
       <div className="title_Image">
-        <div className="titleSubmitWork">propose a work</div>
+        <div className="titleSubmitWork TSW-correctgap">propose a work</div>
         <div className="blocImportImage">
           <div className="importImageInside">
             <label htmlFor="fileInput">
