@@ -152,7 +152,12 @@ function UserListAdminFeat() {
                 X closed
               </p>
             </div>
-            {selectedUser && <OtherUserBloc dataUser={selectedUser} />}
+            {selectedUser && (
+              <OtherUserBloc
+                dataUser={selectedUser}
+                className="OtherUserModal"
+              />
+            )}
           </Container>
         </Box>
       </Modal>

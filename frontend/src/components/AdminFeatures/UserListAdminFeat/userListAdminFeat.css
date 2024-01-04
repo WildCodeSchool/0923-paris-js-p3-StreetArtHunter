@@ -88,3 +88,10 @@
 .UsersList_Tr_ULAF:nth-child(odd) {
   background-color: var(--color-00);
 }
+@media (min-width: 1440px) {
+  .OtherUserModal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}

@@ -29,6 +29,7 @@
   color: var(--color-05);
 }
 /* Modal */
+
 .modal_closed_btn_container {
   display: flex;
   justify-content: flex-end;
