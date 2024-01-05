@@ -1,3 +1,16 @@
+.SubmitW_container {
+  margin: 2rem 0;
+}
+.title_image_button {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.title_Image {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
 .titleSubmitWork {
   color: #000;
   text-align: center;
@@ -7,12 +20,6 @@
   font-weight: 400;
   line-height: normal;
 }
-
-.title_image_button {
-  display: flex;
-  flex-direction: column;
-}
-
 .titleSubmitWorkThank {
   color: #000;
   text-align: center;
@@ -21,12 +28,6 @@
   font-style: normal;
   font-weight: 400px;
   line-height: normal;
-}
-.centered {
-  height: 100%;
-}
-.blockValidation {
-  height: 100%;
 }
 .importImagePhoto {
   margin-left: 2.5rem;
@@ -44,8 +45,6 @@
 .blocImportImage {
   display: flex;
   justify-content: center;
-  margin-top: 1rem;
-  margin-bottom: 1rem;
 }
 .importImageInside {
   display: flex;
@@ -73,8 +72,16 @@
 .Button-SubmitWork {
   display: flex;
   justify-content: center;
-  margin-top: 2rem;
   margin-bottom: 2rem;
+}
+.text_validation {
+  color: #000;
+  text-align: center;
+  font-family: var(--font-00);
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 400px;
+  line-height: normal;
 }
 .inputLocation {
   display: flex;
@@ -127,31 +134,31 @@
   width: 100%;
 }
 
-.heartIcon {
-  font-size: 2rem;
-}
-
 @media (min-width: 1440px) {
-  .centered {
+  .SubmitW_container {
     display: flex;
     justify-content: space-between;
-    align-items: end;
+    align-items: flex-start;
+    margin: 3rem 0;
   }
-  .blockValidation {
-    display: flex;
-    justify-content: space-between;
-    align-items: end;
+  .SubmitW_container_validation {
+    margin: 3rem 0 1rem 0;
+  }
+  .title_Image {
+    width: 40%;
+  }
+  .title_image_button {
+    width: 40%;
   }
   .titleSubmitWork {
-    color: #000;
-    font-family: Permanent Marker;
+    color: var(--color-01);
+    font-family: var(--font-05);
     font-style: normal;
     line-height: normal;
     font-size: 3rem;
   }
-
-  .blockValidation {
-    height: 100%;
+  .TSW-correctgap {
+    margin-bottom: -1rem;
   }
   .importImageInside {
     display: flex;
@@ -160,42 +167,30 @@
     height: 350px;
     width: 350px;
     border: 1px solid #000;
-    margin-top: 1em;
   }
-
+  .Picture_DesKtop_Submit {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
   .Rat_Picture_Submit_right {
     display: block;
-    width: 100%;
+    width: 80%;
   }
   .Rat_Picture_Submit_left {
     display: block;
-    width: 100%;
-  }
-
-  .title_Image {
-    display: flex;
-    flex-direction: column;
+    width: 80%;
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
   }
 
   .titleSubmitWorkThank {
-    color: #000;
+    color: var(--color-01);
     text-align: center;
-    font-family: Permanent Marker;
+    font-family: var(--font-05);
     font-size: 50px;
     font-weight: 400px;
     font-style: normal;
     line-height: normal;
-  }
-
-  .text_validation {
-    color: #000;
-    text-align: center;
-    font-family: Courier Prime;
-    font-size: 22px;
-    font-style: normal;
-    font-weight: 400px;
-    line-height: normal;
-    margin-top: 3rem;
-    margin-bottom: 3rem;
   }
 }
