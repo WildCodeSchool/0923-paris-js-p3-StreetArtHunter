@@ -14,6 +14,7 @@ import SubmitWorkValidation from "./components/InputSubmitWork/SubmitWorkValidat
 import SubmitWorkThank from "./components/InputSubmitWork/SubmitWorkThank";
 import UserProfil from "./pages/UserProfil/UserProfil";
 import Information from "./pages/Information/Information";
+import SpotZoneById from "./pages/SpotZoneById/SpotZoneById";
 
 const router = createBrowserRouter([
   {
@@ -68,6 +69,10 @@ const router = createBrowserRouter([
       {
         path: "/information",
         element: <Information />,
+      },
+      {
+        path: "/spotzonebyid",
+        element: <SpotZoneById />,
       },
     ],
   },

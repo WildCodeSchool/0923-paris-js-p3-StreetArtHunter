@@ -6,7 +6,19 @@ function Header() {
   const navigate = useNavigate();
   return (
     <nav className="Navbar">
-      <div className="Title-Header">STREET ART HUNTERZ</div>
+      <div
+        className="Title-Header"
+        role="button"
+        onClick={() => {
+          navigate("/homepage");
+        }}
+        onKeyDown={() => {
+          navigate("/homepage");
+        }}
+        tabIndex="0"
+      >
+        STREET ART HUNTERZ
+      </div>
       <div className="LogIn-img">
         <svg
           className="LogOut-Header"
@@ -20,8 +32,32 @@ function Header() {
         </svg>
       </div>
       <div className="Login-Button">
-        <h3 className="LogIn-Header">Log-In</h3>
-        <h3 className="SignUp-Header">Sign-up</h3>
+        <div
+          className="LogIn-Header"
+          role="button"
+          onClick={() => {
+            navigate("/login");
+          }}
+          onKeyDown={() => {
+            navigate("/login");
+          }}
+          tabIndex="0"
+        >
+          Log-In
+        </div>
+        <div
+          className="SignUp-Header"
+          role="button"
+          onClick={() => {
+            navigate("/register");
+          }}
+          onKeyDown={() => {
+            navigate("/register");
+          }}
+          tabIndex="0"
+        >
+          SignUp
+        </div>
       </div>
       <div className="Burger-Header">
         <MenuBurger />

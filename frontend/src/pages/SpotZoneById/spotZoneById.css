@@ -1,0 +1,13 @@
+.spotZoneById {
+}
+.city_zone_container {
+  width: 30%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.works_city_zone_container {
+}

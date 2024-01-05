@@ -1,10 +1,24 @@
+import { useNavigate } from "react-router-dom";
 import MenuBurger from "./MenuBurger";
 import "./headerAdmin.css";
 
 function HeaderAdmin() {
+  const navigate = useNavigate();
   return (
     <nav className="Navbar">
-      <div className="Title-Header">STREET ART HUNTERZ</div>
+      <div
+        className="Title-Header"
+        role="button"
+        onClick={() => {
+          navigate("/homepage");
+        }}
+        onKeyDown={() => {
+          navigate("/homepage");
+        }}
+        tabIndex="0"
+      >
+        STREET ART HUNTERZ
+      </div>
       <div className="LogOut-img">
         <svg
           xmlns="http://www.w3.org/2000/svg"

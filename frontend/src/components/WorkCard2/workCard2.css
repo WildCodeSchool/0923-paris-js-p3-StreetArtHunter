@@ -29,4 +29,8 @@
   .work2_info {
     font-size: large;
   }
+  .workCard2_content {
+    flex-wrap: wrap;
+    width: 100%;
+  }
 }
