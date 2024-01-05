@@ -1,0 +1,45 @@
+.spotZoneContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.picture_SpotZone {
+  width: 100%;
+}
+.container_Content_SpotZone {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.picture_SpotZone_Container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 95%;
+  gap: 3rem;
+  margin-top: 2rem;
+}
+.title_SpotZone {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: var(--font-05);
+  font-size: xx-large;
+  margin: 1rem 0;
+}
+
+.text_SpotZone {
+  font-family: var(--font-01);
+  font-size: small;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: justify;
+  line-height: 1, 5;
+  width: 95%;
+}
