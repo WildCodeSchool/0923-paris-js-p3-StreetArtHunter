@@ -55,10 +55,10 @@
   height: 5%;
   margin-bottom: 5%;
 }
-.PaintMan_Picture_Register {
+.PaintMan_Picture_Login {
   display: none;
 }
-.PaintMan_Picture_Register_left {
+.PaintMan_Picture_Login_left {
   display: none;
 }
 
@@ -71,7 +71,7 @@
   .Picture_DesKtop_Register {
     width: 30%;
   }
-  .PaintMan_Picture_Register {
+  .PaintMan_Picture_Login {
     display: block;
     width: 100%;
   }
@@ -137,7 +137,7 @@
     height: 5%;
     margin-bottom: 5%;
   }
-  .PaintMan_Picture_Register_left {
+  .PaintMan_Picture_Login_left {
     display: block;
     transform: scaleX(-1);
     width: 100%;
