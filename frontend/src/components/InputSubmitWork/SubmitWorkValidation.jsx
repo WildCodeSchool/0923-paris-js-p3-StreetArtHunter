@@ -1,14 +1,17 @@
 import { useNavigate } from "react-router-dom";
-import ratLeft from "../../assets/images/img/ratPhotoLeft.png";
-import ratRight from "../../assets/images/img/ratPhotoRight.png";
+import ratPhotographer from "../../assets/images/img/Rat_photograph.png";
 import "./submitWork.css";
 
 function SubmitWorkValidation() {
   const navigate = useNavigate();
   return (
-    <section className="blockValidation">
+    <section className="SubmitW_container SubmitW_container_validation">
       <div className="Picture_DesKtop_Submit">
-        <img className="Rat_Picture_Submit_left" src={ratLeft} alt="ratLeft" />
+        <img
+          className="Rat_Picture_Submit_left"
+          src={ratPhotographer}
+          alt="ratLeft"
+        />
       </div>
       <center className="title_image_button">
         <h1 className="titleSubmitWork">propose a work</h1>
@@ -46,7 +49,7 @@ function SubmitWorkValidation() {
       <div className="Picture_DesKtop_Submit">
         <img
           className="Rat_Picture_Submit_right"
-          src={ratRight}
+          src={ratPhotographer}
           alt="ratRight"
         />
       </div>
