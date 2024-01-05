@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import anonymous from "../../assets/images/img/pngwing.com.png";
-import paintMan from "../../assets/images/img/paint-man.png";
+import paintMan from "../../assets/images/img/paint-man-b.png";
 import "./inputRegistration.css";
 
 function InputRegistration() {
