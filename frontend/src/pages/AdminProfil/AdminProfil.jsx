@@ -57,7 +57,7 @@ function AdminProfil() {
 
   // >>> return <<< //
   return (
-    <section className="AdminProfilContainer">
+    <section className="AdminProfilContainer Global_height">
       <div className="AdminProfil_content">
         <section className="admin_infos_bloc">
           <h1 className="Pseudo_admin">PSEUDO ADMIN</h1>

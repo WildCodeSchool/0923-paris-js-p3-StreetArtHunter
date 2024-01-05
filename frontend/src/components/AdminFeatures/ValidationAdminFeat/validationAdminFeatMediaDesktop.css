@@ -1,11 +1,25 @@
 @media screen and (min-width: 1440px) {
+  .VLAF_workcards_Desktop {
+    display: flex;
+    align-items: center;
+    width: 80%;
+  }
   .VLAF_container {
     padding: 1.5rem 0;
-    height: 650px;
+    height: 36rem;
   }
 
   .works_count_VLAF {
     font-size: 1.25rem;
     width: 50%;
+  }
+  .VLAF_WC_DeskT_01 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+  .VLAF_WC_DeskT_02 {
+    border: 2px dotted black;
   }
 }

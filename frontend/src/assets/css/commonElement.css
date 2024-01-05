@@ -45,6 +45,9 @@
 }
 
 @media (min-width: 1440px) {
+  .Global_height {
+    height: calc(100vh - 185px);
+  }
   /* Modal */
   .modal_closed_btn {
     font-size: x-large;

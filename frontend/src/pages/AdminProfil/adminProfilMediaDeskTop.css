@@ -10,14 +10,14 @@
     align-items: flex-start;
     justify-content: space-evenly;
     gap: 0;
-    margin: 3rem 0;
     width: 100%;
+    margin: 0;
   }
   .admin_infos_bloc {
     width: 40%;
   }
   .admin_features {
-    width: 40%;
+    width: 35%;
   }
   .Pseudo_admin {
     font-size: 5.625rem;

@@ -3,7 +3,7 @@
     justify-content: flex-start;
     gap: 1.5rem;
     padding: 1.5rem 0;
-    height: 650px;
+    height: 36rem;
   }
   .searchBar_ULAF_container {
     width: 80%;
@@ -23,7 +23,7 @@
     font-size: 1.25rem;
   }
   .UsersList_Td_ULAF {
-    padding: 10px;
+    padding: 8px;
     font-size: 1rem;
   }
 }
