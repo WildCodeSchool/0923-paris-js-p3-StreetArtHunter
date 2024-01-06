@@ -110,6 +110,7 @@
     border-radius: 25px;
     font-family: var(--font-04);
     font-size: xxx-large;
+    cursor: pointer;
   }
   .girl_Ballon {
     display: initial;
