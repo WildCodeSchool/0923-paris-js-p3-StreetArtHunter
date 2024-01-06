@@ -15,6 +15,7 @@
   }
   .WLAF_choice_btn {
     font-size: 1.2rem;
+    cursor: pointer;
   }
   .WLAF_location_option {
     font-size: 1.2rem;
