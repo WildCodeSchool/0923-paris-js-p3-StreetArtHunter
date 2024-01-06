@@ -12,6 +12,10 @@ import SpotZone from "./pages/SpotZone/SpotZone";
 import SubmitWork from "./pages/SubmitWork/SubmitWork";
 import UserProfil from "./pages/UserProfil/UserProfil";
 import Information from "./pages/Information/Information";
+import ContactUs from "./pages/Contact/ContactUs/ContactUs";
+import ComplimentUs from "./pages/Contact/ComplimentUs/ComplimentUs";
+import Reclamation from "./pages/Contact/Reclamation/Reclamation";
+import AskUs from "./pages/Contact/AskUs/AskUs";
 
 const router = createBrowserRouter([
   {
@@ -57,6 +61,22 @@ const router = createBrowserRouter([
       {
         path: "/information",
         element: <Information />,
+      },
+      {
+        path: "/contactus",
+        element: <ContactUs />,
+      },
+      {
+        path: "/askus",
+        element: <AskUs />,
+      },
+      {
+        path: "/complimentus",
+        element: <ComplimentUs />,
+      },
+      {
+        path: "/reclamation",
+        element: <Reclamation />,
       },
     ],
   },

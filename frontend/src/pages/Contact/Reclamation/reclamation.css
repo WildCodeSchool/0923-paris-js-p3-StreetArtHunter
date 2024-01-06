@@ -1,0 +1,5 @@
+.Background_Ask_Reclamation {
+  background-position-x: right !important;
+  background-image: url("../../../assets/images/img/megaphone.jpg");
+  transform: scaleX(-1);
+}

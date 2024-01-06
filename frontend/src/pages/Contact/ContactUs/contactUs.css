@@ -1,0 +1,62 @@
+.Main_ContactUs {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+.Background_ContactUs {
+  background: url("../../../assets/images/img/graff_tel.jpg");
+  background-position: center;
+  background-size: 100%;
+  opacity: 0.15;
+}
+
+.Title_ContactUs {
+  font-family: var(--font-02);
+  margin-top: 2rem;
+  color: #000;
+  font-size: 5em;
+  font-style: normal;
+  font-weight: 40;
+  line-height: normal;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.contact_us_btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1.2rem;
+  width: max(33vw, 20rem);
+  height: max(8vh, 2rem);
+  background: #d9d9d9;
+  border: 2px solid black;
+  border-radius: 10px;
+  font: normal min(2rem, 5vh) var(--font-00);
+}
+
+@media (max-width: 1339px) {
+  .Title_ContactUs {
+    font-family: var(--font-03);
+    font-size: 1.5em;
+  }
+  .contact_us_btn {
+    width: max(33vw, 13rem);
+    height: max(8vh, 2rem);
+    padding: max(2vw, 2vh);
+    background: #d9d9d9;
+    border: 2px solid black;
+    border-radius: 10px;
+    font: normal 1rem var(--font-00);
+  }
+  .Background_ContactUs {
+    background-size: cover;
+    height: calc(100vh - 100px);
+  }
+  .Main_ContactUs {
+    height: calc(100vh - 100px) !important;
+  }
+}

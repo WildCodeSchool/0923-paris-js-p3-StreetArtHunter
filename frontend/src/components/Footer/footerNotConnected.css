@@ -1,3 +1,13 @@
+footer {
+  position: relative;
+}
+
+.footer_city_xs,
+.footer_city {
+  position: absolute;
+  bottom: 100%;
+}
+
 .footer_city_xs {
   width: 100vw;
 }
