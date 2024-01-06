@@ -6,7 +6,7 @@ import "./inputRegistration.css";
 function InputRegistration() {
   const navigate = useNavigate();
   return (
-    <section className="Display_Desktop_Register">
+    <section className="Display_Desktop_Register Global_height">
       <div className="Picture_DesKtop_Register">
         <img
           className="PaintMan_Picture_Register_left"
