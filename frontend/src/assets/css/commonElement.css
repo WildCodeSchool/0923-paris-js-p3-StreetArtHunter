@@ -26,8 +26,8 @@
 }
 
 body {
-  background-image: url(../images/img/background01c.png);
-  background-size: cover;
+  background-image: url(../images/img/background01d.png);
+  background-size: 100vh;
 }
 .font_info_color {
   color: var(--color-05);
@@ -49,6 +49,10 @@ body {
 }
 
 @media (min-width: 1440px) {
+  body {
+    background-image: url(../images/img/background01c.png);
+    background-size: cover;
+  }
   .Global_height {
     height: calc(100vh - 185px);
   }
