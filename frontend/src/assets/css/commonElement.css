@@ -25,6 +25,10 @@
   --color-05: #747474;
 }
 
+body {
+  background-image: url(../images/img/background01c.png);
+  background-size: cover;
+}
 .font_info_color {
   color: var(--color-05);
 }
