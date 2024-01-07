@@ -53,6 +53,7 @@
     width: 15%;
     height: 5%;
     margin-left: 40%;
+    cursor: pointer;
   }
   .LogIn-Header {
     display: flex;
@@ -64,6 +65,7 @@
     background-color: var(--color-02);
     width: 125px;
     height: 28px;
+    cursor: pointer;
   }
   .SignUp-Header {
     display: flex;
