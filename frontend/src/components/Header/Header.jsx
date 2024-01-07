@@ -20,8 +20,8 @@ function Header() {
         </svg>
       </div>
       <div className="Login-Button">
-        <h3 className="LogIn-Header">Log-In</h3>
-        <h3 className="SignUp-Header">Sign-up</h3>
+        <p className="LogIn-Header">Log-In</p>
+        <p className="SignUp-Header">Sign-up</p>
       </div>
       <div className="Burger-Header">
         <MenuBurger />
