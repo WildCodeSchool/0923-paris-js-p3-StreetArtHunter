@@ -5,7 +5,7 @@ import "./submitWork.css";
 function SubmitWorkValidation() {
   const navigate = useNavigate();
   return (
-    <section className="SubmitW_container Global_height">
+    <section className="SubmitW_container Global_height_smartPh Global_height">
       <div className="Picture_DesKtop_Submit">
         <img
           className="Rat_Picture_Submit_left"
