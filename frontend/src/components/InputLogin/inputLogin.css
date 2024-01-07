@@ -1,10 +1,11 @@
+.login_Container {
+  display: flex;
+  align-items: center;
+}
 .Login {
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
   align-items: center;
-  width: 100%;
-  margin-top: 2rem;
   gap: 2rem;
 }
 .Title_Login {
@@ -45,9 +46,14 @@
   padding: 10px 0;
   font-family: var(--font-03);
   font-size: medium;
+  background-color: var(--color-00);
   color: var(--color-01);
   cursor: pointer;
   margin-top: 0.5rem;
+}
+.Button-Login:hover {
+  background-color: var(--color-01);
+  color: var(--color-00);
 }
 .Anonymous_Login {
   display: flex;
@@ -57,7 +63,6 @@
 }
 .Anonymus_Picture_Login {
   width: 20%;
-  margin: 5% 0;
 }
 .loginonymous {
   display: none;
@@ -67,10 +72,8 @@
 }
 
 @media (min-width: 1440px) {
-  .Display_Desktop_Login {
-    display: flex;
+  .login_Container {
     justify-content: center;
-    align-items: center;
   }
   .Picture_DesKtop_Login {
     width: 25%;
@@ -111,6 +114,9 @@
     width: 400px;
     background-color: var(--color-00);
     padding: 10px 10px;
+  }
+  .Button-Login {
+    font-size: large;
   }
   .Anonymous_Login {
     display: flex;

@@ -45,9 +45,14 @@
   padding: 10px 0;
   font-family: var(--font-03);
   font-size: medium;
+  background: var(--color-00);
   color: var(--color-01);
   cursor: pointer;
   margin-top: 0.5rem;
+}
+.Button-Register:hover {
+  background: var(--color-01);
+  color: var(--color-00);
 }
 .Anonymous_Register {
   display: flex;
@@ -93,6 +98,7 @@
   }
   .Button-Register {
     width: 100%;
+    font-size: large;
   }
   .PaintMan_Picture_Register_left {
     display: block;

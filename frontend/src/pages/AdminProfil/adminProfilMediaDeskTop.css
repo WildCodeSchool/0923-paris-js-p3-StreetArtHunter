@@ -49,8 +49,11 @@
     font-size: 1rem;
   }
   .history_container_admin {
-    border-radius: 15px 15px 0 0;
     padding-bottom: 1rem;
+    border-radius: 15px 15px 0 0;
+  }
+  .admin_history_title_box {
+    border-radius: 15px 15px 0 0;
   }
   .history_admin_content {
     display: flex;
