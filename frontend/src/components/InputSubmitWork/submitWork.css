@@ -55,6 +55,10 @@
   border: 1px solid #000;
 }
 .Button-Validation {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   width: 200px;
   height: 37.701px;
   text-align: center;
@@ -67,6 +71,10 @@
   border-radius: 10px;
   border: 1px solid #000;
   cursor: pointer;
+}
+.Button-Validation:hover {
+  background: var(--color-01);
+  color: var(--color-00);
 }
 
 .Button-SubmitWork {
