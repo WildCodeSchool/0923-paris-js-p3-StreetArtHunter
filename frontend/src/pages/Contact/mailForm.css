@@ -38,13 +38,27 @@
 }
 
 .MailUs_Form > input,
-.MailUs_Form > textarea {
-  width: 40vw;
-  padding: 0.7em 1.2em;
+.MailUs_Form > textarea,
+.contact_us_back_btn {
   border: 2px solid black;
   border-radius: 10px;
   background: #d9d9d9;
   opacity: 75%;
+}
+
+.MailUs_Form > input,
+.MailUs_Form > textarea {
+  width: 40vw;
+  padding: 0.7em 1.2em;
+}
+
+.contact_us_back_btn {
+  position: absolute;
+  width: 6em;
+  padding: 0.5em;
+  font: normal 3vh var(--font-00);
+  text-align: center;
+  margin: 2vh 1em;
 }
 
 .MailUs_Form > input[type="submit"] {
@@ -53,6 +67,7 @@
   font-family: var(--font-03);
   font-size: 1.4em;
   padding: 0.2em;
+  z-index: 1;
 }
 
 .MailUs_Form > textarea {
@@ -60,10 +75,12 @@
 }
 
 .MailUs_Form > h2,
-.MailUs_Form > input,
+.MailUs_Form > input {
+  margin: 0.4rem 0em 1.3rem;
+}
+
 .MailUs_Form > textarea {
-  margin-bottom: 1.5rem;
-  margin-top: 0.6em;
+  margin: 0.4rem 0em 0.6rem;
 }
 
 @media (max-width: 1339px) {
@@ -77,7 +94,7 @@
   .MailUs_Form {
     position: unset;
     right: unset;
-    height: calc(100vh - 135px);
+    height: calc(100vh - 170px);
     width: 100vw;
     display: flex;
     flex-direction: column;
@@ -94,5 +111,17 @@
     background-size: 100vw 83vh;
     background-repeat: unset;
     background-position-x: unset;
+  }
+  .MailUs_Form > h2,
+  .MailUs_Form > input {
+    margin: 0.4rem 0em 0.9rem;
+  }
+
+  .MailUs_Form > textarea {
+    margin: 0.4rem 0em 0.6rem;
+  }
+
+  .contact_us_back_btn {
+    position: unset;
   }
 }

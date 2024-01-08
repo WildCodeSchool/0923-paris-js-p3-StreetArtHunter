@@ -5,7 +5,7 @@ import "../contactCommon.css";
 function ContactUs() {
   const navigate = useNavigate();
   return (
-    <div className="Main_ContactUs">
+    <div className="Main_ContactUs Menu_ContactUs">
       <div className="Background_Contact_Common Background_ContactUs" />
 
       <h1 className="Title_ContactUs">NOUS CONTACTER</h1>
