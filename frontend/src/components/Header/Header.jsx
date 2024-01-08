@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 import { useNavigate } from "react-router-dom";
 import MenuBurger from "./MenuBurger";
 import "./header.css";
@@ -20,8 +21,32 @@ function Header() {
         </svg>
       </div>
       <div className="Login-Button">
-        <p className="LogIn-Header">Log-In</p>
-        <p className="SignUp-Header">Sign-up</p>
+        <div
+          className="LogIn-Header"
+          role="button"
+          onClick={() => {
+            navigate("/login");
+          }}
+          onKeyDown={() => {
+            navigate("/login");
+          }}
+          tabIndex="0"
+        >
+          login
+        </div>
+        <div
+          className="SignUp-Header"
+          role="button"
+          onClick={() => {
+            navigate("/login");
+          }}
+          onKeyDown={() => {
+            navigate("/login");
+          }}
+          tabIndex="0"
+        >
+          signup
+        </div>
       </div>
       <div className="Burger-Header">
         <MenuBurger />

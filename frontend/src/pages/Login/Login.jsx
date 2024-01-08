@@ -1,5 +1,7 @@
+import InputLogin from "../../components/InputLogin/InputLogin";
+
 function Login() {
-  return <>Login</>;
+  return <InputLogin />;
 }
 
 export default Login;
