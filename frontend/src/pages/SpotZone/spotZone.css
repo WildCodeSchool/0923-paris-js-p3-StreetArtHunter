@@ -43,3 +43,38 @@
   line-height: 1, 5;
   width: 95%;
 }
+.spotZone_workcard_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+.spotZone {
+  width: 20%;
+}
+.containeer_picture_bottom_spotzone {
+  display: none;
+}
+
+@media (min-width: 1440px) {
+  .containeer_picture_bottom_spotzone {
+    display: block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .picture_bottom_SpotZone {
+    width: 25%;
+    margin-bottom: 1rem;
+  }
+  .pbSpotZone_Inverse {
+    transform: scaleX(-1);
+  }
+  .spotZone_workcard_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 70%;
+    margin: 3rem 0;
+  }
+}
