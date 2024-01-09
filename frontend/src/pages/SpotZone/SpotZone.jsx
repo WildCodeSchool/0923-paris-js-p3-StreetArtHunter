@@ -1,3 +1,6 @@
+import { useState } from "react";
+import Pagination from "@mui/material/Pagination";
+import Stack from "@mui/material/Stack";
 import SpotCard from "../../components/SpotCard/SpotCard";
 import DataSpots from "../../../data_sample/data_spots.json";
 import PictureBottom from "../../assets/images/img/graph04 (1).png";
@@ -5,10 +8,38 @@ import "./spotZone.css";
 
 function SpotZone() {
   const Datas = DataSpots;
+
+  // Logtique pagination smartphone
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 1;
+  const handlePageChange = (event, pageNumber) => {
+    setCurrentPage(pageNumber);
+  };
+
+  const indexOfLastItem = currentPage * itemsPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+  const currentItems = Datas.slice(indexOfFirstItem, indexOfLastItem);
+
+  const [currentPageDesktop, setCurrentPageDesktop] = useState(1);
+  const itemsPerPageDesktop = 4;
+  const handlePageChangeDesktop = (event, pageNumberDesktop) => {
+    setCurrentPageDesktop(pageNumberDesktop);
+  };
+
+  const indexOfLastItemDesktop = currentPageDesktop * itemsPerPageDesktop;
+  const indexOfFirstItemDesktop = indexOfLastItemDesktop - itemsPerPageDesktop;
+  const currentItemsDesktop = Datas.slice(
+    indexOfFirstItemDesktop,
+    indexOfLastItemDesktop
+  );
+
+  // gestion Media Screen //
+  const smartphoneScreen = window.matchMedia("(max-width: 770px)").matches;
+  const desktopScreen = window.matchMedia("(min-width: 1440px)").matches;
+
   return (
     <section className="spotZoneContainer">
       <h1 className="title_SpotZone">STREET ART SPOTS</h1>
-
       <div className="text_SpotZone">
         <p>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis
@@ -22,18 +53,48 @@ function SpotZone() {
           dignissimos molestias quibusdam. Sequi nihil quis nam corporis?
         </p>
       </div>
-
-      <div className="SpotZone_contour">
+      {smartphoneScreen && (
         <div className="spotZone_workcard_container">
-          <div>
-            {Datas.map((data, index) => (
-              // eslint-disable-next-line react/no-array-index-key
-              <SpotCard className="SpotCard_content" key={index} data={data} />
+          {currentItems.map((data, index) => (
+            // eslint-disable-next-line react/no-array-index-key
+            <SpotCard className="SpotCard_content" key={index} data={data} />
+          ))}
+        </div>
+      )}
+      {smartphoneScreen && (
+        <Stack spacing={0} mt={0}>
+          <Pagination
+            count={Math.ceil(Datas.length / itemsPerPage)}
+            size="small"
+            shape="rounded"
+            variant="outlined"
+            siblingCount={0}
+            page={currentPage}
+            onChange={handlePageChange}
+          />
+        </Stack>
+      )}
+      ;
+      {desktopScreen && (
+        <>
+          <div className="spotZone_workcard_container">
+            {currentItemsDesktop.map((data) => (
+              <SpotCard key={data.id} data={data} />
             ))}
           </div>
-        </div>
-      </div>
-
+          <Stack spacing={0} mt={0}>
+            <Pagination
+              count={Math.ceil(Datas.length / itemsPerPageDesktop)}
+              size="small"
+              shape="rounded"
+              variant="outlined"
+              siblingCount={0}
+              page={currentPageDesktop}
+              onChange={handlePageChangeDesktop}
+            />
+          </Stack>
+        </>
+      )}
       <section className="containeer_picture_bottom_spotzone">
         <img
           className="picture_bottom_SpotZone"
