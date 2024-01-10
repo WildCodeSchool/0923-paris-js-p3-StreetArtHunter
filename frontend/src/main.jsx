@@ -24,9 +24,6 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <IntroPage />,
-        loader: () => {
-          return fetch(`${import.meta.env.VITE_BACKEND_URL}/api/user`);
-        },
       },
       {
         path: "/homepage",
@@ -35,6 +32,9 @@ const router = createBrowserRouter([
       {
         path: "/adminprofil",
         element: <AdminProfil />,
+        // loader: () => {
+        //   return fetch(`${import.meta.env.VITE_BACKEND_URL}/api/user`);
+        // },
       },
       {
         path: "/classement",

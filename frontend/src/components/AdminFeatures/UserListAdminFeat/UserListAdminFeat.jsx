@@ -15,6 +15,7 @@ import SmileySearch from "../../../assets/images/ico/smilley.png";
 function UserListAdminFeat() {
   // database //
   const data = DataUsers;
+
   const UsersCount = data.length;
 
   // search bar //

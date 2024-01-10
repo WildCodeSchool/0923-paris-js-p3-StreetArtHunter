@@ -22,8 +22,13 @@ const findByEmail = (pseudo, email) => {
   ]);
 };
 
+const findAll = () => {
+  return db.query("SELECT * FROM user");
+};
+
 module.exports = {
   insert,
   findById,
   findByEmail,
+  findAll,
 };
