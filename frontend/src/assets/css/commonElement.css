@@ -29,6 +29,10 @@ body {
   background-image: url(../images/img/background01d.png);
   background-size: 100vh;
 }
+body::-webkit-scrollbar {
+  display: none;
+}
+
 .Global_height_smartPh {
   height: calc(100vh - 92px);
 }
@@ -57,10 +61,16 @@ body {
     background-size: cover;
   }
   .Global_height {
-    height: calc(100vh - 185px);
+    height: calc(100vh - 160px);
   }
   /* Modal */
   .modal_closed_btn {
     font-size: x-large;
+  }
+  .css-0 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
   }
 }

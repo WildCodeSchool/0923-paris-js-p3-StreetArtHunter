@@ -97,6 +97,14 @@ export default function PositionedMenuConnected() {
           >
             CLASSEMENT
           </MenuItem>
+          <MenuItem
+            className="Police-Burger-Header"
+            onClick={() => {
+              navigate("/");
+            }}
+          >
+            DECONNEXION
+          </MenuItem>
         </Menu>
       </ThemeProvider>
     </div>

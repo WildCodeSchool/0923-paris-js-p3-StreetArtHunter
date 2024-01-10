@@ -73,6 +73,14 @@ export default function PositionedMenu() {
           >
             BALLADES
           </MenuItem>
+          <MenuItem
+            className="Police-Burger-Header"
+            onClick={() => {
+              navigate("/");
+            }}
+          >
+            QUI SOMMES-NOUS ?
+          </MenuItem>
         </Menu>
       </ThemeProvider>
     </div>
