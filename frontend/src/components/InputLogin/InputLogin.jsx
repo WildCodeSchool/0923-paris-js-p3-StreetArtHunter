@@ -40,7 +40,7 @@ function InputRegistration() {
   };
 
   return (
-    <section className="login_Container Display_Desktop_Login Global_height_smartPh Global_height">
+    <section className="login_Container Display_Desktop_Login Global_height">
       <div className="Picture_DesKtop_Login">
         <img
           className="loginonymous_left"

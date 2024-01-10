@@ -8,7 +8,7 @@
 }
 .Title-Header {
   font-family: var(--font-02);
-  font-size: 30px;
+  font-size: 23px;
   color: var(--color-01);
   margin-left: 10%;
 }
@@ -18,46 +18,11 @@
 .Burger-Header {
   display: none;
 }
-.Login-Button {
-  display: none;
-}
 @media (min-width: 1440px) {
   .LogOut-img {
     display: none;
   }
   .Burger-Header {
     display: block;
-  }
-
-  .Login-Button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 1rem;
-    width: 15%;
-    height: 5%;
-    margin-left: 40%;
-  }
-  .LogIn-Header {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: black;
-    border: 2px solid rgb(1, 1, 1);
-    font-family: var(--font-03);
-    background-color: var(--color-02);
-    width: 125px;
-    height: 28px;
-  }
-  .SignUp-Header {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: black;
-    border: 2px solid rgb(1, 1, 1);
-    font-family: var(--font-03);
-    background-color: var(--color-02);
-    width: 125px;
-    height: 28px;
   }
 }

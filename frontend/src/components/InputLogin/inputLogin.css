@@ -1,6 +1,7 @@
 .login_Container {
   display: flex;
   align-items: center;
+  margin: 20% 0;
 }
 .Login {
   display: flex;
@@ -74,6 +75,7 @@
 @media (min-width: 1440px) {
   .login_Container {
     justify-content: center;
+    margin: 0;
   }
   .Picture_DesKtop_Login {
     width: 25%;
