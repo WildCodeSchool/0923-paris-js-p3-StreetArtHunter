@@ -58,9 +58,6 @@ function HeaderNoConnect() {
               signup
             </div>
           </div>
-          <div className="Burger-Header">
-            <MenuBurger />
-          </div>
         </>
       )}
       {desktopScreen && (

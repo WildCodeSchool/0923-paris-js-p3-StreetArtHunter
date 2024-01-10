@@ -19,8 +19,11 @@
   display: none;
 }
 @media (min-width: 1440px) {
+  .Title-Header {
+    font-size: 30px;
+  }
   .LogOut-img {
-    display: none;
+    margin-right: none;
   }
   .Burger-Header {
     display: block;
