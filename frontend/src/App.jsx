@@ -1,6 +1,6 @@
 import { Outlet } from "react-router-dom";
 import Header from "./components/Header/Header";
-import FooterNotConnected from "./components/Footer/FooterNotConnected";
+import Footer from "./components/Footer/Footer";
 import "./App.css";
 
 function App() {
@@ -8,7 +8,7 @@ function App() {
     <main>
       <Header />
       <Outlet />
-      <FooterNotConnected />
+      <Footer />
     </main>
   );
 }

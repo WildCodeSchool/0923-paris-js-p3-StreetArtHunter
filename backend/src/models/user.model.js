@@ -15,7 +15,15 @@ const findById = (id) => {
   return db.query("SELECT * FROM user WHERE id = ?", [id]);
 };
 
+const findByEmail = (pseudo, email) => {
+  return db.query("SELECT * FROM user WHERE pseudo= ? OR email = ?", [
+    pseudo,
+    email,
+  ]);
+};
+
 module.exports = {
   insert,
   findById,
+  findByEmail,
 };

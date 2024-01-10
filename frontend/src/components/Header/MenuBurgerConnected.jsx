@@ -6,7 +6,7 @@ import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import "./menuBurger.css";
 
-export default function PositionedMenu() {
+export default function PositionedMenuConnected() {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
@@ -72,6 +72,30 @@ export default function PositionedMenu() {
             }}
           >
             BALLADES
+          </MenuItem>
+          <MenuItem
+            className="Police-Burger-Header"
+            onClick={() => {
+              navigate("/userprofil");
+            }}
+          >
+            PROFIL
+          </MenuItem>
+          <MenuItem
+            className="Police-Burger-Header"
+            onClick={() => {
+              navigate("/submitworkimport");
+            }}
+          >
+            SUBMIT
+          </MenuItem>
+          <MenuItem
+            className="Police-Burger-Header"
+            onClick={() => {
+              navigate("/classement");
+            }}
+          >
+            CLASSEMENT
           </MenuItem>
         </Menu>
       </ThemeProvider>
