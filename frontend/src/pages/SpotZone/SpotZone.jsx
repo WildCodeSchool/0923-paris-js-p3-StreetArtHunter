@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Pagination from "@mui/material/Pagination";
 import Stack from "@mui/material/Stack";
 import SpotCard from "../../components/SpotCard/SpotCard";
@@ -8,6 +9,7 @@ import "./spotZone.css";
 
 function SpotZone() {
   const Datas = DataSpots;
+  const navigate = useNavigate("");
 
   // Logtique pagination smartphone
   const [currentPage, setCurrentPage] = useState(1);
@@ -34,7 +36,7 @@ function SpotZone() {
   );
 
   // gestion Media Screen //
-  const smartphoneScreen = window.matchMedia("(max-width: 770px)").matches;
+  const smartphoneScreen = window.matchMedia("(min-width: 320px)").matches;
   const desktopScreen = window.matchMedia("(min-width: 1440px)").matches;
 
   return (
@@ -48,13 +50,21 @@ function SpotZone() {
           ipsum dolor sit amet consectetur adipisicing elit. Reiciendis
           perferendis repellendus temporibus doloremque fuga quaerat fugit nisi
           dignissimos molestias quibusdam. Sequi nihil quis nam corporis? Lorem
-          ipsum dolor sit amet consectetur adipisicing elit. Reiciendis
-          perferendis repellendus temporibus doloremque fuga quaerat fugit nisi
-          dignissimos molestias quibusdam. Sequi nihil quis nam corporis?
+          ipsum dolor sit amet consectetur adipisicing elit.
         </p>
       </div>
       {smartphoneScreen && (
-        <div className="spotZone_workcard_container">
+        <div
+          className="spotZone_workcard_container"
+          role="button"
+          onClick={() => {
+            navigate("/spotzonebyid");
+          }}
+          onKeyDown={() => {
+            navigate("/spotzonebyid");
+          }}
+          tabIndex="0"
+        >
           {currentItems.map((data, index) => (
             // eslint-disable-next-line react/no-array-index-key
             <SpotCard className="SpotCard_content" key={index} data={data} />
@@ -74,7 +84,7 @@ function SpotZone() {
           />
         </Stack>
       )}
-      ;
+
       {desktopScreen && (
         <>
           <div className="spotZone_workcard_container">
