@@ -38,10 +38,10 @@ function Header() {
           className="SignUp-Header"
           role="button"
           onClick={() => {
-            navigate("/login");
+            navigate("/register");
           }}
           onKeyDown={() => {
-            navigate("/login");
+            navigate("/register");
           }}
           tabIndex="0"
         >
