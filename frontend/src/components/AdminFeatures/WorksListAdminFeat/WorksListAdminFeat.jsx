@@ -62,7 +62,7 @@ function WorksListAdminFeat() {
         <div className="WLAF_choice_btn">entry </div>
         <div>
           <select className="WLAF_location_option">
-            <option value="">location</option>
+            <option value="">all locations</option>
             {uniqueLocations.map((location, index) => (
               // eslint-disable-next-line react/no-array-index-key
               <option key={index} value={location}>

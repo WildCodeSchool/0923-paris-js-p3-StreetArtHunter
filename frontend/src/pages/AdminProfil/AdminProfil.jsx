@@ -1,6 +1,7 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import { useState } from "react";
+import { useLoaderData } from "react-router-dom";
 import Pagination from "@mui/material/Pagination";
 import Stack from "@mui/material/Stack";
 import "./adminProfil.css";
@@ -13,6 +14,8 @@ import WorksListAdminFeat from "../../components/AdminFeatures/WorksListAdminFea
 import ValidationAdminFeat from "../../components/AdminFeatures/ValidationAdminFeat/ValidationAdminFeat";
 
 function AdminProfil() {
+  const user = useLoaderData();
+
   // Toggle Admin Profil Info //
   const [adminInfoIsOpen, setAdminInfoIsOpen] = useState(false);
 
@@ -57,7 +60,7 @@ function AdminProfil() {
 
   // >>> return <<< //
   return (
-    <section className="AdminProfilContainer">
+    <section className="AdminProfilContainer Global_height">
       <div className="AdminProfil_content">
         <section className="admin_infos_bloc">
           <h1 className="Pseudo_admin">PSEUDO ADMIN</h1>
@@ -247,7 +250,7 @@ function AdminProfil() {
               validation
             </div>
           </div>
-          {activeComponent === "usersList" && <UserListAdminFeat />}
+          {activeComponent === "usersList" && <UserListAdminFeat data={user} />}
           {activeComponent === "worksList" && <WorksListAdminFeat />}
           {activeComponent === "workValidation" && <ValidationAdminFeat />}
         </section>

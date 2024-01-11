@@ -26,6 +26,9 @@
   .workCard_container {
     width: 35%;
   }
+  .workCard_container_WVAF {
+    width: 80%;
+  }
   .work_info {
     font-size: large;
   }

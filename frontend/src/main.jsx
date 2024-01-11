@@ -1,6 +1,7 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import React from "react";
 import ReactDOM from "react-dom/client";
+import { AuthProvider } from "./context/AuthContext";
 import App from "./App";
 import IntroPage from "./pages/IntroPage/IntroPage";
 import HomePage from "./pages/HomePage/HomePage";
@@ -32,6 +33,9 @@ const router = createBrowserRouter([
       {
         path: "/adminprofil",
         element: <AdminProfil />,
+        // loader: () => {
+        //   return fetch(`${import.meta.env.VITE_BACKEND_URL}/api/user`);
+        // },
       },
       {
         path: "/classement",
@@ -82,6 +86,8 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <AuthProvider>
+      <RouterProvider router={router} />
+    </AuthProvider>
   </React.StrictMode>
 );

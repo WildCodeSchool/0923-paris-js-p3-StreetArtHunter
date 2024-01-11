@@ -15,6 +15,7 @@
   border: solid 1px black;
   width: 95%;
   padding: 5px 0;
+  background-color: var(--color-00);
 }
 .VLAF_workcard_container {
   display: flex;
@@ -43,6 +44,7 @@
   width: 70px;
   margin-bottom: 0.5rem;
   cursor: pointer;
+  background-color: var(--color-00);
 }
 .VLAF_trash_btn {
   display: flex;
@@ -53,4 +55,5 @@
   width: 70px;
   margin-bottom: 0.5rem;
   cursor: pointer;
+  background-color: var(--color-00);
 }
