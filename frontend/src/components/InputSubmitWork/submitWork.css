@@ -1,5 +1,7 @@
 .SubmitW_container {
-  margin: 2rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .title_image_button {
   display: flex;
@@ -49,33 +51,42 @@
 .importImageInside {
   display: flex;
   justify-content: center;
-  background: #d9d9d9;
+  background: var(--color-00);
   height: 230px;
   width: 230px;
   border: 1px solid #000;
 }
 .Button-Validation {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   width: 200px;
   height: 37.701px;
-  color: #000;
   text-align: center;
-  font-family: Black Ops One;
+  font-family: var(--font-03);
+  background: var(--color-00);
+  color: var(--color-01);
   font-size: 30px;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
   border-radius: 10px;
   border: 1px solid #000;
-  background: #fff;
+  cursor: pointer;
+}
+.Button-Validation:hover {
+  background: var(--color-01);
+  color: var(--color-00);
 }
 
 .Button-SubmitWork {
   display: flex;
   justify-content: center;
-  margin-bottom: 2rem;
+  cursor: pointer;
 }
 .text_validation {
-  color: #000;
+  color: var(--color-01);
   text-align: center;
   font-family: var(--font-00);
   font-size: 22px;
@@ -88,9 +99,9 @@
   align-items: center;
   flex-direction: column;
   justify-content: center;
-  color: #000;
+  color: var(--color-01);
   text-align: center;
-  font-family: Courier Prime;
+  font-family: var(--font-00);
   font-size: 17px;
   font-style: normal;
   font-weight: 400;
@@ -100,7 +111,7 @@
 .inputArtiste {
   display: flex;
   align-items: center;
-  color: #000;
+  color: var(--color-01);
   text-align: center;
   font-family: Courier Prime;
   font-size: 17px;
@@ -136,13 +147,7 @@
 
 @media (min-width: 1440px) {
   .SubmitW_container {
-    display: flex;
     justify-content: space-between;
-    align-items: flex-start;
-    margin: 3rem 0;
-  }
-  .SubmitW_container_validation {
-    margin: 3rem 0 1rem 0;
   }
   .title_Image {
     width: 40%;

@@ -10,14 +10,14 @@
     align-items: flex-start;
     justify-content: space-evenly;
     gap: 0;
-    margin: 3rem 0;
     width: 100%;
+    margin: 0;
   }
   .admin_infos_bloc {
     width: 40%;
   }
   .admin_features {
-    width: 40%;
+    width: 35%;
   }
   .Pseudo_admin {
     font-size: 5.625rem;
@@ -49,8 +49,11 @@
     font-size: 1rem;
   }
   .history_container_admin {
-    border-radius: 15px 15px 0 0;
     padding-bottom: 1rem;
+    border-radius: 15px 15px 0 0;
+  }
+  .admin_history_title_box {
+    border-radius: 15px 15px 0 0;
   }
   .history_admin_content {
     display: flex;

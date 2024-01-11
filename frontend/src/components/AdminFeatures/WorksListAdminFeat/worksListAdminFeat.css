@@ -15,6 +15,7 @@
   border: solid 1px black;
   width: 95%;
   padding: 5px 0;
+  background-color: var(--color-00);
 }
 .WLAF_choice_line {
   display: flex;
@@ -22,6 +23,9 @@
   width: 95%;
 }
 .WLAF_choice_btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-family: var(--font-07);
   font-size: 1rem;
   text-align: center;
@@ -29,6 +33,7 @@
   padding: 5px;
   width: 25%;
   cursor: pointer;
+  background-color: var(--color-00);
 }
 .WLAF_location_option {
   font-family: var(--font-07);
@@ -36,6 +41,7 @@
   text-align: center;
   padding: 5px;
   cursor: pointer;
+  background-color: var(--color-00);
 }
 .WLAF_workcard_container {
   display: flex;
@@ -59,4 +65,5 @@
   width: 70px;
   margin-bottom: 0.5rem;
   cursor: pointer;
+  background-color: var(--color-00);
 }
