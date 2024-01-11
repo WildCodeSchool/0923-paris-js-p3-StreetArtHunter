@@ -72,6 +72,12 @@
     transform: scaleX(-1);
   }
   .spotZone_workcard_container {
+    display: none;
+  }
+  .Pagination_SpotZone_Smartphone {
+    display: none;
+  }
+  .spotZone_workcard_container_desktop {
     display: flex;
     justify-content: center;
     align-items: center;

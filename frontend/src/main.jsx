@@ -75,7 +75,7 @@ const router = createBrowserRouter([
         element: <Information />,
       },
       {
-        path: "/spotzonebyid",
+        path: "/spotzonebyid/:location",
         element: <SpotZoneById />,
       },
     ],
