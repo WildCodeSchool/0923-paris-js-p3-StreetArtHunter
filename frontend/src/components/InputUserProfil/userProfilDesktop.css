@@ -1,0 +1,196 @@
+@media (min-width: 1440px) {
+  .UP_Container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+  }
+  .UPD_Part1_Flex {
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    margin-top: 4rem;
+    margin-bottom: 2rem;
+    width: 45%;
+  }
+  .UP_Title_PseudoName {
+    color: #f00;
+    text-align: center;
+    font-family: Bombing;
+    font-size: 90px;
+    width: 644px;
+    height: 89px;
+    margin-bottom: 2rem;
+  }
+  .UPD_Email_Password_Register {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .UPD_Level_Score {
+    display: flex;
+    justify-content: space-between;
+  }
+  .UP_Title_Level {
+    border: 1px solid #000;
+    background: #fff;
+    width: 377px;
+    height: 51px;
+    color: #000;
+    font-family: Goldman;
+    font-size: 26px;
+    padding-left: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+  }
+  .UP_Title_Score {
+    border: 1px solid #000;
+    background: #fff;
+    width: 198px;
+    height: 51px;
+    color: #000;
+    font-family: Goldman;
+    font-size: 26px;
+    padding-left: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+  }
+  .UP_Email_Password {
+    border: 1px solid #000;
+    background: #fff;
+    width: 638px;
+    height: 40px;
+    color: #000;
+    font-family: Goldman;
+    font-size: 20px;
+    line-height: normal;
+    padding-left: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: space-between;
+    margin-bottom: 1rem;
+  }
+  .UP_Change_Password {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+  }
+  .UP_Change_Password_Inside {
+    color: #000;
+    font-family: Goldman;
+    text-align: center;
+    font-size: 12px;
+    display: flex;
+    width: 158px;
+    height: 34px;
+    border: 1px solid #000;
+    margin-right: 2rem;
+  }
+  .UP_Register_Since {
+    border: 1px solid #000;
+    background: #fff;
+    color: #000;
+    text-align: center;
+    font-family: Goldman;
+    font-size: 16px;
+    width: 655px;
+    height: 25px;
+  }
+  .UPD_Image_Monkey_Center {
+    display: flex;
+    justify-content: space-evenly;
+  }
+  .UPD_Image_Monkey {
+    display: block;
+    width: 88%;
+  }
+  .UPD_Part2_Flex {
+    margin-top: 4rem;
+    width: 45%;
+  }
+  .UP_Historical_Classement {
+    display: flex;
+  }
+  .UP_Title_Historical {
+    border-radius: 16px 0px 0px 0px;
+    border-right: 1px solid #141414;
+    border-top: 1px solid #000;
+    border-left: 1px solid #000;
+    background: #fff;
+    width: 288px;
+    height: 66px;
+    color: #820675;
+    color: #000;
+    text-align: center;
+    font-family: Goldman;
+    font-size: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    cursor: pointer;
+  }
+  .UP_Title_Classement {
+    border-radius: 0px 10px 0px 0px;
+    border-top: 1px solid #000;
+    border-right: 1px solid #000;
+    background: #fff;
+    width: 288.891px;
+    height: 66.169px;
+    color: #820675;
+    color: #000;
+    text-align: center;
+    font-family: Goldman;
+    font-size: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    cursor: pointer;
+  }
+  .UPC_Work_Submited_Classement {
+    width: 577px;
+    height: 665px;
+    display: flex;
+    justify-content: center;
+    border-radius: 0px 0px 10px 10px;
+    border: 1px solid #000;
+  }
+  .UPC_Users_List_Table {
+    width: 95%;
+    border: solid 1px black;
+  }
+  .UPH_Work_Submited {
+    border-radius: 0px 0px 10px 10px;
+    border: 1px solid #000;
+    width: 578px;
+    height: 695px;
+  }
+  .UPH_Works_Count {
+    width: 535px;
+    height: 42px;
+    border: 1px solid #000;
+    background: #fff;
+    display: flex;
+    color: #000;
+    font-family: Goldman;
+    font-size: 16px;
+    justify-content: center;
+    align-items: center;
+  }
+  .UPH_Workcard_Container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+    height: 75%;
+    width: 95%;
+    cursor: pointer;
+    gap: 4%;
+  }
+  .workCard2_container {
+    width: 30%;
+  }
+}

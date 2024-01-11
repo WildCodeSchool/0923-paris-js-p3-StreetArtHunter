@@ -1,9 +1,12 @@
 import { useNavigate } from "react-router-dom";
+
 import MenuBurger from "./MenuBurger";
+
 import "./header.css";
 
 function Header() {
   const navigate = useNavigate();
+
   return (
     <nav className="Navbar">
       <div className="Title-Header">STREET ART HUNTERZ</div>

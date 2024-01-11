@@ -7,19 +7,17 @@
   font-weight: 400;
   line-height: normal;
 }
-
 .title_image_button {
   display: flex;
   flex-direction: column;
 }
-
 .titleSubmitWorkThank {
   color: #000;
   text-align: center;
   font-family: Permanent Marker;
   font-size: 30px;
   font-style: normal;
-  font-weight: 400px;
+  font-weight: 400;
   line-height: normal;
 }
 .centered {
@@ -68,8 +66,8 @@
   border-radius: 10px;
   border: 1px solid #000;
   background: #fff;
+  cursor: pointer;
 }
-
 .Button-SubmitWork {
   display: flex;
   justify-content: center;
@@ -126,76 +124,6 @@
   display: none;
   width: 100%;
 }
-
 .heartIcon {
   font-size: 2rem;
-}
-
-@media (min-width: 1440px) {
-  .centered {
-    display: flex;
-    justify-content: space-between;
-    align-items: end;
-  }
-  .blockValidation {
-    display: flex;
-    justify-content: space-between;
-    align-items: end;
-  }
-  .titleSubmitWork {
-    color: #000;
-    font-family: Permanent Marker;
-    font-style: normal;
-    line-height: normal;
-    font-size: 3rem;
-  }
-
-  .blockValidation {
-    height: 100%;
-  }
-  .importImageInside {
-    display: flex;
-    justify-content: center;
-    background: #d9d9d9;
-    height: 350px;
-    width: 350px;
-    border: 1px solid #000;
-    margin-top: 1em;
-  }
-
-  .Rat_Picture_Submit_right {
-    display: block;
-    width: 100%;
-  }
-  .Rat_Picture_Submit_left {
-    display: block;
-    width: 100%;
-  }
-
-  .title_Image {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .titleSubmitWorkThank {
-    color: #000;
-    text-align: center;
-    font-family: Permanent Marker;
-    font-size: 50px;
-    font-weight: 400px;
-    font-style: normal;
-    line-height: normal;
-  }
-
-  .text_validation {
-    color: #000;
-    text-align: center;
-    font-family: Courier Prime;
-    font-size: 22px;
-    font-style: normal;
-    font-weight: 400px;
-    line-height: normal;
-    margin-top: 3rem;
-    margin-bottom: 3rem;
-  }
 }

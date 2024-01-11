@@ -4,7 +4,8 @@ import graffiti from "../../assets/images/ico/artiste-de-graffiti.png";
 import infos from "../../assets/images/ico/About_ico.png";
 import cityDownXS from "../../assets/images/img/city05-footer_smartphone.png";
 import cityDown from "../../assets/images/img/city05-footer.png";
-import "./footerConnected.css";
+import "./footerConnectedMobile.css";
+import "./footerConnectedDesktop.css";
 
 function FooterConnected() {
   const navigate = useNavigate();

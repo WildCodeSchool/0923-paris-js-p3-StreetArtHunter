@@ -1,43 +1,124 @@
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import anonymous from "../../assets/images/img/pngwing.com.png";
-import paintMan from "../../assets/images/img/paint-man.png";
+// import paintMan from "../../assets/images/img/paint-man-b.png";
 import "./inputRegistration.css";
 
 function InputRegistration() {
+  // HOOK de Navigation
   const navigate = useNavigate();
+  // State input Pseudo - Email - City - Password - Confirm Password//
+  const [pseudo, setPseudo] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  // Gestion changement Pseudo //
+  const HandlePseudoChange = (event) => {
+    setPseudo(event.target.value);
+  };
+  // Gestion changement Email //
+  const HandleEmailChange = (event) => {
+    setEmail(event.target.value);
+  };
+  // Gestion changement Password //
+  const HandlePasswordChange = (event) => {
+    setPassword(event.target.value);
+  };
+  const HandleconfirmPasswordChange = (event) => {
+    setConfirmPassword(event.target.value);
+  };
+  // Gestion soumission de formulaire //
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    const registrationDate = new Date()
+      .toISOString()
+      .slice(0, 19)
+      .replace("T", " ");
+    // Api Call pour création nouvel utilisateur //
+    try {
+      const response = await fetch(
+        `${import.meta.env.VITE_BACKEND_URL}/api/user`,
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            pseudo,
+            email,
+            password,
+            registrationDate,
+            score: 0,
+            admin: 0,
+          }),
+        }
+      );
+      if (response.status === 201) {
+        const user = await response.json();
+        console.info(user);
+        navigate("/");
+      } else {
+        console.error("veuillez verifier votre saisie.");
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  };
   return (
-    <section className="Display_Desktop_Register">
-      <div className="Picture_DesKtop_Register">
+    <section className="Display_Desktop_Register Global_height">
+      {/* <div className="Picture_DesKtop_Register">
         <img
           className="PaintMan_Picture_Register_left"
           src={paintMan}
           alt="paintMan"
         />
-      </div>
+      </div> */}
       <div className="Block_Register">
         <div className="Register">
           <h1 className="Title_Register">REGISTER</h1>
           <div className="Pseudo_Register">
-            <h3>Choose a pseudo</h3>
-            <input className="Input_Register" type="text" placeholder="" />
-          </div>
-          <div className="Password_Register">
-            <h3>Choose a password</h3>
-            <input className="Input_Register" type="password" placeholder="" />
+            <p>Choose a pseudo</p>
+            <input
+              className="Input_Register"
+              type="text"
+              placeholder=""
+              value={pseudo}
+              onChange={HandlePseudoChange}
+            />
           </div>
           <div className="Pseudo_Register">
-            <h3>Enter your mail</h3>
-            <input className="Input_Register" type="text" placeholder="" />
+            <p>Enter your mail</p>
+            <input
+              className="Input_Register"
+              type="text"
+              placeholder=""
+              value={email}
+              onChange={HandleEmailChange}
+            />
+          </div>
+          <div className="Password_Register">
+            <p>Choose a password</p>
+            <input
+              className="Input_Register"
+              type="password"
+              placeholder=""
+              value={password}
+              onChange={HandlePasswordChange}
+            />
+          </div>
+          <div className="Password_Register">
+            <p>Confirm password</p>
+            <input
+              className="Input_Register"
+              type="password"
+              placeholder=""
+              value={confirmPassword}
+              onChange={HandleconfirmPasswordChange}
+            />
           </div>
           <div
             className="Button-Register"
             role="button"
-            onClick={() => {
-              navigate("/");
-            }}
-            onKeyDown={() => {
-              navigate("/");
-            }}
+            onClick={handleSubmit}
+            onKeyDown={handleSubmit}
             tabIndex="0"
           >
             VALIDATION
@@ -51,13 +132,13 @@ function InputRegistration() {
           />
         </div>
       </div>
-      <div className="Picture_DesKtop_Register">
+      {/* <div className="Picture_DesKtop_Register">
         <img
           className="PaintMan_Picture_Register"
           src={paintMan}
           alt="paintMan"
         />
-      </div>
+      </div> */}
     </section>
   );
 }

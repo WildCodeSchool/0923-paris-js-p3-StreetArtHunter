@@ -1,5 +1,5 @@
-function Classement() {
-  return <>Classement </>;
+function CLassement() {
+  return <> classement</>;
 }
 
-export default Classement;
+export default CLassement;

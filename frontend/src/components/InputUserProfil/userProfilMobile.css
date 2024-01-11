@@ -1,0 +1,186 @@
+.UP_Container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.UP_Title_PseudoName {
+  color: #f00;
+  text-align: center;
+  font-family: Bombing;
+  font-size: 69px;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+.UPM_Level_Score_Password {
+  display: grid;
+  align-content: space-evenly;
+  gap: 15px;
+}
+.UP_Title_Level {
+  border: 1px solid #000;
+  background: #fff;
+  width: 292px;
+  height: 51px;
+  color: #000;
+  font-family: Goldman;
+  font-size: 26px;
+  padding-left: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-bottom: 1rem;
+}
+.UP_Title_Score {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  border: 1px solid #000;
+  background: #fff;
+  width: 292px;
+  height: 51px;
+  color: #000;
+  font-family: Goldman;
+  font-size: 26px;
+  padding-left: 4px;
+}
+.UP_Email_Password {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border: 1px solid #000;
+  background: #fff;
+  width: 292px;
+  color: #000;
+  font-family: Goldman;
+  font-size: 20px;
+  line-height: normal;
+  gap: 0.3rem;
+  padding: 1rem 0 1rem 4px;
+}
+.UP_Change_Password {
+  padding-top: 7px;
+}
+.UP_Change_Password_Inside {
+  color: #000;
+  font-family: Goldman;
+  text-align: center;
+  font-size: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 129px;
+  height: 34px;
+  border: 1px solid #000;
+}
+.UP_Register_Since {
+  border: 1px solid #000;
+  background: #fff;
+  color: #000;
+  text-align: center;
+  font-family: Goldman;
+  font-size: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 295px;
+  height: 25px;
+  margin-bottom: 15px;
+}
+.UPD_Image_Monkey {
+  display: none;
+}
+.UP_Historical_Classement {
+  display: flex;
+}
+.UP_Title_Historical {
+  border-radius: 16px 0px 0px 0px;
+  border-right: 1px solid #141414;
+  border-top: 1px solid #000;
+  border-left: 1px solid #000;
+  background: #fff;
+  width: 147px;
+  height: 39px;
+  color: #820675;
+  color: #000;
+  text-align: center;
+  font-family: Goldman;
+  font-size: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.UP_Title_Classement {
+  border-radius: 0px 10px 0px 0px;
+  border-top: 1px solid #000;
+  border-right: 1px solid #000;
+  background: #fff;
+  width: 147px;
+  height: 39px;
+  color: #820675;
+  color: #000;
+  text-align: center;
+  font-family: Goldman;
+  font-size: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.UPH_Work_Submited {
+  border-radius: 0px 0px 10px 10px;
+  border: 1px solid #000;
+  width: 295px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 15px;
+  gap: 1rem;
+  padding: 1rem 0;
+}
+.UPH_Works_Count {
+  font-family: var(--font-07);
+  font-size: 1rem;
+  text-align: center;
+  border: solid 1px black;
+  width: 95%;
+  padding: 5px 0;
+}
+.UPC_Work_Submited_Classement {
+  border: 1px solid #000;
+  width: 295px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 1rem;
+  margin-bottom: 15px;
+}
+.Users_List_UPC {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem 0;
+  border: solid 1px black;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+.UPC_Users_List_Td {
+  border: solid 1px black;
+  padding: 4px;
+  text-align: center;
+  font-family: var(--font-00);
+  font-size: 0.75rem;
+}
+.UPC_UsersList_Tr:nth-child(even) {
+  background-color: var(--color-02);
+}
+.UPC_UsersList_Tr:nth-child(odd) {
+  background-color: var(--color-00);
+}
+.UPH_Workcard_Container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 95%;
+}

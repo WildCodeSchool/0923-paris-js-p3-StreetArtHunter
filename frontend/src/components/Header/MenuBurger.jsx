@@ -68,7 +68,7 @@ export default function PositionedMenu() {
         <MenuItem
           className="Police-Burger-Header"
           onClick={() => {
-            navigate("/userprofil");
+            navigate("/userprofilhistorical");
           }}
         >
           PROFIL
@@ -84,7 +84,7 @@ export default function PositionedMenu() {
         <MenuItem
           className="Police-Burger-Header"
           onClick={() => {
-            navigate("/classement");
+            navigate("/userprofilclassement");
           }}
         >
           CLASSEMENT

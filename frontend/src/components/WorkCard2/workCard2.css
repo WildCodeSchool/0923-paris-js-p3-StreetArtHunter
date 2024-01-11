@@ -24,9 +24,9 @@
 
 @media (min-width: 1440px) {
   .workCard2_container {
-    width: 35%;
+    width: 25%;
   }
   .work2_info {
-    font-size: large;
+    font-size: small;
   }
 }

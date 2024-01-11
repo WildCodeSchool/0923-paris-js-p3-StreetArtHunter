@@ -1,6 +1,7 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import React from "react";
 import ReactDOM from "react-dom/client";
+import { AuthProvider } from "./components/context/AuthContext";
 import App from "./App";
 import IntroPage from "./pages/IntroPage/IntroPage";
 import HomePage from "./pages/HomePage/HomePage";
@@ -12,7 +13,8 @@ import SpotZone from "./pages/SpotZone/SpotZone";
 import SubwitWorkImport from "./components/InputSubmitWork/SubmitWorkImport";
 import SubmitWorkValidation from "./components/InputSubmitWork/SubmitWorkValidation";
 import SubmitWorkThank from "./components/InputSubmitWork/SubmitWorkThank";
-import UserProfil from "./pages/UserProfil/UserProfil";
+import UserProfilHistorical from "./components/InputUserProfil/UserProfilHistorical";
+import UserProfilClassement from "./components/InputUserProfil/UserProfilClassement";
 import Information from "./pages/Information/Information";
 
 const router = createBrowserRouter([
@@ -62,8 +64,12 @@ const router = createBrowserRouter([
       },
 
       {
-        path: "/userprofil",
-        element: <UserProfil />,
+        path: "/userprofilhistorical",
+        element: <UserProfilHistorical />,
+      },
+      {
+        path: "/userprofilclassement",
+        element: <UserProfilClassement />,
       },
       {
         path: "/information",
@@ -77,6 +83,8 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <AuthProvider>
+      <RouterProvider router={router} />
+    </AuthProvider>
   </React.StrictMode>
 );

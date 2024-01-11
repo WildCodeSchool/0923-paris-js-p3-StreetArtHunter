@@ -1,7 +1,8 @@
 import { useNavigate } from "react-router-dom";
 import ratLeft from "../../assets/images/img/ratPhotoLeft.png";
 import ratRight from "../../assets/images/img/ratPhotoRight.png";
-import "./submitWork.css";
+import "./submitWorkMobile.css";
+import "./submitWorkDesktop.css";
 
 function SubmitWorkValidation() {
   const navigate = useNavigate();

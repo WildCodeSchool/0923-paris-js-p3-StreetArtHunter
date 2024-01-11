@@ -2,13 +2,14 @@ import { useNavigate } from "react-router-dom";
 import heartIcon from "../../assets/images/img/heart1.png";
 import ratLeft from "../../assets/images/img/ratPhotoLeft.png";
 import ratRight from "../../assets/images/img/ratPhotoRight.png";
-import "./submitWork.css";
+import "./submitWorkMobile.css";
+import "./submitWorkDesktop.css";
 
 function SubmitWorkThank() {
   const navigate = useNavigate();
 
   return (
-    <section className="centered">
+    <section>
       <div className="Picture_DesKtop_Submit">
         <img className="Rat_Picture_Submit_left" src={ratLeft} alt="ratLeft" />
       </div>
