@@ -1,16 +1,14 @@
 import { useNavigate } from "react-router-dom";
-import infos from "../../assets/images/ico/About_ico.png";
-import cityDownXS from "../../assets/images/img/city05-footer_smartphone.png";
-import cityDown from "../../assets/images/img/city05-footer.png";
+import "./footer.css";
 import "./footerNotConnectedMobile.css";
 import "./footerNotConnectedDesktop.css";
+import infos from "../../assets/images/ico/About_ico.png";
 
 function FooterNotConnected() {
   const navigate = useNavigate();
   return (
     <footer>
-      <img className="footer_city_xs" src={cityDownXS} alt="urban city" />
-      <img className="footer_city" src={cityDown} alt="urban city" />
+      <div className="city_footer"> </div>
       <div className="footer_link">
         <svg
           className="iconAdd"

@@ -2,18 +2,15 @@ import { useNavigate } from "react-router-dom";
 import classement from "../../assets/images/ico/classement.png";
 import graffiti from "../../assets/images/ico/artiste-de-graffiti.png";
 import infos from "../../assets/images/ico/About_ico.png";
-import cityDownXS from "../../assets/images/img/city05-footer_smartphone.png";
-import cityDown from "../../assets/images/img/city05-footer.png";
-import "./footerConnectedMobile.css";
-import "./footerConnectedDesktop.css";
+import "./footer.css";
+import "./footerConnected.css";
 
 function FooterConnected() {
   const navigate = useNavigate();
 
   return (
     <footer>
-      <img className="footer_city_xs" src={cityDownXS} alt="urban city" />
-      <img className="footer_city" src={cityDown} alt="urban city" />
+      <div className="city_footer"> </div>
       <div className="footer_link">
         <div
           role="button"

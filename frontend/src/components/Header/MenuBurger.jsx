@@ -1,5 +1,6 @@
 import * as React from "react";
 import { useNavigate } from "react-router-dom";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
 import Button from "@mui/material/Button";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
@@ -15,6 +16,12 @@ export default function PositionedMenu() {
     setAnchorEl(null);
   };
   const navigate = useNavigate();
+
+  const theme = createTheme({
+    typography: {
+      fontFamily: "Black Ops One",
+    },
+  });
   return (
     <div>
       <Button
@@ -34,62 +41,48 @@ export default function PositionedMenu() {
           <path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z" />
         </svg>
       </Button>
-      <Menu
-        id="demo-positioned-menu"
-        aria-labelledby="demo-positioned-button"
-        anchorEl={anchorEl}
-        open={open}
-        onClose={handleClose}
-        anchorOrigin={{
-          vertical: "top",
-          horizontal: "left",
-        }}
-        transformOrigin={{
-          vertical: "top",
-          horizontal: "left",
-        }}
-      >
-        <MenuItem
-          className="Police-Burger-Header"
-          onClick={() => {
-            navigate("/");
+      <ThemeProvider theme={theme}>
+        <Menu
+          id="demo-positioned-menu"
+          aria-labelledby="demo-positioned-button"
+          anchorEl={anchorEl}
+          open={open}
+          onClose={handleClose}
+          anchorOrigin={{
+            vertical: "top",
+            horizontal: "left",
+          }}
+          transformOrigin={{
+            vertical: "top",
+            horizontal: "left",
           }}
         >
-          ACCEUIL
-        </MenuItem>
-        <MenuItem
-          className="Police-Burger-Header"
-          onClick={() => {
-            navigate("/spotzone");
-          }}
-        >
-          BALLADES
-        </MenuItem>
-        <MenuItem
-          className="Police-Burger-Header"
-          onClick={() => {
-            navigate("/userprofilhistorical");
-          }}
-        >
-          PROFIL
-        </MenuItem>
-        <MenuItem
-          className="Police-Burger-Header"
-          onClick={() => {
-            navigate("/submitworkimport");
-          }}
-        >
-          SUBMIT
-        </MenuItem>
-        <MenuItem
-          className="Police-Burger-Header"
-          onClick={() => {
-            navigate("/userprofilclassement");
-          }}
-        >
-          CLASSEMENT
-        </MenuItem>
-      </Menu>
+          <MenuItem
+            className="Police-Burger-Header"
+            onClick={() => {
+              navigate("/");
+            }}
+          >
+            ACCEUIL
+          </MenuItem>
+          <MenuItem
+            className="Police-Burger-Header"
+            onClick={() => {
+              navigate("/spotzone");
+            }}
+          >
+            BALLADES
+          </MenuItem>
+          <MenuItem
+            className="Police-Burger-Header"
+            onClick={() => {
+              navigate("/");
+            }}
+          >
+            QUI SOMMES-NOUS ?
+          </MenuItem>
+        </Menu>
+      </ThemeProvider>
     </div>
   );
 }

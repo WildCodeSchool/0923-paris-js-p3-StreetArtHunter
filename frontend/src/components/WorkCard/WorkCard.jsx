@@ -1,9 +1,13 @@
 import "./workCard.css";
 
-function WorkCard({ data }) {
+function WorkCard({ data, classForWCVADF }) {
   const { image, entry, userSub, artist, location } = data;
+  const WorkCardContainer = classForWCVADF
+    ? "workCard_container_WVAF"
+    : "workCard_container";
+
   return (
-    <section className="workCard_container">
+    <section className={WorkCardContainer}>
       <div className="workCard_content">
         <img className="Work_image" src={image} alt="work" />
         <div className="work_infos_container">

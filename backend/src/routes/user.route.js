@@ -1,9 +1,10 @@
 const router = require("express").Router();
-const { hashPassword } = require("../middleware/auth");
 
-const useController = require("../controllers/user.controllers");
+const userController = require("../controllers/user.controllers");
+const auth = require("../middlewares/auth");
 
-router.post("/user", hashPassword, useController.add);
-router.post("/user/login", useController.login);
+router.post("/user", auth.hashPassword, userController.add);
+router.post("/user/login", userController.login);
+router.get("/user", auth.isAuth, userController.getAll);
 
 module.exports = router;

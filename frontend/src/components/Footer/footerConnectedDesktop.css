@@ -1,20 +1,10 @@
+.iconInfos {
+  height: 35px;
+  width: 35px;
+}
+
 @media screen and (min-width: 1440px) {
-  .footer_city_xs {
-    display: none;
-  }
-  .footer_city {
-    display: initial;
-    width: 100vw;
-    margin-bottom: -1px;
-  }
-  .footer_link {
-    background-color: #eae9e9;
-    height: 1.5rem;
-  }
-  .iconGraffiti {
-    display: none;
-  }
-  .iconClassement {
+  .iconAdd {
     display: none;
   }
   .iconInfos {

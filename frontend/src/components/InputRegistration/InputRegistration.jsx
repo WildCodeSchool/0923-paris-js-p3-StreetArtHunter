@@ -1,13 +1,14 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import anonymous from "../../assets/images/img/pngwing.com.png";
-// import paintMan from "../../assets/images/img/paint-man-b.png";
+import paintMan from "../../assets/images/img/paint-man-b.png";
 import "./inputRegistration.css";
 
 function InputRegistration() {
   // HOOK de Navigation
   const navigate = useNavigate();
-  // State input Pseudo - Email - City - Password - Confirm Password//
+
+  // State input Pseudo - Email - Password - Confirm Password//
   const [pseudo, setPseudo] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -24,9 +25,11 @@ function InputRegistration() {
   const HandlePasswordChange = (event) => {
     setPassword(event.target.value);
   };
+
   const HandleconfirmPasswordChange = (event) => {
     setConfirmPassword(event.target.value);
   };
+
   // Gestion soumission de formulaire //
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -39,13 +42,13 @@ function InputRegistration() {
       const response = await fetch(
         `${import.meta.env.VITE_BACKEND_URL}/api/user`,
         {
-          method: "POST",
+          method: "post",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
             pseudo,
             email,
             password,
-            registrationDate,
+            registration_date: registrationDate,
             score: 0,
             admin: 0,
           }),
@@ -62,15 +65,16 @@ function InputRegistration() {
       console.error(error);
     }
   };
+
   return (
     <section className="Display_Desktop_Register Global_height">
-      {/* <div className="Picture_DesKtop_Register">
+      <div className="Picture_DesKtop_Register">
         <img
           className="PaintMan_Picture_Register_left"
           src={paintMan}
           alt="paintMan"
         />
-      </div> */}
+      </div>
       <div className="Block_Register">
         <div className="Register">
           <h1 className="Title_Register">REGISTER</h1>
@@ -84,6 +88,7 @@ function InputRegistration() {
               onChange={HandlePseudoChange}
             />
           </div>
+
           <div className="Pseudo_Register">
             <p>Enter your mail</p>
             <input
