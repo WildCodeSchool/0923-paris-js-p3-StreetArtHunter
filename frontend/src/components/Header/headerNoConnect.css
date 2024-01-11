@@ -25,6 +25,9 @@
   .Navbar_HNC {
     height: 60px;
   }
+  .Title-Header_HNC {
+    font-size: 35px;
+  }
   .LogIn-img {
     display: none;
   }
