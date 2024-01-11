@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import Pagination from "@mui/material/Pagination";
 import Stack from "@mui/material/Stack";
 import SpotCard from "../../components/SpotCard/SpotCard";
@@ -9,7 +8,6 @@ import "./spotZone.css";
 
 function SpotZone() {
   const Datas = DataSpots;
-  const navigate = useNavigate("");
 
   // Logtique pagination smartphone
   const [currentPage, setCurrentPage] = useState(1);
@@ -21,6 +19,8 @@ function SpotZone() {
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
   const currentItems = Datas.slice(indexOfFirstItem, indexOfLastItem);
+
+  // Logique pagination Desktop
 
   const [currentPageDesktop, setCurrentPageDesktop] = useState(1);
   const itemsPerPageDesktop = 4;
@@ -54,17 +54,7 @@ function SpotZone() {
         </p>
       </div>
       {smartphoneScreen && (
-        <div
-          className="spotZone_workcard_container"
-          role="button"
-          onClick={() => {
-            navigate("/spotzonebyid");
-          }}
-          onKeyDown={() => {
-            navigate("/spotzonebyid");
-          }}
-          tabIndex="0"
-        >
+        <div className="spotZone_workcard_container">
           {currentItems.map((data, index) => (
             // eslint-disable-next-line react/no-array-index-key
             <SpotCard className="SpotCard_content" key={index} data={data} />
@@ -72,22 +62,24 @@ function SpotZone() {
         </div>
       )}
       {smartphoneScreen && (
-        <Stack spacing={0} mt={0}>
-          <Pagination
-            count={Math.ceil(Datas.length / itemsPerPage)}
-            size="small"
-            shape="rounded"
-            variant="outlined"
-            siblingCount={0}
-            page={currentPage}
-            onChange={handlePageChange}
-          />
-        </Stack>
+        <div className="Pagination_SpotZone_Smartphone">
+          <Stack spacing={0} mt={0}>
+            <Pagination
+              count={Math.ceil(Datas.length / itemsPerPage)}
+              size="small"
+              shape="rounded"
+              variant="outlined"
+              siblingCount={0}
+              page={currentPage}
+              onChange={handlePageChange}
+            />
+          </Stack>
+        </div>
       )}
 
       {desktopScreen && (
         <>
-          <div className="spotZone_workcard_container">
+          <div className="spotZone_workcard_container_desktop">
             {currentItemsDesktop.map((data) => (
               <SpotCard key={data.id} data={data} />
             ))}
