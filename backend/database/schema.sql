@@ -88,7 +88,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `Street_Art_Hunterz`.`artist` (
   `id` INT NOT NULL AUTO_INCREMENT,
-  `pseudo` VARCHAR(12) NOT NULL,
+  `pseudo` VARCHAR(20) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE INDEX `pseudo_UNIQUE` (`pseudo` ASC) VISIBLE)
 ENGINE = InnoDB;
@@ -104,7 +104,7 @@ CREATE TABLE IF NOT EXISTS `Street_Art_Hunterz`.`artist_work` (
   INDEX `fk_Artist_has_Work_Work1_idx` (`Work_id` ASC) VISIBLE,
   INDEX `fk_Artist_has_Work_Artist1_idx` (`Artist_id` ASC) VISIBLE,
   CONSTRAINT `fk_Artist_has_Work_Artist1`
-    FOREIGN KEY (`Artist_id`)
+    FOREIGN KEY (`Artist_id`)                    
     REFERENCES `Street_Art_Hunterz`.`artist` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,

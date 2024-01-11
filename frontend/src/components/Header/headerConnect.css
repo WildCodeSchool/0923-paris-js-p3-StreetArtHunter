@@ -23,7 +23,7 @@
     font-size: 30px;
   }
   .LogOut-img {
-    margin-right: none;
+    display: none;
   }
   .Burger-Header {
     display: block;

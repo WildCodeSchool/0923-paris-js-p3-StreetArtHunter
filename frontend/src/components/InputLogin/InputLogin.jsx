@@ -5,7 +5,7 @@ import loginonymous from "../../assets/images/img/Loginonymous.png";
 import AuthContext from "../../context/AuthContext";
 import "./inputLogin.css";
 
-function InputRegistration() {
+function InputLogin() {
   const navigate = useNavigate();
   const pseudo = useRef();
   const password = useRef();
@@ -97,4 +97,4 @@ function InputRegistration() {
     </section>
   );
 }
-export default InputRegistration;
+export default InputLogin;
