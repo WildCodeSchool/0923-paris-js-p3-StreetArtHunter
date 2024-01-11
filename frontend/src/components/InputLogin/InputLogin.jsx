@@ -24,6 +24,7 @@ function InputLogin() {
             email: pseudo.current.value,
             password: password.current.value,
           }),
+          credentials: "include",
         }
       );
       if (response.status === 200) {
