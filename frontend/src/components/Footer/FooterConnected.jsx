@@ -2,8 +2,7 @@ import { useNavigate } from "react-router-dom";
 import classement from "../../assets/images/ico/classement.png";
 import graffiti from "../../assets/images/ico/artiste-de-graffiti.png";
 import infos from "../../assets/images/ico/About_ico.png";
-import cityDownXS from "../../assets/images/img/city05-footer_smartphone.png";
-import cityDown from "../../assets/images/img/city05-footer.png";
+import "./footer.css";
 import "./footerConnected.css";
 
 function FooterConnected() {
@@ -11,8 +10,7 @@ function FooterConnected() {
 
   return (
     <footer>
-      <img className="footer_city_xs" src={cityDownXS} alt="urban city" />
-      <img className="footer_city" src={cityDown} alt="urban city" />
+      <div className="city_footer"> </div>
       <div className="footer_link">
         <div
           role="button"
@@ -46,7 +44,7 @@ function FooterConnected() {
           height="30px"
           viewBox="0 -960 960 960"
           width="29.855px"
-          onClick={() => navigate("/submitwork")}
+          onClick={() => navigate("/submitworkimport")}
         >
           <path d="M440-280h80v-160h160v-80H520v-160h-80v160H280v80h160v160Zm40 200q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z" />
         </svg>

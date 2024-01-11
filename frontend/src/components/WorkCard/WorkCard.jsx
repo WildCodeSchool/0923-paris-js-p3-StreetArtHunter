@@ -1,18 +1,21 @@
 import "./workCard.css";
-import imgTest from "../../assets/images/img_sample/20231203_143211.jpg";
 
-function WorkCard() {
+function WorkCard({ data, classForWCVADF }) {
+  const { image, entry, userSub, artist, location } = data;
+  const WorkCardContainer = classForWCVADF
+    ? "workCard_container_WVAF"
+    : "workCard_container";
+
   return (
-    <section className="workCard_container">
+    <section className={WorkCardContainer}>
       <div className="workCard_content">
-        <img className="Work_image" src={imgTest} alt="test_image" />
+        <img className="Work_image" src={image} alt="work" />
         <div className="work_infos_container">
-          <p className="work_info"> entry: </p>
-          <p className="work_info"> zone: </p>
-          <p className="work_info"> loc: </p>
-          <p className="work_info"> localisation: </p>
-          <p className="work_info"> artist: </p>
-          <p className="work_info"> submitted by: </p>
+          <p className="work_info"> entry: {entry}</p>
+          <p className="work_info"> zone: {location}</p>
+          <p className="work_info"> loc: adresse rue + cp</p>
+          <p className="work_info"> artist: {artist}</p>
+          <p className="work_info"> submitted by: {userSub}</p>
         </div>
       </div>
     </section>

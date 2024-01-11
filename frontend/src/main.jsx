@@ -1,6 +1,7 @@
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { AuthProvider } from "./context/AuthContext";
 import App from "./App";
 import IntroPage from "./pages/IntroPage/IntroPage";
 import HomePage from "./pages/HomePage/HomePage";
@@ -9,7 +10,9 @@ import Classement from "./pages/Classement/Classement";
 import Login from "./pages/Login/Login";
 import Register from "./pages/Register/Register";
 import SpotZone from "./pages/SpotZone/SpotZone";
-import SubmitWork from "./pages/SubmitWork/SubmitWork";
+import SubwitWorkImport from "./components/InputSubmitWork/SubmitWorkImport";
+import SubmitWorkValidation from "./components/InputSubmitWork/SubmitWorkValidation";
+import SubmitWorkThank from "./components/InputSubmitWork/SubmitWorkThank";
 import UserProfil from "./pages/UserProfil/UserProfil";
 import Information from "./pages/Information/Information";
 import ContactUs from "./pages/Contact/ContactUs/ContactUs";
@@ -33,6 +36,9 @@ const router = createBrowserRouter([
       {
         path: "/adminprofil",
         element: <AdminProfil />,
+        // loader: () => {
+        //   return fetch(`${import.meta.env.VITE_BACKEND_URL}/api/user`);
+        // },
       },
       {
         path: "/classement",
@@ -51,9 +57,18 @@ const router = createBrowserRouter([
         element: <SpotZone />,
       },
       {
-        path: "/submitwork",
-        element: <SubmitWork />,
+        path: "/submitworkimport",
+        element: <SubwitWorkImport />,
       },
+      {
+        path: "/submitworkvalidation",
+        element: <SubmitWorkValidation />,
+      },
+      {
+        path: "/submitworkthank",
+        element: <SubmitWorkThank />,
+      },
+
       {
         path: "/userprofil",
         element: <UserProfil />,
@@ -86,6 +101,8 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <AuthProvider>
+      <RouterProvider router={router} />
+    </AuthProvider>
   </React.StrictMode>
 );
