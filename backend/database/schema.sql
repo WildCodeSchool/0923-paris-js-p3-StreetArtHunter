@@ -88,7 +88,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `Street_Art_Hunterz`.`artist` (
   `id` INT NOT NULL AUTO_INCREMENT,
-  `pseudo` VARCHAR(12) NOT NULL,
+  `pseudo` VARCHAR(20) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE INDEX `pseudo_UNIQUE` (`pseudo` ASC) VISIBLE)
 ENGINE = InnoDB;
