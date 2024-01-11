@@ -171,3 +171,13 @@
     margin-top: 1rem;
   }
 }
+@media (max-height: 867px) and (min-width: 1440px) {
+  .otherUserBloc_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 85vh;
+    background-image: url("../../assets/images/img/wall11B.jpg");
+  }
+}
