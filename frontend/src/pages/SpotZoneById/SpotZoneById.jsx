@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import Pagination from "@mui/material/Pagination";
+import Stack from "@mui/material/Stack";
 import WorkCard2 from "../../components/WorkCard2/WorkCard2";
 import PictureMap from "../../assets/images/map_sample/map_sample_1-1.jpg";
 import DataWorks from "../../../data_sample/data_works.json";
@@ -13,6 +15,41 @@ function SpotZoneById() {
     const filteredWorks = Datas.filter((data) => data.location === location);
     setFilteredData(filteredWorks);
   }, [location]);
+
+  // Logique pagination Smartphone
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 1;
+  const handlePageChange = (event, pageNumber) => {
+    setCurrentPage(pageNumber);
+  };
+
+  const indexOfLastItem = currentPage * itemsPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+  const currentItems = filteredData.slice(indexOfFirstItem, indexOfLastItem);
+
+  // Logique pagination Desktop
+
+  const [currentPageDesktop, setCurrentPageDesktop] = useState(1);
+  const itemsPerPageDesktop = 6;
+  const countDesktopPages = Math.ceil(
+    filteredData.length / itemsPerPageDesktop
+  );
+  const handlePageChangeDesktop = (event, pageNumberDesktop) => {
+    setCurrentPageDesktop(pageNumberDesktop);
+  };
+
+  const indexOfLastItemDesktop = currentPageDesktop * itemsPerPageDesktop;
+  const indexOfFirstItemDesktop = indexOfLastItemDesktop - itemsPerPageDesktop;
+  const currentItemsDesktop = filteredData.slice(
+    indexOfFirstItemDesktop,
+    indexOfLastItemDesktop
+  );
+
+  // Gestion Media Screen //
+
+  const smartphoneScreen = window.matchMedia("(min-width: 320px)").matches;
+  const desktopScreen = window.matchMedia("(min-width: 1440px)").matches;
+
   return (
     <section className="spotZoneById Global_height">
       <div className="city_zone_container">
@@ -31,11 +68,61 @@ function SpotZoneById() {
           </p>
         </div>
       </div>
-      <div className="works_city_zone_container">
-        {filteredData.map((data, index) => (
-          // eslint-disable-next-line react/no-array-index-key
-          <WorkCard2 key={index} data={data} />
-        ))}
+      <div className="Global_container_Smartphone">
+        {smartphoneScreen && (
+          <div className="works_city_zone_container_Smartphone">
+            <div className="content_Work_City_Zone">
+              {currentItems.map((data, index) => (
+                // eslint-disable-next-line react/no-array-index-key
+                <WorkCard2 key={index} data={data} />
+              ))}
+            </div>
+          </div>
+        )}
+        {smartphoneScreen && (
+          <div className="Pagination_SpotZone_Smartphone">
+            <Stack spacing={0} mt={0}>
+              <Pagination
+                count={Math.ceil(Datas.length / itemsPerPage)}
+                size="small"
+                shape="rounded"
+                variant="outlined"
+                siblingCount={0}
+                page={currentPage}
+                onChange={handlePageChange}
+              />
+            </Stack>
+          </div>
+        )}
+      </div>
+      <div className="Global_container_desktop">
+        {desktopScreen && (
+          <div className="works_city_zone_container_Desktop">
+            <div className="content_Work_City_Zone">
+              {currentItemsDesktop.map((data, index) => (
+                // eslint-disable-next-line react/no-array-index-key
+                <WorkCard2
+                  className="Workcard_SpotZone_Desktop"
+                  // eslint-disable-next-line react/no-array-index-key
+                  key={index}
+                  data={data}
+                />
+              ))}
+            </div>
+          </div>
+        )}
+        <Stack spacing={0} mt={0}>
+          <Pagination
+            className="Pagination_SpotZone_Desktop"
+            count={countDesktopPages}
+            size="small"
+            shape="rounded"
+            variant="outlined"
+            siblingCount={0}
+            page={currentPageDesktop}
+            onChange={handlePageChangeDesktop}
+          />
+        </Stack>
       </div>
     </section>
   );
