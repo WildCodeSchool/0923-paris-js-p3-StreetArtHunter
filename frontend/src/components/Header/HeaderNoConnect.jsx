@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import { useNavigate } from "react-router-dom";
 import MenuBurger from "./MenuBurger";
@@ -13,7 +14,14 @@ function HeaderNoConnect() {
     <nav className="Navbar_HNC">
       {smartphoneScreen && (
         <>
-          <div className="Title-Header_HNC">STREET ART HUNTERZ</div>
+          <div
+            className="Title-Header_HNC"
+            onClick={() => {
+              navigate("/homepage");
+            }}
+          >
+            STREET ART HUNTERZ
+          </div>
           <div className="LogIn-img">
             <svg
               className="LogOut-Header"
@@ -62,7 +70,14 @@ function HeaderNoConnect() {
       )}
       {desktopScreen && (
         <>
-          <div className="Title-Header_HNC">STREET ART HUNTERZ</div>
+          <div
+            className="Title-Header_HNC"
+            onClick={() => {
+              navigate("/homepage");
+            }}
+          >
+            STREET ART HUNTERZ
+          </div>
           <div className="Nav_content">
             <div className="Login-Button_HNC">
               <div
