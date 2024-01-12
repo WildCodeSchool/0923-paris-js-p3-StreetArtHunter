@@ -61,7 +61,7 @@ body::-webkit-scrollbar {
     background-size: cover;
   }
   .Global_height {
-    height: calc(100vh - 165px);
+    min-height: calc(100vh - 165px);
   }
   /* Modal */
   .modal_closed_btn {
@@ -72,5 +72,11 @@ body::-webkit-scrollbar {
     align-items: center;
     justify-content: center;
     height: 100vh;
+  }
+}
+@media (max-height: 867px) and (min-width: 1440px) {
+  .Global_height {
+    min-height: calc(100vh - 165px);
+    padding: 3rem 0;
   }
 }
