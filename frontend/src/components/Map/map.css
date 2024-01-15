@@ -10,6 +10,7 @@
 .work_map {
   width: 100%;
   border-radius: 25px;
+  border: solid 2px black;
 }
 
 @media (min-width: 1440px) {

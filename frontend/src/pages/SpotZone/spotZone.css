@@ -1,0 +1,88 @@
+.spotZoneContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.picture_SpotZone {
+  width: 100%;
+}
+.container_Content_SpotZone {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.picture_SpotZone_Container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 95%;
+  gap: 3rem;
+  margin-top: 2rem;
+}
+.title_SpotZone {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: var(--font-05);
+  font-size: xx-large;
+  margin: 1rem 0;
+}
+
+.text_SpotZone {
+  font-family: var(--font-01);
+  font-size: small;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: justify;
+  line-height: 1, 5;
+  width: 95%;
+}
+.spotZone_workcard_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  margin: 1rem;
+}
+.spotZone {
+  width: 20%;
+}
+.containeer_picture_bottom_spotzone {
+  display: none;
+}
+
+@media (min-width: 1440px) {
+  .containeer_picture_bottom_spotzone {
+    display: block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .picture_bottom_SpotZone {
+    width: 25%;
+    margin-bottom: 1rem;
+  }
+  .pbSpotZone_Inverse {
+    transform: scaleX(-1);
+  }
+  .spotZone_workcard_container {
+    display: none;
+  }
+  .Pagination_SpotZone_Smartphone {
+    display: none;
+  }
+  .spotZone_workcard_container_desktop {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 70%;
+    margin: 3rem 0;
+    gap: 2rem;
+  }
+}
