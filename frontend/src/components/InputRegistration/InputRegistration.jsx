@@ -137,13 +137,13 @@ function InputRegistration() {
           />
         </div>
       </div>
-      {/* <div className="Picture_DesKtop_Register">
+      <div className="Picture_DesKtop_Register">
         <img
           className="PaintMan_Picture_Register"
           src={paintMan}
           alt="paintMan"
         />
-      </div> */}
+      </div>
     </section>
   );
 }

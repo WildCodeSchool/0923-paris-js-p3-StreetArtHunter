@@ -31,7 +31,7 @@ function InputLogin() {
         const user = await response.json();
         auth.setUser(user);
         if (user.admin) navigate("/adminprofil");
-        else navigate("/userprofil");
+        else navigate("/userprofilHistorical");
       } else {
         console.error("veuillez verifier votre saisie.");
       }

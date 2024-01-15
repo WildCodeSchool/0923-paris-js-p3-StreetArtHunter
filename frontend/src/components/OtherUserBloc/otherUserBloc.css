@@ -93,6 +93,7 @@
   font-family: var(--font-07);
   background-color: var(--color-00);
 }
+
 @media (min-width: 1440px) {
   .otherUserBloc_container {
     display: flex;
@@ -102,6 +103,7 @@
     height: 75vh;
     background-image: url("../../assets/images/img/wall11B.jpg");
   }
+
   .otherUserBloc_content {
     display: flex;
     justify-content: space-evenly;
@@ -169,5 +171,15 @@
   .NoWork_visual_OUB {
     width: 70%;
     margin-top: 1rem;
+  }
+}
+@media (max-height: 867px) and (min-width: 1440px) {
+  .otherUserBloc_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 85vh;
+    background-image: url("../../assets/images/img/wall11B.jpg");
   }
 }

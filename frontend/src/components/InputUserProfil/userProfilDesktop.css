@@ -1,21 +1,30 @@
 @media (min-width: 1440px) {
   .UP_Container {
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
     align-items: center;
-    margin-bottom: 2rem;
+    justify-content: center;
+  }
+  .UP_Content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: flex-start;
+  }
+  .UP_Content {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-evenly;
+    width: 100%;
   }
   .UPD_Part1_Flex {
     display: flex;
     justify-content: space-evenly;
     flex-direction: column;
-    margin-top: 4rem;
-    margin-bottom: 2rem;
-    width: 45%;
+    width: 40%;
   }
   .UP_Title_PseudoName {
-    color: #f00;
+    color: var(--color-03);
     text-align: center;
     font-family: Bombing;
     font-size: 90px;
@@ -30,6 +39,7 @@
   }
   .UPD_Level_Score {
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
   }
   .UP_Title_Level {
@@ -37,8 +47,8 @@
     background: #fff;
     width: 377px;
     height: 51px;
-    color: #000;
-    font-family: Goldman;
+    color: var(--color-01);
+    font-family: var(--font-07);
     font-size: 26px;
     padding-left: 1rem;
     display: flex;
@@ -50,8 +60,8 @@
     background: #fff;
     width: 198px;
     height: 51px;
-    color: #000;
-    font-family: Goldman;
+    color: var(--color-01);
+    font-family: var(--font-07);
     font-size: 26px;
     padding-left: 1rem;
     display: flex;
@@ -63,8 +73,8 @@
     background: #fff;
     width: 638px;
     height: 40px;
-    color: #000;
-    font-family: Goldman;
+    color: var(--color-01);
+    font-family: var(--font-07);
     font-size: 20px;
     line-height: normal;
     padding-left: 1rem;
@@ -80,8 +90,8 @@
     cursor: pointer;
   }
   .UP_Change_Password_Inside {
-    color: #000;
-    font-family: Goldman;
+    color: var(--color-01);
+    font-family: var(--font-07);
     text-align: center;
     font-size: 12px;
     display: flex;
@@ -91,11 +101,11 @@
     margin-right: 2rem;
   }
   .UP_Register_Since {
-    border: 1px solid #000;
+    color: var(--color-01);
     background: #fff;
     color: #000;
     text-align: center;
-    font-family: Goldman;
+    font-family: var(--font-07);
     font-size: 16px;
     width: 655px;
     height: 25px;
@@ -106,79 +116,83 @@
   }
   .UPD_Image_Monkey {
     display: block;
-    width: 88%;
+    width: 50%;
+    margin-top: 10px;
   }
   .UPD_Part2_Flex {
-    margin-top: 4rem;
-    width: 45%;
+    width: 35%;
   }
   .UP_Historical_Classement {
     display: flex;
+    align-items: center;
+    background-color: var(--color-00);
   }
   .UP_Title_Historical {
-    border-radius: 16px 0px 0px 0px;
-    border-right: 1px solid #141414;
-    border-top: 1px solid #000;
-    border-left: 1px solid #000;
-    background: #fff;
-    width: 288px;
-    height: 66px;
-    color: #820675;
-    color: #000;
-    text-align: center;
-    font-family: Goldman;
-    font-size: 30px;
     display: flex;
-    flex-direction: column;
+    align-items: center;
     justify-content: center;
+    font-family: var(--font-07);
+    font-size: 1.563rem;
+    width: 50%;
+    padding: 10px 0;
+    border: solid 1px 1px black;
     cursor: pointer;
   }
   .UP_Title_Classement {
-    border-radius: 0px 10px 0px 0px;
-    border-top: 1px solid #000;
-    border-right: 1px solid #000;
-    background: #fff;
-    width: 288.891px;
-    height: 66.169px;
-    color: #820675;
-    color: #000;
-    text-align: center;
-    font-family: Goldman;
-    font-size: 30px;
     display: flex;
-    flex-direction: column;
+    align-items: center;
     justify-content: center;
+    font-family: var(--font-07);
+    font-size: 1.563rem;
+    width: 50%;
+    padding: 10px 0;
+    border: solid 1px 1px black;
     cursor: pointer;
   }
   .UPC_Work_Submited_Classement {
-    width: 577px;
-    height: 665px;
-    display: flex;
-    justify-content: center;
+    width: 99.7%;
+    height: 31rem;
     border-radius: 0px 0px 10px 10px;
     border: 1px solid #000;
   }
+
+  .searchBar_UPC_container {
+    width: 80%;
+  }
+  .searchBar_ULAF {
+    font-size: 1rem;
+  }
+  .UPC_Users_List_Td_container {
+    border: solid 1px black;
+    width: 90%;
+    padding: 1rem 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .UPC_Users_List_Table_container {
+    width: 90%;
+  }
   .UPC_Users_List_Table {
-    width: 95%;
+    width: 100%;
     border: solid 1px black;
   }
   .UPH_Work_Submited {
-    border-radius: 0px 0px 10px 10px;
-    border: 1px solid #000;
-    width: 578px;
-    height: 695px;
+    padding: 1.5rem 0;
+    height: 33rem;
+    width: 99.7%;
+    gap: 2rem;
   }
   .UPH_Works_Count {
-    width: 535px;
-    height: 42px;
+    width: 90%;
+    text-align: center;
     border: 1px solid #000;
-    background: #fff;
-    display: flex;
+    background-color: var(--color-00);
     color: #000;
-    font-family: Goldman;
-    font-size: 16px;
-    justify-content: center;
-    align-items: center;
+    font-family: var(--font-07);
+    font-size: 1.25rem;
+    padding: 5px 0;
   }
   .UPH_Workcard_Container {
     display: flex;
@@ -192,5 +206,12 @@
   }
   .workCard2_container {
     width: 30%;
+  }
+  .UPC_Users_List_Td {
+    border: solid 1px black;
+    padding: 10px 0;
+    text-align: center;
+    font-family: var(--font-00);
+    font-size: 0.75rem;
   }
 }

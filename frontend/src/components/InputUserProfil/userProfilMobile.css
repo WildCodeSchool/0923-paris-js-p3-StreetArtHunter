@@ -3,8 +3,9 @@
   align-items: center;
   flex-direction: column;
 }
+
 .UP_Title_PseudoName {
-  color: #f00;
+  color: var(--color-03);
   text-align: center;
   font-family: Bombing;
   font-size: 69px;
@@ -14,21 +15,26 @@
 .UPM_Level_Score_Password {
   display: grid;
   align-content: space-evenly;
-  gap: 15px;
+  gap: 1.5rem;
+}
+
+.UPD_Level_Score {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
 }
 .UP_Title_Level {
   border: 1px solid #000;
   background: #fff;
   width: 292px;
   height: 51px;
-  color: #000;
-  font-family: Goldman;
+  color: var(--color-01);
+  font-family: var(--font-07);
   font-size: 26px;
   padding-left: 4px;
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  margin-bottom: 1rem;
 }
 .UP_Title_Score {
   display: flex;
@@ -38,8 +44,8 @@
   background: #fff;
   width: 292px;
   height: 51px;
-  color: #000;
-  font-family: Goldman;
+  color: var(--color-01);
+  font-family: var(--font-07);
   font-size: 26px;
   padding-left: 4px;
 }
@@ -50,8 +56,8 @@
   border: 1px solid #000;
   background: #fff;
   width: 292px;
-  color: #000;
-  font-family: Goldman;
+  color: var(--color-01);
+  font-family: var(--font-07);
   font-size: 20px;
   line-height: normal;
   gap: 0.3rem;
@@ -61,8 +67,8 @@
   padding-top: 7px;
 }
 .UP_Change_Password_Inside {
-  color: #000;
-  font-family: Goldman;
+  color: var(--color-01);
+  font-family: var(--font-07);
   text-align: center;
   font-size: 12px;
   display: flex;
@@ -75,9 +81,9 @@
 .UP_Register_Since {
   border: 1px solid #000;
   background: #fff;
-  color: #000;
+  color: var(--color-01);
   text-align: center;
-  font-family: Goldman;
+  font-family: var(--font-07);
   font-size: 16px;
   display: flex;
   flex-direction: column;
@@ -100,10 +106,9 @@
   background: #fff;
   width: 147px;
   height: 39px;
-  color: #820675;
-  color: #000;
+  color: var(--color-01);
   text-align: center;
-  font-family: Goldman;
+  font-family: var(--font-07);
   font-size: 16px;
   display: flex;
   flex-direction: column;
@@ -116,10 +121,9 @@
   background: #fff;
   width: 147px;
   height: 39px;
-  color: #820675;
-  color: #000;
+  color: var(--color-01);
   text-align: center;
-  font-family: Goldman;
+  font-family: var(--font-07);
   font-size: 16px;
   display: flex;
   flex-direction: column;
@@ -146,13 +150,32 @@
 }
 .UPC_Work_Submited_Classement {
   border: 1px solid #000;
-  width: 295px;
+  height: 21rem;
+  width: 99%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 1rem;
+  padding-top: 9px;
+  padding-bottom: 9px;
   margin-bottom: 15px;
+  gap: 0.5rem;
 }
+
+.searchBar_UPC_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 89%;
+}
+.searchBar_UPC {
+  width: 90%;
+  padding: 8px 10px;
+  border-radius: 60px;
+}
+.Smiley_Search_UPC {
+  width: 40px;
+}
+
 .Users_List_UPC {
   display: flex;
   flex-direction: column;
@@ -171,6 +194,15 @@
   text-align: center;
   font-family: var(--font-00);
   font-size: 0.75rem;
+}
+.UPC_Users_List_Td_container {
+  border: solid 1px black;
+  width: 90%;
+  padding: 1rem 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 .UPC_UsersList_Tr:nth-child(even) {
   background-color: var(--color-02);
