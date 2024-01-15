@@ -116,7 +116,7 @@
   }
   .UPD_Image_Monkey {
     display: block;
-    width: 50%;
+    width: 65%;
     margin-top: 10px;
   }
   .UPD_Part2_Flex {
@@ -151,7 +151,7 @@
   }
   .UPC_Work_Submited_Classement {
     width: 99.7%;
-    height: 31rem;
+    height: 34rem;
     border-radius: 0px 0px 10px 10px;
     border: 1px solid #000;
   }
@@ -180,7 +180,7 @@
   }
   .UPH_Work_Submited {
     padding: 1.5rem 0;
-    height: 33rem;
+    height: 32rem;
     width: 99.7%;
     gap: 2rem;
   }
