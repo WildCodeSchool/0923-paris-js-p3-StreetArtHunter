@@ -32,4 +32,4 @@ function HeaderAdmin() {
     </nav>
   );
 }
-export default HeaderConnect;
+export default HeaderAdmin;
