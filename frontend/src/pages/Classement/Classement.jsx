@@ -163,7 +163,7 @@ function Classement() {
         </Modal>
       </div>
       <div className="fissure_Classement">
-        <img src={Fissure} alt="fissure" className="fissure" />
+        <img src={Fissure} alt="fissure" className="fissure fissure_left" />
       </div>
     </section>
   );

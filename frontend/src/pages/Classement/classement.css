@@ -4,14 +4,14 @@
   justify-content: center;
   align-items: center;
   gap: 1rem;
-  margin: 2rem 0;
+  margin: 1rem 0;
 }
 .Classement_Title {
   font-family: var(--font-05);
-  font-size: 24px;
+  font-size: 28px;
 }
 .Most_Wanted {
-  width: 90%;
+  width: 70%;
 }
 .searchBar_Classement_container {
   display: flex;
@@ -34,11 +34,12 @@
 .Users_List_Classement {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
-  padding: 1rem 0;
+  padding-top: 1rem;
   border: solid 1px black;
   width: 90%;
+  height: 350px;
 }
 .UsersList_Table_Classement {
   width: 95%;
@@ -46,10 +47,10 @@
 }
 .UsersList_Td_Classement {
   border: solid 1px black;
-  padding: 4px;
+  padding: 7px 0;
   text-align: center;
   font-family: var(--font-00);
-  font-size: 0.75rem;
+  font-size: 0.85rem;
   cursor: pointer;
 }
 .UsersList_Tr_Classement:nth-child(even) {
@@ -62,8 +63,9 @@
 .fissure_Classement {
   display: none;
 }
-.crown {
-  display: none;
+.Crown {
+  width: 20%;
+  margin-bottom: -21px;
 }
 @media (min-width: 1440px) {
   .Classement_section {
@@ -73,16 +75,20 @@
   }
   .fissure_Classement {
     display: initial;
-    width: 15%;
+    width: 16%;
   }
   .fissure {
     width: 100%;
   }
+  .fissure_left {
+    transform: scaleX(-1);
+  }
   .Classement_bloc {
-    width: 35%;
+    width: 42%;
     margin: 0;
   }
   .Crown {
+    display: initial;
     width: 15%;
     margin-bottom: -29px;
   }
@@ -95,8 +101,11 @@
     display: initial;
     width: 40px;
   }
+  .Users_List_Classement {
+    height: 330px;
+  }
   .UsersList_Td_Classement {
-    padding: 7px;
+    padding: 5px 0;
     font-size: 1rem;
   }
   .OtherUserModal {
