@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import Pagination from "@mui/material/Pagination";
 import Stack from "@mui/material/Stack";
+import WorkCard from "../../components/WorkCard/WorkCard";
 import WorkCard2 from "../../components/WorkCard2/WorkCard2";
 import PictureMap from "../../assets/images/map_sample/map_sample_1-1.jpg";
 import DataWorks from "../../../data_sample/data_works.json";
@@ -85,7 +86,7 @@ function SpotZoneById() {
               <div className="content_Work_City_Zone">
                 {currentItems.map((data, index) => (
                   // eslint-disable-next-line react/no-array-index-key
-                  <WorkCard2 key={index} data={data} />
+                  <WorkCard key={index} data={data} />
                 ))}
               </div>
             </div>
@@ -108,7 +109,7 @@ function SpotZoneById() {
               }}
               tabIndex="0"
             >
-              <h3 className="Button-back-Spotzone">BACK</h3>
+              BACK
             </div>
           </div>
         </div>
@@ -116,45 +117,60 @@ function SpotZoneById() {
 
       {desktopScreen && (
         <div className="spotZoneById">
-          <div className="city_zone_container">
-            <h1 className="Title_SpotZoneById">{location}</h1>
-            <div className="picture_map_container">
-              <img
-                className="picture_SpotZoneById"
-                src={PictureMap}
-                alt="pictureOne"
-              />
-            </div>
-            <div className="text_SpotZoneByid">
-              <p>{dataCity?.presentation}</p>
-            </div>
-          </div>
-
-          <div className="Global_container_desktop">
-            <div className="works_city_zone_container_Desktop">
-              <div className="content_Work_City_Zone">
-                {currentItemsDesktop.map((data, index) => (
-                  <WorkCard2
-                    className="Workcard_SpotZone_Desktop"
-                    // eslint-disable-next-line react/no-array-index-key
-                    key={index}
-                    data={data}
-                  />
-                ))}
+          <div className="spotZoneIDContent">
+            <div className="city_zone_container">
+              <h1 className="Title_SpotZoneById">{location}</h1>
+              <div className="picture_map_container">
+                <img
+                  className="picture_SpotZoneById"
+                  src={PictureMap}
+                  alt="pictureOne"
+                />
+              </div>
+              <div className="text_SpotZoneByid">
+                <p>{dataCity?.presentation}</p>
+              </div>
+              <div
+                className="Button-Back-Spotzone"
+                role="button"
+                onClick={() => {
+                  navigate("/spotzone");
+                }}
+                onKeyDown={() => {
+                  navigate("/spotzone");
+                }}
+                tabIndex="0"
+              >
+                BACK
               </div>
             </div>
-            <Stack spacing={0} mt={0}>
-              <Pagination
-                className="Pagination_SpotZone_Desktop"
-                count={countDesktopPages}
-                size="small"
-                shape="rounded"
-                variant="outlined"
-                siblingCount={0}
-                page={currentPageDesktop}
-                onChange={handlePageChangeDesktop}
-              />
-            </Stack>
+
+            <div className="Global_container_desktop">
+              <div className="works_city_zone_container_Desktop">
+                <div className="content_Work_City_Zone">
+                  {currentItemsDesktop.map((data, index) => (
+                    <WorkCard2
+                      className="Workcard_SpotZone_Desktop"
+                      // eslint-disable-next-line react/no-array-index-key
+                      key={index}
+                      data={data}
+                    />
+                  ))}
+                </div>
+              </div>
+              <Stack spacing={0} mt={0}>
+                <Pagination
+                  className="Pagination_SpotZone_Desktop"
+                  count={countDesktopPages}
+                  size="small"
+                  shape="rounded"
+                  variant="outlined"
+                  siblingCount={0}
+                  page={currentPageDesktop}
+                  onChange={handlePageChangeDesktop}
+                />
+              </Stack>
+            </div>
           </div>
         </div>
       )}

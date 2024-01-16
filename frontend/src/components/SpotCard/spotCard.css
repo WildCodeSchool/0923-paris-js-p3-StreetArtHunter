@@ -1,5 +1,6 @@
 .SpotCard_section {
   width: 100%;
+  cursor: pointer;
 }
 
 .SpotCard_container {
