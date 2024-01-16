@@ -1,0 +1,107 @@
+.Classement_bloc {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin: 2rem 0;
+}
+.Classement_Title {
+  font-family: var(--font-05);
+  font-size: 24px;
+}
+.Most_Wanted {
+  width: 90%;
+}
+.searchBar_Classement_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+}
+.searchBar_Classement {
+  width: 100%;
+  padding: 8px 10px;
+  border-radius: 60px;
+}
+.Smiley_Search_Classement {
+  display: none;
+}
+
+.Classement_content {
+  width: 95%;
+}
+.Users_List_Classement {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem 0;
+  border: solid 1px black;
+  width: 90%;
+}
+.UsersList_Table_Classement {
+  width: 95%;
+  border: solid 1px black;
+}
+.UsersList_Td_Classement {
+  border: solid 1px black;
+  padding: 4px;
+  text-align: center;
+  font-family: var(--font-00);
+  font-size: 0.75rem;
+  cursor: pointer;
+}
+.UsersList_Tr_Classement:nth-child(even) {
+  background-color: var(--color-02);
+}
+
+.UsersList_Tr_Classement:nth-child(odd) {
+  background-color: var(--color-00);
+}
+.fissure_Classement {
+  display: none;
+}
+.crown {
+  display: none;
+}
+@media (min-width: 1440px) {
+  .Classement_section {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+  }
+  .fissure_Classement {
+    display: initial;
+    width: 15%;
+  }
+  .fissure {
+    width: 100%;
+  }
+  .Classement_bloc {
+    width: 35%;
+    margin: 0;
+  }
+  .Crown {
+    width: 15%;
+    margin-bottom: -29px;
+  }
+  .Classement_Title {
+    font-family: var(--font-05);
+    font-size: 40px;
+  }
+
+  .Smiley_Search_Classement {
+    display: initial;
+    width: 40px;
+  }
+  .UsersList_Td_Classement {
+    padding: 7px;
+    font-size: 1rem;
+  }
+  .OtherUserModal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
