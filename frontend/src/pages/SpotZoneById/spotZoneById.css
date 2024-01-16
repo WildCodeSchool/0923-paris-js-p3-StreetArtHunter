@@ -53,10 +53,11 @@
   width: 30%;
   text-align: center;
   font-family: var(--font-03);
+  background-color: var(--color-00);
   color: var(--color-01);
   cursor: pointer;
 }
-.Button-back-Spotzone:hover {
+.Button-Back-Spotzone:hover {
   color: var(--color-00);
   background-color: var(--color-01);
 }

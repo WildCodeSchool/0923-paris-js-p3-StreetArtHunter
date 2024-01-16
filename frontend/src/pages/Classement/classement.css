@@ -1,3 +1,15 @@
+.Classement_section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.Classement_content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 .Classement_bloc {
   display: flex;
   flex-direction: column;
@@ -18,6 +30,7 @@
   justify-content: center;
   align-items: center;
   width: 90%;
+  margin-bottom: 1rem;
 }
 .searchBar_Classement {
   width: 100%;
@@ -38,8 +51,9 @@
   align-items: center;
   padding-top: 1rem;
   border: solid 1px black;
-  width: 90%;
-  height: 350px;
+  width: 95%;
+  height: 380px;
+  margin-bottom: 1rem;
 }
 .UsersList_Table_Classement {
   width: 95%;
@@ -50,7 +64,7 @@
   padding: 7px 0;
   text-align: center;
   font-family: var(--font-00);
-  font-size: 0.85rem;
+  font-size: 0.75rem;
   cursor: pointer;
 }
 .UsersList_Tr_Classement:nth-child(even) {
@@ -60,7 +74,7 @@
 .UsersList_Tr_Classement:nth-child(odd) {
   background-color: var(--color-00);
 }
-.fissure_Classement {
+.AnonymousKing_Classement {
   display: none;
 }
 .Crown {
@@ -69,40 +83,44 @@
 }
 @media (min-width: 1440px) {
   .Classement_section {
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
+    flex-direction: row;
   }
-  .fissure_Classement {
+  .Classement_content {
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: flex-end;
+  }
+  .AnonymousKing_Classement {
     display: initial;
-    width: 16%;
+    width: 30%;
   }
-  .fissure {
+  .AnonymousKing {
     width: 100%;
   }
-  .fissure_left {
+  .AnonymousKing_right {
     transform: scaleX(-1);
   }
   .Classement_bloc {
-    width: 42%;
+    width: 35%;
     margin: 0;
   }
   .Crown {
     display: initial;
     width: 15%;
     margin-bottom: -29px;
+    transform: scaleX(-1);
   }
   .Classement_Title {
     font-family: var(--font-05);
     font-size: 40px;
   }
-
   .Smiley_Search_Classement {
     display: initial;
     width: 40px;
   }
   .Users_List_Classement {
-    height: 330px;
+    height: 385px;
+    margin-bottom: 0;
   }
   .UsersList_Td_Classement {
     padding: 5px 0;

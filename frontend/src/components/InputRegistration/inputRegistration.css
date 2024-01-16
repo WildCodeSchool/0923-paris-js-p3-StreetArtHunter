@@ -64,24 +64,27 @@
   width: 20%;
   margin-bottom: 5%;
 }
-.PaintMan_Picture_Register {
+.AnonymousReg {
   display: none;
 }
-.PaintMan_Picture_Register_left {
+.AnonymousReg_right {
   display: none;
 }
 
 @media (min-width: 1440px) {
+  .Anonymous_Register {
+    display: none;
+  }
   .Display_Desktop_Register {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     align-items: center;
   }
   .Picture_DesKtop_Register {
-    width: 25%;
+    width: 35%;
   }
-  .PaintMan_Picture_Register {
-    display: block;
+  .AnonymousReg {
+    display: initial;
     width: 100%;
   }
   .Block_Register {
@@ -100,9 +103,8 @@
     width: 100%;
     font-size: large;
   }
-  .PaintMan_Picture_Register_left {
-    display: block;
+  .AnonymousReg_right {
+    display: initial;
     transform: scaleX(-1);
-    width: 100%;
   }
 }

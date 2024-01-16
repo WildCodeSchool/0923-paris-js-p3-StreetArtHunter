@@ -1,6 +1,5 @@
 .SpotCard_section {
   width: 100%;
-  cursor: pointer;
 }
 
 .SpotCard_container {
@@ -10,11 +9,7 @@
   width: 100%;
   flex-direction: column;
   gap: 1rem;
-}
-
-.SpotCard_content {
-  display: flex;
-  gap: 1rem;
+  cursor: pointer;
 }
 .spot_image {
   width: 100%;
@@ -25,7 +20,4 @@
 .spotCard_info {
   font-family: var(--font-00);
   font-size: 20px;
-}
-.spotCard_info:hover {
-  font-weight: bold;
 }
