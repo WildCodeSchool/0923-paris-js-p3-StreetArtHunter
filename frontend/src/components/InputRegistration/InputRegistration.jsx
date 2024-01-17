@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import anonymous from "../../assets/images/img/pngwing.com.png";
-import paintMan from "../../assets/images/img/paint-man-b.png";
+import AnonymousRegister from "../../assets/images/img/anonymous_register.png";
 import "./inputRegistration.css";
 
 function InputRegistration() {
@@ -71,11 +71,7 @@ function InputRegistration() {
   return (
     <section className="Display_Desktop_Register Global_height">
       <div className="Picture_DesKtop_Register">
-        <img
-          className="PaintMan_Picture_Register_left"
-          src={paintMan}
-          alt="paintMan"
-        />
+        <img className="AnonymousReg" src={AnonymousRegister} alt="paintMan" />
       </div>
       <div className="Block_Register">
         <div className="Register">
@@ -141,8 +137,8 @@ function InputRegistration() {
       </div>
       <div className="Picture_DesKtop_Register">
         <img
-          className="PaintMan_Picture_Register"
-          src={paintMan}
+          className="AnonymousReg AnonymousReg_right"
+          src={AnonymousRegister}
           alt="paintMan"
         />
       </div>
