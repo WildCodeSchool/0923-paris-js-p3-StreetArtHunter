@@ -9,7 +9,7 @@ import "./spotZone.css";
 function SpotZone() {
   const Datas = DataSpots;
 
-  // Logtique pagination smartphone
+  // Logique pagination smartphone
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 1;
   const handlePageChange = (event, pageNumber) => {
