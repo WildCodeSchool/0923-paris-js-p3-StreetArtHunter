@@ -137,6 +137,18 @@
     padding: 10px 0;
     border: solid 1px 1px black;
     cursor: pointer;
+    color: var(--color-04);
+  }
+  .UP_Title_Historical2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-07);
+    font-size: 1.563rem;
+    width: 50%;
+    padding: 10px 0;
+    border: solid 1px 1px black;
+    cursor: pointer;
   }
   .UP_Title_Classement {
     display: flex;
@@ -149,11 +161,31 @@
     border: solid 1px 1px black;
     cursor: pointer;
   }
+  .UP_Title_Classement2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-07);
+    font-size: 1.563rem;
+    width: 50%;
+    padding: 10px 0;
+    border: solid 1px 1px black;
+    cursor: pointer;
+    color: var(--color-04);
+  }
   .UPC_Work_Submited_Classement {
     width: 99.7%;
-    height: 34rem;
+    height: 32rem;
+    padding: 1.5rem 0;
     border-radius: 0px 0px 10px 10px;
     border: 1px solid #000;
+  }
+  .initialColor {
+    color: var(--color-01);
+  }
+
+  .newColor {
+    color: var(--color-04);
   }
 
   .searchBar_UPC_container {
@@ -165,7 +197,7 @@
   .UPC_Users_List_Td_container {
     border: solid 1px black;
     width: 90%;
-    padding: 1rem 0;
+    margin-top: 1rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -181,6 +213,7 @@
   .UPH_Work_Submited {
     padding: 1.5rem 0;
     height: 32rem;
+    padding: 1.5rem 0;
     width: 99.7%;
     gap: 2rem;
   }
@@ -212,6 +245,7 @@
     padding: 10px 0;
     text-align: center;
     font-family: var(--font-00);
-    font-size: 0.75rem;
+    font-size: 1rem;
+    cursor: pointer;
   }
 }

@@ -3,6 +3,9 @@
   align-items: center;
   flex-direction: column;
 }
+.UP_Content {
+  width: 90%;
+}
 
 .UP_Title_PseudoName {
   color: var(--color-03);
@@ -26,7 +29,6 @@
 .UP_Title_Level {
   border: 1px solid #000;
   background: #fff;
-  width: 292px;
   height: 51px;
   color: var(--color-01);
   font-family: var(--font-07);
@@ -42,7 +44,6 @@
   justify-content: flex-start;
   border: 1px solid #000;
   background: #fff;
-  width: 292px;
   height: 51px;
   color: var(--color-01);
   font-family: var(--font-07);
@@ -55,7 +56,6 @@
   justify-content: center;
   border: 1px solid #000;
   background: #fff;
-  width: 292px;
   color: var(--color-01);
   font-family: var(--font-07);
   font-size: 20px;
@@ -74,7 +74,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 129px;
+  width: 35%;
   height: 34px;
   border: 1px solid #000;
 }
@@ -88,7 +88,6 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 295px;
   height: 25px;
   margin-bottom: 15px;
 }
@@ -104,9 +103,24 @@
   border-top: 1px solid #000;
   border-left: 1px solid #000;
   background: #fff;
-  width: 147px;
+  width: 50%;
   height: 39px;
-  color: var(--color-01);
+  text-align: center;
+  font-family: var(--font-07);
+  font-size: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: var(--color-04);
+}
+.UP_Title_Historical2 {
+  border-radius: 16px 0px 0px 0px;
+  border-right: 1px solid #141414;
+  border-top: 1px solid #000;
+  border-left: 1px solid #000;
+  background: #fff;
+  width: 50%;
+  height: 39px;
   text-align: center;
   font-family: var(--font-07);
   font-size: 16px;
@@ -119,9 +133,8 @@
   border-top: 1px solid #000;
   border-right: 1px solid #000;
   background: #fff;
-  width: 147px;
+  width: 50%;
   height: 39px;
-  color: var(--color-01);
   text-align: center;
   font-family: var(--font-07);
   font-size: 16px;
@@ -129,10 +142,26 @@
   flex-direction: column;
   justify-content: center;
 }
+.UP_Title_Classement2 {
+  border-radius: 0px 10px 0px 0px;
+  border-top: 1px solid #000;
+  border-right: 1px solid #000;
+  background: #fff;
+  width: 50%;
+  height: 39px;
+  text-align: center;
+  font-family: var(--font-07);
+  font-size: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: var(--color-04);
+}
+
 .UPH_Work_Submited {
   border-radius: 0px 0px 10px 10px;
   border: 1px solid #000;
-  width: 295px;
+  width: 99.7%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -151,7 +180,6 @@
 .UPC_Work_Submited_Classement {
   border: 1px solid #000;
   height: 21rem;
-  width: 99%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -160,7 +188,12 @@
   margin-bottom: 15px;
   gap: 0.5rem;
 }
-
+.initialColor {
+  color: var(--color-01);
+}
+.newColor {
+  color: var(--color-04);
+}
 .searchBar_UPC_container {
   display: flex;
   justify-content: center;

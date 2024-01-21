@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react";
 import Pagination from "@mui/material/Pagination";
 import Stack from "@mui/material/Stack";
-import "./otherUserBloc.css";
 import DataWorks from "../../../data_sample/data_works.json";
 import WorkCard from "../WorkCard/WorkCard";
 import WorkCard2 from "../WorkCard2/WorkCard2";
 import SmileyDeath from "../../assets/images/img/smiley_death.png";
+import WarIsMean from "../../assets/images/img/warismean.png";
 import TempVisual from "../../assets/images/img/monkey03.png";
+import "./otherUserBloc.css";
 
 function OtherUserBloc({ dataUser }) {
   const [selectUser, setSelectUser] = useState([]);
@@ -132,14 +133,19 @@ function OtherUserBloc({ dataUser }) {
                   {dataUser.registration}{" "}
                 </span>
               </div>
-              <img
-                src={SmileyDeath}
-                alt="SmileyDeath"
-                className="SmileyDeath"
-              />
-              <div className="OUB_trash_btn_container">
-                <div className="OUB_trash_btn"> DELETE USER</div>
-              </div>
+              {dataUser.isUser && (
+                <img
+                  src={SmileyDeath}
+                  alt="SmileyDeath"
+                  className="SmileyDeath"
+                />
+              )}
+              <img src={WarIsMean} alt="WarIsMean" className="WarIsMean" />
+              {dataUser.isUser && (
+                <div className="OUB_trash_btn_container">
+                  <div className="OUB_trash_btn"> DELETE USER</div>
+                </div>
+              )}
             </div>
             {userWorkCount !== 0 && (
               <div className="history_OUB">

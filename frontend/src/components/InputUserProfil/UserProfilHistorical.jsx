@@ -1,21 +1,28 @@
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import Pagination from "@mui/material/Pagination";
 import Stack from "@mui/material/Stack";
 import DataWorks from "../../../data_sample/data_works.json";
 import WorkCard from "../WorkCard/WorkCard";
 import WorkCard2 from "../WorkCard2/WorkCard2";
 import imageMonkey from "../../assets/images/img/monkey02.png";
+import AuthContext from "../../context/AuthContext";
 import "./userProfilMobile.css";
 import "./userProfilDesktop.css";
 
 function UserProfilHistorical() {
   const navigate = useNavigate();
   // database //
-  const data = DataWorks;
+  const datas = DataWorks;
+  const { user } = useContext(AuthContext);
+  // console.log(user);
+  // useEffect(() => {
+  //   const filterPresentUser = dataUsers.find((data) => data.pseudo === pseudo);
+  //   setUserData(filterPresentUser);
+  // }, [pseudo]);
 
   // Works Count - only the validate //
-  const validatedWorks = data.filter((work) => work.validation === "true");
+  const validatedWorks = datas.filter((work) => work.validation === "true");
   const validatedWorksCount = validatedWorks.length;
 
   // pagination work card //
@@ -53,16 +60,16 @@ function UserProfilHistorical() {
     <section className="UP_Container Global_height">
       <div className="UP_Content">
         <div className="UPD_Part1_Flex">
-          <div className="UP_Title_PseudoName">PSEUDO NAME</div>
+          <div className="UP_Title_PseudoName">{user?.pseudo}</div>
           <div className="UPD_Email_Password_Register">
             <div className="UPM_Level_Score_Password">
               <div className="UPD_Level_Score">
                 <div className="UP_Title_Level">level:</div>
-                <div className="UP_Title_Score">score:</div>
+                <div className="UP_Title_Score">score: {user?.score}</div>
               </div>
               <div className="UP_Email_Password">
                 <div className="Block_Email_Password">
-                  <p>email:</p>
+                  <p>email: {user?.email}</p>
                   <p>password:</p>
                 </div>
                 <div className="UP_Change_Password">
@@ -71,7 +78,9 @@ function UserProfilHistorical() {
                   </div>
                 </div>
               </div>
-              <div className="UP_Register_Since">register since</div>
+              <div className="UP_Register_Since">
+                register since: {user?.registration_date}
+              </div>
             </div>
             <div className="UPD_Image_Monkey_Center">
               <img
@@ -121,8 +130,8 @@ function UserProfilHistorical() {
 
               {smartphoneScreen && (
                 <div className="UPH_Workcard_Container">
-                  {currentItems.map((datas) => (
-                    <WorkCard key={datas.id} data={datas} />
+                  {currentItems.map((data) => (
+                    <WorkCard key={data.id} data={data} />
                   ))}
                 </div>
               )}
@@ -143,8 +152,8 @@ function UserProfilHistorical() {
               {desktopScreen && (
                 <>
                   <div className="UPH_Workcard_Container">
-                    {currentItemsDesktop.map((datas) => (
-                      <WorkCard2 key={datas.id} data={datas} />
+                    {currentItemsDesktop.map((data) => (
+                      <WorkCard2 key={data.id} data={data} />
                     ))}
                   </div>
                   <Stack spacing={0} mt={0}>
