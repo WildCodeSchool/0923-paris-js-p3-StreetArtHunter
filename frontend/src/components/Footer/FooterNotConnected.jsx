@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import "./footer.css";
-import "./footerNotConnected.css";
+import "./footerNotConnectedMobile.css";
+import "./footerNotConnectedDesktop.css";
 import infos from "../../assets/images/ico/About_ico.png";
 
 function FooterNotConnected() {

@@ -2,6 +2,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  margin: 1rem 0;
 }
 .title_image_button {
   display: flex;
@@ -28,7 +29,7 @@
   font-family: Permanent Marker;
   font-size: 30px;
   font-style: normal;
-  font-weight: 400px;
+  font-weight: 400;
   line-height: normal;
 }
 .importImagePhoto {
@@ -79,7 +80,6 @@
   background: var(--color-01);
   color: var(--color-00);
 }
-
 .Button-SubmitWork {
   display: flex;
   justify-content: center;
@@ -148,6 +148,7 @@
 @media (min-width: 1440px) {
   .SubmitW_container {
     justify-content: space-between;
+    margin: 0;
   }
   .title_Image {
     width: 40%;

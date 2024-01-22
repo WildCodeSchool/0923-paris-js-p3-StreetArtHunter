@@ -10,7 +10,6 @@ function InputLogin() {
   const pseudo = useRef();
   const password = useRef();
   const auth = useContext(AuthContext);
-
   // Gestion soumission de formulaire //
   const handleSubmit = async () => {
     try {
@@ -31,7 +30,7 @@ function InputLogin() {
         const user = await response.json();
         auth.setUser(user);
         if (user.admin) navigate("/adminprofil");
-        else navigate("/userprofil");
+        else navigate("/userprofilhistorical");
       } else {
         console.error("veuillez verifier votre saisie.");
       }

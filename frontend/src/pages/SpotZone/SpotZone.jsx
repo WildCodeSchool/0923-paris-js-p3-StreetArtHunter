@@ -9,7 +9,7 @@ import "./spotZone.css";
 function SpotZone() {
   const Datas = DataSpots;
 
-  // Logtique pagination smartphone
+  // Logique pagination smartphone
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 1;
   const handlePageChange = (event, pageNumber) => {
@@ -40,7 +40,7 @@ function SpotZone() {
   const desktopScreen = window.matchMedia("(min-width: 1440px)").matches;
 
   return (
-    <section className="spotZoneContainer">
+    <section className="spotZoneContainer Global_height">
       <h1 className="title_SpotZone">STREET ART SPOTS</h1>
       <div className="text_SpotZone">
         <p>
@@ -53,30 +53,31 @@ function SpotZone() {
           ipsum dolor sit amet consectetur adipisicing elit.
         </p>
       </div>
-      {smartphoneScreen && (
-        <div className="spotZone_workcard_container">
-          {currentItems.map((data, index) => (
-            // eslint-disable-next-line react/no-array-index-key
-            <SpotCard className="SpotCard_content" key={index} data={data} />
-          ))}
-        </div>
-      )}
-      {smartphoneScreen && (
-        <div className="Pagination_SpotZone_Smartphone">
-          <Stack spacing={0} mt={0}>
-            <Pagination
-              count={Math.ceil(Datas.length / itemsPerPage)}
-              size="small"
-              shape="rounded"
-              variant="outlined"
-              siblingCount={0}
-              page={currentPage}
-              onChange={handlePageChange}
-            />
-          </Stack>
-        </div>
-      )}
 
+      {smartphoneScreen && (
+        <>
+          <hr className="dashed_line_SpotZone" />
+          <div className="Pagination_SpotZone_Smartphone">
+            <Stack spacing={0} mt={0}>
+              <Pagination
+                count={Math.ceil(Datas.length / itemsPerPage)}
+                size="small"
+                shape="rounded"
+                variant="outlined"
+                siblingCount={0}
+                page={currentPage}
+                onChange={handlePageChange}
+              />
+            </Stack>
+          </div>
+          <div className="spotZone_workcard_container">
+            {currentItems.map((data, index) => (
+              // eslint-disable-next-line react/no-array-index-key
+              <SpotCard className="SpotCard_content" key={index} data={data} />
+            ))}
+          </div>
+        </>
+      )}
       {desktopScreen && (
         <>
           <div className="spotZone_workcard_container_desktop">

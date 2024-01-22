@@ -7,11 +7,11 @@ import Stack from "@mui/material/Stack";
 import "./adminProfil.css";
 import "./adminProfilMediaDeskTop.css";
 import DataWorks from "../../../data_sample/data_works.json";
-import WorkCard from "../../components/WorkCard/WorkCard";
-import WorkCard2 from "../../components/WorkCard2/WorkCard2";
 import UserListAdminFeat from "../../components/AdminFeatures/UserListAdminFeat/UserListAdminFeat";
 import WorksListAdminFeat from "../../components/AdminFeatures/WorksListAdminFeat/WorksListAdminFeat";
 import ValidationAdminFeat from "../../components/AdminFeatures/ValidationAdminFeat/ValidationAdminFeat";
+import WorkCard from "../../components/WorkCard/WorkCard";
+import WorkCard2 from "../../components/WorkCard2/WorkCard2";
 
 function AdminProfil() {
   const user = useLoaderData();
