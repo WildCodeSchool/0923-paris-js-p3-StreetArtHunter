@@ -2,6 +2,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  margin: 1rem 0;
 }
 .title_image_button {
   display: flex;
@@ -147,6 +148,7 @@
 @media (min-width: 1440px) {
   .SubmitW_container {
     justify-content: space-between;
+    margin: 0;
   }
   .title_Image {
     width: 40%;

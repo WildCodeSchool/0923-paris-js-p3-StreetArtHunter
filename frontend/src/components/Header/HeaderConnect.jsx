@@ -1,10 +1,21 @@
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+import { useNavigate } from "react-router-dom";
 import MenuBurgerConnected from "./MenuBurgerConnected";
 import "./headerConnect.css";
 
 function HeaderAdmin() {
+  const navigate = useNavigate();
   return (
     <nav className="Navbar">
-      <div className="Title-Header">STREET ART HUNTERZ</div>
+      <div
+        className="Title-Header"
+        onClick={() => {
+          navigate("/homepage");
+        }}
+      >
+        STREET ART HUNTERZ
+      </div>
       <div className="LogOut-img">
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -21,5 +32,4 @@ function HeaderAdmin() {
     </nav>
   );
 }
-
 export default HeaderAdmin;

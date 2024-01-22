@@ -80,3 +80,9 @@ body::-webkit-scrollbar {
     height: 100vh;
   }
 }
+@media (max-height: 867px) and (min-width: 1440px) {
+  .Global_height {
+    min-height: calc(100vh - 165px);
+    padding: 3rem 0;
+  }
+}
