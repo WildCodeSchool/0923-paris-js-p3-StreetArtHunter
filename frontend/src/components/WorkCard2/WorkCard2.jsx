@@ -1,7 +1,3 @@
-/* eslint-disable react/jsx-boolean-value */
-/* eslint-disable jsx-a11y/no-static-element-interactions */
-/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
-/* eslint-disable jsx-a11y/click-events-have-key-events */
 import { useState } from "react";
 import Modal from "@mui/material/Modal";
 import Box from "@mui/material/Box";
@@ -22,7 +18,17 @@ function WorkCard2({ data }) {
 
   return (
     <>
-      <section className="workCard2_container" onClick={openModal}>
+      <section
+        role="button"
+        className="workCard2_container"
+        onClick={() => {
+          openModal();
+        }}
+        onKeyDown={() => {
+          openModal();
+        }}
+        tabIndex="0"
+      >
         <div className="workCard2_content">
           <img className="Work2_image" src={data.image} alt="work" />
           <div className="work2_infos_container">
@@ -31,13 +37,23 @@ function WorkCard2({ data }) {
         </div>
       </section>
       {selectedWork && (
-        <Modal open={true} onClose={closeModal} className="WorkBlockModal">
+        <Modal open onClose={closeModal} className="WorkBlockModal">
           <Box>
             <Container maxWidth="lg">
               <div className="modal_closed_btn_container">
-                <p onClick={closeModal} className="modal_closed_btn">
+                <div
+                  role="button"
+                  onClick={() => {
+                    closeModal();
+                  }}
+                  onKeyDown={() => {
+                    closeModal();
+                  }}
+                  tabIndex="-1"
+                  className="modal_closed_btn"
+                >
                   X closed
-                </p>
+                </div>
               </div>
               <WorkCardBloc data={data} />
             </Container>
