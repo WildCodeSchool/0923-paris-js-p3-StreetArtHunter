@@ -59,6 +59,8 @@ function SpotZoneById() {
 
   const smartphoneScreen = window.matchMedia("(min-width: 320px)").matches;
   const desktopScreen = window.matchMedia("(min-width: 1440px)").matches;
+
+  // return //
   return (
     <section className="spotZoneById Global_height">
       {smartphoneScreen && (
