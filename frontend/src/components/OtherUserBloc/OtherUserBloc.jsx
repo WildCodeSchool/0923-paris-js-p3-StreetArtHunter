@@ -133,19 +133,21 @@ function OtherUserBloc({ dataUser }) {
                   {dataUser.registration}{" "}
                 </span>
               </div>
-              {dataUser.isUser && (
+              {dataUser.isAdmin && (
                 <img
                   src={SmileyDeath}
                   alt="SmileyDeath"
                   className="SmileyDeath"
                 />
               )}
-              <img src={WarIsMean} alt="WarIsMean" className="WarIsMean" />
-              {dataUser.isUser && (
-                <div className="OUB_trash_btn_container">
-                  <div className="OUB_trash_btn"> DELETE USER</div>
-                </div>
-              )}
+              <div className="Flex_WarIsMean">
+                <img src={WarIsMean} alt="WarIsMean" className="WarIsMean" />
+                {dataUser.isAdmin && (
+                  <div className="OUB_trash_btn_container">
+                    <div className="OUB_trash_btn"> DELETE USER</div>
+                  </div>
+                )}
+              </div>
             </div>
             {userWorkCount !== 0 && (
               <div className="history_OUB">

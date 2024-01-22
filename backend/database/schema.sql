@@ -26,7 +26,7 @@ CREATE TABLE IF NOT EXISTS `Street_Art_Hunterz`.`user` (
   `pseudo` VARCHAR(20) NOT NULL,
   `email` VARCHAR(120) NOT NULL,
   `password` VARCHAR(250) NOT NULL,
-  `registration_date` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `registration_date` DATE DEFAULT NULL,
   `score` INT NOT NULL DEFAULT 0,
   `admin` TINYINT NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`),
