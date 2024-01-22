@@ -1,10 +1,9 @@
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import Stack from "@mui/material/Stack";
 import Button from "@mui/material/Button";
-import "./homePage.css";
-import MapSample from "../../assets/images/map_sample/map_sample_1-1.jpg";
-import MapSample2 from "../../assets/images/map_sample/map_sample_home.jpg";
 import KidCompass from "../../assets/images/img/Anonym_boussole.png";
+import StreetMap from "../../components/Map/Map";
+import "./homePage.css";
 
 function HomePage() {
   const theme = createTheme({
@@ -36,27 +35,14 @@ function HomePage() {
       <section className="Homepage_central">
         <div className="homepage_intro_content">
           <h1 className="intro_title_homePage">the urban art cartographers</h1>
-          {smartphoneScreen && (
-            <p className="intro_text_homePage">
-              Explore the walls of your city <br /> and share what you see.
-            </p>
-          )}
-          {desktopScreen && (
-            <p className="intro_text_homePage">
-              Explore the walls of your city and share what you see.
-            </p>
-          )}
+          <p className="intro_text_homePage">
+            Explore the walls of your city {smartphoneScreen && <br />} and
+            share what you see.
+          </p>
         </div>
-        {smartphoneScreen && (
-          <div className="map_homePage_container">
-            <img src={MapSample} alt="map" className="map_homePage" />
-          </div>
-        )}
-        {desktopScreen && (
-          <div className="map_homePage_container">
-            <img src={MapSample2} alt="map" className="map_homePage" />
-          </div>
-        )}
+        <div className="map_homePage_container">
+          <StreetMap />
+        </div>
         <div className="cardinal_buttons_line">
           {smartphoneScreen && (
             <ThemeProvider theme={theme}>
