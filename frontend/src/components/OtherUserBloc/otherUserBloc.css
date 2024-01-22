@@ -93,6 +93,7 @@
   font-family: var(--font-07);
   background-color: var(--color-00);
 }
+
 @media (min-width: 1440px) {
   .otherUserBloc_container {
     display: flex;
@@ -102,6 +103,7 @@
     height: 75vh;
     background-image: url("../../assets/images/img/wall11B.jpg");
   }
+
   .otherUserBloc_content {
     display: flex;
     justify-content: space-evenly;
@@ -133,6 +135,14 @@
   }
   .SmileyDeath {
     width: 25%;
+  }
+  .Flex_WarIsMean {
+    display: flex;
+    justify-content: center;
+    margin-top: 1.3rem;
+  }
+  .WarIsMean {
+    width: 55%;
   }
   .OUB_trash_btn {
     width: 100%;

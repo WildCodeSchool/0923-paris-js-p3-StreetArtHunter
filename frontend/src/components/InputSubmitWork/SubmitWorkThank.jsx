@@ -1,7 +1,8 @@
 import { useNavigate } from "react-router-dom";
 import heartIcon from "../../assets/images/img/heart1.png";
 import ratPhotographer from "../../assets/images/img/Rat_photograph.png";
-import "./submitWork.css";
+import "./submitWorkMobile.css";
+import "./submitWorkDesktop.css";
 
 function SubmitWorkThank() {
   const navigate = useNavigate();

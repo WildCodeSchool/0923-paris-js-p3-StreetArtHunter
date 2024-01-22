@@ -13,7 +13,8 @@ import SpotZone from "./pages/SpotZone/SpotZone";
 import SubwitWorkImport from "./components/InputSubmitWork/SubmitWorkImport";
 import SubmitWorkValidation from "./components/InputSubmitWork/SubmitWorkValidation";
 import SubmitWorkThank from "./components/InputSubmitWork/SubmitWorkThank";
-import UserProfil from "./pages/UserProfil/UserProfil";
+import UserProfilHistorical from "./components/InputUserProfil/UserProfilHistorical";
+import UserProfilClassement from "./components/InputUserProfil/UserProfilClassement";
 import Information from "./pages/Information/Information";
 import SpotZoneById from "./pages/SpotZoneById/SpotZoneById";
 
@@ -67,8 +68,12 @@ const router = createBrowserRouter([
       },
 
       {
-        path: "/userprofil",
-        element: <UserProfil />,
+        path: "/userprofilhistorical",
+        element: <UserProfilHistorical />,
+      },
+      {
+        path: "/userprofilclassement",
+        element: <UserProfilClassement />,
       },
       {
         path: "/information",

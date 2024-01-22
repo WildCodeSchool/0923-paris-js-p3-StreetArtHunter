@@ -29,7 +29,7 @@
   font-family: Permanent Marker;
   font-size: 30px;
   font-style: normal;
-  font-weight: 400px;
+  font-weight: 400;
   line-height: normal;
 }
 .importImagePhoto {
@@ -80,7 +80,6 @@
   background: var(--color-01);
   color: var(--color-00);
 }
-
 .Button-SubmitWork {
   display: flex;
   justify-content: center;

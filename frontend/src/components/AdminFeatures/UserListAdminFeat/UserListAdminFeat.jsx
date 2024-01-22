@@ -6,11 +6,11 @@ import Stack from "@mui/material/Stack";
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
 import { Container } from "@mui/material";
-import "./userListAdminFeat.css";
-import "./userListAdminFeatMediaDesktop.css";
 import OtherUserBloc from "../../OtherUserBloc/OtherUserBloc";
 import DataUsers from "../../../../data_sample/data_users.json";
 import SmileySearch from "../../../assets/images/ico/smilley.png";
+import "./userListAdminFeat.css";
+import "./userListAdminFeatMediaDesktop.css";
 
 function UserListAdminFeat() {
   // database //
