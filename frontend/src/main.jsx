@@ -16,6 +16,10 @@ import SubmitWorkThank from "./components/InputSubmitWork/SubmitWorkThank";
 import UserProfilHistorical from "./components/InputUserProfil/UserProfilHistorical";
 import UserProfilClassement from "./components/InputUserProfil/UserProfilClassement";
 import Information from "./pages/Information/Information";
+import ContactUs from "./pages/Contact/ContactUs/ContactUs";
+import ComplimentUs from "./pages/Contact/ComplimentUs/ComplimentUs";
+import Reclamation from "./pages/Contact/Reclamation/Reclamation";
+import AskUs from "./pages/Contact/AskUs/AskUs";
 import SpotZoneById from "./pages/SpotZoneById/SpotZoneById";
 
 const router = createBrowserRouter([
@@ -78,6 +82,22 @@ const router = createBrowserRouter([
       {
         path: "/information",
         element: <Information />,
+      },
+      {
+        path: "/contactus",
+        element: <ContactUs />,
+      },
+      {
+        path: "/askus",
+        element: <AskUs />,
+      },
+      {
+        path: "/complimentus",
+        element: <ComplimentUs />,
+      },
+      {
+        path: "/reclamation",
+        element: <Reclamation />,
       },
       {
         path: "/spotzonebyid/:location",
