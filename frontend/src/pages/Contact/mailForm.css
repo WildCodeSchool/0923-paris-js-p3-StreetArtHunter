@@ -68,7 +68,7 @@
   margin: 0.4rem 0em 0.6rem;
 }
 
-@media (min-width: 1339px) {
+@media (min-width: 1440px) {
   .Main_MailUs {
     min-height: calc(100vh - 165px);
     justify-content: space-evenly;
