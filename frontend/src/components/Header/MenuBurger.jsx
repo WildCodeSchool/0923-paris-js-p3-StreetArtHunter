@@ -60,26 +60,28 @@ export default function PositionedMenu() {
           <MenuItem
             className="Police-Burger-Header"
             onClick={() => {
-              navigate("/");
+              navigate("/homepage");
             }}
           >
-            ACCEUIL
+            HOME
           </MenuItem>
+
           <MenuItem
             className="Police-Burger-Header"
             onClick={() => {
               navigate("/spotzone");
             }}
           >
-            BALLADES
+            STROLLS
           </MenuItem>
+
           <MenuItem
             className="Police-Burger-Header"
             onClick={() => {
-              navigate("/");
+              navigate("/contactus");
             }}
           >
-            QUI SOMMES-NOUS ?
+            CONTACT
           </MenuItem>
         </Menu>
       </ThemeProvider>

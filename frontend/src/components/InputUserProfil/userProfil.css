@@ -464,9 +464,6 @@
     cursor: pointer;
     gap: 1rem;
   }
-  .workCard2_container {
-    width: 30%;
-  }
   .UPC_Users_List_Td {
     border: solid 1px black;
     padding: 10px 0;

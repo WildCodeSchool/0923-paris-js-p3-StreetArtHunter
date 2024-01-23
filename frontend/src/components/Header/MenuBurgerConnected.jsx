@@ -60,23 +60,25 @@ export default function PositionedMenuConnected() {
           <MenuItem
             className="Police-Burger-Header"
             onClick={() => {
-              navigate("/");
+              navigate("/homepage");
             }}
           >
-            ACCEUIL
+            HOME
           </MenuItem>
+
           <MenuItem
             className="Police-Burger-Header"
             onClick={() => {
               navigate("/spotzone");
             }}
           >
-            BALLADES
+            STROLLS
           </MenuItem>
+
           <MenuItem
             className="Police-Burger-Header"
             onClick={() => {
-              navigate("/userprofil");
+              navigate("/profil");
             }}
           >
             PROFIL
@@ -97,13 +99,23 @@ export default function PositionedMenuConnected() {
           >
             CLASSEMENT
           </MenuItem>
+
+          <MenuItem
+            className="Police-Burger-Header"
+            onClick={() => {
+              navigate("/contactus");
+            }}
+          >
+            CONTACT
+          </MenuItem>
+
           <MenuItem
             className="Police-Burger-Header"
             onClick={() => {
               navigate("/");
             }}
           >
-            DECONNEXION
+            LOG-OUT
           </MenuItem>
         </Menu>
       </ThemeProvider>

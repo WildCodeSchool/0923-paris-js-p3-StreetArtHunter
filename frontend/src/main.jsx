@@ -21,6 +21,7 @@ import ComplimentUs from "./pages/Contact/ComplimentUs/ComplimentUs";
 import Reclamation from "./pages/Contact/Reclamation/Reclamation";
 import AskUs from "./pages/Contact/AskUs/AskUs";
 import SpotZoneById from "./pages/SpotZoneById/SpotZoneById";
+import Profil from "./pages/Profil/Profil";
 
 const router = createBrowserRouter([
   {
@@ -102,6 +103,10 @@ const router = createBrowserRouter([
       {
         path: "/spotzonebyid/:location",
         element: <SpotZoneById />,
+      },
+      {
+        path: "/profil",
+        element: <Profil />,
       },
     ],
   },
