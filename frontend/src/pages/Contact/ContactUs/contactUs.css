@@ -1,22 +1,16 @@
-.Menu_ContactUs {
+.MainContactContent {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  width: 95%;
   gap: 2rem;
-}
-
-.Background_ContactUs {
-  background: url("../../../assets/images/img/graff_tel.jpg");
-  background-position: center;
-  background-size: 100%;
-  opacity: 0.15;
 }
 
 .Title_ContactUs {
   font-family: var(--font-02);
-  margin-top: 2rem;
-  color: #000;
-  font-size: 5em;
+  color: var(--color-01);
+  font-size: 2em;
   font-style: normal;
   font-weight: 40;
   line-height: normal;
@@ -27,36 +21,67 @@
 
 .contact_us_btn {
   display: flex;
-  justify-content: center;
   align-items: center;
-  padding: 1.2rem;
-  width: max(33vw, 20rem);
-  height: max(8vh, 2rem);
-  background: #d9d9d9;
+  justify-content: center;
+  width: 90%;
+  background: var(--color-00);
   border: 2px solid black;
   border-radius: 10px;
-  font: normal min(2rem, 5vh) var(--font-00);
+  font: normal 1.5rem var(--font-00);
+  padding: 5px;
+}
+.MainContact_Container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - 92px);
 }
 
-@media (max-width: 1339px) {
+.contactAnonymous_container {
+  display: none;
+}
+
+@media (min-width: 1439px) {
+  .MainContactContent {
+    width: 35%;
+  }
+  .Main_ContactUs {
+    display: flex;
+  }
+  .MainContact_Container {
+    justify-content: space-evenly;
+    margin: 0;
+    min-height: calc(100vh - 165px);
+  }
   .Title_ContactUs {
     font-family: var(--font-03);
-    font-size: 1.5em;
+    font-size: 3.5rem;
   }
   .contact_us_btn {
     width: max(33vw, 13rem);
-    height: max(8vh, 2rem);
-    padding: max(2vw, 2vh);
-    background: #d9d9d9;
+    background: var(--color-00);
     border: 2px solid black;
     border-radius: 10px;
-    font: normal 1rem var(--font-00);
+    font: normal 2rem var(--font-00);
+    color: var(--color-01);
+    cursor: pointer;
   }
-  .Background_ContactUs {
-    background-size: cover;
-    height: calc(100vh - 100px);
+  .contact_us_btn:hover {
+    background: var(--color-01);
+    color: var(--color-00);
   }
-  .Main_ContactUs {
-    height: calc(100vh - 100px) !important;
+
+  .contactAnonymous_container {
+    display: unset;
+    width: 30%;
+  }
+  .contactonymous_left {
+    display: block;
+    width: 100%;
+    transform: scaleX(-1);
+  }
+  .contactonymous_right {
+    display: block;
+    width: 100%;
   }
 }

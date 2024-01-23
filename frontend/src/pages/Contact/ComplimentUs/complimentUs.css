@@ -1,3 +1,17 @@
-.Background_Ask_Flower {
-  background-image: url("../../../assets/images/img/grafeur_flower.jpg");
+.anonymousFlower_container {
+  display: none;
+}
+
+@media screen and (min-width: 1439px) {
+  .anonymousFlower_container {
+    display: initial;
+    width: 28%;
+  }
+  .anonymousFlower_right {
+    transform: scaleX(-1);
+  }
+
+  .anonymousFlower {
+    width: 100%;
+  }
 }

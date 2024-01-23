@@ -1,40 +1,26 @@
-.Background_Contact_Wall {
-  position: absolute;
-  width: 100%;
-  height: calc(100vh - 86px);
-  top: 0;
-  left: 0;
-  background: url("../../assets/images/img/wall05.png");
-  background-position: center;
-  background-repeat: repeat;
-  background-size: 40%;
-  opacity: 0.35;
-  z-index: -2;
-}
-
-.Background_Ask {
-  background-size: 55vw 83vh;
-  background-repeat: no-repeat;
-  background-position-x: left;
+.Main_MailUs {
+  align-items: center;
+  margin: 2rem 0;
 }
 
 .MailUs_Form {
-  position: absolute;
-  right: 0;
-  height: calc(100vh - 135px);
-  width: 50vw;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  width: 100%;
+  gap: 1rem;
+  font-family: var(--font-03);
+  font-size: 1.8em;
 }
 
 .MailUs_Form > h2 {
   font-family: var(--font-05);
-  font-size: 2.8em;
+  font-size: 2rem;
 }
 
 .MailUs_Form > h3 {
-  font: normal min(2rem, 5vh) var(--font-00);
+  font: normal 1.5rem var(--font-00);
 }
 
 .MailUs_Form > input,
@@ -48,26 +34,32 @@
 
 .MailUs_Form > input,
 .MailUs_Form > textarea {
-  width: 40vw;
+  width: 80%;
   padding: 0.7em 1.2em;
+}
+.MailUs_Form > textarea {
+  height: 10rem;
 }
 
 .contact_us_back_btn {
-  position: absolute;
-  width: 6em;
   padding: 0.5em;
   font: normal 3vh var(--font-00);
   text-align: center;
-  margin: 2vh 1em;
 }
 
 .MailUs_Form > input[type="submit"] {
-  border-color: transparent;
+  border: solid 1px black;
+  color: var(--color-01);
+  background-color: var(--color-00);
   width: 8em;
   font-family: var(--font-03);
-  font-size: 1.4em;
+  font-size: 1rem;
   padding: 0.2em;
-  z-index: 1;
+  margin-top: 1rem;
+}
+.MailUs_Form > input[type="submit"]:hover {
+  color: var(--color-00);
+  background-color: var(--color-01);
 }
 
 .MailUs_Form > textarea {
@@ -83,29 +75,33 @@
   margin: 0.4rem 0em 0.6rem;
 }
 
-@media (max-width: 1339px) {
+@media (min-width: 1339px) {
+  .Main_MailUs {
+    min-height: calc(100vh - 165px);
+    justify-content: space-evenly;
+    align-items: center;
+    margin: 0;
+  }
   .Background_Contact_Wall {
     display: none;
   }
   .MailUs_Form > h2 {
-    font-family: var(--font-03);
-    font-size: 1.8em;
+    width: 100%;
+    text-align: center;
+    font-size: 3rem;
   }
   .MailUs_Form {
-    position: unset;
-    right: unset;
-    height: calc(100vh - 170px);
-    width: 100vw;
+    width: 35%;
     display: flex;
     flex-direction: column;
     align-items: center;
   }
   .MailUs_Form > input,
   .MailUs_Form > textarea {
-    width: max(16em, 80vw);
+    width: 100%;
   }
   .MailUs_Form > h3 {
-    font: normal 1.4em var(--font-00);
+    font: normal 1.5rem var(--font-00);
   }
   .Background_Ask {
     background-size: 100vw 83vh;
@@ -119,9 +115,5 @@
 
   .MailUs_Form > textarea {
     margin: 0.4rem 0em 0.6rem;
-  }
-
-  .contact_us_back_btn {
-    position: unset;
   }
 }

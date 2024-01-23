@@ -1,26 +1,17 @@
-import "./complimentUs.css";
 import "../contactCommon.css";
 import "../mailForm.css";
-import { useNavigate } from "react-router-dom";
+import "./complimentUs.css";
+import AnonymousFlower from "../../../assets/images/img/anonymous_flower.png";
 
 function ComplimentUs() {
-  const navigate = useNavigate();
   return (
     <div className="Main_ContactUs Main_MailUs">
-      <div className="Background_Contact_Wall" />
-      <div className="Background_Contact_Common Background_Ask Background_Ask_Flower" />
-      <div
-        className="contact_us_back_btn"
-        role="button"
-        onClick={() => {
-          navigate(-1);
-        }}
-        onKeyDown={() => {
-          navigate(-1);
-        }}
-        tabIndex="0"
-      >
-        &lt;&lt; Retour
+      <div className="anonymousFlower_container">
+        <img
+          src={AnonymousFlower}
+          alt="anonymous flower"
+          className="anonymousFlower anonymousFlower_right"
+        />{" "}
       </div>
       <div className="MailUs_Form">
         <h2>Nous complimenter</h2>
@@ -34,6 +25,14 @@ function ComplimentUs() {
           placeholder="Ecrivez-nous vos compliments !"
         />
         <input type="submit" value="Envoyer" />
+      </div>
+
+      <div className="anonymousFlower_container">
+        <img
+          src={AnonymousFlower}
+          alt="anonymous flower"
+          className="anonymousFlower"
+        />{" "}
       </div>
     </div>
   );

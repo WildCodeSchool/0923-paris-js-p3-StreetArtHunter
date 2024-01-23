@@ -1,3 +1,13 @@
-.Background_Ask_Graffeur {
-  background-image: url("../../../assets/images/img/graffeur_photo.jpg");
+.anonymousQuestion_container {
+  display: none;
+}
+
+@media screen and (min-width: 1439px) {
+  .anonymousQuestion_container {
+    display: initial;
+    width: 28%;
+  }
+  .anonymousquestion {
+    width: 100%;
+  }
 }
