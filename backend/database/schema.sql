@@ -72,8 +72,8 @@ DEFAULT CHARACTER SET = utf8mb3;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `street_art_hunterz`.`work` (
   `id` INT NOT NULL AUTO_INCREMENT,
-  `longitude` DECIMAL(9, 6) NOT NULL,
-  `latitude` DECIMAL(8, 6) NOT NULL,
+  `latitude` DECIMAL(16, 14) NOT NULL,
+  `longitude` DECIMAL(15, 14) NOT NULL,
   `image` TEXT NOT NULL,
   `User_id` INT NULL,
   `entry` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -83,9 +83,6 @@ CREATE TABLE IF NOT EXISTS `street_art_hunterz`.`work` (
   UNIQUE INDEX `id_UNIQUE` (`id` ASC) VISIBLE,
   INDEX `fk_Work_User1_idx` (`User_id` ASC) VISIBLE,
   INDEX `fk_Work_location1_idx` (`location_id` ASC) VISIBLE,
-  -- CONSTRAINT `fk_Work_location1`
-  --   FOREIGN KEY (`location_id`)
-  --   REFERENCES `street_art_hunterz`.`location` (`id`),
   CONSTRAINT `fk_Work_User1`
     FOREIGN KEY (`User_id`)
     REFERENCES `street_art_hunterz`.`user` (`id`))
