@@ -1,8 +1,8 @@
 [
   {
     "id": 1,
-    "latitude": "48.52204",
-    "longitude": "2.22369",
+    "latitude": "48.863194",
+    "longitude": "2.400333",
     "image": "/src/assets/images/works_sample/20231203_141600.jpg",
     "entry": "2022-11-11",
     "userSub": "Chaton_Brutal",
@@ -12,8 +12,8 @@
   },
   {
     "id": 2,
-    "latitude": "48.52202",
-    "longitude": "2.22414",
+    "latitude": "48.891868",
+    "longitude": "2.348933",
     "image": "/src/assets/images/works_sample/20231203_142006.jpg",
     "entry": "2022-11-11",
     "userSub": "Soleil_Levant",
@@ -23,8 +23,8 @@
   },
   {
     "id": 3,
-    "latitude": "48.52202",
-    "longitude": "2.22414",
+    "latitude": "48.827315",
+    "longitude": "2.356671",
     "image": "/src/assets/images/works_sample/20231203_142530.jpg",
     "entry": "2022-11-11",
     "userSub": "Ulysse_31",
@@ -34,8 +34,8 @@
   },
   {
     "id": 4,
-    "latitude": "48.52202",
-    "longitude": "2.22414",
+    "latitude": "48.85862",
+    "longitude": "2.273476",
     "image": "/src/assets/images/works_sample/20231203_142618.jpg",
     "entry": "2022-11-11",
     "userSub": "Ulysse_31",
@@ -45,8 +45,8 @@
   },
   {
     "id": 5,
-    "latitude": "48.52202",
-    "longitude": "2.22414",
+    "latitude": "48.85309",
+    "longitude": "2.357711",
     "image": "/src/assets/images/works_sample/20231203_142754.jpg",
     "entry": "2022-11-11",
     "userSub": "Chaton_Brutal",
@@ -56,8 +56,8 @@
   },
   {
     "id": 6,
-    "latitude": "48.52180",
-    "longitude": "2.22426",
+    "latitude": "48.853153",
+    "longitude": "2.313043",
     "image": "/src/assets/images/works_sample/20231203_143211.jpg",
     "entry": "2022-11-11",
     "userSub": "Soleil_Levant",

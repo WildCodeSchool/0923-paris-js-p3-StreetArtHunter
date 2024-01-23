@@ -1,5 +1,6 @@
 .work_map_container {
   width: 100%;
+  height: 500px;
 }
 .work_map_deco {
   position: absolute;
@@ -10,14 +11,26 @@
 .work_map {
   width: 100%;
   border-radius: 25px;
-  border: solid 2px black;
 }
 
-@media (min-width: 1440px) {
-  .work_map_container {
-    width: 35%;
-  }
-  .work_map_deco {
-    width: 35%;
+.mapboxgl-ctrl-geocoder {
+  position: absolute;
+  top: 0;
+  right: 100%;
+}
+
+/* @media (max-width: 1440px) {
+  .mapboxgl-ctrl-geocoder {
+    position: absolute;
+    top: 0;
+    right: 230px;
   }
 }
+
+@media (max-width: 540px) {
+  .mapboxgl-ctrl-geocoder {
+    position: absolute;
+    top: 0;
+    right: 115px;
+  }
+} */
