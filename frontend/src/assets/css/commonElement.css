@@ -34,7 +34,7 @@ body::-webkit-scrollbar {
 }
 
 .Global_height_smartPh {
-  height: calc(100vh - 92px);
+  min-height: calc(100vh - 92px);
 }
 .font_info_color {
   color: var(--color-05);
@@ -55,6 +55,12 @@ body::-webkit-scrollbar {
   border-radius: 10px 10px 0 0;
 }
 
+@media (max-height: 867px) and (min-width: 1440px) {
+  .Global_height {
+    min-height: calc(100vh - 165px);
+    padding: 3rem 0;
+  }
+}
 @media (min-width: 1440px) {
   body {
     background-image: url(../images/img/background01c.png);

@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import ratPhotographer from "../../assets/images/img/Rat_photograph.png";
-import "./submitWork.css";
+import "./submitWorkMobile.css";
+import "./submitWorkDesktop.css";
 
 function SubmitWorkValidation() {
   const navigate = useNavigate();

@@ -13,12 +13,14 @@ import SpotZone from "./pages/SpotZone/SpotZone";
 import SubwitWorkImport from "./components/InputSubmitWork/SubmitWorkImport";
 import SubmitWorkValidation from "./components/InputSubmitWork/SubmitWorkValidation";
 import SubmitWorkThank from "./components/InputSubmitWork/SubmitWorkThank";
-import UserProfil from "./pages/UserProfil/UserProfil";
+import UserProfilHistorical from "./components/InputUserProfil/UserProfilHistorical";
+import UserProfilClassement from "./components/InputUserProfil/UserProfilClassement";
 import Information from "./pages/Information/Information";
 import ContactUs from "./pages/Contact/ContactUs/ContactUs";
 import ComplimentUs from "./pages/Contact/ComplimentUs/ComplimentUs";
 import Reclamation from "./pages/Contact/Reclamation/Reclamation";
 import AskUs from "./pages/Contact/AskUs/AskUs";
+import SpotZoneById from "./pages/SpotZoneById/SpotZoneById";
 
 const router = createBrowserRouter([
   {
@@ -70,8 +72,12 @@ const router = createBrowserRouter([
       },
 
       {
-        path: "/userprofil",
-        element: <UserProfil />,
+        path: "/userprofilhistorical",
+        element: <UserProfilHistorical />,
+      },
+      {
+        path: "/userprofilclassement",
+        element: <UserProfilClassement />,
       },
       {
         path: "/information",
@@ -92,6 +98,10 @@ const router = createBrowserRouter([
       {
         path: "/reclamation",
         element: <Reclamation />,
+      },
+      {
+        path: "/spotzonebyid/:location",
+        element: <SpotZoneById />,
       },
     ],
   },

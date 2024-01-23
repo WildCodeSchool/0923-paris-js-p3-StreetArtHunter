@@ -7,11 +7,13 @@
   .iconAdd {
     display: none;
   }
-
   .iconInfos {
     display: none;
   }
   .iconWalk {
+    display: none;
+  }
+  .iconAdd {
     display: none;
   }
 }

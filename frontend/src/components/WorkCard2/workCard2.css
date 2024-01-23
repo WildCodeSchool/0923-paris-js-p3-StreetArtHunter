@@ -5,6 +5,7 @@
   justify-content: center;
   flex-direction: column;
   width: 100%;
+  cursor: pointer;
 }
 .Work2_image {
   width: 100%;
@@ -29,5 +30,9 @@
   }
   .work2_info {
     font-size: small;
+  }
+  .workCard2_content {
+    flex-wrap: wrap;
+    width: 100%;
   }
 }
