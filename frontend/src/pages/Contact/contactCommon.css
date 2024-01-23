@@ -1,9 +1,0 @@
-.Background_Contact_Common {
-  position: absolute;
-  width: 100%;
-  height: calc(100vh - 86px);
-  top: 0;
-  left: 0;
-  opacity: 0.25;
-  z-index: -1;
-}

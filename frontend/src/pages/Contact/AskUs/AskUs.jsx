@@ -1,6 +1,5 @@
-import "./askUs.css";
-import "../contactCommon.css";
 import "../mailForm.css";
+import "./askUs.css";
 import AnonymousQuestion from "../../../assets/images/img/anonymous_question.png";
 
 function AskUs() {
@@ -14,23 +13,23 @@ function AskUs() {
         />{" "}
       </div>
       <div className="MailUs_Form">
-        <h2>? nous questionner ¿</h2>
+        <h2>¿ question ?</h2>
         <h3>Email</h3>
         <input type="text" name="email" placeholder="votrenom@domaine.fr" />
-        <input type="hidden" name="object" value="Une nouvelle question" />
+        <input type="hidden" name="object" value="a new question" />
         <h3>Question</h3>
         <textarea
           type="text"
           name="body"
-          placeholder="Ecrivez-nous toutes vos questions !"
+          placeholder="Write your questions !"
         />
-        <input type="submit" value="Envoyer" />
+        <input type="submit" value="SEND" />
       </div>
       <div className="anonymousQuestion_container">
         <img
           src={AnonymousQuestion}
           alt="anonymous question"
-          className="anonymousquestion"
+          className="anonymousquestion anonymousquestion_left"
         />{" "}
       </div>
     </div>

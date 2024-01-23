@@ -10,4 +10,7 @@
   .anonymousquestion {
     width: 100%;
   }
+  .anonymousquestion_left {
+    transform: scaleX(-1);
+  }
 }

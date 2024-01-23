@@ -1,6 +1,5 @@
 import { useNavigate } from "react-router-dom";
 import "./contactUs.css";
-import "../contactCommon.css";
 import contactAnonymous from "../../../assets/images/img/anonymous_contactUs.png";
 
 function ContactUs() {
@@ -17,7 +16,7 @@ function ContactUs() {
         </div>
         <div className="MainContactContent">
           <div className="img_contactUS" />
-          <h1 className="Title_ContactUs">NOUS CONTACTER</h1>
+          <h1 className="Title_ContactUs">CONTACT US</h1>
 
           <div
             className="contact_us_btn"
@@ -30,7 +29,7 @@ function ContactUs() {
             }}
             tabIndex="0"
           >
-            nous complimenter
+            compliment us
           </div>
           <div
             className="contact_us_btn"
@@ -43,7 +42,7 @@ function ContactUs() {
             }}
             tabIndex="0"
           >
-            nous questionner
+            question us
           </div>
           <div
             className="contact_us_btn"
@@ -56,7 +55,7 @@ function ContactUs() {
             }}
             tabIndex="0"
           >
-            réclamation
+            claim
           </div>
         </div>
         <div className="contactAnonymous_container">

@@ -1,4 +1,3 @@
-import "../contactCommon.css";
 import "../mailForm.css";
 import "./complimentUs.css";
 import AnonymousFlower from "../../../assets/images/img/anonymous_flower.png";
@@ -14,17 +13,17 @@ function ComplimentUs() {
         />{" "}
       </div>
       <div className="MailUs_Form">
-        <h2>Nous complimenter</h2>
+        <h2>compliment us</h2>
         <h3>Email</h3>
-        <input type="text" name="email" placeholder="votrenom@domaine.fr" />
-        <input type="hidden" name="object" value="Un nouveau compliment" />
+        <input type="text" name="email" placeholder="youradress@adress.fr" />
+        <input type="hidden" name="object" value="a new compliment" />
         <h3>Message</h3>
         <textarea
           type="text"
           name="body"
-          placeholder="Ecrivez-nous vos compliments !"
+          placeholder="write your compliments!"
         />
-        <input type="submit" value="Envoyer" />
+        <input type="submit" value="SEND" />
       </div>
 
       <div className="anonymousFlower_container">
