@@ -74,7 +74,7 @@ function OtherUserBloc({ dataUser }) {
             {userWorkCount !== 0 && (
               <div className="history_OUB">
                 <div className="historyWorkSubmit_OUB">
-                  works submitted :
+                  works submitted :{" "}
                   <span className="font_info_color"> {userWorkCount} </span>
                 </div>
                 <div className="workCard_area_OUB">
@@ -98,7 +98,7 @@ function OtherUserBloc({ dataUser }) {
             {userWorkCount === 0 && (
               <div className="history_OUB">
                 <div className="historyWorkSubmit_OUB">
-                  works submitted :
+                  works submitted :{" "}
                   <span className="font_info_color"> {userWorkCount} </span>
                 </div>
                 <div className="workCard_area_OUB">
