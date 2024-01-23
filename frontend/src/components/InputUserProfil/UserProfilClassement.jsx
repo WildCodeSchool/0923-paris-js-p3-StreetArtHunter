@@ -12,16 +12,13 @@ import DataUsers from "../../../data_sample/data_users.json";
 import imageMonkey from "../../assets/images/img/monkey02.png";
 import SmileySearch from "../../assets/images/ico/smilley.png";
 import AuthContext from "../../context/AuthContext";
-import "./userProfilMobile.css";
-import "./userProfilDesktop.css";
+import "./userProfil.css";
 
 function UserProfilClassement() {
   const navigate = useNavigate();
   // database //
   const data = DataUsers;
   const { user } = useContext(AuthContext);
-  // const filteredUsers = data.filter((dataItem) =>
-  //   dataItem.pseudo.toString().toLowerCase().replace(/-/g, "")
 
   // search bar //
   const [search, setSearch] = useState("");
@@ -71,37 +68,35 @@ function UserProfilClassement() {
   return (
     <section className="UP_Container Global_height">
       <div className="UP_Content">
-        <div className="UPD_Part1_Flex">
+        <div className="UP_Part1_Flex">
           <div className="UP_Title_PseudoName">{user?.pseudo}</div>
-          <div className="UPD_Email_Password_Register">
-            <div className="UPM_Level_Score_Password">
-              <div className="UPD_Level_Score">
-                <div className="UP_Title_Level">level:</div>
-                <div className="UP_Title_Score">score: {user?.score}</div>
-              </div>
-              <div className="UP_Email_Password">
-                <div className="Block_Email_Password">
-                  <p>email: {user?.email}</p>
-                  <p>password:</p>
-                </div>
-                <div className="UP_Change_Password">
-                  <p className="UP_Change_Password_Inside">change password</p>
-                </div>
-              </div>
-              <div className="UP_Register_Since">
-                register since: {user?.registration_date}
-              </div>
+          <div className="UP_Level_Score">
+            <div className="UP_Title_Level">level:</div>
+            <div className="UP_Title_Score">score: {user?.score}</div>
+          </div>
+          <div className="UP_Email_Password">
+            <div className="Block_Email_Password">
+              <p>email: {user?.email}</p>
+              <p>password:</p>
             </div>
-            <div className="UPD_Image_Monkey_Center">
-              <img
-                className="UPD_Image_Monkey"
-                src={imageMonkey}
-                alt="imageMoney"
-              />
+            <div className="UP_Change_Password">
+              <p className="UP_Change_Password_Inside">change password</p>
             </div>
           </div>
+          <div className="UP_Register_Since">
+            register since: {user?.registration_date}
+          </div>
+          <div className="UP_Image_Monkey_Center">
+            <img
+              className="UP_Image_Monkey"
+              src={imageMonkey}
+              alt="imageMoney"
+            />
+          </div>
         </div>
-        <div className="UPD_Part2_Flex">
+      </div>
+      <div className="UP_Content">
+        <div className="UP_Part2_Flex">
           <div className="UP_Historical_Classement_Flex">
             <div className="UP_Historical_Classement">
               <div
@@ -132,7 +127,6 @@ function UserProfilClassement() {
               </div>
             </div>
             {/* // */}
-
             <div className="UPC_Work_Submited_Classement">
               <div className="searchBar_UPC_container">
                 <input
@@ -191,35 +185,38 @@ function UserProfilClassement() {
                     </table>
                   )}
                 </section>
-                {/* Pagination table */}
-                <Stack spacing={2} mt={2}>
-                  <Pagination
-                    count={totalFilteredUsersPages}
-                    size="small"
-                    shape="rounded"
-                    variant="outlined"
-                    siblingCount={0}
-                    page={currentPage}
-                    onChange={handlePageChange}
-                  />
-                </Stack>
               </div>
+              {/* Pagination table */}
+              <Stack spacing={2} mt={2}>
+                <Pagination
+                  count={totalFilteredUsersPages}
+                  size="small"
+                  shape="rounded"
+                  variant="outlined"
+                  siblingCount={0}
+                  page={currentPage}
+                  onChange={handlePageChange}
+                />
+              </Stack>
             </div>
           </div>
         </div>
+        <Modal open={open} onClose={handleClose}>
+          <Box>
+            <Container maxWidth="lg">
+              <div className="modal_closed_btn_container">
+                <p onClick={handleClose} className="modal_closed_btn">
+                  X closed
+                </p>
+              </div>
+              <OtherUserBloc
+                dataUser={selectedUser}
+                className="OtherUserModal"
+              />
+            </Container>
+          </Box>
+        </Modal>
       </div>
-      <Modal open={open} onClose={handleClose}>
-        <Box>
-          <Container maxWidth="lg">
-            <div className="modal_closed_btn_container">
-              <p onClick={handleClose} className="modal_closed_btn">
-                X closed
-              </p>
-            </div>
-            <OtherUserBloc dataUser={selectedUser} className="OtherUserModal" />
-          </Container>
-        </Box>
-      </Modal>
     </section>
   );
 }
