@@ -133,7 +133,7 @@ function OtherUserBloc({ dataUser }) {
                   {dataUser.registration}{" "}
                 </span>
               </div>
-              {dataUser.isAdmin && (
+              {dataUser.admin && (
                 <img
                   src={SmileyDeath}
                   alt="SmileyDeath"
@@ -142,7 +142,7 @@ function OtherUserBloc({ dataUser }) {
               )}
               <div className="Flex_WarIsMean">
                 <img src={WarIsMean} alt="WarIsMean" className="WarIsMean" />
-                {dataUser.isAdmin && (
+                {dataUser.admin && (
                   <div className="OUB_trash_btn_container">
                     <div className="OUB_trash_btn"> DELETE USER</div>
                   </div>

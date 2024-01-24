@@ -38,6 +38,12 @@ function InputLogin() {
       console.error(error);
     }
   };
+  // Function to handle the "Enter" key being pressed in the input field
+  const handleKeyDown = (event) => {
+    if (event.key === "Enter") {
+      handleSubmit(event);
+    }
+  };
 
   return (
     <section className="login_Container Global_height">
@@ -58,6 +64,7 @@ function InputLogin() {
               type="text"
               placeholder=""
               ref={pseudo}
+              onKeyDown={handleKeyDown}
             />
           </div>
           <div className="Password_Login">
@@ -67,13 +74,14 @@ function InputLogin() {
               type="password"
               placeholder=""
               ref={password}
+              onKeyDown={handleKeyDown}
             />
           </div>
           <div
             className="Button-Login"
             role="button"
             onClick={handleSubmit}
-            onKeyDown={handleSubmit}
+            onKeyDown={handleKeyDown}
             tabIndex="0"
           >
             VALIDATION

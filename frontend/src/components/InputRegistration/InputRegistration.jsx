@@ -65,6 +65,12 @@ function InputRegistration() {
       console.error(error);
     }
   };
+  // Function to handle the "Enter" key being pressed in the input field
+  const handleKeyDown = (event) => {
+    if (event.key === "Enter") {
+      handleSubmit(event);
+    }
+  };
 
   return (
     <section className="Display_Desktop_Register Global_height">
@@ -82,6 +88,7 @@ function InputRegistration() {
               placeholder=""
               value={pseudo}
               onChange={HandlePseudoChange}
+              onKeyDown={handleKeyDown}
             />
           </div>
 
@@ -93,6 +100,7 @@ function InputRegistration() {
               placeholder=""
               value={email}
               onChange={HandleEmailChange}
+              onKeyDown={handleKeyDown}
             />
           </div>
           <div className="Password_Register">
@@ -103,6 +111,7 @@ function InputRegistration() {
               placeholder=""
               value={password}
               onChange={HandlePasswordChange}
+              onKeyDown={handleKeyDown}
             />
           </div>
           <div className="Password_Register">
@@ -113,13 +122,14 @@ function InputRegistration() {
               placeholder=""
               value={confirmPassword}
               onChange={HandleconfirmPasswordChange}
+              onKeyDown={handleKeyDown}
             />
           </div>
           <div
             className="Button-Register"
             role="button"
             onClick={handleSubmit}
-            onKeyDown={handleSubmit}
+            onKeyDown={handleKeyDown}
             tabIndex="0"
           >
             VALIDATION
