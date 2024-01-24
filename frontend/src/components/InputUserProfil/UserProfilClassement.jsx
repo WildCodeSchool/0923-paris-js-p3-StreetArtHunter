@@ -65,6 +65,16 @@ function UserProfilClassement() {
   };
   const handleClose = () => setOpen(false);
 
+  // Convert the string to a Date object
+  const registrationDateObj = new Date(user?.registrationDate);
+
+  // Format the date object as needed, for example:
+  const formattedDate = registrationDateObj.toLocaleDateString("en-FR", {
+    day: "2-digit",
+    month: "long",
+    year: "numeric",
+  });
+
   return (
     <section className="UP_Container Global_height">
       <div className="UP_Content">
@@ -84,7 +94,7 @@ function UserProfilClassement() {
             </div>
           </div>
           <div className="UP_Register_Since">
-            register since: {user?.registration_date}
+            register since: {formattedDate}
           </div>
           <div className="UP_Image_Monkey_Center">
             <img

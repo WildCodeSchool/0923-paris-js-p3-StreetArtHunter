@@ -47,6 +47,16 @@ function UserProfilHistorical() {
     setCurrentPageDesktop(pageNumber);
   };
 
+  // Convert the string to a Date object
+  const registrationDateObj = new Date(user?.registrationDate);
+
+  // Format the date object as needed, for example:
+  const formattedDate = registrationDateObj.toLocaleDateString("en-US", {
+    day: "2-digit",
+    month: "long",
+    year: "numeric",
+  });
+
   // gestion Media Screen //
   const smartphoneScreen = window.matchMedia("(max-width: 770px)").matches;
   const desktopScreen = window.matchMedia("(min-width: 1440px)").matches;
@@ -70,7 +80,7 @@ function UserProfilHistorical() {
             </div>
           </div>
           <div className="UP_Register_Since">
-            register since: {user?.registration_date}
+            register since: {formattedDate}
           </div>
           <div className="UP_Image_Monkey_Center">
             <img
