@@ -19,7 +19,7 @@
   right: 100%;
 }
 
-@media (max-width: 1440px) {
+/* @media (max-width: 1440px) {
   .mapboxgl-ctrl-geocoder {
     position: absolute;
     top: 0;
@@ -33,4 +33,4 @@
     top: 0;
     right: 115px;
   }
-}
+} */
