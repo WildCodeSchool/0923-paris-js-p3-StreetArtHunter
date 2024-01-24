@@ -65,6 +65,7 @@
   }
   .admin_workcard_container {
     margin-bottom: 1rem;
+    gap: 3rem;
   }
   .BtnToggle_adminFeat {
     font-size: 1.563rem;

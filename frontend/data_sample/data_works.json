@@ -357,7 +357,7 @@
     "longitude": "2.22390",
     "image": "/src/assets/images/works_sample/20231210_150219.jpg",
     "entry": "2023-06-13",
-    "userSub": "LeoMiaou",
+    "userSub": "admin",
     "location": "Paris19",
     "artist": "space invader",
     "validation": "true"
@@ -368,7 +368,7 @@
     "longitude": "2.22291",
     "image": "/src/assets/images/works_sample/20231210_150935.jpg",
     "entry": "2023-06-14",
-    "userSub": "KoffeeMan",
+    "userSub": "admin",
     "location": "Paris19",
     "artist": "",
     "validation": "true"
@@ -379,7 +379,7 @@
     "longitude": "2.22291",
     "image": "/src/assets/images/works_sample/20231210_151217.jpg",
     "entry": "2023-07-15",
-    "userSub": "LeoMiaou",
+    "userSub": "admin",
     "location": "Paris19",
     "artist": "",
     "validation": "true"
@@ -390,7 +390,7 @@
     "longitude": "2.22442",
     "image": "/src/assets/images/works_sample/20231210_145852.jpg",
     "entry": "2023-09-14",
-    "userSub": "KoffeeMan",
+    "userSub": "admin",
     "location": "Paris19",
     "artist": "",
     "validation": "false"
