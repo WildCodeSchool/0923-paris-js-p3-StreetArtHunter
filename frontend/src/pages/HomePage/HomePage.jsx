@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import Stack from "@mui/material/Stack";
 import Button from "@mui/material/Button";
@@ -6,6 +7,7 @@ import StreetMap from "../../components/Map/Map";
 import "./homePage.css";
 
 function HomePage() {
+  // Mui button style //
   const theme = createTheme({
     palette: {
       primary: {
@@ -18,6 +20,47 @@ function HomePage() {
       },
     },
   });
+
+  // change coordonate on cardinal button //
+  const [mapCoordinates, setMapCoordinates] = useState({
+    lng: 2.3522,
+    lat: 48.8566,
+    zoom: 11,
+  });
+
+  const handleButtonClick = (direction) => {
+    let newLng = mapCoordinates.lng;
+    let newLat = mapCoordinates.lat;
+    let newZoom = mapCoordinates.zoom;
+
+    switch (direction) {
+      case "NORTH":
+        newLng = 2.3594563;
+        newLat = 48.8977035;
+        newZoom = 12;
+        break;
+      case "SOUTH":
+        newLng = 2.32536056;
+        newLat = 48.8232512;
+        newZoom = 12;
+        break;
+      case "EAST":
+        newLng = 2.407183;
+        newLat = 48.8646027;
+        newZoom = 12;
+        break;
+      case "WEST":
+        newLng = 2.2672845;
+        newLat = 48.8496861;
+        newZoom = 13;
+        break;
+      default:
+        break;
+    }
+
+    setMapCoordinates({ lng: newLng, lat: newLat, zoom: newZoom });
+  };
+
   // gestion Media Screen //
   const smartphoneScreen = window.matchMedia("(max-width: 770px)").matches;
   const desktopScreen = window.matchMedia("(min-width: 1440px)").matches;
@@ -41,22 +84,49 @@ function HomePage() {
           </p>
         </div>
         <div className="map_homePage_container">
-          <StreetMap />
+          <StreetMap
+            height={500}
+            width="100%"
+            search
+            UsingLng={mapCoordinates.lng}
+            UsingLat={mapCoordinates.lat}
+            UsingZoom={mapCoordinates.zoom}
+          />
         </div>
         <div className="cardinal_buttons_line">
           {smartphoneScreen && (
             <ThemeProvider theme={theme}>
               <Stack spacing={2} direction="row">
-                <Button variant="outlined" color="primary" size="small">
+                <Button
+                  variant="outlined"
+                  color="primary"
+                  size="small"
+                  onClick={() => handleButtonClick("NORTH")}
+                >
                   NORTH
                 </Button>
-                <Button variant="outlined" color="primary" size="small">
+                <Button
+                  variant="outlined"
+                  color="primary"
+                  size="small"
+                  onClick={() => handleButtonClick("SOUTH")}
+                >
                   SOUTH
                 </Button>
-                <Button variant="outlined" color="primary" size="small">
+                <Button
+                  variant="outlined"
+                  color="primary"
+                  size="small"
+                  onClick={() => handleButtonClick("EAST")}
+                >
                   EAST
                 </Button>
-                <Button variant="outlined" color="primary" size="small">
+                <Button
+                  variant="outlined"
+                  color="primary"
+                  size="small"
+                  onClick={() => handleButtonClick("WEST")}
+                >
                   WEST
                 </Button>
               </Stack>
@@ -65,16 +135,36 @@ function HomePage() {
           {desktopScreen && (
             <ThemeProvider theme={theme}>
               <Stack spacing={2} direction="row">
-                <Button variant="outlined" color="primary" size="large">
+                <Button
+                  variant="outlined"
+                  color="primary"
+                  size="large"
+                  onClick={() => handleButtonClick("NORTH")}
+                >
                   NORTH
                 </Button>
-                <Button variant="outlined" color="primary" size="large">
+                <Button
+                  variant="outlined"
+                  color="primary"
+                  size="large"
+                  onClick={() => handleButtonClick("SOUTH")}
+                >
                   SOUTH
                 </Button>
-                <Button variant="outlined" color="primary" size="large">
+                <Button
+                  variant="outlined"
+                  color="primary"
+                  size="large"
+                  onClick={() => handleButtonClick("EAST")}
+                >
                   EAST
                 </Button>
-                <Button variant="outlined" color="primary" size="large">
+                <Button
+                  variant="outlined"
+                  color="primary"
+                  size="large"
+                  onClick={() => handleButtonClick("WEST")}
+                >
                   WEST
                 </Button>
               </Stack>
