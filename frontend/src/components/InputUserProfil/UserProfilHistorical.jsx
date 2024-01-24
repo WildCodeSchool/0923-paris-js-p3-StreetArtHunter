@@ -63,7 +63,7 @@ function UserProfilHistorical() {
           <div className="UP_Email_Password">
             <div className="Block_Email_Password">
               <p>email: {user?.email}</p>
-              <p>password:</p>
+              <p>password: ********</p>
             </div>
             <div className="UP_Change_Password">
               <div className="UP_Change_Password_Inside">change password</div>

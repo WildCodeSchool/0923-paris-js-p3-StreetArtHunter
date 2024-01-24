@@ -179,13 +179,7 @@ const seed = async () => {
       queries.push(
         database.query(
           "INSERT INTO user (pseudo, email, password,  score, admin) VALUES (?, ?, ?, ?, ?)",
-          [
-            element.pseudo,
-            element.email,
-            element.password,
-            element.score,
-            element.admin,
-          ]
+          [element.pseudo, element.email, hash, element.score, element.admin]
         )
       );
       // } catch (error) {
