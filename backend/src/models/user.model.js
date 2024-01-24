@@ -5,7 +5,7 @@ const insert = (user) => {
   const { pseudo, email, password, registration_date, score, admin } = user;
 
   return db.query(
-    "INSERT INTO user (pseudo, email, password, registration_date, score, admin) VALUES (?, ?, ?, ?, ?, ?)",
+    "INSERT INTO user (pseudo, email, password, registrationDate, score, admin) VALUES (?, ?, ?, ?, ?, ?)",
     // eslint-disable-next-line camelcase
     [pseudo, email, password, registration_date, score, admin]
   );
