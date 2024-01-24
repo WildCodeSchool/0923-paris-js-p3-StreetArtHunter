@@ -12,9 +12,9 @@ mapboxgl.accessToken = import.meta.env.VITE_MAPBOX_TOKEN;
 function StreetMap({
   height,
   width,
-  initialLng,
-  initialLat,
-  initialZoom,
+  UsingLng,
+  UsingLat,
+  UsingZoom,
   search = false,
   mapMarker = false,
 }) {
@@ -68,8 +68,8 @@ function StreetMap({
     map.current = new mapboxgl.Map({
       container: mapContainer.current,
       style: "mapbox://styles/mapbox/streets-v12",
-      center: [initialLng, initialLat],
-      zoom: initialZoom,
+      center: [UsingLng, UsingLat],
+      zoom: UsingZoom,
     });
 
     // add controls to the map (nav, fullscreen, geolocate)
@@ -121,10 +121,10 @@ function StreetMap({
 
   useEffect(() => {
     if (map.current) {
-      map.current.setCenter([initialLng, initialLat]);
-      map.current.setZoom(initialZoom);
+      map.current.setCenter([UsingLng, UsingLat]);
+      map.current.setZoom(UsingZoom);
     }
-  }, [initialLng, initialLat, initialZoom]);
+  }, [UsingLng, UsingLat, UsingZoom]);
 
   return (
     <div

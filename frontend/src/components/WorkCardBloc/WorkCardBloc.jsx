@@ -17,10 +17,9 @@ function workCardBloc({ data }) {
         <div className="workCardBloc_content">
           <WorkCard data={data} />
           <Map
-            initialLng={mapCoordinates.lng}
-            initialLat={mapCoordinates.lat}
-            initialZoom={mapCoordinates.zoom}
-            search={false}
+            UsingLng={mapCoordinates.lng}
+            UsingLat={mapCoordinates.lat}
+            UsingZoom={mapCoordinates.zoom}
             height="90%"
             width="39%"
             className="map_WCB"

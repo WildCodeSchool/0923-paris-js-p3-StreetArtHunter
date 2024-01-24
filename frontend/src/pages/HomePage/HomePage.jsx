@@ -61,7 +61,6 @@ function HomePage() {
     setMapCoordinates({ lng: newLng, lat: newLat, zoom: newZoom });
   };
 
-  console.info(mapCoordinates);
   // gestion Media Screen //
   const smartphoneScreen = window.matchMedia("(max-width: 770px)").matches;
   const desktopScreen = window.matchMedia("(min-width: 1440px)").matches;
@@ -88,9 +87,10 @@ function HomePage() {
           <StreetMap
             height={500}
             width="100%"
-            initialLng={mapCoordinates.lng}
-            initialLat={mapCoordinates.lat}
-            initialZoom={mapCoordinates.zoom}
+            search
+            UsingLng={mapCoordinates.lng}
+            UsingLat={mapCoordinates.lat}
+            UsingZoom={mapCoordinates.zoom}
           />
         </div>
         <div className="cardinal_buttons_line">
