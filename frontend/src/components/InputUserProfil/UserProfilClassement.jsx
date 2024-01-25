@@ -1,3 +1,4 @@
+/* eslint-disable prefer-destructuring */
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import { useNavigate } from "react-router-dom";
@@ -65,15 +66,14 @@ function UserProfilClassement() {
   };
   const handleClose = () => setOpen(false);
 
-  // Convert the string to a Date object
-  const registrationDateObj = new Date(user?.registrationDate);
-
-  // Format the date object as needed, for example:
-  const formattedDate = registrationDateObj.toLocaleDateString("en-FR", {
-    day: "2-digit",
-    month: "long",
-    year: "numeric",
-  });
+  // Format date object:
+  const registrationDateObj = user?.registrationDate
+    ? new Date(user.registrationDate)
+    : null;
+  let formattedDate = "";
+  if (registrationDateObj && !Number.isNaN(registrationDateObj.getTime())) {
+    formattedDate = registrationDateObj.toISOString().split("T")[0];
+  }
 
   return (
     <section className="UP_Container Global_height">
@@ -87,7 +87,7 @@ function UserProfilClassement() {
           <div className="UP_Email_Password">
             <div className="Block_Email_Password">
               <p>email: {user?.email}</p>
-              <p>password:</p>
+              <p>password: ********</p>
             </div>
             <div className="UP_Change_Password">
               <p className="UP_Change_Password_Inside">change password</p>

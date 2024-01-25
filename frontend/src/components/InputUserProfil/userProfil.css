@@ -417,6 +417,7 @@
     border-radius: 0px 0px 10px 10px;
     border: 1px solid #000;
     padding: 1.5rem 0;
+    height: 33.125rem;
   }
   .searchBar_UPC_container {
     width: 80%;
@@ -444,6 +445,7 @@
   .UPH_Work_Submited {
     gap: 2rem;
     padding: 1.5rem 0;
+    height: 33.125rem;
   }
   .UPH_Works_Count {
     width: 90%;
