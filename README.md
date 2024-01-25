@@ -50,3 +50,77 @@ The backend subdomain will be automatically created with the suffix -backend.
 The global variable VITE_BACKEND_URL will be automatically created and pre-filled on the basis of this information.
 
 Use this same tab to add the other environment variables required for the project if any.
+
+READ ME :
+
+Appellations {
+
+.jsx = PascalCase
+.css = camelCase
+
+1 dossier =
+HomePage.jsx
+homePage.css
+}
+
+Structure HTML {
+
+PAGE :
+
+<main>
+<section>
+….
+</section>
+</main>
+
+COMPONENTS :
+
+<section>
+…
+</section>
+}
+
+GIT {
+
+Rappel avant de coder quoique ce soit sur VSC, basculer sur la branche et faire un git pull, une fois terminé, basculer sur une nouvelle branche et on peut coder.
+
+git commit -m “ “
+
+> commit détaillé en anglais qui commence toujours par un verbe
+
+git push
+
+> toujours sur sa propre branche : origin nom-de -sa-branche
+
+pull request
+
+> toujours sur dev
+> commentaire récapitulatif en anglais
+> git pull
+> Une fois la merge terminé,toujours effectuer le git pull sur la dev
+
+git checkout -b
+
+> Créer ensuite une nouvelle branche, basculer dessus et continuer à travailler.
+
+}
+
+STYLISATION {
+
+Document CSS commun pour élément commun
+
+usage de variables pour les couleurs et les fonts
+
+}
+
+Pense Bête :
+
+Front END :
+
+- Css : Faire des noms de classes explicites selon le modèle : className = main-title-header; en aucun cas faire un css sur des balises non classées ou identifiées, ex :
+  p {
+
+} --> Interdit
+
+- Pour un component : Le coder en React, faire son css associé Smartphone ET Responsive.
+- On n'installe pas de library sans informer le groupe et sans son aval.

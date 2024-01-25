@@ -1,0 +1,44 @@
+@media screen and (min-width: 1440px) {
+  .VLAF_workcards_Desktop {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+  .VLAF_workcards_container {
+    display: flex;
+    align-items: center;
+    width: 80%;
+  }
+  .VLAF_container {
+    padding: 1.5rem 0;
+    height: 36rem;
+  }
+
+  .works_count_VLAF {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+  }
+  .VLAF_WC_DeskT_01 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80%;
+  }
+  .VLAF_WC_DeskT_02 {
+    display: flex;
+    border: 2px dotted black;
+    border-radius: 10px;
+    height: 50%;
+    padding: 0 1rem;
+  }
+  .VLAF_btn_container {
+    flex-direction: column;
+  }
+  .VLAF_solid_line {
+    border: none;
+    border-top: solid 1px black;
+    height: 2px;
+    width: 95%;
+  }
+}

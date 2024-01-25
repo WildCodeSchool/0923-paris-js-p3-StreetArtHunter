@@ -1,0 +1,50 @@
+.workCardBloc_content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+@media (min-width: 1440px) {
+  .WorkBlockModal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .workCardBloc_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 75vh;
+    background-image: url("../../assets/images/img/wall11B.jpg");
+  }
+  .workCardBloc_content {
+    align-items: center;
+    justify-content: center;
+    gap: 8rem;
+  }
+}
+@media (max-height: 867px) and (min-width: 1440px) {
+  .workCardBloc_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 85vh;
+    background-image: url("../../assets/images/img/wall11B.jpg");
+  }
+  .map_WCB_container {
+    border: solid 1px black;
+    border-radius: 10px;
+  }
+  .map_WCB {
+    border-radius: 10px;
+  }
+
+  /* #workCard_container_WCB {
+    width: 39%;
+    height: 90%;
+    border: solid 1px black;
+    border-radius: 10px;
+  } */
+}
