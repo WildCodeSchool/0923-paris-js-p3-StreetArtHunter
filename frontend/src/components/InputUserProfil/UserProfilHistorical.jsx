@@ -1,3 +1,4 @@
+/* eslint-disable prefer-destructuring */
 import { useNavigate } from "react-router-dom";
 import { useState, useContext } from "react";
 import Pagination from "@mui/material/Pagination";
@@ -47,15 +48,14 @@ function UserProfilHistorical() {
     setCurrentPageDesktop(pageNumber);
   };
 
-  // Convert the string to a Date object
-  const registrationDateObj = new Date(user?.registrationDate);
-
-  // Format the date object as needed, for example:
-  const formattedDate = registrationDateObj.toLocaleDateString("en-US", {
-    day: "2-digit",
-    month: "long",
-    year: "numeric",
-  });
+  // Format date object:
+  const registrationDateObj = user?.registrationDate
+    ? new Date(user.registrationDate)
+    : null;
+  let formattedDate = "";
+  if (registrationDateObj && !Number.isNaN(registrationDateObj.getTime())) {
+    formattedDate = registrationDateObj.toISOString().split("T")[0];
+  }
 
   // gestion Media Screen //
   const smartphoneScreen = window.matchMedia("(max-width: 770px)").matches;
