@@ -20,7 +20,7 @@ function AdminProfil() {
   // const user = useLoaderData();
   const { user } = useContext(AuthContext);
 
-  // Format the date object as needed, for example:
+  // Format date object:
   const registrationDateObj = user?.registrationDate
     ? new Date(user.registrationDate)
     : null;
