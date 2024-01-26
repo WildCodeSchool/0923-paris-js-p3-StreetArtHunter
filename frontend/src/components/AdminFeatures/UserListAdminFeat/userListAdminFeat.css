@@ -51,6 +51,9 @@
   border: solid 1px black;
   cursor: pointer;
 }
+.ULAF_toogle.active {
+  color: var(--color-04);
+}
 #ULAF_by_pseudo {
   border-radius: 15px 0 0 0;
 }

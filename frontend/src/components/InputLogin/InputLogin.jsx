@@ -10,6 +10,7 @@ function InputLogin() {
   const pseudo = useRef();
   const password = useRef();
   const auth = useContext(AuthContext);
+
   // Gestion soumission de formulaire //
   const handleSubmit = async () => {
     try {

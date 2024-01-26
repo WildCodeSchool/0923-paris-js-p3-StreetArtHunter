@@ -1,12 +1,14 @@
+/* eslint-disable prefer-destructuring */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
-import { useState } from "react";
-import { useLoaderData } from "react-router-dom";
+import { useState, useContext } from "react";
 import Pagination from "@mui/material/Pagination";
 import Stack from "@mui/material/Stack";
 import "./adminProfil.css";
 import "./adminProfilMediaDeskTop.css";
 import DataWorks from "../../../data_sample/data_works.json";
+import formatDate from "../../utils/FormatDate";
+import AuthContext from "../../context/AuthContext";
 import UserListAdminFeat from "../../components/AdminFeatures/UserListAdminFeat/UserListAdminFeat";
 import WorksListAdminFeat from "../../components/AdminFeatures/WorksListAdminFeat/WorksListAdminFeat";
 import ValidationAdminFeat from "../../components/AdminFeatures/ValidationAdminFeat/ValidationAdminFeat";
@@ -14,7 +16,10 @@ import WorkCard from "../../components/WorkCard/WorkCard";
 import WorkCard2 from "../../components/WorkCard2/WorkCard2";
 
 function AdminProfil() {
-  const user = useLoaderData();
+  const { user } = useContext(AuthContext);
+
+  // Format date object:
+  const formattedDate = formatDate(user?.registrationDate);
 
   // Toggle Admin Profil Info //
   const [adminInfoIsOpen, setAdminInfoIsOpen] = useState(false);
@@ -31,10 +36,10 @@ function AdminProfil() {
   };
 
   // simulation de données perso de la l'admin //
-  const bigJuliusData = DataWorks.filter(
-    (work) => work.user_sub === "Big_Julius"
+  const adminHistoryWork = DataWorks.filter(
+    (work) => work.userSub === user?.pseudo
   );
-  const bjWorkscount = bigJuliusData.length;
+  const adminWorksCount = adminHistoryWork.length;
 
   // pagination historical //
   const [currentPage, setCurrentPage] = useState(1);
@@ -46,7 +51,25 @@ function AdminProfil() {
 
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-  const currentItems = bigJuliusData.slice(indexOfFirstItem, indexOfLastItem);
+  const currentItems = adminHistoryWork.slice(
+    indexOfFirstItem,
+    indexOfLastItem
+  );
+
+  // pagination work card for desktopScreen //
+  const [currentPageDesktop, setCurrentPageDesktop] = useState(1);
+  const itemsPerPageDesktop = 3;
+
+  const indexOfLastItemDesktop = currentPageDesktop * itemsPerPageDesktop;
+  const indexOfFirstItemDesktop = indexOfLastItemDesktop - itemsPerPageDesktop;
+  const currentItemsDesktop = adminHistoryWork.slice(
+    indexOfFirstItemDesktop,
+    indexOfLastItemDesktop
+  );
+
+  const handlePageChangeDesktop = (event, pageNumber) => {
+    setCurrentPageDesktop(pageNumber);
+  };
 
   // Toggle Admin feature //
   const [activeComponent, setActiveComponent] = useState("usersList");
@@ -63,9 +86,9 @@ function AdminProfil() {
     <section className="AdminProfilContainer Global_height">
       <div className="AdminProfil_content">
         <section className="admin_infos_bloc">
-          <h1 className="Pseudo_admin">PSEUDO ADMIN</h1>
+          <h1 className="Pseudo_admin">{user?.pseudo}</h1>
           <div className="Seniority_admin_container">
-            <p className="Seniority_admin"> admin from 22/11/2022 </p>
+            <p className="Seniority_admin"> admin since {formattedDate}</p>
           </div>
           {smartphoneScreen && (
             <div className="ProfilInfos_container_admin">
@@ -99,7 +122,7 @@ function AdminProfil() {
               </div>
               {adminInfoIsOpen && (
                 <div className="Profil_infos_content_admin">
-                  <p className="admin_infos">email: exemple@gmail.com</p>
+                  <p className="admin_infos">email: {user?.email}</p>
                   <p className="admin_infos">password: ******</p>
                   <div className="admin_infos_btn">
                     <p className="text_admin_infos_btn">change password</p>
@@ -114,9 +137,7 @@ function AdminProfil() {
                 <div className="admin_infos_container">
                   <p className="admin_infos">
                     email:{" "}
-                    <span className="admin_infos_desk_font">
-                      exemple@gmail.com
-                    </span>
+                    <span className="admin_infos_desk_font">{user?.email}</span>
                   </p>
                   <p className="admin_infos">
                     password:{" "}
@@ -163,14 +184,26 @@ function AdminProfil() {
                 <>
                   <div className="historyWorkSubmit_admin">
                     works submitted :
-                    <span className="font_info_color"> {bjWorkscount}</span>
+                    <span className="font_info_color"> {adminWorksCount}</span>
                   </div>
                   <div className="admin_workcard_container">
-                    {bigJuliusData.map((data, index) => (
+                    {currentItems.map((dataAd, index) => (
                       // eslint-disable-next-line react/no-array-index-key
-                      <WorkCard key={index} data={data} />
+                      <WorkCard key={index} data={dataAd} />
                     ))}
                   </div>
+                  <Stack spacing={0} mt={0}>
+                    <Pagination
+                      count={Math.ceil(adminHistoryWork.length / itemsPerPage)}
+                      size="small"
+                      shape="rounded"
+                      variant="outlined"
+                      siblingCount={0}
+                      page={currentPage}
+                      onChange={handlePageChange}
+                    />
+                  </Stack>
+
                   <hr className="dashed_line_admin" />
                   <div className="admin_trash_btn">
                     <svg
@@ -194,29 +227,30 @@ function AdminProfil() {
               <div className="history_admin_content">
                 <div className="historyWorkSubmit_admin">
                   works submitted :
-                  <span className="font_info_color"> {bjWorkscount}</span>
+                  <span className="font_info_color"> {adminWorksCount}</span>
                 </div>
                 <div className="admin_workcard_container">
-                  {bigJuliusData.map((data, index) => (
+                  {currentItemsDesktop.map((dataAd, index) => (
                     // eslint-disable-next-line react/no-array-index-key
-                    <WorkCard2 key={index} data={data} />
+                    <WorkCard2 key={index} data={dataAd} />
                   ))}
                 </div>
               </div>
               {/* Pagination */}
-              {currentItems.length > itemsPerPage && (
-                <Stack spacing={0} mt={0}>
-                  <Pagination
-                    count={Math.ceil(currentItems.length / itemsPerPage)}
-                    size="small"
-                    shape="rounded"
-                    variant="outlined"
-                    siblingCount={0}
-                    page={currentPage}
-                    onChange={handlePageChange}
-                  />
-                </Stack>
-              )}
+
+              <Stack spacing={0} mt={0}>
+                <Pagination
+                  count={Math.ceil(
+                    adminHistoryWork.length / itemsPerPageDesktop
+                  )}
+                  size="small"
+                  shape="rounded"
+                  variant="outlined"
+                  siblingCount={0}
+                  page={currentPageDesktop}
+                  onChange={handlePageChangeDesktop}
+                />
+              </Stack>
             </div>
           )}
         </section>
