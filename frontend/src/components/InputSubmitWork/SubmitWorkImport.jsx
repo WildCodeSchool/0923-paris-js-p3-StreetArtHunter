@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import ratPhotographer from "../../assets/images/img/Rat_photograph.png";
+// import ImportTest from "../../assets/images/img_sample/importTest.png";
 import "./submitWorkDesktop.css";
 
 function SubmitWorkImport() {
   const navigate = useNavigate();
+
   const [selectedImage, setSelectedImage] = useState(null);
 
   const handleFileChange = (e) => {

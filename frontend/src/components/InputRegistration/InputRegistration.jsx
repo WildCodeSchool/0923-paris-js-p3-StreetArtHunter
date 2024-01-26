@@ -13,6 +13,7 @@ function InputRegistration() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+
   // Gestion changement Pseudo //
   const HandlePseudoChange = (event) => {
     setPseudo(event.target.value);
@@ -37,6 +38,7 @@ function InputRegistration() {
       .toISOString()
       .slice(0, 19)
       .replace("T", " ");
+
     // Api Call pour création nouvel utilisateur //
     try {
       const response = await fetch(

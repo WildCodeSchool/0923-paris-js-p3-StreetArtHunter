@@ -23,6 +23,8 @@ function workCardBloc({ data }) {
             height="90%"
             width="39%"
             className="map_WCB"
+            search
+            mapMarker
           />
         </div>
       </div>
