@@ -1,7 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import heartIcon from "../../assets/images/img/heart1.png";
 import ratPhotographer from "../../assets/images/img/Rat_photograph.png";
-// import "./submitWorkMobile.css";
 import "./submitWorkDesktop.css";
 
 function SubmitWorkThank() {
@@ -9,7 +8,7 @@ function SubmitWorkThank() {
 
   return (
     <section className="SubmitW_container Global_height_smartPh Global_height">
-      <div className="Picture_DesKtop_Submit">
+      <div className="Picture_DesKtop_Submit_SWT">
         <img
           className="Rat_Picture_Submit_left"
           src={ratPhotographer}
@@ -17,7 +16,7 @@ function SubmitWorkThank() {
         />
       </div>
       <div className="title_Image_Content">
-        <div className="title_Image">
+        <div className="title_Image_SWT">
           <h1 className="title_SWT">thanks for sharing</h1>
 
           <div className="heartIcon">
