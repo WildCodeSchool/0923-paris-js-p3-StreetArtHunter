@@ -46,6 +46,11 @@ const router = createBrowserRouter([
       {
         path: "/classement",
         element: <Classement />,
+        loader: () => {
+          return fetch(`${import.meta.env.VITE_BACKEND_URL}/api/user`, {
+            credentials: "include",
+          });
+        },
       },
       {
         path: "/login",

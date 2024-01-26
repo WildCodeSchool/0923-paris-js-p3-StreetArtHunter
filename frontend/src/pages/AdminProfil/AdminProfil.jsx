@@ -9,6 +9,7 @@ import "./adminProfil.css";
 import "./adminProfilMediaDeskTop.css";
 import DataWorks from "../../../data_sample/data_works.json";
 // import DataUsers from "../../../data_sample/data_users.json";
+import formatDate from "../../utils/FormatDate";
 import AuthContext from "../../context/AuthContext";
 import UserListAdminFeat from "../../components/AdminFeatures/UserListAdminFeat/UserListAdminFeat";
 import WorksListAdminFeat from "../../components/AdminFeatures/WorksListAdminFeat/WorksListAdminFeat";
@@ -21,15 +22,7 @@ function AdminProfil() {
   const { user } = useContext(AuthContext);
 
   // Format date object:
-  const registrationDateObj = user?.registrationDate
-    ? new Date(user.registrationDate)
-    : null;
-
-  let formattedDate = "";
-
-  if (registrationDateObj && !Number.isNaN(registrationDateObj.getTime())) {
-    formattedDate = registrationDateObj.toISOString().split("T")[0];
-  }
+  const formattedDate = formatDate(user?.registrationDate);
 
   // Toggle Admin Profil Info //
   const [adminInfoIsOpen, setAdminInfoIsOpen] = useState(false);
