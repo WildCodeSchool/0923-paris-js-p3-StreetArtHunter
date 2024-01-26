@@ -1,4 +1,4 @@
-.SubmitW_container {
+/* .SubmitW_container {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -15,31 +15,31 @@
   gap: 3rem;
 }
 .titleSubmitWork {
-  color: #000;
+  color: var(--color-01);
   text-align: center;
-  font-family: Permanent Marker;
+  font-family: var(--font-05);
   font-size: 30px;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
 }
 .titleSubmitWorkThank {
-  color: #000;
+  color: var(--color-01);
   text-align: center;
-  font-family: Permanent Marker;
+  font-family: var(--font-05);
   font-size: 30px;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
 }
-.importImagePhoto {
+/* .importImagePhoto {
   margin-left: 2.5rem;
   margin-top: 3rem;
   margin-bottom: 1rem;
-}
-.titleImportImage {
-  color: #000;
-  font-family: Black Ops One;
+} */
+/* .titleImportImage {
+  color: var(--color-01);
+  font-family:var(--font-03);
   font-size: 18px;
   font-style: normal;
   font-weight: 400;
@@ -199,4 +199,4 @@
     font-style: normal;
     line-height: normal;
   }
-}
+} */

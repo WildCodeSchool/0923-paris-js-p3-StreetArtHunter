@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import heartIcon from "../../assets/images/img/heart1.png";
 import ratPhotographer from "../../assets/images/img/Rat_photograph.png";
-import "./submitWorkMobile.css";
+// import "./submitWorkMobile.css";
 import "./submitWorkDesktop.css";
 
 function SubmitWorkThank() {
@@ -16,27 +16,33 @@ function SubmitWorkThank() {
           alt="ratLeft"
         />
       </div>
-      <center className="title_Image">
-        <h1 className="titleSubmitWorkThank">thanks for sharing</h1>
-        <div className="heartIcon">
-          <img src={heartIcon} alt="heartIcon" />
-        </div>
+      <div className="title_Image_Content">
+        <div className="title_Image">
+          <h1 className="title_SWT">thanks for sharing</h1>
 
-        <p className="text_validation"> It will appear after validation.</p>
-        <div
-          className="Button-SubmitWork"
-          role="button"
-          onClick={() => {
-            navigate("/login");
-          }}
-          onKeyDown={() => {
-            navigate("/login");
-          }}
-          tabIndex="0"
-        >
-          <div className="Button-Validation">back</div>
+          <div className="heartIcon">
+            <img src={heartIcon} alt="heartIcon" />
+          </div>
+
+          <p className="text_validation_SWT">
+            {" "}
+            It will appear after validation.
+          </p>
+          <div
+            className="Button-SubmitWork"
+            role="button"
+            onClick={() => {
+              navigate("/login");
+            }}
+            onKeyDown={() => {
+              navigate("/login");
+            }}
+            tabIndex="0"
+          >
+            <div className="Button-Validation">back</div>
+          </div>
         </div>
-      </center>
+      </div>
       <div className="Picture_DesKtop_Submit">
         <img
           className="Rat_Picture_Submit_right"
