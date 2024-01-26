@@ -32,6 +32,12 @@
 .blocImportImage {
   display: flex;
   justify-content: center;
+  height: 10rem;
+  width: 100%;
+}
+.Style-Image-Inside {
+  height: 10rem;
+  width: 100%;
 }
 .title_SWT {
   color: var(--color-01);
@@ -44,8 +50,6 @@
   justify-content: center;
   background: var(--color-02);
   align-items: center;
-  height: 14.375rem;
-  width: 100%;
   border: 1px solid #000;
 }
 .inputLocation_SWV {
@@ -176,12 +180,17 @@
     justify-content: center;
     align-items: center;
     background: var(--color-02);
-    height: 21.875rem;
+    height: auto;
     width: 100%;
     border: 1px solid #000;
   }
   .blocImportImage {
     width: 60%;
+    height: 21.875rem;
+  }
+  .Style-Image-Inside {
+    height: 21.875rem;
+    width: 100%;
   }
   .inputLocation_SWV {
     display: flex;
