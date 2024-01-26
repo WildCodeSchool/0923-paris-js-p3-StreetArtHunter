@@ -128,7 +128,7 @@
   }
   .Rat_Picture_Submit_left {
     display: block;
-    width: 80%;
+    width: 100%;
     -webkit-transform: scaleX(-1);
     transform: scaleX(-1);
   }
@@ -208,6 +208,6 @@ flex-direction: column;
 
   .Rat_Picture_Submit_right {
     display: block;
-    width: 80%;
+    width: 100%;
   }
 }
