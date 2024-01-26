@@ -1,6 +1,7 @@
 // Load the express module to create a web application
 
 const express = require("express");
+const path = require("path");
 
 const app = express();
 
@@ -54,7 +55,7 @@ app.use(
 // Uncomment one or more of these options depending on the format of the data sent by your client:
 
 app.use(express.json());
-// app.use(express.urlencoded());
+app.use(express.urlencoded({ extended: false, limit: "10mb" }));
 // app.use(express.text());
 // app.use(express.raw());
 
@@ -120,7 +121,8 @@ app.get("*", (req, res) => {
   res.sendFile(`${reactBuildPath}/index.html`);
 });
 */
-
+const publicFolderPath = path.join(__dirname, "../public");
+app.use(express.static(publicFolderPath));
 /* ************************************************************************* */
 
 // Middleware for Error Logging (Uncomment to enable)
