@@ -2,13 +2,11 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import { useState, useContext } from "react";
-// import { useLoaderData } from "react-router-dom";
 import Pagination from "@mui/material/Pagination";
 import Stack from "@mui/material/Stack";
 import "./adminProfil.css";
 import "./adminProfilMediaDeskTop.css";
 import DataWorks from "../../../data_sample/data_works.json";
-// import DataUsers from "../../../data_sample/data_users.json";
 import formatDate from "../../utils/FormatDate";
 import AuthContext from "../../context/AuthContext";
 import UserListAdminFeat from "../../components/AdminFeatures/UserListAdminFeat/UserListAdminFeat";
@@ -18,7 +16,6 @@ import WorkCard from "../../components/WorkCard/WorkCard";
 import WorkCard2 from "../../components/WorkCard2/WorkCard2";
 
 function AdminProfil() {
-  // const user = useLoaderData();
   const { user } = useContext(AuthContext);
 
   // Format date object:
