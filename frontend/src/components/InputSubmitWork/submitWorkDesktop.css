@@ -1,63 +1,214 @@
+.SubmitW_container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.Rat_Picture_Submit_left {
+  display: none;
+}
+.title_Image_SWT {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  gap: 2rem;
+}
+.title_Image {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  gap: 2rem;
+}
+.title_image_button_SWV {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.titleSubmitWork {
+  color: var(--color-01);
+  text-align: center;
+  font-family: var(--font-05);
+  font-size: 30px;
+}
+.blocImportImage {
+  display: flex;
+  justify-content: center;
+}
+.title_SWT {
+  color: var(--color-01);
+  text-align: center;
+  font-family: var(--font-05);
+  font-size: 30px;
+}
+.importImageInside {
+  display: flex;
+  justify-content: center;
+  background: var(--color-02);
+  align-items: center;
+  height: 14.375rem;
+  width: 100%;
+  border: 1px solid #000;
+}
+.inputLocation_SWV {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: var(--color-01);
+  font-family: var(--font-00);
+  font-size: 17px;
+  gap: 0.5rem;
+}
+.caseLocation_SWV {
+  height: 1rem;
+}
+.caseArtiste_SWV {
+  height: 1rem;
+}
+.titleImportImage_SWI {
+  color: var(--color-01);
+  font-family: var(--font-03);
+  font-size: 18px;
+}
+.Button-Validation {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-family: var(--font-03);
+  background: var(--color-00);
+  color: var(--color-01);
+  font-size: 30px;
+  border-radius: 10px;
+  border: 1px solid #000;
+  height: 2.375rem;
+  padding: 0 1rem;
+  cursor: pointer;
+}
+.Button-Validation:hover {
+  background: var(--color-01);
+  color: var(--color-00);
+}
+.Button-SubmitWork {
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+}
+.text_validation {
+  color: var(--color-01);
+  text-align: center;
+  font-family: var(--font-00);
+  font-size: 22px;
+}
+.inputArtiste_SWV {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  color: var(--color-01);
+  text-align: center;
+  font-family: var(--font-00);
+  font-size: 17px;
+  gap: 0.5rem;
+}
+.Rat_Picture_Submit_right {
+  display: none;
+}
+/* CSS DESKTOP */
 @media (min-width: 1440px) {
-  .centered {
+  .SubmitW_container {
     display: flex;
-    justify-content: space-between;
-    align-items: end;
+    flex-direction: row;
+    margin: 0;
   }
-  .blockValidation {
+  .Picture_DesKtop_Submit {
     display: flex;
-    justify-content: space-between;
-    align-items: end;
-  }
-  .titleSubmitWork {
-    color: #000;
-    font-family: Permanent Marker;
-    font-style: normal;
-    line-height: normal;
-    font-size: 3rem;
-  }
-  .blockValidation {
-    height: 100%;
-  }
-  .importImageInside {
-    display: flex;
+    align-items: center;
     justify-content: center;
-    background: #d9d9d9;
-    height: 350px;
-    width: 350px;
-    border: 1px solid #000;
-    margin-top: 1em;
-  }
-  .Rat_Picture_Submit_right {
-    display: block;
-    width: 100%;
   }
   .Rat_Picture_Submit_left {
     display: block;
     width: 100%;
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+  }
+  .title_Image_Content {
+    width: 86%;
   }
   .title_Image {
     display: flex;
     flex-direction: column;
+    align-items: center;
+    gap: 3rem;
   }
-  .titleSubmitWorkThank {
-    color: #000;
+
+  .title_Image_SWT {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3rem;
+  }
+
+  .title_SWT_content {
+    width: 100%;
+  }
+  .TSW-correctgap {
+    margin-bottom: -1rem;
+  }
+  .title_SWT {
+    color: var(--color-0);
     text-align: center;
-    font-family: Permanent Marker;
+    font-family: var(--font-05);
     font-size: 50px;
-    font-weight: 400;
-    font-style: normal;
-    line-height: normal;
   }
-  .text_validation {
-    color: #000;
+  .titleSubmitWork {
+    color: var(--color-01);
+    font-family: var(--font-05);
+    font-size: 3rem;
+  }
+  .title_image_button_SWV {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    width: 50%;
+  }
+  .importImageInside {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--color-02);
+    height: 21.875rem;
+    width: 100%;
+    border: 1px solid #000;
+  }
+  .blocImportImage {
+    width: 60%;
+  }
+  .inputLocation_SWV {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     text-align: center;
-    font-family: Courier Prime;
+    color: var(--color-01);
+    font-family: var(--font-00);
+    font-size: 17px;
+  }
+  .caseLocation_SWV {
+    height: 2rem;
+  }
+  .caseArtiste_SWV {
+    height: 2rem;
+  }
+  .text_validation_SWT {
+    color: var(--color-01);
+    text-align: center;
+    font-family: var(--font-00);
     font-size: 22px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
     margin-top: 3rem;
     margin-bottom: 3rem;
+  }
+  .Rat_Picture_Submit_right {
+    display: block;
+    width: 100%;
   }
 }

@@ -10,7 +10,6 @@
   justify-content: center;
   width: 90%;
 }
-
 .UP_Part1_Flex {
   display: flex;
   justify-content: center;
@@ -417,6 +416,7 @@
     border-radius: 0px 0px 10px 10px;
     border: 1px solid #000;
     padding: 1.5rem 0;
+    height: 33.125rem;
   }
   .searchBar_UPC_container {
     width: 80%;
@@ -444,13 +444,14 @@
   .UPH_Work_Submited {
     gap: 2rem;
     padding: 1.5rem 0;
+    height: 33.125rem;
   }
   .UPH_Works_Count {
     width: 90%;
     text-align: center;
     border: 1px solid #000;
     background-color: var(--color-00);
-    color: #000;
+    color: var(--color-01);
     font-family: var(--font-07);
     font-size: 1.25rem;
     padding: 5px 0;
@@ -460,9 +461,9 @@
     justify-content: center;
     flex-wrap: wrap;
     align-items: center;
-    width: 95%;
+    width: 100%;
     cursor: pointer;
-    gap: 1rem;
+    gap: 2rem;
   }
   .UPC_Users_List_Td {
     border: solid 1px black;
