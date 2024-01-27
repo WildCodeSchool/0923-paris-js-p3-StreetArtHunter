@@ -1,9 +1,11 @@
+/* eslint-disable camelcase */
 /* eslint-disable no-unused-vars */
 import { useEffect, useRef } from "react";
 import mapboxgl from "mapbox-gl";
 import MapboxGeocoder from "@mapbox/mapbox-gl-geocoder";
 import "mapbox-gl/dist/mapbox-gl.css";
 import "@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css";
+import formatDate from "../../utils/FormatDate";
 import "./map.css";
 // import works from "../../../data_sample/data_works.json";
 
@@ -23,16 +25,31 @@ function StreetMap({
   const map = useRef(null);
   const marker = new mapboxgl.Marker({ color: "orange" });
 
-  const loadMarker = ({ image, entry, artist, longitude, latitude }) => {
+  const loadMarker = ({
+    image,
+    entry,
+    longitude,
+    latitude,
+    user_pseudo,
+    address,
+    artist_pseudo,
+  }) => {
+    // Format the entry date
+    const formattedEntryDate = formatDate(entry);
+
+    const artistInfo = artist_pseudo
+      ? `<p class="Map_work_info"><span class="M_W_I_span">artist</span>: ${artist_pseudo}</p>`
+      : "";
+
     const popup = new mapboxgl.Popup().setHTML(
       `<section className="workCard_container">
         <div className="workCard_resultcontent">
-          <img width="100%" className="Work_image" src=${image} alt="work" />
-          <div className="work_infos_container">
-            <p className="work_info"> entry: ${entry}</p>
-            <p className="work_info"> artist: ${artist}</p>
-            <p class="work_info">Latitude: ${latitude}</p>
-            <p class="work_info">Longitude: ${longitude}</p>
+          <img width="100%" class="Work_image" src=${image} alt="work" />
+          <div class="Map_work_infos_container">
+            <p class="Map_work_info"><span class="M_W_I_span">entry</span>: ${formattedEntryDate}</p>
+            <p class="Map_work_info"><span class="M_W_I_span">address</span>: ${address}</p>
+            ${artistInfo}
+            <p class="Map_work_info"><span class="M_W_I_span">submit by</span>: ${user_pseudo}</p>
           </div>
         </div>
       </section>`
