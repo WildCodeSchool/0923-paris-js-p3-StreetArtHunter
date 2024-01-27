@@ -212,7 +212,17 @@ function UserProfilClassement() {
           </div>
         </div>
         <Modal open={open} onClose={handleClose}>
-          <Box>
+          <Box
+            sx={{
+              position: "absolute",
+              top: "50%",
+              left: "50%",
+              transform: "translate(-50%, -50%)",
+              overflow: "auto",
+              width: "100%",
+              maxHeight: "80%",
+            }}
+          >
             <Container maxWidth="lg">
               <div className="modal_closed_btn_container">
                 <p onClick={handleClose} className="modal_closed_btn">

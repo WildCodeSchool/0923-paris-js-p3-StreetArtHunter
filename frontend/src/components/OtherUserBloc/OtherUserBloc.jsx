@@ -116,10 +116,14 @@ function OtherUserBloc({ dataUser }) {
                 </div>
               </div>
             )}
-            <hr className="OUB_dashed_line" />
-            <div className="OUB_trash_btn_container">
-              <div className="OUB_trash_btn"> DELETE USER</div>
-            </div>
+            {isAdmin && (
+              <>
+                <hr className="OUB_dashed_line" />
+                <div className="OUB_trash_btn_container">
+                  <div className="OUB_trash_btn"> DELETE USER</div>
+                </div>
+              </>
+            )}
           </div>
         )}
         {desktopScreen && (
