@@ -5,7 +5,7 @@ import MapboxGeocoder from "@mapbox/mapbox-gl-geocoder";
 import "mapbox-gl/dist/mapbox-gl.css";
 import "@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css";
 import "./map.css";
-import works from "../../../data_sample/data_works.json";
+// import works from "../../../data_sample/data_works.json";
 
 mapboxgl.accessToken = import.meta.env.VITE_MAPBOX_TOKEN;
 
@@ -17,30 +17,22 @@ function StreetMap({
   UsingZoom,
   search = false,
   mapMarker = false,
+  works,
 }) {
   const mapContainer = useRef(null);
   const map = useRef(null);
   const marker = new mapboxgl.Marker({ color: "orange" });
 
-  const loadMarker = ({
-    image,
-    entry,
-    userSub,
-    artist,
-    location,
-    longitude,
-    latitude,
-  }) => {
+  const loadMarker = ({ image, entry, artist, longitude, latitude }) => {
     const popup = new mapboxgl.Popup().setHTML(
       `<section className="workCard_container">
         <div className="workCard_resultcontent">
           <img width="100%" className="Work_image" src=${image} alt="work" />
           <div className="work_infos_container">
             <p className="work_info"> entry: ${entry}</p>
-            <p className="work_info"> zone: ${location}</p>
-            <p className="work_info"> loc: adresse rue + cp</p>
             <p className="work_info"> artist: ${artist}</p>
-            <p className="work_info"> submitted by: ${userSub}</p>
+            <p class="work_info">Latitude: ${latitude}</p>
+            <p class="work_info">Longitude: ${longitude}</p>
           </div>
         </div>
       </section>`
@@ -113,11 +105,14 @@ function StreetMap({
     // Add marker when click on the map
     if (mapMarker) map.current.on("mousedown", addMarker);
 
-    // add marker from data
+    // Add marker from data
     for (const work of works) {
       loadMarker(work);
     }
-  }, []);
+    // Set map center and zoom
+    map.current.setCenter([UsingLng, UsingLat]);
+    map.current.setZoom(UsingZoom);
+  }, [works, search, mapMarker, UsingLng, UsingLat, UsingZoom]);
 
   useEffect(() => {
     if (map.current) {
