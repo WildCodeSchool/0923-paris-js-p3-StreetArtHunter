@@ -1,7 +1,9 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import Pagination from "@mui/material/Pagination";
 import Stack from "@mui/material/Stack";
+import AuthContext from "../../context/AuthContext";
 import DataWorks from "../../../data_sample/data_works.json";
+import formatDate from "../../utils/FormatDate";
 import WorkCard from "../WorkCard/WorkCard";
 import WorkCard2 from "../WorkCard2/WorkCard2";
 import SmileyDeath from "../../assets/images/img/smiley_death.png";
@@ -19,7 +21,13 @@ function OtherUserBloc({ dataUser }) {
     setSelectUser(userWorks);
   }, []);
 
+  const { user } = useContext(AuthContext);
+  const isAdmin = user?.admin;
   const userWorkCount = selectUser.length;
+
+  // Format date object:
+
+  const formattedDate = formatDate(dataUser?.registrationDate);
 
   // pagination work card //
   const [currentPage, setCurrentPage] = useState(1);
@@ -61,9 +69,7 @@ function OtherUserBloc({ dataUser }) {
               <h1 className="pseudo_OUB">{dataUser.pseudo}</h1>
               <div className="Seniority_OUB">
                 registered :
-                <span className="font_info_color">
-                  {dataUser.registration}{" "}
-                </span>
+                <span className="font_info_color">{formattedDate} </span>
               </div>
               <div className="user_info_OUB_content">
                 <p className="user_info_OUB">email: {dataUser.email} </p>
@@ -110,10 +116,14 @@ function OtherUserBloc({ dataUser }) {
                 </div>
               </div>
             )}
-            <hr className="OUB_dashed_line" />
-            <div className="OUB_trash_btn_container">
-              <div className="OUB_trash_btn"> DELETE USER</div>
-            </div>
+            {isAdmin && (
+              <>
+                <hr className="OUB_dashed_line" />
+                <div className="OUB_trash_btn_container">
+                  <div className="OUB_trash_btn"> DELETE USER</div>
+                </div>
+              </>
+            )}
           </div>
         )}
         {desktopScreen && (
@@ -133,18 +143,25 @@ function OtherUserBloc({ dataUser }) {
                   {dataUser.registration}{" "}
                 </span>
               </div>
-              {dataUser.admin && (
-                <img
-                  src={SmileyDeath}
-                  alt="SmileyDeath"
-                  className="SmileyDeath"
-                />
-              )}
-              <div className="Flex_WarIsMean">
-                <img src={WarIsMean} alt="WarIsMean" className="WarIsMean" />
-                {dataUser.admin && (
-                  <div className="OUB_trash_btn_container">
-                    <div className="OUB_trash_btn"> DELETE USER</div>
+              <div className="infos_bottom_OUB">
+                {isAdmin ? (
+                  <div className="admin_Smiley_Delete">
+                    <img
+                      src={SmileyDeath}
+                      alt="SmileyDeath"
+                      className="SmileyDeath"
+                    />
+                    <div className="OUB_trash_btn_container">
+                      <div className="OUB_trash_btn"> DELETE USER</div>
+                    </div>
+                  </div>
+                ) : (
+                  <div className="WarIsMeanContainer">
+                    <img
+                      src={WarIsMean}
+                      alt="WarIsMean"
+                      className="WarIsMean"
+                    />
                   </div>
                 )}
               </div>
