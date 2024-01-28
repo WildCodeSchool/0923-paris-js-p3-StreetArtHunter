@@ -1,9 +1,4 @@
-/* eslint-disable camelcase */
-/* eslint-disable prettier/prettier */
-/* eslint-disable no-undef */
 /* eslint-disable no-await-in-loop */
-/* eslint import/no-extraneous-dependencies: ["error", {"devDependencies": true}] */
-
 // Load environment variables from .env file
 require("dotenv").config();
 
@@ -198,27 +193,27 @@ const seed = async () => {
         name: "Paris 19",
         description:
           "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla eget efficitur enim. Phasellus sodales pretium orci at finibus. Fusce tempor, ex vitae tristique sagittis, tortor ex scelerisque lectus, eu maximus ante turpis quis tortor.",
-        image: "../frontend/src/assets/images/works_sample/20231210_143137.jpg",
+        image: "./upload/20231210_143137.jpg",
       },
       {
         name: "Paris 20",
         description:
           "Nunc mollis ultrices tristique. Proin vitae elit nec risus faucibus mattis. Sed sem lorem, volutpat non congue at, dapibus nec dui. Fusce a cursus augue. Nam commodo dolor eget risus posuere, ut efficitur leo facilisis. Integer et sapien non tellus consectetur lobortis.",
-        image: "../frontend/src/assets/images/works_sample/20231203_143211.jpg",
+        image: "./upload/20231203_143211.jpg",
       },
 
       {
         name: "Aubervilliers 93",
         description:
           "Quisque dolor dui, condimentum sed porta in, ornare id ipsum. Praesent gravida congue vulputate. Suspendisse eget nibh vitae ante ultricies aliquet nec ut odio. Donec tincidunt nec lectus at.",
-        image: "../frontend/src/assets/images/works_sample/20231209_124929.jpg",
+        image: "./upload/20231209_124929.jpg",
       },
 
       {
         name: "Paris 13",
         description:
           "Nam commodo dolor eget risus posuere, ut efficitur leo facilisis. Integer et sapien non tellus consectetur lobortis.",
-        image: "../frontend/src/assets/images/works_sample/20231203_141600.jpg",
+        image: "./upload/20231203_141600.jpg",
       },
     ];
 
@@ -295,11 +290,13 @@ const seed = async () => {
       //   console.info(error);
       // }
     }
+    const imageBaseUrl = "/upload";
+
     const WorksData = [
       {
         latitude: 48.87261592246546,
         longitude: 2.376940626111713,
-        image: "../frontend/src/assets/images/works_sample/20231203_141600.jpg",
+        image: `${imageBaseUrl}/20231203_141600.jpg`,
         User_id: 1,
         isValidate: 1,
         location_id: 2,
@@ -307,7 +304,7 @@ const seed = async () => {
       {
         latitude: 48.87230041050758,
         longitude: 2.378009470964975,
-        image: "../frontend/src/assets/images/works_sample/20231203_142006.jpg",
+        image: `${imageBaseUrl}/20231203_142006.jpg`,
         User_id: 2,
         isValidate: 1,
         location_id: 2,
@@ -315,7 +312,7 @@ const seed = async () => {
       {
         latitude: 48.872165897007264,
         longitude: 2.378325264218084,
-        image: "../frontend/src/assets/images/works_sample/20231203_142530.jpg",
+        image: `${imageBaseUrl}/20231203_142530.jpg`,
         User_id: 3,
         isValidate: 1,
         location_id: 2,
@@ -323,7 +320,7 @@ const seed = async () => {
       {
         latitude: 48.872165897007264,
         longitude: 2.378325264218084,
-        image: "../frontend/src/assets/images/works_sample/20231203_142754.jpg",
+        image: `${imageBaseUrl}/20231203_142754.jpg`,
         User_id: 1,
         isValidate: 1,
         location_id: 2,
@@ -331,7 +328,7 @@ const seed = async () => {
       {
         latitude: 48.871791309905255,
         longitude: 2.3783732507242994,
-        image: "../frontend/src/assets/images/works_sample/20231203_143211.jpg",
+        image: `${imageBaseUrl}/20231203_143211.jpg`,
         User_id: 2,
         isValidate: 1,
         location_id: 2,
@@ -339,7 +336,7 @@ const seed = async () => {
       {
         latitude: 48.87161068260341,
         longitude: 2.3833862942978747,
-        image: "../frontend/src/assets/images/works_sample/20231203_145223.jpg",
+        image: `${imageBaseUrl}/20231203_145223.jpg`,
         User_id: 4,
         isValidate: 1,
         location_id: 2,
@@ -347,7 +344,7 @@ const seed = async () => {
       {
         latitude: 48.87170922438371,
         longitude: 2.3850364414532743,
-        image: "../frontend/src/assets/images/works_sample/20231203_151236.jpg",
+        image: `${imageBaseUrl}/20231203_151236.jpg`,
         User_id: 3,
         isValidate: 1,
         location_id: 2,
@@ -355,7 +352,7 @@ const seed = async () => {
       {
         latitude: 48.87165035798295,
         longitude: 2.3854193494781155,
-        image: "../frontend/src/assets/images/works_sample/20231203_151510.jpg",
+        image: `${imageBaseUrl}/20231203_151510.jpg`,
         User_id: 1,
         isValidate: 1,
         location_id: 2,
@@ -363,7 +360,7 @@ const seed = async () => {
       {
         latitude: 48.87163394632029,
         longitude: 2.3878806011032543,
-        image: "../frontend/src/assets/images/works_sample/20231203_152225.jpg",
+        image: `${imageBaseUrl}/20231203_152225.jpg`,
         User_id: 4,
         isValidate: 1,
         location_id: 2,
@@ -371,7 +368,7 @@ const seed = async () => {
       {
         latitude: 48.869604502535275,
         longitude: 2.3886531687675516,
-        image: "../frontend/src/assets/images/works_sample/20231203_153148.jpg",
+        image: `${imageBaseUrl}/20231203_153148.jpg`,
         User_id: 3,
         isValidate: 1,
         location_id: 2,
@@ -379,7 +376,7 @@ const seed = async () => {
       {
         latitude: 48.868707344411035,
         longitude: 2.389578484789551,
-        image: "../frontend/src/assets/images/works_sample/20231203_164644.jpg",
+        image: `${imageBaseUrl}/20231203_164644.jpg`,
         User_id: 4,
         isValidate: 1,
         location_id: 2,
@@ -387,7 +384,7 @@ const seed = async () => {
       {
         latitude: 48.898750241615424,
         longitude: 2.3823250071999387,
-        image: "../frontend/src/assets/images/works_sample/20231209_124017.jpg",
+        image: `${imageBaseUrl}/20231209_124017.jpg`,
         User_id: 5,
         isValidate: 1,
         location_id: 3,
@@ -395,7 +392,7 @@ const seed = async () => {
       {
         latitude: 48.89912438988054,
         longitude: 2.3821234804132336,
-        image: "../frontend/src/assets/images/works_sample/20231209_124153.jpg",
+        image: `${imageBaseUrl}/20231209_124153.jpg`,
         User_id: 1,
         isValidate: 1,
         location_id: 3,
@@ -403,7 +400,7 @@ const seed = async () => {
       {
         latitude: 48.90064201041082,
         longitude: 2.3812254089234743,
-        image: "../frontend/src/assets/images/works_sample/20231209_124609.jpg",
+        image: `${imageBaseUrl}/20231209_124609.jpg`,
         User_id: 12,
         isValidate: 1,
         location_id: 3,
@@ -411,7 +408,7 @@ const seed = async () => {
       {
         latitude: 48.90064201041082,
         longitude: 2.3812254089234743,
-        image: "../frontend/src/assets/images/works_sample/20231209_124642.jpg",
+        image: `${imageBaseUrl}/20231209_124642.jpg`,
         User_id: 2,
         isValidate: 1,
         location_id: 3,
@@ -419,7 +416,7 @@ const seed = async () => {
       {
         latitude: 48.90111454447136,
         longitude: 2.3810108322153307,
-        image: "../frontend/src/assets/images/works_sample/20231209_124929.jpg",
+        image: `${imageBaseUrl}/20231209_124929.jpg`,
         User_id: 1,
         isValidate: 1,
         location_id: 3,
@@ -427,7 +424,7 @@ const seed = async () => {
       {
         latitude: 48.9048060091657,
         longitude: 2.3791816927171663,
-        image: "../frontend/src/assets/images/works_sample/20231209_130034.jpg",
+        image: `${imageBaseUrl}/20231209_130034.jpg`,
         User_id: 4,
         isValidate: 1,
         location_id: 3,
@@ -435,7 +432,7 @@ const seed = async () => {
       {
         latitude: 48.90483312775923,
         longitude: 2.37874001133035,
-        image: "../frontend/src/assets/images/works_sample/20231209_130053.jpg",
+        image: `${imageBaseUrl}/20231209_130053.jpg`,
         User_id: 4,
         isValidate: 1,
         location_id: 3,
@@ -443,7 +440,7 @@ const seed = async () => {
       {
         latitude: 48.9047641327675,
         longitude: 2.379695019756964,
-        image: "../frontend/src/assets/images/works_sample/20231209_130147.jpg",
+        image: `${imageBaseUrl}/20231209_130147.jpg`,
         User_id: 5,
         isValidate: 1,
         location_id: 3,
@@ -451,7 +448,7 @@ const seed = async () => {
       {
         latitude: 48.90475050466249,
         longitude: 2.3798816173152173,
-        image: "../frontend/src/assets/images/works_sample/20231209_130215.jpg",
+        image: `${imageBaseUrl}/20231209_130215.jpg`,
         User_id: 6,
         isValidate: 1,
         location_id: 3,
@@ -459,7 +456,7 @@ const seed = async () => {
       {
         latitude: 48.90474735971466,
         longitude: 2.379942221650376,
-        image: "../frontend/src/assets/images/works_sample/20231209_130347.jpg",
+        image: `${imageBaseUrl}/20231209_130347.jpg`,
         User_id: 2,
         isValidate: 0,
         location_id: 3,
@@ -467,7 +464,7 @@ const seed = async () => {
       {
         latitude: 48.90473058665615,
         longitude: 2.3801256295067783,
-        image: "../frontend/src/assets/images/works_sample/20231209_130553.jpg",
+        image: `${imageBaseUrl}/20231209_130553.jpg`,
         User_id: 6,
         isValidate: 1,
         location_id: 3,
@@ -475,7 +472,7 @@ const seed = async () => {
       {
         latitude: 48.90472953833983,
         longitude: 2.3802053720530405,
-        image: "../frontend/src/assets/images/works_sample/20231209_130652.jpg",
+        image: `${imageBaseUrl}/20231209_130652.jpg`,
         User_id: 4,
         isValidate: 1,
         location_id: 3,
@@ -483,7 +480,7 @@ const seed = async () => {
       {
         latitude: 48.889474940810416,
         longitude: 2.388042805483453,
-        image: "../frontend/src/assets/images/works_sample/20231210_141824.jpg",
+        image: `${imageBaseUrl}/20231210_141824.jpg`,
         User_id: 5,
         isValidate: 1,
         location_id: 1,
@@ -491,7 +488,7 @@ const seed = async () => {
       {
         latitude: 48.8889782496703,
         longitude: 2.38692731018003,
-        image: "../frontend/src/assets/images/works_sample/20231210_142701.jpg",
+        image: `${imageBaseUrl}/20231210_142701.jpg`,
         User_id: 3,
         isValidate: 1,
         location_id: 1,
@@ -499,7 +496,7 @@ const seed = async () => {
       {
         latitude: 48.888805298533676,
         longitude: 2.386240553206446,
-        image: "../frontend/src/assets/images/works_sample/20231210_143012.jpg",
+        image: `${imageBaseUrl}/20231210_143012.jpg`,
         User_id: 8,
         isValidate: 1,
         location_id: 1,
@@ -507,7 +504,7 @@ const seed = async () => {
       {
         latitude: 48.888805298533676,
         longitude: 2.386240553206446,
-        image: "../frontend/src/assets/images/works_sample/20231210_143031.jpg",
+        image: `${imageBaseUrl}/20231210_143031.jpg`,
         User_id: 11,
         isValidate: 0,
         location_id: 1,
@@ -515,7 +512,7 @@ const seed = async () => {
       {
         latitude: 48.88876165132823,
         longitude: 2.3860414093593407,
-        image: "../frontend/src/assets/images/works_sample/20231210_143137.jpg",
+        image: `${imageBaseUrl}/20231210_143137.jpg`,
         User_id: 8,
         isValidate: 1,
         location_id: 1,
@@ -523,7 +520,7 @@ const seed = async () => {
       {
         latitude: 48.88989855654966,
         longitude: 2.382893386908322,
-        image: "../frontend/src/assets/images/works_sample/20231210_144731.jpg",
+        image: `${imageBaseUrl}/20231210_144731.jpg`,
         User_id: 6,
         isValidate: 1,
         location_id: 1,
@@ -531,7 +528,7 @@ const seed = async () => {
       {
         latitude: 48.890223945336984,
         longitude: 2.38385455802745,
-        image: "../frontend/src/assets/images/works_sample/20231210_144909.jpg",
+        image: `${imageBaseUrl}/20231210_144909.jpg`,
         User_id: 6,
         isValidate: 1,
         location_id: 1,
@@ -539,7 +536,7 @@ const seed = async () => {
       {
         latitude: 48.88761235483157,
         longitude: 2.3790936791222546,
-        image: "../frontend/src/assets/images/works_sample/20231210_145717.jpg",
+        image: `${imageBaseUrl}/20231210_145717.jpg`,
         User_id: 7,
         isValidate: 1,
         location_id: 1,
@@ -547,7 +544,7 @@ const seed = async () => {
       {
         latitude: 48.887539604020944,
         longitude: 2.3790112012000617,
-        image: "../frontend/src/assets/images/works_sample/20231210_150219.jpg",
+        image: `${imageBaseUrl}/20231210_150219.jpg`,
         User_id: 12,
         isValidate: 1,
         location_id: 1,
@@ -555,7 +552,7 @@ const seed = async () => {
       {
         latitude: 48.88661618726782,
         longitude: 2.377514924895603,
-        image: "../frontend/src/assets/images/works_sample/20231210_150935.jpg",
+        image: `${imageBaseUrl}/20231210_150935.jpg`,
         User_id: 7,
         isValidate: 1,
         location_id: 1,
@@ -563,7 +560,7 @@ const seed = async () => {
       {
         latitude: 48.88475574233888,
         longitude: 2.374452739414084,
-        image: "../frontend/src/assets/images/works_sample/20231210_151217.jpg",
+        image: `${imageBaseUrl}/20231210_151217.jpg`,
         User_id: 12,
         isValidate: 1,
         location_id: 1,
@@ -571,7 +568,7 @@ const seed = async () => {
       {
         latitude: 48.88439156928188,
         longitude: 2.3749212016067967,
-        image: "../frontend/src/assets/images/works_sample/20231210_145852.jpg",
+        image: `${imageBaseUrl}/20231210_145852.jpg`,
         User_id: 7,
         isValidate: 0,
         location_id: 1,

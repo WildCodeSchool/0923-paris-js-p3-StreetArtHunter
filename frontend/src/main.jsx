@@ -60,6 +60,11 @@ const router = createBrowserRouter([
       {
         path: "/spotzone",
         element: <SpotZone />,
+        loader: () => {
+          return fetch(`${import.meta.env.VITE_BACKEND_URL}/api/location`, {
+            credentials: "include",
+          });
+        },
       },
       {
         path: "/submitworkimport",
@@ -105,6 +110,14 @@ const router = createBrowserRouter([
       {
         path: "/spotzonebyid/:location",
         element: <SpotZoneById />,
+        loader: () => {
+          return fetch(
+            `${import.meta.env.VITE_BACKEND_URL}/api/location/:location`,
+            {
+              credentials: "include",
+            }
+          );
+        },
       },
       {
         path: "/profil",

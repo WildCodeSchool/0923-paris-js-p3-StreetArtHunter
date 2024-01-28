@@ -19,7 +19,16 @@ const add = async (req, res, next) => {
     next(error);
   }
 };
+const getAll = async (req, res, next) => {
+  try {
+    const [image] = await imageModel.findAll();
+    res.status(200).json(image);
+  } catch (error) {
+    next(error);
+  }
+};
 
 module.exports = {
   add,
+  getAll,
 };

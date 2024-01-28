@@ -1,30 +1,32 @@
-import { useEffect, useState } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useState } from "react";
+import { useParams, useNavigate, useLoaderData } from "react-router-dom";
 import Pagination from "@mui/material/Pagination";
 import Stack from "@mui/material/Stack";
 import WorkCard from "../../components/WorkCard/WorkCard";
 import WorkCard2 from "../../components/WorkCard2/WorkCard2";
 import PictureMap from "../../assets/images/map_sample/map_sample_1-1.jpg";
-import DataWorks from "../../../data_sample/data_works.json";
-import DataCity from "../../../data_sample/data_spots.json";
+// import DataWorks from "../../../data_sample/data_works.json";
+// import DataCity from "../../../data_sample/data_spots.json";
 import "./spotZoneById.css";
 
 function SpotZoneById() {
   // const Datas = DataWorks;
-  const [filteredData, setFilteredData] = useState([]);
-  const [dataCity, setDataCity] = useState(null);
+  const locations = useLoaderData() || [];
+  console.info(locations);
+  // const [filteredData, setFilteredData] = useState([]);
+  // const [dataCity, setDataCity] = useState(null);
   const { location } = useParams();
   const navigate = useNavigate();
-  useEffect(() => {
-    const filteredWorks = DataWorks.filter(
-      (data) => data.location === location
-    );
-    const filterPresentCity = DataCity.find(
-      (data) => data.location === location
-    );
-    setDataCity(filterPresentCity);
-    setFilteredData(filteredWorks);
-  }, [location]);
+  // useEffect(() => {
+  //   const filteredWorks = DataWorks.filter(
+  //     (data) => data.location === location
+  //   );
+  //   const filterPresentCity = DataCity.find(
+  //     (data) => data.location === location
+  //   );
+  //   setDataCity(filterPresentCity);
+  //   setFilteredData(filteredWorks);
+  // }, [location]);
 
   // Logique pagination Smartphone
   const [currentPage, setCurrentPage] = useState(1);
@@ -35,22 +37,20 @@ function SpotZoneById() {
 
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-  const currentItems = filteredData.slice(indexOfFirstItem, indexOfLastItem);
+  const currentItems = locations.slice(indexOfFirstItem, indexOfLastItem);
 
   // Logique pagination Desktop
 
   const [currentPageDesktop, setCurrentPageDesktop] = useState(1);
   const itemsPerPageDesktop = 6;
-  const countDesktopPages = Math.ceil(
-    filteredData.length / itemsPerPageDesktop
-  );
+  const countDesktopPages = Math.ceil(locations.length / itemsPerPageDesktop);
   const handlePageChangeDesktop = (event, pageNumberDesktop) => {
     setCurrentPageDesktop(pageNumberDesktop);
   };
 
   const indexOfLastItemDesktop = currentPageDesktop * itemsPerPageDesktop;
   const indexOfFirstItemDesktop = indexOfLastItemDesktop - itemsPerPageDesktop;
-  const currentItemsDesktop = filteredData.slice(
+  const currentItemsDesktop = locations.slice(
     indexOfFirstItemDesktop,
     indexOfLastItemDesktop
   );
@@ -68,13 +68,13 @@ function SpotZoneById() {
           <div className="smartphone_content">
             <h1 className="Title_SpotZoneById">{location}</h1>
             <div className="text_SpotZoneByid">
-              <p>{dataCity?.presentation}</p>
+              <p>{locations?.description}</p>
             </div>
             <hr className="dashed_line_SpotZone" />
             <div className="Pagination_SpotZone_Smartphone">
               <Stack spacing={0} mt={0}>
                 <Pagination
-                  count={filteredData.length}
+                  count={locations.length}
                   size="small"
                   shape="rounded"
                   variant="outlined"
@@ -130,7 +130,7 @@ function SpotZoneById() {
                 />
               </div>
               <div className="text_SpotZoneByid">
-                <p>{dataCity?.presentation}</p>
+                <p>{locations?.description}</p>
               </div>
               <div
                 className="Button-Back-Spotzone"
