@@ -19,6 +19,13 @@
   top: 0;
   right: 100%;
 }
+.Map_work_info {
+  font-size: small;
+  font-family: var(--font-00);
+}
+.M_W_I_span {
+  font-weight: bold;
+}
 
 /* @media (max-width: 1440px) {
   .mapboxgl-ctrl-geocoder {
