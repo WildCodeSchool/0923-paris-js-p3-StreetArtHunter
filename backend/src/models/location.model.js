@@ -5,9 +5,15 @@ const findAll = () => {
 };
 
 const getLocationById = (id) => {
-  return db.query("Select * FROM street_art_hunterz.location WHERE id = ?", [
-    id,
-  ]);
+  return db.query(
+    `
+    SELECT l.*, w.image AS work_image
+    FROM street_art_hunterz.location AS l
+    LEFT JOIN street_art_hunterz.work AS w ON l.id = w.location_id
+    WHERE l.id = ?
+  `,
+    [id]
+  );
 };
 
 module.exports = {
