@@ -34,7 +34,8 @@ const findAllWUL = () => {
     JOIN user AS u ON w.User_id = u.id
     JOIN location AS l ON w.location_id = l.id
     LEFT JOIN artist_work AS aw ON w.id = aw.Work_id
-    LEFT JOIN artist AS a ON aw.Artist_id = a.id`,
+    LEFT JOIN artist AS a ON aw.Artist_id = a.id
+    WHERE w.isValidate = 1;`,
     []
   );
 };

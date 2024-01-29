@@ -2,25 +2,45 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable no-shadow */
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Pagination from "@mui/material/Pagination";
 import Stack from "@mui/material/Stack";
 import "./worksListAdminFeat.css";
 import "./worksListAdminFeatMediaDesktop.css";
-import DataWorks from "../../../../data_sample/data_works.json";
+// import DataWorks from "../../../../data_sample/data_works.json";
 import WorkCard from "../../WorkCard/WorkCard";
 import WorkCard2 from "../../WorkCard2/WorkCard2";
 
 function WorksListAdminFeat() {
   // database //
-  const data = DataWorks;
+  // const data = DataWorks;
+
+  const [worksData, setWorksData] = useState([]);
+
+  useEffect(() => {
+    fetch(`${import.meta.env.VITE_BACKEND_URL}/api/image`, {
+      credentials: "include",
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        return response.json();
+      })
+      .then((data) => {
+        setWorksData(data);
+      })
+      .catch((error) => {
+        console.error("Error fetching user data:", error);
+      });
+  }, []);
 
   // Works Count - only the validate //
-  const validatedWorks = data.filter((work) => work.validation === "true");
+  const validatedWorks = worksData.filter((work) => work.isValidate === 1);
 
   // unique location for Zone <option> //
   const uniqueLocations = Array.from(
-    new Set(validatedWorks.map((item) => item.location))
+    new Set(validatedWorks.map((item) => item.location_name))
   );
 
   // works entry sorted //
@@ -41,7 +61,7 @@ function WorksListAdminFeat() {
 
   // Filtered works based on selected location
   const filteredWorks = selectedLocation
-    ? workEntrySorted.filter((work) => work.location === selectedLocation)
+    ? workEntrySorted.filter((work) => work.location_name === selectedLocation)
     : workEntrySorted;
 
   // pagination work card //
