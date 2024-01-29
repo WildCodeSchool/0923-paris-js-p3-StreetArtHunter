@@ -20,6 +20,16 @@ const add = async (req, res, next) => {
   }
 };
 
+const getWorks = async (req, res, next) => {
+  try {
+    const image = await imageModel.getAllWorks();
+    res.status(200).json(image);
+  } catch (error) {
+    next(error);
+  }
+};
+
 module.exports = {
   add,
+  getWorks,
 };

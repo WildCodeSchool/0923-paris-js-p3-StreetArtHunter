@@ -1,9 +1,9 @@
 /* eslint-disable prefer-destructuring */
-import { useNavigate } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import { useState, useContext } from "react";
 import Pagination from "@mui/material/Pagination";
 import Stack from "@mui/material/Stack";
-import DataWorks from "../../../data_sample/data_works.json";
+// import DataWorks from "../../../data_sample/data_works.json";
 import WorkCard from "../WorkCard/WorkCard";
 import WorkCard2 from "../WorkCard2/WorkCard2";
 import imageMonkey from "../../assets/images/img/monkey02.png";
@@ -13,12 +13,13 @@ import "./userProfil.css";
 function UserProfilHistorical() {
   const navigate = useNavigate();
   // database //
-  const datas = DataWorks;
-  const UsersCount = datas.length;
+  // const datas = DataWorks;
+  const image = useLoaderData();
+  const UsersCount = image.length;
   const { user } = useContext(AuthContext);
 
   // Works Count - only the validate //
-  const validatedWorks = datas.filter((work) => work.validation === "true");
+  const validatedWorks = image.filter((work) => work.validation === "true");
   // const validatedWorksCount = validatedWorks.length;
 
   // pagination work card //
