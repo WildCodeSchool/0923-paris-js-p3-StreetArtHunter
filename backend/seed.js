@@ -199,20 +199,20 @@ const seed = async () => {
         name: "Paris 19",
         description:
           "Marchez sur les traces du festival Ourcq Living Colors ! Tout au long du parcours, découvrez ou redécouvrez les interventions artistiques, fresques, collaborations qui donnent des couleurs à ce quartier.",
-        image: "./upload/20231210_143137.jpg",
+        image: `${imageBaseUrl}/20231210_143137.jpg`,
       },
       {
         name: "Paris 20",
         description:
           "Découvrez l'histoire et la culture du graffiti parisien dans le 20e arrondissement de Paris, dans les quartiers populaires de Belleville et de Ménilmontant, lieux privilégiés d'expression pour les formes artistiques urbaines.",
-        image: "./upload/20231203_143211.jpg",
+        image: `${imageBaseUrl}/20231203_143211.jpg`,
       },
 
       {
         name: "Aubervilliers 93",
         description:
           "À Aubervilliers, juste là, à la porte de Paris le long du Canal Saint Denis, sous le pont du périphérique vous attendent des blazes qui claquent, des graffitis acidulés extrêmement travaillés, une galerie de portraits réalisée tout en douceur… de l’humour et surtout, surtout un concentré d’Art Urbain comme on en voit rarement à Paris et même en périphérie.",
-        image: "./upload/20231209_124929.jpg",
+        image: `${imageBaseUrl}/20231209_124929.jpg`,
       },
 
       {
