@@ -1,17 +1,34 @@
 /* eslint-disable no-shadow */
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Pagination from "@mui/material/Pagination";
 import Stack from "@mui/material/Stack";
 import "./validationAdminFeat.css";
 import "./validationAdminFeatMediaDesktop.css";
-import DataWorks from "../../../../data_sample/data_works.json";
 import WorkCard from "../../WorkCard/WorkCard";
 
 function ValidationAdminFeat() {
-  const data = DataWorks;
+  const [unvalidateWorksData, setUnvalidateWorksData] = useState([]);
+
+  useEffect(() => {
+    fetch(`${import.meta.env.VITE_BACKEND_URL}/api/image/unvalidate`, {
+      credentials: "include",
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        return response.json();
+      })
+      .then((data) => {
+        setUnvalidateWorksData(data);
+      })
+      .catch((error) => {
+        console.error("Error fetching user data:", error);
+      });
+  }, []);
 
   // new Submits Count - only the No-validate//
-  const newSubmit = data.filter((work) => work.validation === "false");
+  const newSubmit = unvalidateWorksData.filter((work) => work.isValidate === 0);
   const newSubmitCount = newSubmit.length;
 
   // pagination work card //
@@ -33,6 +50,7 @@ function ValidationAdminFeat() {
   const smartphoneScreen = window.matchMedia("(max-width: 770px)").matches;
   const desktopScreen = window.matchMedia("(min-width: 1440px)").matches;
 
+  console.info(unvalidateWorksData);
   // >>> return <<< //
   return (
     <section className="VLAF_container">
@@ -48,7 +66,7 @@ function ValidationAdminFeat() {
             ))}
           </div>
           {/* Pagination */}
-          {data.length > itemsPerPage && (
+          {unvalidateWorksData.length > itemsPerPage && (
             <Stack spacing={0} mt={0}>
               <Pagination
                 count={Math.ceil(newSubmit.length / itemsPerPage)}
@@ -149,7 +167,7 @@ function ValidationAdminFeat() {
           </div>
           <hr className="VLAF_solid_line" />
           {/* Pagination */}
-          {data.length > itemsPerPage && (
+          {unvalidateWorksData.length > itemsPerPage && (
             <Stack spacing={0} mt={0}>
               <Pagination
                 count={Math.ceil(newSubmit.length / itemsPerPage)}

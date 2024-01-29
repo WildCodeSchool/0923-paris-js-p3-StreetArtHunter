@@ -29,25 +29,33 @@ const getByUserId = async (req, res, next) => {
       res.json(workByUserId);
     }
   } catch (err) {
-    // Pass any errors to the error-handling middleware
     next(err);
   }
 };
-const getAll = async (req, res, next) => {
+
+const getAllNoValidate = async (req, res, next) => {
   try {
-    // Fetch all items from the database
-    const [works] = await imageModel.findAllWUL();
+    const [works] = await imageModel.findAllNoValidate();
     console.info(works);
-    // Respond with the items in JSON format
     res.json(works);
   } catch (err) {
-    // Pass any errors to the error-handling middleware
+    next(err);
+  }
+};
+
+const getAll = async (req, res, next) => {
+  try {
+    const [works] = await imageModel.findAllWUL();
+    console.info(works);
+    res.json(works);
+  } catch (err) {
     next(err);
   }
 };
 
 module.exports = {
   add,
-  getAll,
   getByUserId,
+  getAllNoValidate,
+  getAll,
 };

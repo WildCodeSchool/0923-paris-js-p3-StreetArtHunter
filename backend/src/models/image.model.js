@@ -27,6 +27,10 @@ const findByUserId = (user_id) => {
   ]);
 };
 
+const findAllNoValidate = () => {
+  return db.query("SELECT * FROM work WHERE isValidate=0", []);
+};
+
 const findAllWUL = () => {
   return db.query(
     `SELECT w.*, u.pseudo AS user_pseudo, a.pseudo AS artist_pseudo, l.name AS location_name
@@ -44,5 +48,6 @@ module.exports = {
   insert,
   findById,
   findByUserId,
+  findAllNoValidate,
   findAllWUL,
 };

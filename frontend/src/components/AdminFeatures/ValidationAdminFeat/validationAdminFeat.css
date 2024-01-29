@@ -46,10 +46,6 @@
   cursor: pointer;
   background-color: var(--color-00);
 }
-.VLAF_valid_btn:hover {
-  fill: green;
-  border: solid 1px green;
-}
 .VLAF_trash_btn {
   display: flex;
   justify-content: center;
@@ -60,10 +56,6 @@
   margin-bottom: 0.5rem;
   cursor: pointer;
   background-color: var(--color-00);
-}
-.VLAF_trash_btn:hover {
-  fill: red;
-  border: solid 1px red;
 }
 .VLAF_modif_btn {
   display: flex;
@@ -76,7 +68,17 @@
   cursor: pointer;
   background-color: var(--color-00);
 }
+.VLAF_valid_btn:hover {
+  fill: greenyellow;
+  background: var(--color-01);
+}
+
 .VLAF_modif_btn:hover {
-  fill: blue;
-  border: solid 1px blue;
+  fill: aqua;
+  background: var(--color-01);
+}
+
+.VLAF_trash_btn:hover {
+  fill: rgb(255, 75, 75);
+  background: var(--color-01);
 }
