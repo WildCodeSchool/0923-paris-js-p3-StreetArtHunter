@@ -31,34 +31,53 @@ function StreetMap({
     longitude,
     latitude,
     user_pseudo,
-    address,
     artist_pseudo,
+    isValidate,
   }) => {
+    if (isValidate !== 1) {
+      return; // Ne pas charger le marqueur si le travail n'est pas valide
+    }
+
     // Format the entry date
     const formattedEntryDate = formatDate(entry);
 
+    // Affichage conditionel artist
     const artistInfo = artist_pseudo
       ? `<p class="Map_work_info"><span class="M_W_I_span">artist</span>: ${artist_pseudo}</p>`
       : "";
 
-    const popup = new mapboxgl.Popup().setHTML(
-      `<section className="workCard_container">
-        <div className="workCard_resultcontent">
-          <img width="100%" class="Work_image" src=${image} alt="work" />
-          <div class="Map_work_infos_container">
-            <p class="Map_work_info"><span class="M_W_I_span">entry</span>: ${formattedEntryDate}</p>
-            <p class="Map_work_info"><span class="M_W_I_span">address</span>: ${address}</p>
-            ${artistInfo}
-            <p class="Map_work_info"><span class="M_W_I_span">submit by</span>: ${user_pseudo}</p>
-          </div>
-        </div>
-      </section>`
-    );
+    // Effectuer une requête de géocodage inversé pour obtenir le nom du lieu
+    fetch(
+      `https://api.mapbox.com/geocoding/v5/mapbox.places/${longitude},${latitude}.json?access_token=${mapboxgl.accessToken}`
+    )
+      .then((response) => response.json())
+      .then((data) => {
+        // Extraire le nom du lieu à partir de la réponse
+        const address = data.features[0].place_name;
 
-    new mapboxgl.Marker()
-      .setLngLat([longitude, latitude])
-      .setPopup(popup)
-      .addTo(map.current);
+        // Afficher les informations dans le popup
+        const popup = new mapboxgl.Popup().setHTML(
+          `<section className="workCard_container">
+            <div className="workCard_resultcontent">
+              <img width="100%" class="Work_image" src=${image} alt="work" />
+              <div class="Map_work_infos_container">
+                <p class="Map_work_info"><span class="M_W_I_span">entry</span>: ${formattedEntryDate}</p>
+                <p class="Map_work_info"><span class="M_W_I_span">address</span>: ${address}</p>
+                ${artistInfo}
+                <p class="Map_work_info"><span class="M_W_I_span">submit by</span>: ${user_pseudo}</p>
+              </div>
+            </div>
+          </section>`
+        );
+
+        new mapboxgl.Marker()
+          .setLngLat([longitude, latitude])
+          .setPopup(popup)
+          .addTo(map.current);
+      })
+      .catch((error) => {
+        console.error("Error fetching address:", error);
+      });
   };
 
   const addMarker = (event) => {

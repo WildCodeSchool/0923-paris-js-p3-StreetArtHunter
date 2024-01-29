@@ -9,6 +9,8 @@ require("dotenv").config();
 const argon = require("argon2");
 const database = require("./database/client");
 
+const env = process.env.APP_ENV;
+
 const seed = async () => {
   try {
     // Declare an array to store the query promises
@@ -187,32 +189,36 @@ const seed = async () => {
       //   console.info(error);
       // }
     }
+    const imageBaseUrl =
+      env === "production"
+        ? `https://streetarthunterz.creativebrain.fr/upload`
+        : `http://localhost:3310/upload`;
 
     const LocationData = [
       {
         name: "Paris 19",
         description:
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla eget efficitur enim. Phasellus sodales pretium orci at finibus. Fusce tempor, ex vitae tristique sagittis, tortor ex scelerisque lectus, eu maximus ante turpis quis tortor.",
+          "Marchez sur les traces du festival Ourcq Living Colors ! Tout au long du parcours, découvrez ou redécouvrez les interventions artistiques, fresques, collaborations qui donnent des couleurs à ce quartier.",
         image: "./upload/20231210_143137.jpg",
       },
       {
         name: "Paris 20",
         description:
-          "Nunc mollis ultrices tristique. Proin vitae elit nec risus faucibus mattis. Sed sem lorem, volutpat non congue at, dapibus nec dui. Fusce a cursus augue. Nam commodo dolor eget risus posuere, ut efficitur leo facilisis. Integer et sapien non tellus consectetur lobortis.",
+          "Découvrez l'histoire et la culture du graffiti parisien dans le 20e arrondissement de Paris, dans les quartiers populaires de Belleville et de Ménilmontant, lieux privilégiés d'expression pour les formes artistiques urbaines.",
         image: "./upload/20231203_143211.jpg",
       },
 
       {
         name: "Aubervilliers 93",
         description:
-          "Quisque dolor dui, condimentum sed porta in, ornare id ipsum. Praesent gravida congue vulputate. Suspendisse eget nibh vitae ante ultricies aliquet nec ut odio. Donec tincidunt nec lectus at.",
+          "À Aubervilliers, juste là, à la porte de Paris le long du Canal Saint Denis, sous le pont du périphérique vous attendent des blazes qui claquent, des graffitis acidulés extrêmement travaillés, une galerie de portraits réalisée tout en douceur… de l’humour et surtout, surtout un concentré d’Art Urbain comme on en voit rarement à Paris et même en périphérie.",
         image: "./upload/20231209_124929.jpg",
       },
 
       {
         name: "Paris 13",
         description:
-          "Nam commodo dolor eget risus posuere, ut efficitur leo facilisis. Integer et sapien non tellus consectetur lobortis.",
+          "Autour de la Place d'Italie, de grandes tours dessinent un panorama bien différent du 13ème arrondissement de Paris. C'est là que la Mairie d'arrondissement, en collaboration avec la galerie Itinerrance, a permis à une centaine d'artistes de renommée mondiale de recouvrir des muraux immenses, créant ainsi un véritable musée à ciel ouvert dédié au Street Art actuel et au néo-muralisme, un chantier titanesque toujours en cours tout au long de ligne 6 du métro aérien.",
         image: "./upload/20231203_141600.jpg",
       },
     ];
@@ -290,7 +296,6 @@ const seed = async () => {
       //   console.info(error);
       // }
     }
-    const imageBaseUrl = "/upload";
 
     const WorksData = [
       {
