@@ -12,8 +12,8 @@ function SpotCard({ location }) {
     <section>
       <div
         className="SpotCard_section"
-        onClick={() => navigate(`/spotzonebyid/${location.name}`)}
-        onKeyDown={() => navigate(`/spotzonebyid/${location.name}`)}
+        onClick={() => navigate(`/spotzonebyid/${location.id}`)}
+        onKeyDown={() => navigate(`/spotzonebyid/${location.id}`)}
         tabIndex="0"
         role="button"
       >

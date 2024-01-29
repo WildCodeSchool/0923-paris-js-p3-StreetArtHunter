@@ -23,7 +23,7 @@ const findByEmail = (pseudo, email) => {
 };
 
 const findAll = () => {
-  return db.query("SELECT * FROM work");
+  return db.query("SELECT * FROM user");
 };
 
 module.exports = {

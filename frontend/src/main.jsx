@@ -110,9 +110,11 @@ const router = createBrowserRouter([
       {
         path: "/spotzonebyid/:location",
         element: <SpotZoneById />,
-        loader: () => {
+        loader: ({ params }) => {
           return fetch(
-            `${import.meta.env.VITE_BACKEND_URL}/api/location/:location`,
+            `${import.meta.env.VITE_BACKEND_URL}/api/location/${
+              params.location
+            }`,
             {
               credentials: "include",
             }

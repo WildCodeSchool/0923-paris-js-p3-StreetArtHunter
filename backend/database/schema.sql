@@ -86,7 +86,7 @@ CREATE TABLE IF NOT EXISTS `street_art_hunterz`.`work` (
   CONSTRAINT `fk_Work_User1`
     FOREIGN KEY (`User_id`)
     REFERENCES `street_art_hunterz`.`user` (`id`),
-      CONSTRAINT `fk_Work_location1`  -- Ajout de la clé étrangère
+  CONSTRAINT `fk_Work_location1`  -- Ajout de la clé étrangère
     FOREIGN KEY (`location_id`)
     REFERENCES `street_art_hunterz`.`location` (`id`))
 ENGINE = InnoDB
