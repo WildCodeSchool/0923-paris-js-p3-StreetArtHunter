@@ -6,6 +6,7 @@ import Stack from "@mui/material/Stack";
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
 import { Container } from "@mui/material";
+import formatDate from "../../../utils/FormatDate";
 import "./usersListAdBy.css";
 import OtherUserBloc from "../../OtherUserBloc/OtherUserBloc";
 
@@ -48,7 +49,9 @@ function UsersListAdBy({ sortedUsers }) {
             </td>
             <td className="UsersList_Td_ULAF">{user.pseudo}</td>
             <td className="UsersList_Td_ULAF">{user.score}</td>
-            <td className="UsersList_Td_ULAF">{user.registration}</td>
+            <td className="UsersList_Td_ULAF">
+              {formatDate(user.registrationDate)}
+            </td>
           </tr>
         ))}
       </table>
