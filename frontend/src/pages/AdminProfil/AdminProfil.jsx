@@ -2,11 +2,11 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import { useState, useContext } from "react";
+import { useLoaderData } from "react-router-dom";
 import Pagination from "@mui/material/Pagination";
 import Stack from "@mui/material/Stack";
 import "./adminProfil.css";
 import "./adminProfilMediaDeskTop.css";
-import DataWorks from "../../../data_sample/data_works.json";
 import formatDate from "../../utils/FormatDate";
 import AuthContext from "../../context/AuthContext";
 import UserListAdminFeat from "../../components/AdminFeatures/UserListAdminFeat/UserListAdminFeat";
@@ -17,6 +17,8 @@ import WorkCard2 from "../../components/WorkCard2/WorkCard2";
 
 function AdminProfil() {
   const { user } = useContext(AuthContext);
+  const workById = useLoaderData();
+  console.info(workById, user);
 
   // Format date object:
   const formattedDate = formatDate(user?.registrationDate);
@@ -36,9 +38,7 @@ function AdminProfil() {
   };
 
   // simulation de données perso de la l'admin //
-  const adminHistoryWork = DataWorks.filter(
-    (work) => work.userSub === user?.pseudo
-  );
+  const adminHistoryWork = workById.filter((work) => work.User_id === user?.id);
   const adminWorksCount = adminHistoryWork.length;
 
   // pagination historical //

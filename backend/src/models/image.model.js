@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 const db = require("../../database/client");
 
 const insert = (work) => {
@@ -20,7 +21,13 @@ const findById = (id) => {
   return db.query("SELECT * FROM work WHERE User_id = ?", [id]);
 };
 
-const findAll = () => {
+const findByUserId = (user_id) => {
+  return db.query("SELECT * FROM work WHERE isValidate=1 and User_id = ?", [
+    user_id,
+  ]);
+};
+
+const findAllWUL = () => {
   return db.query(
     `SELECT w.*, u.pseudo AS user_pseudo, a.pseudo AS artist_pseudo, l.name AS location_name
     FROM work AS w
@@ -35,5 +42,6 @@ const findAll = () => {
 module.exports = {
   insert,
   findById,
-  findAll,
+  findByUserId,
+  findAllWUL,
 };

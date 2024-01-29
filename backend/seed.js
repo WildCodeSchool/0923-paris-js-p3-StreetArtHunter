@@ -44,7 +44,7 @@ const seed = async () => {
         email: "julius@glouglou.fr",
         password: "toto",
         score: 100,
-        admin: 0,
+        admin: 1,
       },
       {
         pseudo: "RuBeat",

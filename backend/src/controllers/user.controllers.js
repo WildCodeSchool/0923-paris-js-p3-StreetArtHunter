@@ -40,6 +40,20 @@ const login = async (req, res, next) => {
   }
 };
 
+// The R of BREAD - Read operation
+const getById = async (req, res, next) => {
+  try {
+    const [[user]] = await userModel.findById(req.params.id);
+    if (user == null) {
+      res.sendStatus(404);
+    } else {
+      res.json(user);
+    }
+  } catch (err) {
+    next(err);
+  }
+};
+
 const getAll = async (req, res, next) => {
   try {
     const [user] = await userModel.findAll();
@@ -52,5 +66,6 @@ const getAll = async (req, res, next) => {
 module.exports = {
   add,
   login,
+  getById,
   getAll,
 };

@@ -20,10 +20,23 @@ const add = async (req, res, next) => {
   }
 };
 
+const getByUserId = async (req, res, next) => {
+  try {
+    const [workByUserId] = await imageModel.findByUserId(req.body.userID);
+    if (workByUserId == null) {
+      res.sendStatus(404);
+    } else {
+      res.json(workByUserId);
+    }
+  } catch (err) {
+    // Pass any errors to the error-handling middleware
+    next(err);
+  }
+};
 const getAll = async (req, res, next) => {
   try {
     // Fetch all items from the database
-    const [works] = await imageModel.findAll();
+    const [works] = await imageModel.findAllWUL();
     console.info(works);
     // Respond with the items in JSON format
     res.json(works);
@@ -36,4 +49,5 @@ const getAll = async (req, res, next) => {
 module.exports = {
   add,
   getAll,
+  getByUserId,
 };
