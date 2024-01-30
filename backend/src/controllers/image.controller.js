@@ -7,9 +7,7 @@ const add = async (req, res, next) => {
       req.files[0].filename
     }`;
     // image.User_id = req.body.userID;
-
     const [result] = await imageModel.insert(image);
-
     if (result.insertId) {
       res.status(201).json(image);
     } else {

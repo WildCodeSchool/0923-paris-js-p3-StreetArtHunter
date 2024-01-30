@@ -9,7 +9,6 @@ import Modal from "@mui/material/Modal";
 import { Container } from "@mui/material";
 import Stack from "@mui/material/Stack";
 import OtherUserBloc from "../OtherUserBloc/OtherUserBloc";
-// import DataUsers from "../../../data_sample/data_users.json";
 import imageMonkey from "../../assets/images/img/monkey02.png";
 import SmileySearch from "../../assets/images/ico/smilley.png";
 import AuthContext from "../../context/AuthContext";
@@ -70,15 +69,6 @@ function UserProfilClassement() {
 
   // Format date object:
   const formattedDate = formatDate(user?.registrationDate);
-
-  // Format date object:
-  // const registrationDateObj = user?.registrationDate
-  //   ? new Date(user.registrationDate)
-  //   : null;
-  // let formattedDate = "";
-  // if (registrationDateObj && !Number.isNaN(registrationDateObj.getTime())) {
-  //   formattedDate = registrationDateObj.toISOString().split("T")[0];
-  // }
 
   return (
     <section className="UP_Container Global_height">

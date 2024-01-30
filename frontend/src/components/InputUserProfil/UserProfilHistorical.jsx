@@ -3,7 +3,6 @@ import { useLoaderData, useNavigate } from "react-router-dom";
 import { useState, useContext } from "react";
 import Pagination from "@mui/material/Pagination";
 import Stack from "@mui/material/Stack";
-// import DataWorks from "../../../data_sample/data_works.json";
 import WorkCard from "../WorkCard/WorkCard";
 import WorkCard2 from "../WorkCard2/WorkCard2";
 import imageMonkey from "../../assets/images/img/monkey02.png";
@@ -54,15 +53,6 @@ function UserProfilHistorical() {
 
   // Format date object:
   const formattedDate = formatDate(user?.registrationDate);
-
-  // Format date object:
-  // const registrationDateObj = user?.registrationDate
-  //   ? new Date(user.registrationDate)
-  //   : null;
-  // let formattedDate = "";
-  // if (registrationDateObj && !Number.isNaN(registrationDateObj.getTime())) {
-  //   formattedDate = registrationDateObj.toISOString().split("T")[0];
-  // }
 
   // gestion Media Screen //
   const smartphoneScreen = window.matchMedia("(max-width: 770px)").matches;
