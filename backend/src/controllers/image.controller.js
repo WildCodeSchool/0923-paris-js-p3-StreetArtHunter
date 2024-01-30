@@ -19,7 +19,6 @@ const add = async (req, res, next) => {
     next(error);
   }
 };
-
 const getAll = async (req, res, next) => {
   try {
     // Fetch all items from the database
