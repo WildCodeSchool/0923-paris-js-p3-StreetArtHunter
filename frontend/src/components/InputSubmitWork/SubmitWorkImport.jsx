@@ -1,12 +1,8 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import ratPhotographer from "../../assets/images/img/Rat_photograph.png";
-// import ImportTest from "../../assets/images/img_sample/importTest.png";
 import "./submitWorkDesktop.css";
 
-function SubmitWorkImport() {
-  const navigate = useNavigate();
-
+function SubmitWorkImport({ onNextStep }) {
   const [selectedImage, setSelectedImage] = useState(null);
 
   const handleFileChange = (e) => {
@@ -68,12 +64,8 @@ function SubmitWorkImport() {
           <div
             className="Button-SubmitWork"
             role="button"
-            onClick={() => {
-              navigate("/submitworkvalidation");
-            }}
-            onKeyDown={() => {
-              navigate("/submitworkvalidation");
-            }}
+            onClick={() => onNextStep("/submitworkvalidation")}
+            onKeyDown={() => onNextStep("/submitworkvalidation")}
             tabIndex="0"
           >
             <h3 className="Button-Validation">validation</h3>
