@@ -1,13 +1,17 @@
 import { useState } from "react";
+import { useLoaderData } from "react-router-dom";
 import Pagination from "@mui/material/Pagination";
 import Stack from "@mui/material/Stack";
 import SpotCard from "../../components/SpotCard/SpotCard";
-import DataSpots from "../../../data_sample/data_spots.json";
+// import DataSpots from "../../../data_sample/data_spots.json";
 import PictureBottom from "../../assets/images/img/graph04 (1).png";
 import "./spotZone.css";
 
 function SpotZone() {
-  const Datas = DataSpots;
+  // database //
+  const locations = useLoaderData() || [];
+  console.info(locations);
+  // const Datas = DataSpots;
 
   // Logique pagination smartphone
   const [currentPage, setCurrentPage] = useState(1);
@@ -18,7 +22,7 @@ function SpotZone() {
 
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-  const currentItems = Datas.slice(indexOfFirstItem, indexOfLastItem);
+  const currentItems = locations.slice(indexOfFirstItem, indexOfLastItem);
 
   // Logique pagination Desktop
 
@@ -30,7 +34,7 @@ function SpotZone() {
 
   const indexOfLastItemDesktop = currentPageDesktop * itemsPerPageDesktop;
   const indexOfFirstItemDesktop = indexOfLastItemDesktop - itemsPerPageDesktop;
-  const currentItemsDesktop = Datas.slice(
+  const currentItemsDesktop = locations.slice(
     indexOfFirstItemDesktop,
     indexOfLastItemDesktop
   );
@@ -60,7 +64,7 @@ function SpotZone() {
           <div className="Pagination_SpotZone_Smartphone">
             <Stack spacing={0} mt={0}>
               <Pagination
-                count={Math.ceil(Datas.length / itemsPerPage)}
+                count={Math.ceil(locations.length / itemsPerPage)}
                 size="small"
                 shape="rounded"
                 variant="outlined"
@@ -71,9 +75,13 @@ function SpotZone() {
             </Stack>
           </div>
           <div className="spotZone_workcard_container">
-            {currentItems.map((data, index) => (
+            {currentItems.map((location) => (
               // eslint-disable-next-line react/no-array-index-key
-              <SpotCard className="SpotCard_content" key={index} data={data} />
+              <SpotCard
+                className="SpotCard_content"
+                key={location.id}
+                location={location}
+              />
             ))}
           </div>
         </>
@@ -81,13 +89,13 @@ function SpotZone() {
       {desktopScreen && (
         <>
           <div className="spotZone_workcard_container_desktop">
-            {currentItemsDesktop.map((data) => (
-              <SpotCard key={data.id} data={data} />
+            {currentItemsDesktop.map((location) => (
+              <SpotCard key={location.id} location={location} />
             ))}
           </div>
           <Stack spacing={0} mt={0}>
             <Pagination
-              count={Math.ceil(Datas.length / itemsPerPageDesktop)}
+              count={Math.ceil(locations.length / itemsPerPageDesktop)}
               size="small"
               shape="rounded"
               variant="outlined"
