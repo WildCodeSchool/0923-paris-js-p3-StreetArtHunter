@@ -42,8 +42,46 @@ const isAdmin = async (req, res, next) => {
   } else res.status(403);
 };
 
+// Stockage token pour raffraichisement de la page //
+
+const renewToken = async (req, res, next) => {
+  try {
+    const token = req.cookies["auth-token"];
+
+    if (token) {
+      const decoded = jwt.verify(token, process.env.APP_SECRET);
+      req.body.userID = decoded.id;
+      req.body.admin = decoded.admin;
+
+      // Vérification si le token expire dans les 2 prochains jours
+      const twoDaysBeforeExpiration = Date.now() + 2 * 24 * 60 * 60 * 1000;
+
+      if (decoded.exp * 1000 < twoDaysBeforeExpiration) {
+        // Le token expire dans les 2 prochains jours, renouvellement du token
+        const expiresIn = 7 * 24 * 60 * 60 * 1000; // 7 jours en millisecondes
+        const newToken = jwt.sign(
+          { id: req.body.userID, admin: req.body.admin },
+          process.env.APP_SECRET,
+          { expiresIn }
+        );
+
+        res.cookie("auth-token", newToken, {
+          maxAge: expiresIn,
+          httpOnly: true,
+        });
+      }
+    }
+
+    next();
+  } catch (error) {
+    console.error(error);
+    res.status(401).json(error.message);
+  }
+};
+
 module.exports = {
   hashPassword,
   isAuth,
   isAdmin,
+  renewToken,
 };

@@ -86,7 +86,7 @@ export default function PositionedMenuConnected() {
           <MenuItem
             className="Police-Burger-Header"
             onClick={() => {
-              navigate("/submitworkimport");
+              navigate("/submitwork");
             }}
           >
             SUBMIT

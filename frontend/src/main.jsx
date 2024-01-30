@@ -10,9 +10,7 @@ import Classement from "./pages/Classement/Classement";
 import Login from "./pages/Login/Login";
 import Register from "./pages/Register/Register";
 import SpotZone from "./pages/SpotZone/SpotZone";
-import SubwitWorkImport from "./components/InputSubmitWork/SubmitWorkImport";
-import SubmitWorkValidation from "./components/InputSubmitWork/SubmitWorkValidation";
-import SubmitWorkThank from "./components/InputSubmitWork/SubmitWorkThank";
+import SubmitWork from "./pages/SubmitWork/SubmitWork";
 import UserProfilHistorical from "./components/InputUserProfil/UserProfilHistorical";
 import UserProfilClassement from "./components/InputUserProfil/UserProfilClassement";
 import Information from "./pages/Information/Information";
@@ -65,20 +63,16 @@ const router = createBrowserRouter([
       {
         path: "/spotzone",
         element: <SpotZone />,
+        loader: () => {
+          return fetch(`${import.meta.env.VITE_BACKEND_URL}/api/location`, {
+            credentials: "include",
+          });
+        },
       },
       {
-        path: "/submitworkimport",
-        element: <SubwitWorkImport />,
+        path: "/submitwork",
+        element: <SubmitWork />,
       },
-      {
-        path: "/submitworkvalidation",
-        element: <SubmitWorkValidation />,
-      },
-      {
-        path: "/submitworkthank",
-        element: <SubmitWorkThank />,
-      },
-
       {
         path: "/userprofilhistorical",
         element: <UserProfilHistorical />,
@@ -120,6 +114,16 @@ const router = createBrowserRouter([
       {
         path: "/spotzonebyid/:location",
         element: <SpotZoneById />,
+        loader: ({ params }) => {
+          return fetch(
+            `${import.meta.env.VITE_BACKEND_URL}/api/location/${
+              params.location
+            }`,
+            {
+              credentials: "include",
+            }
+          );
+        },
       },
       {
         path: "/profil",

@@ -1,9 +1,7 @@
-import { useNavigate } from "react-router-dom";
 import ratPhotographer from "../../assets/images/img/Rat_photograph.png";
 import "./submitWorkDesktop.css";
 
-function SubmitWorkValidation() {
-  const navigate = useNavigate();
+function SubmitWorkValidation({ onNextStep }) {
   return (
     <section className="SubmitW_container Global_height_smartPh Global_height">
       <div className="Picture_DesKtop_Submit">
@@ -38,12 +36,8 @@ function SubmitWorkValidation() {
           <div
             className="Button-SubmitWork"
             role="button"
-            onClick={() => {
-              navigate("/submitworkthank");
-            }}
-            onKeyDown={() => {
-              navigate("/submitworkthank");
-            }}
+            onClick={() => onNextStep("/submitworkthank")}
+            onKeyDown={() => onNextStep("/submitworkthank")}
             tabIndex="0"
           >
             <h3 className="Button-Validation">submit</h3>

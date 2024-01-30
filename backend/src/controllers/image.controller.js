@@ -19,6 +19,14 @@ const add = async (req, res, next) => {
 };
 const getAll = async (req, res, next) => {
   try {
+    const [image] = await imageModel.findAll();
+    res.status(200).json(image);
+  } catch (error) {
+    next(error);
+  }
+};
+const getAll = async (req, res, next) => {
+  try {
     // Fetch all items from the database
     const [works] = await imageModel.findAll();
     console.info(works);
