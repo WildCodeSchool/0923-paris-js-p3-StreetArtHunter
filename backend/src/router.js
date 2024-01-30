@@ -10,10 +10,12 @@ const router = express.Router();
 const itemRouter = require("./routes/items.route");
 const userRouter = require("./routes/user.route");
 const imageRouter = require("./routes/image.route");
+const locationRouter = require("./routes/location.route");
 // Apply routes
 router.use(itemRouter);
 router.use(userRouter);
 router.use(imageRouter);
+router.use(locationRouter);
 
 /* ************************************************************************* */
 
