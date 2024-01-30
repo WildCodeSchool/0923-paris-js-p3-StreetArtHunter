@@ -21,7 +21,7 @@ function UserProfilHistorical() {
   // Works Count - only the validate //
   const validatedWorks = works.filter((work) => work.isValidate === 1);
   // const validatedWorksCount =  validatedWorks.length;
-  const UsersWorks = works.filter((work) => work.User_id === user?.id);
+  const UsersWorks = validatedWorks.filter((work) => work.User_id === user?.id);
 
   // pagination work card //
   const [currentPage, setCurrentPage] = useState(1);
@@ -29,8 +29,8 @@ function UserProfilHistorical() {
 
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-  const currentItems = works.slice(indexOfFirstItem, indexOfLastItem);
-  console.info(currentItems);
+  const currentItems = UsersWorks.slice(indexOfFirstItem, indexOfLastItem);
+  // console.info(currentItems);
 
   const handlePageChange = (event, pageNumber) => {
     setCurrentPage(pageNumber);
@@ -42,7 +42,7 @@ function UserProfilHistorical() {
 
   const indexOfLastItemDesktop = currentPageDesktop * itemsPerPageDesktop;
   const indexOfFirstItemDesktop = indexOfLastItemDesktop - itemsPerPageDesktop;
-  const currentItemsDesktop = validatedWorks.slice(
+  const currentItemsDesktop = UsersWorks.slice(
     indexOfFirstItemDesktop,
     indexOfLastItemDesktop
   );
@@ -130,7 +130,7 @@ function UserProfilHistorical() {
 
             {smartphoneScreen && (
               <div className="UPH_Workcard_Container">
-                {UsersWorks.map((data) => (
+                {currentItems.map((data) => (
                   <WorkCard key={data.id} data={data} />
                 ))}
               </div>
@@ -152,7 +152,7 @@ function UserProfilHistorical() {
             {desktopScreen && (
               <>
                 <div className="UPH_Workcard_Container">
-                  {UsersWorks.map((data) => (
+                  {currentItemsDesktop.map((data) => (
                     <WorkCard2 key={data.id} data={data} />
                   ))}
                 </div>
