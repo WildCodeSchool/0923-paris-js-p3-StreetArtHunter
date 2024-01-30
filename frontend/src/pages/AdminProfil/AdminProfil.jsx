@@ -18,7 +18,6 @@ import WorkCard2 from "../../components/WorkCard2/WorkCard2";
 function AdminProfil() {
   const { user } = useContext(AuthContext);
   const workById = useLoaderData();
-  console.info(workById, user);
 
   // Format date object:
   const formattedDate = formatDate(user?.registrationDate);

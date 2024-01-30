@@ -21,6 +21,9 @@
   font-size: small;
   padding: 0 10px;
 }
+.WIC_span {
+  font-weight: bold;
+}
 
 @media (min-width: 1440px) {
   .workCard_container {
@@ -30,6 +33,6 @@
     width: 80%;
   }
   .work_info {
-    font-size: large;
+    font-size: 0.938em;
   }
 }
