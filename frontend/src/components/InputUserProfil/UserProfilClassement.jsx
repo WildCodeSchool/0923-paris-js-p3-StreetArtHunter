@@ -18,7 +18,6 @@ import "./userProfil.css";
 function UserProfilClassement() {
   const navigate = useNavigate();
   // database //
-  // const data = DataUsers;
   const userClass = useLoaderData();
   const { user } = useContext(AuthContext);
 

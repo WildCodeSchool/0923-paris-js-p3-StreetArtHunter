@@ -13,14 +13,12 @@ import "./userProfil.css";
 function UserProfilHistorical() {
   const navigate = useNavigate();
   // database //
-  // const datas = DataWorks;
   const works = useLoaderData() || [];
 
   const { user } = useContext(AuthContext);
 
   // Works Count - only the validate //
   const validatedWorks = works.filter((work) => work.isValidate === 1);
-  // const validatedWorksCount =  validatedWorks.length;
   const UsersWorks = validatedWorks.filter((work) => work.User_id === user?.id);
 
   // pagination work card //
@@ -30,7 +28,6 @@ function UserProfilHistorical() {
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
   const currentItems = UsersWorks.slice(indexOfFirstItem, indexOfLastItem);
-  // console.info(currentItems);
 
   const handlePageChange = (event, pageNumber) => {
     setCurrentPage(pageNumber);
