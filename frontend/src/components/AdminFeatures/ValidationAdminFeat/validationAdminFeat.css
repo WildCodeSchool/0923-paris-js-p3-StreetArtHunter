@@ -20,8 +20,8 @@
 .VLAF_workcard_container {
   display: flex;
   justify-content: center;
-  flex-wrap: wrap;
   width: 95%;
+  flex-direction: column;
 }
 .VLAF_dashed_line {
   border: none;

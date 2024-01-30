@@ -18,7 +18,7 @@ const insert = (work) => {
 };
 
 const findById = (id) => {
-  return db.query("SELECT * FROM work WHERE User_id = ?", [id]);
+  return db.query("SELECT * FROM work WHERE id = ?", [id]);
 };
 
 const findByUserId = (user_id) => {
@@ -31,7 +31,7 @@ const findAllNoValidate = () => {
   return db.query("SELECT * FROM work WHERE isValidate=0", []);
 };
 
-const findAllWUL = () => {
+const findAll = () => {
   return db.query(
     `SELECT w.*, u.pseudo AS user_pseudo, a.pseudo AS artist_pseudo, l.name AS location_name
     FROM work AS w
@@ -44,10 +44,20 @@ const findAllWUL = () => {
   );
 };
 
+const validateWork = (id) => {
+  return db.query("UPDATE work SET isValidate = 1 WHERE id = ?", [id]);
+};
+
+const deleteWork = (id) => {
+  return db.query("DELETE FROM work WHERE id = ?", [id]);
+};
+
 module.exports = {
   insert,
   findById,
   findByUserId,
   findAllNoValidate,
-  findAllWUL,
+  findAll,
+  validateWork,
+  deleteWork,
 };

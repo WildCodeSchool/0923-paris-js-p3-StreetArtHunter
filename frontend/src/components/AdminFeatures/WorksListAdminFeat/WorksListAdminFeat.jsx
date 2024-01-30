@@ -12,9 +12,6 @@ import WorkCard from "../../WorkCard/WorkCard";
 import WorkCard2 from "../../WorkCard2/WorkCard2";
 
 function WorksListAdminFeat() {
-  // database //
-  // const data = DataWorks;
-
   const [worksData, setWorksData] = useState([]);
 
   useEffect(() => {
