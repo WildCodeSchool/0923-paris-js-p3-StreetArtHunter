@@ -69,6 +69,9 @@ function UserProfilClassement() {
   const handleClose = () => setOpen(false);
 
   // Format date object:
+  const formattedDate = formatDate(user?.registrationDate);
+
+  // Format date object:
   // const registrationDateObj = user?.registrationDate
   //   ? new Date(user.registrationDate)
   //   : null;
@@ -96,7 +99,7 @@ function UserProfilClassement() {
             </div>
           </div>
           <div className="UP_Register_Since">
-            register since: {formatDate(user.registrationDate)}
+            register since: {formattedDate}
           </div>
           <div className="UP_Image_Monkey_Center">
             <img

@@ -19,22 +19,13 @@ const add = async (req, res, next) => {
     next(error);
   }
 };
-
-const getWorks = async (req, res, next) => {
-  try {
-    const image = await imageModel.getAllWorks();
-    res.status(200).json(image);
-  } catch (error) {
-    next(error);
-  }
-};
 const getAll = async (req, res, next) => {
   try {
     // Fetch all items from the database
     const [works] = await imageModel.findAll();
     console.info(works);
     // Respond with the items in JSON format
-    res.json(works);
+    res.status(200).json(works);
   } catch (err) {
     // Pass any errors to the error-handling middleware
     next(err);
@@ -43,6 +34,5 @@ const getAll = async (req, res, next) => {
 
 module.exports = {
   add,
-  getWorks,
   getAll,
 };

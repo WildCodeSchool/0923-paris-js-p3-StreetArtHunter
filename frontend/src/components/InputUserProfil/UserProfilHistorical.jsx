@@ -8,19 +8,21 @@ import WorkCard from "../WorkCard/WorkCard";
 import WorkCard2 from "../WorkCard2/WorkCard2";
 import imageMonkey from "../../assets/images/img/monkey02.png";
 import AuthContext from "../../context/AuthContext";
+import formatDate from "../../utils/FormatDate";
 import "./userProfil.css";
 
 function UserProfilHistorical() {
   const navigate = useNavigate();
   // database //
   // const datas = DataWorks;
-  const image = useLoaderData();
-  const UsersCount = image.length;
+  const works = useLoaderData() || [];
+
   const { user } = useContext(AuthContext);
 
   // Works Count - only the validate //
-  const validatedWorks = image.filter((work) => work.validation === "true");
-  // const validatedWorksCount = validatedWorks.length;
+  const validatedWorks = works.filter((work) => work.isValidate === 1);
+  // const validatedWorksCount =  validatedWorks.length;
+  const UsersWorks = works.filter((work) => work.User_id === user?.id);
 
   // pagination work card //
   const [currentPage, setCurrentPage] = useState(1);
@@ -28,7 +30,8 @@ function UserProfilHistorical() {
 
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-  const currentItems = validatedWorks.slice(indexOfFirstItem, indexOfLastItem);
+  const currentItems = works.slice(indexOfFirstItem, indexOfLastItem);
+  console.info(currentItems);
 
   const handlePageChange = (event, pageNumber) => {
     setCurrentPage(pageNumber);
@@ -44,19 +47,22 @@ function UserProfilHistorical() {
     indexOfFirstItemDesktop,
     indexOfLastItemDesktop
   );
-
+  console.info(currentItemsDesktop);
   const handlePageChangeDesktop = (event, pageNumber) => {
     setCurrentPageDesktop(pageNumber);
   };
 
   // Format date object:
-  const registrationDateObj = user?.registrationDate
-    ? new Date(user.registrationDate)
-    : null;
-  let formattedDate = "";
-  if (registrationDateObj && !Number.isNaN(registrationDateObj.getTime())) {
-    formattedDate = registrationDateObj.toISOString().split("T")[0];
-  }
+  const formattedDate = formatDate(user?.registrationDate);
+
+  // Format date object:
+  // const registrationDateObj = user?.registrationDate
+  //   ? new Date(user.registrationDate)
+  //   : null;
+  // let formattedDate = "";
+  // if (registrationDateObj && !Number.isNaN(registrationDateObj.getTime())) {
+  //   formattedDate = registrationDateObj.toISOString().split("T")[0];
+  // }
 
   // gestion Media Screen //
   const smartphoneScreen = window.matchMedia("(max-width: 770px)").matches;
@@ -129,12 +135,12 @@ function UserProfilHistorical() {
           <div className="UPH_Work_Submited">
             <div className="UPH_Works_Count">
               works submitted:{" "}
-              <span className="font_info_color">{UsersCount}</span>
+              <span className="font_info_color">{UsersWorks.length}</span>
             </div>
 
             {smartphoneScreen && (
               <div className="UPH_Workcard_Container">
-                {currentItems.map((data) => (
+                {UsersWorks.map((data) => (
                   <WorkCard key={data.id} data={data} />
                 ))}
               </div>
@@ -142,7 +148,7 @@ function UserProfilHistorical() {
             {smartphoneScreen && (
               <Stack spacing={0} mt={0}>
                 <Pagination
-                  count={Math.ceil(validatedWorks.length / itemsPerPage)}
+                  count={Math.ceil(UsersWorks.length / itemsPerPage)}
                   size="small"
                   shape="rounded"
                   variant="outlined"
@@ -156,15 +162,13 @@ function UserProfilHistorical() {
             {desktopScreen && (
               <>
                 <div className="UPH_Workcard_Container">
-                  {currentItemsDesktop.map((data) => (
+                  {UsersWorks.map((data) => (
                     <WorkCard2 key={data.id} data={data} />
                   ))}
                 </div>
                 <Stack spacing={0} mt={0}>
                   <Pagination
-                    count={Math.ceil(
-                      validatedWorks.length / itemsPerPageDesktop
-                    )}
+                    count={Math.ceil(UsersWorks.length / itemsPerPageDesktop)}
                     size="small"
                     shape="rounded"
                     variant="outlined"
