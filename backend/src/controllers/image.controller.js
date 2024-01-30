@@ -28,6 +28,19 @@ const getAll = async (req, res, next) => {
   }
 };
 
+const getAll = async (req, res, next) => {
+  try {
+    // Fetch all items from the database
+    const [works] = await imageModel.findAll();
+    console.info(works);
+    // Respond with the items in JSON format
+    res.json(works);
+  } catch (err) {
+    // Pass any errors to the error-handling middleware
+    next(err);
+  }
+};
+
 module.exports = {
   add,
   getAll,

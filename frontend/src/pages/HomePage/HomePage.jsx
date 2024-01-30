@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
+import { useLoaderData } from "react-router-dom";
 import Stack from "@mui/material/Stack";
 import Button from "@mui/material/Button";
 import KidCompass from "../../assets/images/img/Anonym_boussole.png";
@@ -7,6 +8,9 @@ import StreetMap from "../../components/Map/Map";
 import "./homePage.css";
 
 function HomePage() {
+  // database //
+  const works = useLoaderData();
+
   // Mui button style //
   const theme = createTheme({
     palette: {
@@ -91,6 +95,7 @@ function HomePage() {
             UsingLng={mapCoordinates.lng}
             UsingLat={mapCoordinates.lat}
             UsingZoom={mapCoordinates.zoom}
+            works={works}
           />
         </div>
         <div className="cardinal_buttons_line">

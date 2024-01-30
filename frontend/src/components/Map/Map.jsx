@@ -1,11 +1,13 @@
+/* eslint-disable camelcase */
 /* eslint-disable no-unused-vars */
 import { useEffect, useRef } from "react";
 import mapboxgl from "mapbox-gl";
 import MapboxGeocoder from "@mapbox/mapbox-gl-geocoder";
 import "mapbox-gl/dist/mapbox-gl.css";
 import "@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css";
+import formatDate from "../../utils/FormatDate";
 import "./map.css";
-import works from "../../../data_sample/data_works.json";
+// import works from "../../../data_sample/data_works.json";
 
 mapboxgl.accessToken = import.meta.env.VITE_MAPBOX_TOKEN;
 
@@ -17,6 +19,7 @@ function StreetMap({
   UsingZoom,
   search = false,
   mapMarker = false,
+  works,
 }) {
   const mapContainer = useRef(null);
   const map = useRef(null);
@@ -25,31 +28,56 @@ function StreetMap({
   const loadMarker = ({
     image,
     entry,
-    userSub,
-    artist,
-    location,
     longitude,
     latitude,
+    user_pseudo,
+    artist_pseudo,
+    isValidate,
   }) => {
-    const popup = new mapboxgl.Popup().setHTML(
-      `<section className="workCard_container">
-        <div className="workCard_resultcontent">
-          <img width="100%" className="Work_image" src=${image} alt="work" />
-          <div className="work_infos_container">
-            <p className="work_info"> entry: ${entry}</p>
-            <p className="work_info"> zone: ${location}</p>
-            <p className="work_info"> loc: adresse rue + cp</p>
-            <p className="work_info"> artist: ${artist}</p>
-            <p className="work_info"> submitted by: ${userSub}</p>
-          </div>
-        </div>
-      </section>`
-    );
+    if (isValidate !== 1) {
+      return; // Ne pas charger le marqueur si le travail n'est pas valide
+    }
 
-    new mapboxgl.Marker()
-      .setLngLat([longitude, latitude])
-      .setPopup(popup)
-      .addTo(map.current);
+    // Format the entry date
+    const formattedEntryDate = formatDate(entry);
+
+    // Affichage conditionel artist
+    const artistInfo = artist_pseudo
+      ? `<p class="Map_work_info"><span class="M_W_I_span">artist</span>: ${artist_pseudo}</p>`
+      : "";
+
+    // Effectuer une requête de géocodage inversé pour obtenir le nom du lieu
+    fetch(
+      `https://api.mapbox.com/geocoding/v5/mapbox.places/${longitude},${latitude}.json?access_token=${mapboxgl.accessToken}`
+    )
+      .then((response) => response.json())
+      .then((data) => {
+        // Extraire le nom du lieu à partir de la réponse
+        const address = data.features[0].place_name;
+
+        // Afficher les informations dans le popup
+        const popup = new mapboxgl.Popup().setHTML(
+          `<section className="workCard_container">
+            <div className="workCard_resultcontent">
+              <img width="100%" class="Work_image" src=${image} alt="work" />
+              <div class="Map_work_infos_container">
+                <p class="Map_work_info"><span class="M_W_I_span">entry</span>: ${formattedEntryDate}</p>
+                <p class="Map_work_info"><span class="M_W_I_span">address</span>: ${address}</p>
+                ${artistInfo}
+                <p class="Map_work_info"><span class="M_W_I_span">submit by</span>: ${user_pseudo}</p>
+              </div>
+            </div>
+          </section>`
+        );
+
+        new mapboxgl.Marker()
+          .setLngLat([longitude, latitude])
+          .setPopup(popup)
+          .addTo(map.current);
+      })
+      .catch((error) => {
+        console.error("Error fetching address:", error);
+      });
   };
 
   const addMarker = (event) => {
@@ -113,11 +141,14 @@ function StreetMap({
     // Add marker when click on the map
     if (mapMarker) map.current.on("mousedown", addMarker);
 
-    // add marker from data
+    // Add marker from data
     for (const work of works) {
       loadMarker(work);
     }
-  }, []);
+    // Set map center and zoom
+    map.current.setCenter([UsingLng, UsingLat]);
+    map.current.setZoom(UsingZoom);
+  }, [works, search, mapMarker, UsingLng, UsingLat, UsingZoom]);
 
   useEffect(() => {
     if (map.current) {

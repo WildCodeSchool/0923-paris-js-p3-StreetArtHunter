@@ -32,12 +32,14 @@ const findAll = () => {
     []
   );
 };
+
 const getImageByLocationId = (id) => {
   return db.query(
     "Select image FROM `street_art_hunterz`.`work` WHERE location_id = ?",
     [id]
   );
 };
+
 module.exports = {
   insert,
   findById,
