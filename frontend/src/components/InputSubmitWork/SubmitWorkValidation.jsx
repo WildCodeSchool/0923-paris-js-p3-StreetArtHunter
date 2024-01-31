@@ -1,7 +1,17 @@
+/* eslint-disable no-unused-vars */
+import { useState } from "react";
+import Map from "../Map/Map";
 import ratPhotographer from "../../assets/images/img/Rat_photograph.png";
 import "./submitWorkDesktop.css";
 
 function SubmitWorkValidation({ onNextStep }) {
+  // change coordonate on cardinal button //
+  const [mapCoordinates, setMapCoordinates] = useState({
+    lng: 2.3522,
+    lat: 48.8566,
+    zoom: 11,
+  });
+
   return (
     <section className="SubmitW_container Global_height_smartPh Global_height">
       <div className="Picture_DesKtop_Submit">
@@ -16,7 +26,16 @@ function SubmitWorkValidation({ onNextStep }) {
           <h1 className="titleSubmitWork TSW-correctgap">propose a work</h1>
           <div className="blocImportImage">
             <div className="importImageInside">
-              <p>add photo</p>
+              <Map
+                UsingLng={mapCoordinates.lng}
+                UsingLat={mapCoordinates.lat}
+                UsingZoom={mapCoordinates.zoom}
+                height="90%"
+                width="39%"
+                className="map_WCB"
+                search
+                mapMarker
+              />
             </div>
           </div>
 

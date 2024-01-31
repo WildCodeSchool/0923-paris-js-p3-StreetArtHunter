@@ -97,6 +97,20 @@
   justify-content: center;
   cursor: pointer;
 }
+.Button-Reset {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-family: var(--font-03);
+  background: var(--color-00);
+  color: var(--color-01);
+  font-size: 30px;
+  border-radius: 10px;
+  border: 1px solid #000;
+  height: 2.375rem;
+  padding: 0 1rem;
+  cursor: pointer;
+}
 .text_validation {
   color: var(--color-01);
   text-align: center;
