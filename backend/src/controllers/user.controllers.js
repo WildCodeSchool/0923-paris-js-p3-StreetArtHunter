@@ -72,10 +72,22 @@ const erase = async (req, res, next) => {
   }
 };
 
+const incrementUserScore = async (req, res, next) => {
+  try {
+    const userId = req.params.id;
+    await userModel.incrementScore(userId);
+
+    res.sendStatus(200);
+  } catch (error) {
+    next(error);
+  }
+};
+
 module.exports = {
   add,
   login,
   getById,
   getAll,
   erase,
+  incrementUserScore,
 };

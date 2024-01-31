@@ -13,5 +13,10 @@ router.delete(
   auth.isAdmin,
   userController.erase
 );
-
+router.put(
+  "/user/:id/score",
+  auth.isAuth,
+  auth.isAdmin,
+  userController.incrementUserScore
+);
 module.exports = router;

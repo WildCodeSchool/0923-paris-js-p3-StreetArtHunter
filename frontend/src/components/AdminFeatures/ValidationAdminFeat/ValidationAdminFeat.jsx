@@ -46,6 +46,26 @@ function ValidationAdminFeat() {
       );
       if (response.status === 204) {
         console.info("validation ok");
+
+        // Increment user score by 100 points
+        const userScoreResponse = await fetch(
+          `${import.meta.env.VITE_BACKEND_URL}/api/user/${id}/score`,
+          {
+            method: "put",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              score: 100,
+            }),
+            credentials: "include",
+          }
+        );
+
+        if (userScoreResponse.status === 204) {
+          console.info("User score incremented by 100 points.");
+        } else {
+          console.error("Error incrementing user score.");
+        }
+
         const newUnvalidate = unvalidateWorksData.filter(
           (work) => work.id !== id
         );

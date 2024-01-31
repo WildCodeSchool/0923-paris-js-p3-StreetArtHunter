@@ -42,6 +42,7 @@ CREATE TABLE IF NOT EXISTS `street_art_hunterz`.`location` (
   `name` VARCHAR(100) NOT NULL,
   `description` VARCHAR(1000) NOT NULL,
   `image` TEXT NOT NULL,
+  `postalcode` TEXT NOT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB
 AUTO_INCREMENT = 1
@@ -75,20 +76,20 @@ CREATE TABLE IF NOT EXISTS `street_art_hunterz`.`work` (
   `latitude` DECIMAL(16, 14) NOT NULL,
   `longitude` DECIMAL(15, 14) NOT NULL,
   `image` TEXT NOT NULL,
-  `User_id` INT NULL,
+  `User_id` INT,
   `entry` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `isValidate` TINYINT NOT NULL,
-  `location_id` INT NOT NULL,
+  `location_id` INT,
   PRIMARY KEY (`id`),
   UNIQUE INDEX `id_UNIQUE` (`id` ASC) VISIBLE,
   INDEX `fk_Work_User1_idx` (`User_id` ASC) VISIBLE,
   INDEX `fk_Work_location1_idx` (`location_id` ASC) VISIBLE,
   CONSTRAINT `fk_Work_User1`
     FOREIGN KEY (`User_id`)
-    REFERENCES `street_art_hunterz`.`user` (`id`) ON DELETE CASCADE,
+    REFERENCES `street_art_hunterz`.`user` (`id`) ON DELETE SET NULL,
   CONSTRAINT `fk_Work_location1`  -- Ajout de la clé étrangère
     FOREIGN KEY (`location_id`)
-    REFERENCES `street_art_hunterz`.`location` (`id`) ON DELETE CASCADE)
+    REFERENCES `street_art_hunterz`.`location` (`id`) ON DELETE SET NULL)
 ENGINE = InnoDB
 AUTO_INCREMENT = 1
 DEFAULT CHARACTER SET = utf8mb3;

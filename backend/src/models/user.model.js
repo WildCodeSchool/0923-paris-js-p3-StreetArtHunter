@@ -30,10 +30,15 @@ const deleteUser = (id) => {
   return db.query("DELETE FROM user WHERE id = ?", [id]);
 };
 
+const incrementScore = (id) => {
+  return db.query("UPDATE user SET score = score + 100 WHERE id = ?", [id]);
+};
+
 module.exports = {
   insert,
   findById,
   findByEmail,
   findAll,
   deleteUser,
+  incrementScore,
 };

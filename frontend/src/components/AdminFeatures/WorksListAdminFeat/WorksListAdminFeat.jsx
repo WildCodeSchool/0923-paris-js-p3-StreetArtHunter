@@ -33,15 +33,15 @@ function WorksListAdminFeat() {
   }, []);
 
   // Works Count - only the validate //
-  const validatedWorks = worksData.filter((work) => work.isValidate === 1);
+  // const validatedWorks = worksData.filter((work) => work.isValidate === 1);
 
   // unique location for Zone <option> //
   const uniqueLocations = Array.from(
-    new Set(validatedWorks.map((item) => item.location_name))
+    new Set(worksData.map((item) => item.location_name))
   );
 
   // works entry sorted //
-  const workEntrySorted = validatedWorks.slice().sort((a, b) => {
+  const workEntrySorted = worksData.slice().sort((a, b) => {
     const dateA = new Date(a.entry);
     const dateB = new Date(b.entry);
 

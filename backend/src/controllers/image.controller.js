@@ -53,7 +53,6 @@ const getAllWUL = async (req, res, next) => {
   try {
     const [works] = await imageModel.findAll();
     console.info(works);
-    // Respond with the items in JSON format
     res.status(200).json(works);
   } catch (err) {
     next(err);

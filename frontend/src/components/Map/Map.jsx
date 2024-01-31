@@ -31,9 +31,11 @@ function StreetMap({
     longitude,
     latitude,
     user_pseudo,
+    user_id,
     artist_pseudo,
     isValidate,
   }) => {
+    console.info(user_id);
     if (isValidate !== 1) {
       return; // Ne pas charger le marqueur si le travail n'est pas valide
     }
@@ -54,6 +56,7 @@ function StreetMap({
       .then((data) => {
         // Extraire le nom du lieu à partir de la réponse
         const address = data.features[0].place_name;
+        console.info(data.features[0]);
 
         // Afficher les informations dans le popup
         const popup = new mapboxgl.Popup().setHTML(

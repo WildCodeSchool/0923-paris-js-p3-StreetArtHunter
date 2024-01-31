@@ -19,6 +19,13 @@ const seed = async () => {
 
     const userData = [
       {
+        pseudo: "noOne",
+        email: "NoBody@glouglou.fr",
+        password: "toto",
+        score: 0,
+        admin: 0,
+      },
+      {
         pseudo: "Chaton_Brutal",
         email: "chaton@glouglou.fr",
         password: "toto",
@@ -200,12 +207,14 @@ const seed = async () => {
         description:
           "Marchez sur les traces du festival Ourcq Living Colors ! Tout au long du parcours, découvrez ou redécouvrez les interventions artistiques, fresques, collaborations qui donnent des couleurs à ce quartier.",
         image: `${imageBaseUrl}/20231210_143137.jpg`,
+        postalcode: "75019",
       },
       {
         name: "Paris 20",
         description:
           "Découvrez l'histoire et la culture du graffiti parisien dans le 20e arrondissement de Paris, dans les quartiers populaires de Belleville et de Ménilmontant, lieux privilégiés d'expression pour les formes artistiques urbaines.",
         image: `${imageBaseUrl}/20231203_143211.jpg`,
+        postalcode: "75020",
       },
 
       {
@@ -213,6 +222,7 @@ const seed = async () => {
         description:
           "À Aubervilliers, juste là, à la porte de Paris le long du Canal Saint Denis, sous le pont du périphérique vous attendent des blazes qui claquent, des graffitis acidulés extrêmement travaillés, une galerie de portraits réalisée tout en douceur… de l’humour et surtout, surtout un concentré d’Art Urbain comme on en voit rarement à Paris et même en périphérie.",
         image: `${imageBaseUrl}/20231209_124929.jpg`,
+        postalcode: "93300",
       },
 
       {
@@ -220,6 +230,7 @@ const seed = async () => {
         description:
           "Autour de la Place d'Italie, de grandes tours dessinent un panorama bien différent du 13ème arrondissement de Paris. C'est là que la Mairie d'arrondissement, en collaboration avec la galerie Itinerrance, a permis à une centaine d'artistes de renommée mondiale de recouvrir des muraux immenses, créant ainsi un véritable musée à ciel ouvert dédié au Street Art actuel et au néo-muralisme, un chantier titanesque toujours en cours tout au long de ligne 6 du métro aérien.",
         image: `${imageBaseUrl}/20231203_141600.jpg`,
+        postalcode: "75013",
       },
     ];
 
@@ -228,8 +239,8 @@ const seed = async () => {
       // try {
       queries.push(
         database.query(
-          "INSERT INTO location (name, description, image) VALUES (?, ?, ?)",
-          [element.name, element.description, element.image]
+          "INSERT INTO location (name, description, image, postalcode) VALUES (?, ?, ?, ?)",
+          [element.name, element.description, element.image, element.postalcode]
         )
       );
       // } catch (error) {
@@ -302,7 +313,7 @@ const seed = async () => {
         latitude: 48.87261592246546,
         longitude: 2.376940626111713,
         image: `${imageBaseUrl}/20231203_141600.jpg`,
-        User_id: 1,
+        User_id: 7,
         isValidate: 1,
         location_id: 2,
       },
@@ -326,7 +337,7 @@ const seed = async () => {
         latitude: 48.872165897007264,
         longitude: 2.378325264218084,
         image: `${imageBaseUrl}/20231203_142754.jpg`,
-        User_id: 1,
+        User_id: 2,
         isValidate: 1,
         location_id: 2,
       },
@@ -358,7 +369,7 @@ const seed = async () => {
         latitude: 48.87165035798295,
         longitude: 2.3854193494781155,
         image: `${imageBaseUrl}/20231203_151510.jpg`,
-        User_id: 1,
+        User_id: 17,
         isValidate: 1,
         location_id: 2,
       },
@@ -398,7 +409,7 @@ const seed = async () => {
         latitude: 48.89912438988054,
         longitude: 2.3821234804132336,
         image: `${imageBaseUrl}/20231209_124153.jpg`,
-        User_id: 1,
+        User_id: 6,
         isValidate: 1,
         location_id: 3,
       },
@@ -422,7 +433,7 @@ const seed = async () => {
         latitude: 48.90111454447136,
         longitude: 2.3810108322153307,
         image: `${imageBaseUrl}/20231209_124929.jpg`,
-        User_id: 1,
+        User_id: 8,
         isValidate: 1,
         location_id: 3,
       },
