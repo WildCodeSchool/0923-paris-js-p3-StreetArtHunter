@@ -9,7 +9,6 @@ const add = async (req, res, next) => {
     }`;
 
     const [result] = await imageModel.insert(image);
-
     if (result.insertId) {
       res.status(201).json(image);
     } else {
@@ -19,7 +18,14 @@ const add = async (req, res, next) => {
     next(error);
   }
 };
-
+const getAll = async (req, res, next) => {
+  try {
+    const [works] = await imageModel.findAll();
+    res.status(200).json(works);
+  } catch (error) {
+    next(error);
+  }
+};
 const getByUserId = async (req, res, next) => {
   try {
     const [workByUserId] = await imageModel.findByUserId(req.body.userID);
@@ -47,7 +53,8 @@ const getAllWUL = async (req, res, next) => {
   try {
     const [works] = await imageModel.findAll();
     console.info(works);
-    res.json(works);
+    // Respond with the items in JSON format
+    res.status(200).json(works);
   } catch (err) {
     next(err);
   }
@@ -75,6 +82,7 @@ const erase = async (req, res, next) => {
 
 module.exports = {
   add,
+  getAll,
   getByUserId,
   getAllNoValidate,
   getAllWUL,

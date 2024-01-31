@@ -40,6 +40,7 @@ const findAllNoValidate = () => {
   );
 };
 
+// Non premuni contre injections SQL //
 const findAll = () => {
   return db.query(
     `SELECT w.*, u.pseudo AS user_pseudo, a.pseudo AS artist_pseudo, l.name AS location_name
@@ -61,6 +62,13 @@ const deleteWork = (id) => {
   return db.query("DELETE FROM work WHERE id = ?", [id]);
 };
 
+const getImageByLocationId = (id) => {
+  return db.query(
+    "Select image FROM `street_art_hunterz`.`work` WHERE location_id = ?",
+    [id]
+  );
+};
+
 module.exports = {
   insert,
   findById,
@@ -69,4 +77,5 @@ module.exports = {
   findAll,
   validateWork,
   deleteWork,
+  getImageByLocationId,
 };
