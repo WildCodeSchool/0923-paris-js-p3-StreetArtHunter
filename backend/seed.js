@@ -29,56 +29,56 @@ const seed = async () => {
         pseudo: "Soleil_Levant",
         email: "Soleil@glouglou.fr",
         password: "toto",
-        score: 100,
+        score: 200,
         admin: 0,
       },
       {
         pseudo: "Ulysse_31",
         email: "Ulysse@glouglou.fr",
         password: "toto",
-        score: 100,
+        score: 400,
         admin: 0,
       },
       {
         pseudo: "Big_Julius",
         email: "julius@glouglou.fr",
         password: "toto",
-        score: 100,
-        admin: 0,
+        score: 800,
+        admin: 1,
       },
       {
         pseudo: "RuBeat",
         email: "rubeat@glouglou.fr",
         password: "toto",
-        score: 100,
+        score: 300,
         admin: 0,
       },
       {
         pseudo: "El_Poutros",
         email: "LaPoutre@glouglou.fr",
         password: "toto",
-        score: 100,
+        score: 500,
         admin: 0,
       },
       {
         pseudo: "KoffeeMan",
         email: "kofee@glouglou.fr",
         password: "toto",
-        score: 100,
+        score: 700,
         admin: 0,
       },
       {
         pseudo: "Yax2_94",
         email: "yaya@glouglou.fr",
         password: "toto",
-        score: 100,
+        score: 600,
         admin: 0,
       },
       {
         pseudo: "Tristan",
         email: "tristan@glouglou.fr",
         password: "toto",
-        score: 100,
+        score: 650,
         admin: 0,
       },
       {
@@ -92,14 +92,14 @@ const seed = async () => {
         pseudo: "Drifer",
         email: "Drifer@glouglou.fr",
         password: "toto",
-        score: 100,
+        score: 900,
         admin: 0,
       },
       {
         pseudo: "LeoMiaou",
         email: "LeoMiaou@glouglou.fr",
         password: "toto",
-        score: 100,
+        score: 750,
         admin: 0,
       },
       {
@@ -113,14 +113,14 @@ const seed = async () => {
         pseudo: "Orel One",
         email: "orel@glouglou.fr",
         password: "toto",
-        score: 100,
+        score: 150,
         admin: 0,
       },
       {
         pseudo: "Mama Seni",
         email: "MamaInes@glouglou.fr",
         password: "toto",
-        score: 100,
+        score: 250,
         admin: 0,
       },
       {
@@ -200,12 +200,14 @@ const seed = async () => {
         description:
           "Marchez sur les traces du festival Ourcq Living Colors ! Tout au long du parcours, découvrez ou redécouvrez les interventions artistiques, fresques, collaborations qui donnent des couleurs à ce quartier.",
         image: `${imageBaseUrl}/20231210_143137.jpg`,
+        postalcode: "75019",
       },
       {
         name: "Paris 20",
         description:
           "Découvrez l'histoire et la culture du graffiti parisien dans le 20e arrondissement de Paris, dans les quartiers populaires de Belleville et de Ménilmontant, lieux privilégiés d'expression pour les formes artistiques urbaines.",
         image: `${imageBaseUrl}/20231203_143211.jpg`,
+        postalcode: "75020",
       },
 
       {
@@ -213,13 +215,15 @@ const seed = async () => {
         description:
           "À Aubervilliers, juste là, à la porte de Paris le long du Canal Saint Denis, sous le pont du périphérique vous attendent des blazes qui claquent, des graffitis acidulés extrêmement travaillés, une galerie de portraits réalisée tout en douceur… de l’humour et surtout, surtout un concentré d’Art Urbain comme on en voit rarement à Paris et même en périphérie.",
         image: `${imageBaseUrl}/20231209_124929.jpg`,
+        postalcode: "93300",
       },
 
       {
         name: "Paris 13",
         description:
           "Autour de la Place d'Italie, de grandes tours dessinent un panorama bien différent du 13ème arrondissement de Paris. C'est là que la Mairie d'arrondissement, en collaboration avec la galerie Itinerrance, a permis à une centaine d'artistes de renommée mondiale de recouvrir des muraux immenses, créant ainsi un véritable musée à ciel ouvert dédié au Street Art actuel et au néo-muralisme, un chantier titanesque toujours en cours tout au long de ligne 6 du métro aérien.",
-        image: "./upload/20231203_141600.jpg",
+        image: `${imageBaseUrl}/20231203_141600.jpg`,
+        postalcode: "75013",
       },
     ];
 
@@ -228,8 +232,8 @@ const seed = async () => {
       // try {
       queries.push(
         database.query(
-          "INSERT INTO location (name, description, image) VALUES (?, ?, ?)",
-          [element.name, element.description, element.image]
+          "INSERT INTO location (name, description, image, postalcode) VALUES (?, ?, ?, ?)",
+          [element.name, element.description, element.image, element.postalcode]
         )
       );
       // } catch (error) {

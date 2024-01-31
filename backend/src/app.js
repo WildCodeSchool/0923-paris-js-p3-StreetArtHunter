@@ -54,8 +54,10 @@ app.use(
 
 // Uncomment one or more of these options depending on the format of the data sent by your client:
 
-app.use(express.json());
-app.use(express.urlencoded({ extended: false, limit: "10mb" }));
+app.use(express.json({ limit: "30mb" }));
+app.use(
+  express.urlencoded({ extended: false, limit: "30mb", parameterLimit: 50000 })
+);
 // app.use(express.text());
 // app.use(express.raw());
 

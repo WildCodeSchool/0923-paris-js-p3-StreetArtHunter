@@ -1,12 +1,18 @@
 const imageModel = require("../models/image.model");
+const locationModel = require("../models/location.model");
 
 const add = async (req, res, next) => {
   try {
     const image = req.body;
+    console.info(req.body, req.files);
     image.URL_image = `${req.protocol}://${req.get("host")}/upload/${
       req.files[0].filename
     }`;
-    // image.User_id = req.body.userID;
+    image.User_id = req.userID;
+    const [[location]] = await locationModel.getLocationByPostalCode(
+      image.postalCode
+    );
+    image.location_id = location.id;
     const [result] = await imageModel.insert(image);
     if (result.insertId) {
       res.status(201).json(image);
