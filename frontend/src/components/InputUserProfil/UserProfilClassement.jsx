@@ -1,7 +1,7 @@
 /* eslint-disable prefer-destructuring */
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLoaderData } from "react-router-dom";
 import { useState, useContext } from "react";
 import Pagination from "@mui/material/Pagination";
 import Box from "@mui/material/Box";
@@ -9,16 +9,16 @@ import Modal from "@mui/material/Modal";
 import { Container } from "@mui/material";
 import Stack from "@mui/material/Stack";
 import OtherUserBloc from "../OtherUserBloc/OtherUserBloc";
-import DataUsers from "../../../data_sample/data_users.json";
 import imageMonkey from "../../assets/images/img/monkey02.png";
 import SmileySearch from "../../assets/images/ico/smilley.png";
 import AuthContext from "../../context/AuthContext";
+import formatDate from "../../utils/FormatDate";
 import "./userProfil.css";
 
 function UserProfilClassement() {
   const navigate = useNavigate();
   // database //
-  const data = DataUsers;
+  const userClass = useLoaderData();
   const { user } = useContext(AuthContext);
 
   // search bar //
@@ -30,7 +30,7 @@ function UserProfilClassement() {
     setSearch(value);
   };
 
-  const filteredUsers = data.filter((dataItem) =>
+  const filteredUsers = userClass.filter((dataItem) =>
     dataItem.pseudo
       .toString()
       .toLowerCase()
@@ -44,7 +44,7 @@ function UserProfilClassement() {
 
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-  const currentItems = data.slice(indexOfFirstItem, indexOfLastItem);
+  const currentItems = userClass.slice(indexOfFirstItem, indexOfLastItem);
 
   const handlePageChange = (event, value) => {
     setCurrentPage(value);
@@ -67,13 +67,7 @@ function UserProfilClassement() {
   const handleClose = () => setOpen(false);
 
   // Format date object:
-  const registrationDateObj = user?.registrationDate
-    ? new Date(user.registrationDate)
-    : null;
-  let formattedDate = "";
-  if (registrationDateObj && !Number.isNaN(registrationDateObj.getTime())) {
-    formattedDate = registrationDateObj.toISOString().split("T")[0];
-  }
+  const formattedDate = formatDate(user?.registrationDate);
 
   return (
     <section className="UP_Container Global_height">
@@ -168,7 +162,7 @@ function UserProfilClassement() {
                           <td className="UPC_Users_List_Td">{users.pseudo}</td>
                           <td className="UPC_Users_List_Td">{users.score}</td>
                           <td className="UPC_Users_List_Td">
-                            {users.registration}
+                            {formatDate(users.registrationDate)}
                           </td>
                         </tr>
                       ))}
@@ -188,7 +182,7 @@ function UserProfilClassement() {
                           <td className="UPC_Users_List_Td">{users.pseudo}</td>
                           <td className="UPC_Users_List_Td">{users.score}</td>
                           <td className="UPC_Users_List_Td">
-                            {users.registration}
+                            {formatDate(users.registrationDate)}
                           </td>
                         </tr>
                       ))}
