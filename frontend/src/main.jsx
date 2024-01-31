@@ -76,10 +76,20 @@ const router = createBrowserRouter([
       {
         path: "/userprofilhistorical",
         element: <UserProfilHistorical />,
+        loader: () => {
+          return fetch(`${import.meta.env.VITE_BACKEND_URL}/api/image`, {
+            credentials: "include",
+          });
+        },
       },
       {
         path: "/userprofilclassement",
         element: <UserProfilClassement />,
+        loader: () => {
+          return fetch(`${import.meta.env.VITE_BACKEND_URL}/api/user`, {
+            credentials: "include",
+          });
+        },
       },
       {
         path: "/information",

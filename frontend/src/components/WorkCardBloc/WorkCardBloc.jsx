@@ -7,9 +7,9 @@ import Map from "../Map/Map";
 function workCardBloc({ data }) {
   // change coordonate on button //
   const [mapCoordinates, setMapCoordinates] = useState({
-    lng: 2.3522,
-    lat: 48.8566,
-    zoom: 11,
+    lng: data.longitude,
+    lat: data.latitude,
+    zoom: 15,
   });
   return (
     <section>
@@ -25,6 +25,7 @@ function workCardBloc({ data }) {
             className="map_WCB"
             search
             mapMarker
+            works={[data]}
           />
         </div>
       </div>

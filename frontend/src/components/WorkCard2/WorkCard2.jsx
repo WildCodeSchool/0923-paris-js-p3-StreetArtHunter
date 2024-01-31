@@ -6,14 +6,17 @@ import WorkCardBloc from "../WorkCardBloc/WorkCardBloc";
 import "./workCard2.css";
 
 function WorkCard2({ data }) {
-  const [selectedWork, setSelectedWork] = useState(null);
+  const [selectedWork, setSelectedWork] = useState(data);
+  const [open, setOpen] = useState(false);
 
   const openModal = () => {
     setSelectedWork(data);
+    setOpen(true);
   };
 
   const closeModal = () => {
     setSelectedWork(null);
+    setOpen(false);
   };
 
   return (
@@ -37,7 +40,7 @@ function WorkCard2({ data }) {
         </div>
       </section>
       {selectedWork && (
-        <Modal open onClose={closeModal} className="WorkBlockModal">
+        <Modal open={open} onClose={closeModal} className="WorkBlockModal">
           <Box>
             <Container maxWidth="lg">
               <div className="modal_closed_btn_container">

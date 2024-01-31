@@ -1,25 +1,25 @@
 /* eslint-disable prefer-destructuring */
-import { useNavigate } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import { useState, useContext } from "react";
 import Pagination from "@mui/material/Pagination";
 import Stack from "@mui/material/Stack";
-import DataWorks from "../../../data_sample/data_works.json";
 import WorkCard from "../WorkCard/WorkCard";
 import WorkCard2 from "../WorkCard2/WorkCard2";
 import imageMonkey from "../../assets/images/img/monkey02.png";
 import AuthContext from "../../context/AuthContext";
+import formatDate from "../../utils/FormatDate";
 import "./userProfil.css";
 
 function UserProfilHistorical() {
   const navigate = useNavigate();
   // database //
-  const datas = DataWorks;
-  const UsersCount = datas.length;
+  const works = useLoaderData() || [];
+
   const { user } = useContext(AuthContext);
 
   // Works Count - only the validate //
-  const validatedWorks = datas.filter((work) => work.validation === "true");
-  // const validatedWorksCount = validatedWorks.length;
+  const validatedWorks = works.filter((work) => work.isValidate === 1);
+  const UsersWorks = validatedWorks.filter((work) => work.User_id === user?.id);
 
   // pagination work card //
   const [currentPage, setCurrentPage] = useState(1);
@@ -27,7 +27,7 @@ function UserProfilHistorical() {
 
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-  const currentItems = validatedWorks.slice(indexOfFirstItem, indexOfLastItem);
+  const currentItems = UsersWorks.slice(indexOfFirstItem, indexOfLastItem);
 
   const handlePageChange = (event, pageNumber) => {
     setCurrentPage(pageNumber);
@@ -39,23 +39,17 @@ function UserProfilHistorical() {
 
   const indexOfLastItemDesktop = currentPageDesktop * itemsPerPageDesktop;
   const indexOfFirstItemDesktop = indexOfLastItemDesktop - itemsPerPageDesktop;
-  const currentItemsDesktop = validatedWorks.slice(
+  const currentItemsDesktop = UsersWorks.slice(
     indexOfFirstItemDesktop,
     indexOfLastItemDesktop
   );
-
+  console.info(currentItemsDesktop);
   const handlePageChangeDesktop = (event, pageNumber) => {
     setCurrentPageDesktop(pageNumber);
   };
 
   // Format date object:
-  const registrationDateObj = user?.registrationDate
-    ? new Date(user.registrationDate)
-    : null;
-  let formattedDate = "";
-  if (registrationDateObj && !Number.isNaN(registrationDateObj.getTime())) {
-    formattedDate = registrationDateObj.toISOString().split("T")[0];
-  }
+  const formattedDate = formatDate(user?.registrationDate);
 
   // gestion Media Screen //
   const smartphoneScreen = window.matchMedia("(max-width: 770px)").matches;
@@ -128,7 +122,7 @@ function UserProfilHistorical() {
           <div className="UPH_Work_Submited">
             <div className="UPH_Works_Count">
               works submitted:{" "}
-              <span className="font_info_color">{UsersCount}</span>
+              <span className="font_info_color">{UsersWorks.length}</span>
             </div>
 
             {smartphoneScreen && (
@@ -141,7 +135,7 @@ function UserProfilHistorical() {
             {smartphoneScreen && (
               <Stack spacing={0} mt={0}>
                 <Pagination
-                  count={Math.ceil(validatedWorks.length / itemsPerPage)}
+                  count={Math.ceil(UsersWorks.length / itemsPerPage)}
                   size="small"
                   shape="rounded"
                   variant="outlined"
@@ -161,9 +155,7 @@ function UserProfilHistorical() {
                 </div>
                 <Stack spacing={0} mt={0}>
                   <Pagination
-                    count={Math.ceil(
-                      validatedWorks.length / itemsPerPageDesktop
-                    )}
+                    count={Math.ceil(UsersWorks.length / itemsPerPageDesktop)}
                     size="small"
                     shape="rounded"
                     variant="outlined"
