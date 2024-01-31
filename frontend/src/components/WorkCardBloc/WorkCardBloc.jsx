@@ -25,6 +25,7 @@ function workCardBloc({ data }) {
             className="map_WCB"
             search
             mapMarker
+            works={[data]}
           />
         </div>
       </div>

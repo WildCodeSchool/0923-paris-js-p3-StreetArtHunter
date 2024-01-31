@@ -85,10 +85,10 @@ CREATE TABLE IF NOT EXISTS `street_art_hunterz`.`work` (
   INDEX `fk_Work_location1_idx` (`location_id` ASC) VISIBLE,
   CONSTRAINT `fk_Work_User1`
     FOREIGN KEY (`User_id`)
-    REFERENCES `street_art_hunterz`.`user` (`id`),
+    REFERENCES `street_art_hunterz`.`user` (`id`) ON DELETE CASCADE,
   CONSTRAINT `fk_Work_location1`  -- Ajout de la clé étrangère
     FOREIGN KEY (`location_id`)
-    REFERENCES `street_art_hunterz`.`location` (`id`))
+    REFERENCES `street_art_hunterz`.`location` (`id`) ON DELETE CASCADE)
 ENGINE = InnoDB
 AUTO_INCREMENT = 1
 DEFAULT CHARACTER SET = utf8mb3;

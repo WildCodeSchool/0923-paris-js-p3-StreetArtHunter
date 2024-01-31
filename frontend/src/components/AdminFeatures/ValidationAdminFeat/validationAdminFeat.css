@@ -74,7 +74,7 @@
 }
 
 .VLAF_modif_btn:hover {
-  fill: aqua;
+  fill: var(--color-00);
   background: var(--color-01);
 }
 

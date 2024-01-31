@@ -26,9 +26,14 @@ const findAll = () => {
   return db.query("SELECT * FROM user");
 };
 
+const deleteUser = (id) => {
+  return db.query("DELETE FROM user WHERE id = ?", [id]);
+};
+
 module.exports = {
   insert,
   findById,
   findByEmail,
   findAll,
+  deleteUser,
 };

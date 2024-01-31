@@ -13,6 +13,7 @@ import "./otherUserBloc.css";
 
 function OtherUserBloc({ dataUser }) {
   const [selectUser, setSelectUser] = useState([]);
+  console.info(dataUser);
 
   useEffect(() => {
     const userWorks = DataWorks.filter(
@@ -28,6 +29,7 @@ function OtherUserBloc({ dataUser }) {
   // Format date object:
 
   const formattedDate = formatDate(dataUser?.registrationDate);
+  console.info(formattedDate);
 
   // pagination work card //
   const [currentPage, setCurrentPage] = useState(1);
@@ -139,9 +141,7 @@ function OtherUserBloc({ dataUser }) {
 
               <div className="Seniority_OUB">
                 registered :
-                <span className="font_info_color">
-                  {dataUser.registration}{" "}
-                </span>
+                <span className="font_info_color">{formattedDate} </span>
               </div>
               <div className="infos_bottom_OUB">
                 {isAdmin ? (

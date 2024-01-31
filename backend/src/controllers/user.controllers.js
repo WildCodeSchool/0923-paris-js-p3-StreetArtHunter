@@ -40,7 +40,6 @@ const login = async (req, res, next) => {
   }
 };
 
-// The R of BREAD - Read operation
 const getById = async (req, res, next) => {
   try {
     const [[user]] = await userModel.findById(req.params.id);
@@ -63,9 +62,20 @@ const getAll = async (req, res, next) => {
   }
 };
 
+const erase = async (req, res, next) => {
+  try {
+    const userId = req.params.id;
+    await userModel.deleteUser(userId);
+    res.sendStatus(204);
+  } catch (error) {
+    next(error);
+  }
+};
+
 module.exports = {
   add,
   login,
   getById,
   getAll,
+  erase,
 };
