@@ -14,12 +14,9 @@ function UserProfilHistorical() {
   const navigate = useNavigate();
   // database //
   const works = useLoaderData() || [];
-
   const { user } = useContext(AuthContext);
 
-  // Works Count - only the validate //
-  const validatedWorks = works.filter((work) => work.isValidate === 1);
-  const UsersWorks = validatedWorks.filter((work) => work.User_id === user?.id);
+  const UsersWorks = works.filter((work) => work.User_id === user?.id);
 
   // pagination work card //
   const [currentPage, setCurrentPage] = useState(1);

@@ -1,8 +1,9 @@
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 import { useEffect, useState, useContext } from "react";
 import Pagination from "@mui/material/Pagination";
 import Stack from "@mui/material/Stack";
 import AuthContext from "../../context/AuthContext";
-import DataWorks from "../../../data_sample/data_works.json";
 import formatDate from "../../utils/FormatDate";
 import WorkCard from "../WorkCard/WorkCard";
 import WorkCard2 from "../WorkCard2/WorkCard2";
@@ -11,20 +12,63 @@ import WarIsMean from "../../assets/images/img/warismean.png";
 import TempVisual from "../../assets/images/img/monkey03.png";
 import "./otherUserBloc.css";
 
-function OtherUserBloc({ dataUser }) {
+function OtherUserBloc({ dataUser, handleClose, updateUserList }) {
   const [selectUser, setSelectUser] = useState([]);
-  console.info(dataUser);
+  const [userWorksData, setUserWorksData] = useState([]);
+
+  // works data
+  useEffect(() => {
+    fetch(`${import.meta.env.VITE_BACKEND_URL}/api/image`, {
+      credentials: "include",
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        return response.json();
+      })
+      .then((data) => {
+        setUserWorksData(data);
+      })
+      .catch((error) => {
+        console.error("Error fetching user data:", error);
+      });
+  }, []);
 
   useEffect(() => {
-    const userWorks = DataWorks.filter(
-      (work) => work.userSub === dataUser.pseudo
-    );
-    setSelectUser(userWorks);
-  }, []);
+    if (userWorksData.length > 0) {
+      const userWorks = userWorksData.filter(
+        (work) => work.User_id === dataUser.id
+      );
+      setSelectUser(userWorks);
+    }
+  }, [userWorksData, dataUser.id]);
 
   const { user } = useContext(AuthContext);
   const isAdmin = user?.admin;
   const userWorkCount = selectUser.length;
+
+  // Delete function
+  const handleDelete = async (id) => {
+    try {
+      const response = await fetch(
+        `${import.meta.env.VITE_BACKEND_URL}/api/user/${id}/delete`,
+        {
+          method: "delete",
+          credentials: "include",
+        }
+      );
+      if (response.status === 204) {
+        console.info("delete ok");
+        updateUserList(id); // Mettre à jour la liste des utilisateu
+        handleClose(); // Fermer la modal
+      } else {
+        console.error("error delete");
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   // Format date object:
 
@@ -122,7 +166,13 @@ function OtherUserBloc({ dataUser }) {
               <>
                 <hr className="OUB_dashed_line" />
                 <div className="OUB_trash_btn_container">
-                  <div className="OUB_trash_btn"> DELETE USER</div>
+                  <div
+                    className="OUB_trash_btn"
+                    onClick={() => handleDelete(dataUser.id)}
+                  >
+                    {" "}
+                    DELETE USER
+                  </div>
                 </div>
               </>
             )}
@@ -152,7 +202,13 @@ function OtherUserBloc({ dataUser }) {
                       className="SmileyDeath"
                     />
                     <div className="OUB_trash_btn_container">
-                      <div className="OUB_trash_btn"> DELETE USER</div>
+                      <div
+                        className="OUB_trash_btn"
+                        onClick={() => handleDelete(dataUser.id)}
+                      >
+                        {" "}
+                        DELETE USER
+                      </div>
                     </div>
                   </div>
                 ) : (
@@ -179,17 +235,15 @@ function OtherUserBloc({ dataUser }) {
                     <WorkCard2 data={data} />
                   ))}
                 </div>
-                <Stack spacing={0} mt={0}>
-                  <Pagination
-                    count={Math.ceil(userWorkCount / itemsPerPageDesktop)}
-                    size="small"
-                    shape="rounded"
-                    variant="outlined"
-                    siblingCount={0}
-                    page={currentPage}
-                    onChange={handlePageChangeDesktop}
-                  />
-                </Stack>
+                <Pagination
+                  count={Math.ceil(userWorkCount / itemsPerPageDesktop)}
+                  size="small"
+                  shape="rounded"
+                  variant="outlined"
+                  siblingCount={0}
+                  page={currentPageDesktop}
+                  onChange={handlePageChangeDesktop}
+                />
               </div>
             )}
             {userWorkCount === 0 && (

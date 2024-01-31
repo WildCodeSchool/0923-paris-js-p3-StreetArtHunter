@@ -16,8 +16,13 @@ import WorkCard from "../../components/WorkCard/WorkCard";
 import WorkCard2 from "../../components/WorkCard2/WorkCard2";
 
 function AdminProfil() {
+  const workById = useLoaderData() || [];
   const { user } = useContext(AuthContext);
-  const workById = useLoaderData();
+  console.info(workById);
+
+  // simulation de données perso de la l'admin //
+  const adminHistoryWork = workById.filter((work) => work.User_id === user?.id);
+  const adminWorksCount = adminHistoryWork.length;
 
   // Format date object:
   const formattedDate = formatDate(user?.registrationDate);
@@ -35,10 +40,6 @@ function AdminProfil() {
   const toggleAdminHistorical = () => {
     setAdminHistoricalIsOpen(!adminHistoricalIsOpen);
   };
-
-  // simulation de données perso de la l'admin //
-  const adminHistoryWork = workById.filter((work) => work.User_id === user?.id);
-  const adminWorksCount = adminHistoryWork.length;
 
   // pagination historical //
   const [currentPage, setCurrentPage] = useState(1);

@@ -6,7 +6,7 @@ const auth = require("../middlewares/auth");
 
 router.post("/image", auth.isAuth, fileUpload.any(), imageController.add);
 router.get("/image", imageController.getAllWUL);
-router.get("/image/user", auth.isAuth, imageController.getByUserId);
+router.get("/image/user", imageController.getByUserId);
 router.get(
   "/image/unvalidate",
   auth.isAuth,

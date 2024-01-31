@@ -4,7 +4,7 @@ import "./workCardBloc.css";
 import WorkCard from "../WorkCard/WorkCard";
 import Map from "../Map/Map";
 
-function workCardBloc({ data }) {
+function workCardBloc({ data, admin = false }) {
   // change coordonate on button //
   const [mapCoordinates, setMapCoordinates] = useState({
     lng: data.longitude,

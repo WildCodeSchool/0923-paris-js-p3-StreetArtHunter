@@ -10,7 +10,16 @@ import formatDate from "../../../utils/FormatDate";
 import "./usersListAdBy.css";
 import OtherUserBloc from "../../OtherUserBloc/OtherUserBloc";
 
-function UsersListAdBy({ sortedUsers }) {
+function UsersListAdBy({ sortedUsers, setUserData }) {
+  const updateUserList = (deletedUserId) => {
+    console.info("toto");
+    const updatedUsers = sortedUsers.filter(
+      (user) => user.id !== deletedUserId
+    );
+    console.info(updatedUsers);
+    setUserData(updatedUsers);
+  };
+
   // state pagination table //
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 10;
@@ -79,6 +88,8 @@ function UsersListAdBy({ sortedUsers }) {
             {selectedUser && (
               <OtherUserBloc
                 dataUser={selectedUser}
+                handleClose={handleClose}
+                updateUserList={updateUserList}
                 className="OtherUserModal"
               />
             )}

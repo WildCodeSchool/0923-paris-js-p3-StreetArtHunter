@@ -43,7 +43,7 @@ const router = createBrowserRouter([
         path: "/adminprofil",
         element: <AdminProfil />,
         loader: () => {
-          return fetch(`${import.meta.env.VITE_BACKEND_URL}/api/image/user`, {
+          return fetch(`${import.meta.env.VITE_BACKEND_URL}/api/image`, {
             credentials: "include",
           });
         },
