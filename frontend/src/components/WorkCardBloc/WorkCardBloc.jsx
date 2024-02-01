@@ -15,7 +15,7 @@ function workCardBloc({
   handleValidate,
 }) {
   const [setting, setSetting] = useState(false);
-  console.info(data);
+
   // change coordonate on button //
   const [mapCoordinates, setMapCoordinates] = useState({
     lng: data.longitude,
@@ -67,7 +67,7 @@ function workCardBloc({
               </svg>
             </div>
             <div className="abort_btn_WCB" onClick={() => setSetting(false)}>
-              ABORT
+              BACK
             </div>
             <div
               className="trash_btn_WCB"
@@ -106,7 +106,7 @@ function workCardBloc({
               </svg>
             </div>
             <div className="abort_btn_WCB" onClick={() => closeModal()}>
-              ABORT 2
+              BACK 2
             </div>
             <div
               className="trash_btn_WCB"

@@ -38,8 +38,8 @@
   background-color: var(--color-00);
 }
 .valid_btn_WCB:hover {
-  fill: greenyellow;
-  background: var(--color-01);
+  fill: green;
+  background: var(--color-02);
 }
 .abort_btn_WCB {
   display: flex;
@@ -55,8 +55,7 @@
   background-color: var(--color-00);
 }
 .abort_btn_WCB:hover {
-  color: var(--color-00);
-  background-color: var(--color-01);
+  background-color: var(--color-02);
 }
 .trash_btn_WCB {
   display: flex;
@@ -69,8 +68,8 @@
   background-color: var(--color-00);
 }
 .trash_btn_WCB:hover {
-  fill: rgb(255, 75, 75);
-  background: var(--color-01);
+  fill: red;
+  background: var(--color-02);
 }
 
 @media (min-width: 1440px) {

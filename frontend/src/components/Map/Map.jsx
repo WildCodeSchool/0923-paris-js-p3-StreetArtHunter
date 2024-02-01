@@ -35,7 +35,6 @@ function StreetMap({
     artist_pseudo,
     isValidate,
   }) => {
-    console.info(user_id);
     if (isValidate !== 1) {
       return; // Ne pas charger le marqueur si le travail n'est pas valide
     }

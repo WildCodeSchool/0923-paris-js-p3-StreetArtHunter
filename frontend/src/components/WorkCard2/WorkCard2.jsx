@@ -9,7 +9,7 @@ import "./workCard2.css";
 function WorkCard2({
   data,
   admin = false,
-  // handleDelete,
+  handleDelete,
   settingValidation = false,
 }) {
   const [selectedWork, setSelectedWork] = useState(data);
@@ -71,7 +71,7 @@ function WorkCard2({
               <WorkCardBloc
                 data={data}
                 admin={admin}
-                // handleDelete={handleDelete}
+                handleDelete={handleDelete}
                 closeModal={closeModal}
                 settingValidation={settingValidation}
               />

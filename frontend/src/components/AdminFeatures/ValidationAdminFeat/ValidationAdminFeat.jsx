@@ -138,6 +138,7 @@ function ValidationAdminFeat() {
   const openModal = (data) => {
     setSelectedWork(data);
     setOpen(true);
+    console.info(data);
   };
 
   const closeModal = () => {

@@ -125,9 +125,11 @@
   display: flex;
   justify-content: center;
   width: 95%;
+  flex-direction: column;
+  align-items: center;
 }
 .dashed_line_admin {
-  margin-top: 1rem;
+  margin: 1rem 0;
   border: none;
   border-top: 2px dotted black;
   height: 2px;
@@ -140,9 +142,16 @@
   border: solid 1px black;
   border-radius: 5px;
   width: 70px;
-  margin-bottom: 1rem;
+  margin-top: 1rem;
   cursor: pointer;
   background-color: var(--color-00);
+}
+.admin_trash_btn:hover {
+  fill: red;
+  background-color: var(--color-02);
+}
+.pagination_adminProfil_smartP {
+  margin-bottom: 1rem;
 }
 .admin_features {
   width: 95%;

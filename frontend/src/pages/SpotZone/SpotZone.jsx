@@ -10,7 +10,7 @@ import "./spotZone.css";
 function SpotZone() {
   // database //
   const locations = useLoaderData() || [];
-  console.info(locations);
+
   // const Datas = DataSpots;
 
   // Logique pagination smartphone

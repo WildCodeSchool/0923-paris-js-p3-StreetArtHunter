@@ -69,16 +69,16 @@
   background-color: var(--color-00);
 }
 .VLAF_valid_btn:hover {
-  fill: greenyellow;
-  background: var(--color-01);
+  fill: green;
+  background: var(--color-02);
 }
 
 .VLAF_modif_btn:hover {
-  fill: var(--color-00);
-  background: var(--color-01);
+  /* fill: var(--color-04); */
+  background: var(--color-02);
 }
 
 .VLAF_trash_btn:hover {
-  fill: rgb(255, 75, 75);
-  background: var(--color-01);
+  fill: red;
+  background: var(--color-02);
 }
