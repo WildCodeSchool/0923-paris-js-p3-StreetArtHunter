@@ -15,7 +15,7 @@ function workCardBloc({
   handleValidate,
 }) {
   const [setting, setSetting] = useState(false);
-
+  console.info(data);
   // change coordonate on button //
   const [mapCoordinates, setMapCoordinates] = useState({
     lng: data.longitude,
@@ -27,7 +27,7 @@ function workCardBloc({
     <section>
       <div className="workCardBloc_container">
         <div className="workCardBloc_content">
-          <WorkCard data={data} />
+          <WorkCard data={data} settingValidation />
           <Map
             UsingLng={mapCoordinates.lng}
             UsingLat={mapCoordinates.lat}

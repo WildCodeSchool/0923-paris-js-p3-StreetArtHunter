@@ -47,6 +47,7 @@ function WorkCard({ data, classForWCVADF }) {
     <section className={WorkCardContainer}>
       <div className="workCard_content">
         <img className="Work_image" src={image} alt="work" />
+        {/* {!settingValidation && ( */}
         <div className="work_infos_container">
           <p className="work_info">
             <span className="WIC_span">zone:</span> {location_name}
@@ -67,6 +68,27 @@ function WorkCard({ data, classForWCVADF }) {
             <span className="WIC_span">entry: </span> {formattedEntryDate}
           </p>
         </div>
+        {/* )} */}
+        {/* {settingValidation && (
+          <div className="work_infos_container_settingValidation">
+            <div className="work_info_content">
+              <p className="work_info">adress:</p>
+              <input
+                className="work_info"
+                type="text"
+                placeholder={`${address}`}
+              />
+            </div>
+            <div className="work_info_content">
+              <p className="work_info">artist:</p>
+              <input
+                className="work_info"
+                type="text"
+                placeholder={` ${artist_pseudo}`}
+              />
+            </div>
+          </div>
+        )} */}
       </div>
     </section>
   );

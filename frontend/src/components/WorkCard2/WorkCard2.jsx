@@ -6,7 +6,12 @@ import formatDate from "../../utils/FormatDate";
 import WorkCardBloc from "../WorkCardBloc/WorkCardBloc";
 import "./workCard2.css";
 
-function WorkCard2({ data, admin = false, handleDelete }) {
+function WorkCard2({
+  data,
+  admin = false,
+  // handleDelete,
+  settingValidation = false,
+}) {
   const [selectedWork, setSelectedWork] = useState(data);
   const [open, setOpen] = useState(false);
 
@@ -66,8 +71,9 @@ function WorkCard2({ data, admin = false, handleDelete }) {
               <WorkCardBloc
                 data={data}
                 admin={admin}
-                handleDelete={handleDelete}
+                // handleDelete={handleDelete}
                 closeModal={closeModal}
+                settingValidation={settingValidation}
               />
             </Container>
           </Box>

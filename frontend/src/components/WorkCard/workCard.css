@@ -30,6 +30,18 @@
   .workCard_container_WVAF {
     width: 80%;
   }
+  .work_infos_container_settingValidation {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    border: solid 1px red;
+    background-color: var(--color-00);
+    width: 100%;
+    padding: 10px 0;
+  }
+  .work_info_content {
+    display: flex;
+  }
   .work_info {
     font-size: 0.938em;
   }
