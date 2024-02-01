@@ -1,6 +1,6 @@
 /* eslint-disable prefer-destructuring */
-import { useLoaderData, useNavigate } from "react-router-dom";
-import { useState, useContext } from "react";
+import { useNavigate } from "react-router-dom";
+import { useState, useContext, useEffect } from "react";
 import Pagination from "@mui/material/Pagination";
 import Stack from "@mui/material/Stack";
 import WorkCard from "../WorkCard/WorkCard";
@@ -13,13 +13,30 @@ import "./userProfil.css";
 function UserProfilHistorical() {
   const navigate = useNavigate();
   // database //
-  const works = useLoaderData() || [];
+  const [works, setWorks] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const response = await fetch(
+        `${import.meta.env.VITE_BACKEND_URL}/api/image`,
+        {
+          credentials: "include",
+        }
+      );
+
+      if (response.status === 200) {
+        const data = await response.json();
+        setWorks(data);
+      }
+    };
+    fetchData();
+  }, []);
 
   const { user } = useContext(AuthContext);
 
   // Works Count - only the validate //
-  const validatedWorks = works.filter((work) => work.isValidate === 1);
-  const UsersWorks = validatedWorks.filter((work) => work.User_id === user?.id);
+
+  const UsersWorks = works.filter((work) => work.User_id === user?.id);
 
   // pagination work card //
   const [currentPage, setCurrentPage] = useState(1);

@@ -30,6 +30,7 @@ function InputLogin() {
       if (response.status === 200) {
         const user = await response.json();
         auth.setUser(user);
+        auth.setIsLoading(false);
         // Vérifier si un nouveau token est renvoyé dans la réponse
         const newToken = response.headers.get("new-auth-token");
 
