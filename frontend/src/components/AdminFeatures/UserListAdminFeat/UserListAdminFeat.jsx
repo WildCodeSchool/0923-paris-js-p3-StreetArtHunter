@@ -136,7 +136,6 @@ function UserListAdminFeat() {
                   : userScoreSorted
               }
               setUserData={(updatedUsers) => {
-                console.info("upp");
                 setUserData(updatedUsers);
               }}
             />
@@ -145,7 +144,6 @@ function UserListAdminFeat() {
             <UsersListAdBy
               sortedUsers={filteredUsers}
               setUserData={(updatedUsers) => {
-                console.info("upp");
                 setUserData(updatedUsers);
               }}
             />

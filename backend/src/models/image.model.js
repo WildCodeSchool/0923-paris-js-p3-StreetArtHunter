@@ -31,7 +31,7 @@ const findByUserId = (user_id) => {
 
 const findAllNoValidate = () => {
   return db.query(
-    `SELECT w.*, u.pseudo AS user_pseudo, a.pseudo AS artist_pseudo, l.name AS location_name
+    `SELECT w.*, u.id AS user_id, u.pseudo AS user_pseudo, a.pseudo AS artist_pseudo, l.name AS location_name
     FROM work AS w
     JOIN user AS u ON w.User_id = u.id
     JOIN location AS l ON w.location_id = l.id

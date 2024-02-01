@@ -55,9 +55,11 @@ function WorkCard({ data, classForWCVADF }) {
             <span className="WIC_span">adress:</span>
             {address}
           </p>
-          <p className="work_info">
-            <span className="WIC_span">artist</span>: {artist_pseudo}
-          </p>
+          {artist_pseudo && (
+            <p className="work_info">
+              <span className="WIC_span">artist</span>: {artist_pseudo}
+            </p>
+          )}
           <p className="work_info">
             <span className="WIC_span">submitted by:</span> {user_pseudo}
           </p>

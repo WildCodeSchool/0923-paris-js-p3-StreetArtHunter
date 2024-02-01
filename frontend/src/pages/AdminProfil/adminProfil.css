@@ -118,7 +118,7 @@
   justify-content: center;
   width: 95%;
   margin: 10px 0;
-  padding: 5px 0;
+  padding: 5px 10px;
   background-color: var(--color-00);
 }
 .admin_workcard_container {

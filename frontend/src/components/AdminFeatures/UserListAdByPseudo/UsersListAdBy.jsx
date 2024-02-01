@@ -12,11 +12,9 @@ import OtherUserBloc from "../../OtherUserBloc/OtherUserBloc";
 
 function UsersListAdBy({ sortedUsers, setUserData }) {
   const updateUserList = (deletedUserId) => {
-    console.info("toto");
     const updatedUsers = sortedUsers.filter(
       (user) => user.id !== deletedUserId
     );
-    console.info(updatedUsers);
     setUserData(updatedUsers);
   };
 

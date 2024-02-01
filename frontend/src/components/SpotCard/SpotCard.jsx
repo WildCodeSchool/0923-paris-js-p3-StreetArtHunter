@@ -5,8 +5,7 @@ import "./spotCard.css";
 
 function SpotCard({ location }) {
   const { image } = location;
-  // const { user } = useContext(AuthContext);
-  console.info(location);
+
   const navigate = useNavigate();
   return (
     <section>

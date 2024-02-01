@@ -6,14 +6,13 @@ import formatDate from "../../utils/FormatDate";
 import WorkCardBloc from "../WorkCardBloc/WorkCardBloc";
 import "./workCard2.css";
 
-function WorkCard2({ data }) {
+function WorkCard2({ data, admin = false, handleDelete }) {
   const [selectedWork, setSelectedWork] = useState(data);
   const [open, setOpen] = useState(false);
 
   // Format date object:
 
   const formattedDate = formatDate(data?.entry);
-  console.info(data);
 
   const openModal = () => {
     setSelectedWork(data);
@@ -64,7 +63,12 @@ function WorkCard2({ data }) {
                   X closed
                 </div>
               </div>
-              <WorkCardBloc data={data} />
+              <WorkCardBloc
+                data={data}
+                admin={admin}
+                handleDelete={handleDelete}
+                closeModal={closeModal}
+              />
             </Container>
           </Box>
         </Modal>

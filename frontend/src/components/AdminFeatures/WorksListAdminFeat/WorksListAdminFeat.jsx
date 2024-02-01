@@ -7,7 +7,6 @@ import Pagination from "@mui/material/Pagination";
 import Stack from "@mui/material/Stack";
 import "./worksListAdminFeat.css";
 import "./worksListAdminFeatMediaDesktop.css";
-// import DataWorks from "../../../../data_sample/data_works.json";
 import WorkCard from "../../WorkCard/WorkCard";
 import WorkCard2 from "../../WorkCard2/WorkCard2";
 
@@ -32,8 +31,27 @@ function WorksListAdminFeat() {
       });
   }, []);
 
-  // Works Count - only the validate //
-  // const validatedWorks = worksData.filter((work) => work.isValidate === 1);
+  // Delete function
+  const handleDelete = async (id) => {
+    try {
+      const response = await fetch(
+        `${import.meta.env.VITE_BACKEND_URL}/api/image/${id}/delete`,
+        {
+          method: "delete",
+          credentials: "include",
+        }
+      );
+      if (response.status === 204) {
+        console.info("delete ok");
+        const updatedWorks = worksData.filter((work) => work.id !== id);
+        setWorksData(updatedWorks);
+      } else {
+        console.error("error delete");
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   // unique location for Zone <option> //
   const uniqueLocations = Array.from(
@@ -151,7 +169,10 @@ function WorksListAdminFeat() {
       {smartphoneScreen && (
         <>
           <hr className="WLAF_dashed_line" />
-          <div className="WLAF_trash_btn">
+          <div
+            className="WLAF_trash_btn"
+            onClick={() => handleDelete(worksData.id)}
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               height="35"
@@ -167,7 +188,12 @@ function WorksListAdminFeat() {
         <>
           <div className="WLAF_workcard_container">
             {currentItemsDesktop.map((data) => (
-              <WorkCard2 key={data.id} data={data} />
+              <WorkCard2
+                key={data.id}
+                data={data}
+                admin
+                handleDelete={handleDelete}
+              />
             ))}
           </div>
           <Stack spacing={0} mt={0}>

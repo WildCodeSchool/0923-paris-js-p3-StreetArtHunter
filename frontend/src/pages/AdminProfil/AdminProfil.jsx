@@ -1,3 +1,4 @@
+/* eslint-disable react/no-array-index-key */
 /* eslint-disable prefer-destructuring */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
@@ -14,14 +15,18 @@ import WorksListAdminFeat from "../../components/AdminFeatures/WorksListAdminFea
 import ValidationAdminFeat from "../../components/AdminFeatures/ValidationAdminFeat/ValidationAdminFeat";
 import WorkCard from "../../components/WorkCard/WorkCard";
 import WorkCard2 from "../../components/WorkCard2/WorkCard2";
+import MonkeyEmpty from "../../assets/images/img/monkey03.png";
 
 function AdminProfil() {
   const workById = useLoaderData() || [];
   const { user } = useContext(AuthContext);
-  console.info(workById);
+
+  const [worksData, setWorkData] = useState(workById);
 
   // simulation de données perso de la l'admin //
-  const adminHistoryWork = workById.filter((work) => work.User_id === user?.id);
+  const adminHistoryWork = worksData.filter(
+    (work) => work.User_id === user?.id
+  );
   const adminWorksCount = adminHistoryWork.length;
 
   // Format date object:
@@ -69,6 +74,28 @@ function AdminProfil() {
 
   const handlePageChangeDesktop = (event, pageNumber) => {
     setCurrentPageDesktop(pageNumber);
+  };
+
+  // Delete function
+  const handleDelete = async (id) => {
+    try {
+      const response = await fetch(
+        `${import.meta.env.VITE_BACKEND_URL}/api/image/${id}/delete`,
+        {
+          method: "delete",
+          credentials: "include",
+        }
+      );
+      if (response.status === 204) {
+        console.info("delete ok");
+        const updatedWorks = worksData.filter((work) => work.id !== id);
+        setWorkData(updatedWorks);
+      } else {
+        console.error("error delete");
+      }
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   // Toggle Admin feature //
@@ -225,32 +252,54 @@ function AdminProfil() {
                 <h2 className="history_title_admin">historical</h2>
               </div>
               <div className="history_admin_content">
-                <div className="historyWorkSubmit_admin">
-                  works submitted :
-                  <span className="font_info_color"> {adminWorksCount}</span>
+                <div className="history_admin_content">
+                  {adminWorksCount === 0 ? (
+                    <div className="empty_history_admin_container">
+                      <div className="historyWorkSubmit_admin_EMPTY">EMPTY</div>
+                      <img
+                        src={MonkeyEmpty}
+                        className="MonkeyEmpy"
+                        alt="Monkey Empty"
+                      />
+                    </div>
+                  ) : (
+                    <div className="historyWorkSubmit_admin">
+                      works submitted :
+                      <span className="font_info_color">
+                        {" "}
+                        {adminWorksCount}
+                      </span>
+                    </div>
+                  )}
                 </div>
                 <div className="admin_workcard_container">
                   {currentItemsDesktop.map((dataAd, index) => (
                     // eslint-disable-next-line react/no-array-index-key
-                    <WorkCard2 key={index} data={dataAd} />
+                    <WorkCard2
+                      key={index}
+                      data={dataAd}
+                      admin
+                      handleDelete={handleDelete}
+                    />
                   ))}
                 </div>
               </div>
               {/* Pagination */}
-
-              <Stack spacing={0} mt={0}>
-                <Pagination
-                  count={Math.ceil(
-                    adminHistoryWork.length / itemsPerPageDesktop
-                  )}
-                  size="small"
-                  shape="rounded"
-                  variant="outlined"
-                  siblingCount={0}
-                  page={currentPageDesktop}
-                  onChange={handlePageChangeDesktop}
-                />
-              </Stack>
+              {adminWorksCount !== 0 && (
+                <Stack spacing={0} mt={0}>
+                  <Pagination
+                    count={Math.ceil(
+                      adminHistoryWork.length / itemsPerPageDesktop
+                    )}
+                    size="small"
+                    shape="rounded"
+                    variant="outlined"
+                    siblingCount={0}
+                    page={currentPageDesktop}
+                    onChange={handlePageChangeDesktop}
+                  />
+                </Stack>
+              )}
             </div>
           )}
         </section>

@@ -73,7 +73,6 @@ function OtherUserBloc({ dataUser, handleClose, updateUserList }) {
   // Format date object:
 
   const formattedDate = formatDate(dataUser?.registrationDate);
-  console.info(formattedDate);
 
   // pagination work card //
   const [currentPage, setCurrentPage] = useState(1);

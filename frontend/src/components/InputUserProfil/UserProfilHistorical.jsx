@@ -40,7 +40,7 @@ function UserProfilHistorical() {
     indexOfFirstItemDesktop,
     indexOfLastItemDesktop
   );
-  console.info(currentItemsDesktop);
+
   const handlePageChangeDesktop = (event, pageNumber) => {
     setCurrentPageDesktop(pageNumber);
   };
