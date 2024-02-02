@@ -1,13 +1,38 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import ratPhotographer from "../../assets/images/img/Rat_photograph.png";
 import "./submitWorkDesktop.css";
 
-function SubmitWorkImport({ onNextStep }) {
+function SubmitWorkImport({ onNextStep, onImageSelect }) {
   const [selectedImage, setSelectedImage] = useState(null);
+  const fileInputRef = useRef(null);
 
+  // const handleFileChange = (e) => {
+  //   const image = e.target.files[0];
+  //   setSelectedImage(URL.createObjectURL(image));
+  // };
   const handleFileChange = (e) => {
+    console.info(fileInputRef.current.files, e.target.files);
     const image = e.target.files[0];
-    setSelectedImage(URL.createObjectURL(image));
+    const imagePath = URL.createObjectURL(image);
+    setSelectedImage(imagePath);
+    // Utiliser la fonction onImageSelect pour partager le chemin de l'image
+    onImageSelect(image);
+  };
+
+  const resetImage = () => {
+    setSelectedImage(null);
+    // Réinitialise le champ de fichier
+    if (fileInputRef.current) {
+      fileInputRef.current.value = null;
+    }
+  };
+  console.info(resetImage);
+
+  const handleClickReimport = () => {
+    // Déclenche manuellement l'événement onChange du champ de fichier
+    if (fileInputRef.current) {
+      fileInputRef.current.click();
+    }
   };
 
   return (
@@ -55,6 +80,7 @@ function SubmitWorkImport({ onNextStep }) {
               <input
                 type="file"
                 id="fileInput"
+                ref={fileInputRef}
                 accept="image/*"
                 onChange={handleFileChange}
                 style={{ display: "none" }}
@@ -70,6 +96,17 @@ function SubmitWorkImport({ onNextStep }) {
           >
             <h3 className="Button-Validation">validation</h3>
           </div>
+          {selectedImage && (
+            <div
+              className="Button-Reset"
+              role="button"
+              tabIndex="0"
+              onClick={handleClickReimport}
+              onKeyDown={handleClickReimport}
+            >
+              Reset
+            </div>
+          )}
         </div>
       </div>
 
