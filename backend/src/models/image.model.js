@@ -1,18 +1,10 @@
 const db = require("../../database/client");
 
 const insert = (work) => {
-  const { latitude, longitude, entry, isValidate } = work;
+  const { latitude, longitude } = work;
   return db.query(
-    "INSERT INTO work (latitude, longitude, image, User_id, entry, isValidate, location_id) VALUES (?, ?, ?, ?, ?, ?, ?)",
-    [
-      latitude,
-      longitude,
-      work.URL_image,
-      work.User_id,
-      entry,
-      isValidate,
-      work.location_id,
-    ]
+    "INSERT INTO work (latitude, longitude, image, User_id, isValidate, location_id) VALUES (?, ?, ?, ?, ?, ?)",
+    [latitude, longitude, work.URL_image, work.User_id, 0, work.location_id]
   );
 };
 
@@ -20,7 +12,6 @@ const findById = (id) => {
   return db.query("SELECT * FROM work WHERE User_id = ?", [id]);
 };
 
-// Non premuni contre injections SQL //
 const findAll = () => {
   return db.query(
     `SELECT w.*, u.pseudo AS user_pseudo, a.pseudo AS artist_pseudo, l.name AS location_name

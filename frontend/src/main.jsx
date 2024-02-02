@@ -1,7 +1,12 @@
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import React from "react";
+import React, { useEffect, useContext, useState } from "react";
+import {
+  createBrowserRouter,
+  RouterProvider,
+  useNavigate,
+  useLocation,
+} from "react-router-dom";
 import ReactDOM from "react-dom/client";
-import { AuthProvider } from "./context/AuthContext";
+import useUser, { AuthProvider } from "./context/AuthContext";
 import App from "./App";
 import IntroPage from "./pages/IntroPage/IntroPage";
 import HomePage from "./pages/HomePage/HomePage";
@@ -21,10 +26,25 @@ import AskUs from "./pages/Contact/AskUs/AskUs";
 import SpotZoneById from "./pages/SpotZoneById/SpotZoneById";
 import Profil from "./pages/Profil/Profil";
 
+// Route safe //
+function PrivateRoute({ children }) {
+  const { user, isLoading } = useContext(useUser);
+  const navigate = useNavigate();
+  const location = useLocation();
+  const [page, setPage] = useState(null);
+  useEffect(() => {
+    if (isLoading) setPage(<p>Loading...</p>);
+    else if (!user) navigate("/login");
+    else setPage(children);
+    return () => setPage(null);
+  }, [user, isLoading, location]);
+  return page;
+}
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
+
     children: [
       {
         path: "/",
@@ -33,6 +53,7 @@ const router = createBrowserRouter([
       {
         path: "/homepage",
         element: <HomePage />,
+
         loader: () => {
           return fetch(`${import.meta.env.VITE_BACKEND_URL}/api/image`, {
             credentials: "include",
@@ -41,11 +62,19 @@ const router = createBrowserRouter([
       },
       {
         path: "/adminprofil",
-        element: <AdminProfil />,
+        element: (
+          <PrivateRoute>
+            <AdminProfil />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/classement",
-        element: <Classement />,
+        element: (
+          <PrivateRoute>
+            <Classement />
+          </PrivateRoute>
+        ),
         loader: () => {
           return fetch(`${import.meta.env.VITE_BACKEND_URL}/api/user`, {
             credentials: "include",
@@ -63,6 +92,7 @@ const router = createBrowserRouter([
       {
         path: "/spotzone",
         element: <SpotZone />,
+
         loader: () => {
           return fetch(`${import.meta.env.VITE_BACKEND_URL}/api/location`, {
             credentials: "include",
@@ -71,20 +101,27 @@ const router = createBrowserRouter([
       },
       {
         path: "/submitwork",
-        element: <SubmitWork />,
+        element: (
+          <PrivateRoute>
+            <SubmitWork />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/userprofilhistorical",
-        element: <UserProfilHistorical />,
-        loader: () => {
-          return fetch(`${import.meta.env.VITE_BACKEND_URL}/api/image`, {
-            credentials: "include",
-          });
-        },
+        element: (
+          <PrivateRoute>
+            <UserProfilHistorical />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/userprofilclassement",
-        element: <UserProfilClassement />,
+        element: (
+          <PrivateRoute>
+            <UserProfilClassement />
+          </PrivateRoute>
+        ),
         loader: () => {
           return fetch(`${import.meta.env.VITE_BACKEND_URL}/api/user`, {
             credentials: "include",
@@ -93,7 +130,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/information",
-        element: <Information />,
+        element: (
+          <PrivateRoute>
+            <Information />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/contactus",
@@ -105,15 +146,27 @@ const router = createBrowserRouter([
       },
       {
         path: "/complimentus",
-        element: <ComplimentUs />,
+        element: (
+          <PrivateRoute>
+            <ComplimentUs />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/reclamation",
-        element: <Reclamation />,
+        element: (
+          <PrivateRoute>
+            <Reclamation />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/spotzonebyid/:location",
-        element: <SpotZoneById />,
+        element: (
+          <PrivateRoute>
+            <SpotZoneById />
+          </PrivateRoute>
+        ),
         loader: ({ params }) => {
           return fetch(
             `${import.meta.env.VITE_BACKEND_URL}/api/location/${
@@ -127,7 +180,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/profil",
-        element: <Profil />,
+        element: (
+          <PrivateRoute>
+            <Profil />
+          </PrivateRoute>
+        ),
       },
     ],
   },

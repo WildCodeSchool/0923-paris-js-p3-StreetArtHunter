@@ -1,7 +1,9 @@
+/* eslint-disable no-unused-vars */
 import { useState } from "react";
 import { useNavigate, useLoaderData } from "react-router-dom";
 import Pagination from "@mui/material/Pagination";
 import Stack from "@mui/material/Stack";
+import Map from "../../components/Map/Map";
 import WorkCard from "../../components/WorkCard/WorkCard";
 import WorkCard2 from "../../components/WorkCard2/WorkCard2";
 import PictureMap from "../../assets/images/map_sample/map_sample_1-1.jpg";
@@ -10,8 +12,14 @@ import "./spotZoneById.css";
 
 function SpotZoneById() {
   const { location } = useLoaderData();
+  console.info(location);
   const navigate = useNavigate();
   const [currentPage, setCurrentPage] = useState(1);
+  const [mapCoordinates, setMapCoordinates] = useState({
+    lng: 2.3522,
+    lat: 48.8566,
+    zoom: 11,
+  });
   const itemsPerPage = 1;
   const handlePageChange = (event, pageNumber) => {
     setCurrentPage(pageNumber);
@@ -105,10 +113,14 @@ function SpotZoneById() {
             <div className="city_zone_container">
               <h1 className="Title_SpotZoneById">{location[0].name}</h1>
               <div className="picture_map_container">
-                <img
-                  className="picture_SpotZoneById"
-                  src={PictureMap}
-                  alt="pictureOne"
+                <Map
+                  UsingLng={mapCoordinates?.lng}
+                  UsingLat={mapCoordinates?.lat}
+                  UsingZoom={mapCoordinates?.zoom}
+                  height="50%"
+                  width="50%"
+                  works
+                  className="map_WCB"
                 />
               </div>
               <div className="text_SpotZoneByid">
