@@ -598,8 +598,9 @@ const seed = async () => {
         location_id: 1,
       },
       {
-        latitude: 48.834286216214046,
-        longitude: 2.366804147149494,
+        latitude: 48.83436492769952,
+        longitude: 2.3671333353492297,
+
         image: `${imageBaseUrl}/20190215_170250.jpg`,
         User_id: 4,
         isValidate: 1,
