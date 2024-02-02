@@ -72,6 +72,24 @@ function UserProfilClassement() {
     filteredUsers.length / itemsPerPage
   );
 
+  // gestion modal password
+  const style = {
+    position: "absolute",
+    top: "50%",
+    left: "50%",
+    transform: "translate(-50%, -50%)",
+    width: 400,
+    bgcolor: "background.paper",
+    border: "2px solid #000",
+    boxShadow: 24,
+    p: 4,
+  };
+
+  const [open2, setOpen2] = useState(false);
+
+  const handleOpen2 = () => setOpen2(true);
+  const handleClose2 = () => setOpen2(false);
+
   // User props Modal //
   const [selectedUser, setSelectedUser] = useState(null);
 
@@ -100,7 +118,12 @@ function UserProfilClassement() {
               <p>email: {user?.email}</p>
               <p>password: ********</p>
             </div>
-            <div className="UP_Change_Password">
+            <div
+              className="UP_Change_Password"
+              onClick={handleOpen2}
+              role="button"
+              tabIndex="0"
+            >
               <p className="UP_Change_Password_Inside">change password</p>
             </div>
           </div>
@@ -248,6 +271,31 @@ function UserProfilClassement() {
           </Box>
         </Modal>
       </div>
+      <Modal
+        open={open2}
+        onClose={handleClose2}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+      >
+        <Box sx={style}>
+          <section className="password_change_container">
+            <h1 className="password_change_title">CHANGE YOUR PASSWORD</h1>
+            <input
+              type="text"
+              className="password_change_placeholder"
+              placeholder="enter new password"
+            />
+            <div
+              className="password_change_validbtn"
+              onClick={handleClose2}
+              role="button"
+              tabIndex="0"
+            >
+              VALIDATION
+            </div>
+          </section>
+        </Box>
+      </Modal>
     </section>
   );
 }
