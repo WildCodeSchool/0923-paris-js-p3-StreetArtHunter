@@ -1,18 +1,18 @@
 /* eslint-disable no-unused-vars */
-import { useState, useRef } from "react";
+import { useState } from "react";
 import Map from "../Map/Map";
 import ratPhotographer from "../../assets/images/img/Rat_photograph.png";
 import "./submitWorkDesktop.css";
 
 function SubmitWorkValidation({ onNextStep, selectedImage }) {
   const accessToken = import.meta.env.VITE_MAPBOX_TOKEN;
-
-  // change coordonate on cardinal button //
+  const [artist, setArtist] = useState("");
   const [mapCoordinates, setMapCoordinates] = useState({
     lng: 2.3522,
     lat: 48.8566,
     zoom: 11,
   });
+
   const insertImage = async (newlng, newlat, imagePath) => {
     try {
       fetch(
@@ -30,6 +30,11 @@ function SubmitWorkValidation({ onNextStep, selectedImage }) {
           form.append("image", imagePath);
           form.append("entry", Date.now());
           form.append("postalCode", postalCode);
+
+          // Ajoute l'artiste à la requête POST
+          if (artist) {
+            form.append("artist", artist);
+          }
 
           const response = await fetch(
             `${import.meta.env.VITE_BACKEND_URL}/api/image`,
@@ -51,6 +56,27 @@ function SubmitWorkValidation({ onNextStep, selectedImage }) {
     }
   };
 
+  const handleValidationClick = async () => {
+    // Insérer la logique ici pour traiter la validation du formulaire
+    const { lng, lat } = mapCoordinates;
+    insertImage(lng, lat, selectedImage, artist);
+    onNextStep("/submitworkthank");
+  };
+
+  const handleMapMarkerClick = (coordinates) => {
+    // Mettre à jour l'état des coordonnées lors du clic sur la carte
+    setMapCoordinates({
+      lng: coordinates.lng,
+      lat: coordinates.lat,
+      zoom: mapCoordinates.zoom,
+    });
+  };
+
+  const handleArtistChange = (e) => {
+    // Mettre à jour l'état de l'artiste lors de la saisie
+    setArtist(e.target.value);
+  };
+
   return (
     <section className="SubmitW_container Global_height_smartPh Global_height">
       <div className="Picture_DesKtop_Submit">
@@ -69,36 +95,32 @@ function SubmitWorkValidation({ onNextStep, selectedImage }) {
                 UsingLng={mapCoordinates.lng}
                 UsingLat={mapCoordinates.lat}
                 UsingZoom={mapCoordinates.zoom}
-                height="90%"
-                width="39%"
+                height="100%"
+                width="100%"
                 className="map_WCB"
                 search
                 mapMarker
-                onMarkerClick={(coordinates) =>
-                  insertImage(coordinates.lng, coordinates.lat, selectedImage)
-                }
+                onMarkerClick={handleMapMarkerClick}
               />
             </div>
           </div>
-
-          <div className="inputLocation_SWV">
-            location
-            <label htmlFor="location">
-              <input className="caseLocation_SWV" type="text" id="location" />
+          <div className="inputArtiste_SWV">
+            artiste
+            <label htmlFor="artiste">
+              <input
+                className="caseArtiste_SWV"
+                type="text"
+                id="artiste"
+                value={artist}
+                onChange={handleArtistChange}
+              />
             </label>
-            <div className="inputArtiste_SWV">
-              artiste
-              <label htmlFor="artiste">
-                <input className="caseArtiste_SWV" type="text" id="artiste" />
-              </label>
-            </div>
           </div>
-
           <div
             className="Button-SubmitWork"
             role="button"
-            onClick={() => onNextStep("/submitworkthank")}
-            onKeyDown={() => onNextStep("/submitworkthank")}
+            onClick={handleValidationClick}
+            onKeyDown={handleValidationClick}
             tabIndex="0"
           >
             <h3 className="Button-Validation">submit</h3>

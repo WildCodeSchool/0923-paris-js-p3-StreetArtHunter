@@ -1,5 +1,6 @@
 const imageModel = require("../models/image.model");
 const locationModel = require("../models/location.model");
+const artistModel = require("../models/artist.model");
 
 const add = async (req, res, next) => {
   try {
@@ -12,10 +13,25 @@ const add = async (req, res, next) => {
     const [[location]] = await locationModel.getLocationByPostalCode(
       image.postalCode
     );
-    image.location_id = location.id;
+    image.location_id = location?.id;
     const [result] = await imageModel.insert(image);
     if (result.insertId) {
-      res.status(201).json(image);
+      if (req.body.artist) {
+        const [[artistName]] = await artistModel.getByName(req.body.artist);
+        if (artistName) {
+          await artistModel.insertInArtistWork(artistName.id, result.insertId);
+          res.sendStatus(201);
+        } else {
+          const [artist] = await artistModel.insert(req.body.artist);
+          if (artist.insertId) {
+            await artistModel.insertInArtistWork(
+              artist.insertId,
+              result.insertId
+            );
+            res.sendStatus(201);
+          }
+        }
+      } else res.sendStatus(201);
     } else {
       res.sendStatus(422);
     }

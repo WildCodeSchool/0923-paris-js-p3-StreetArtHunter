@@ -69,7 +69,7 @@ CREATE TABLE IF NOT EXISTS `street_art_hunterz`.`work` (
   `User_id` INT NULL,
   `entry` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `isValidate` TINYINT NOT NULL,
-  `location_id` INT NOT NULL,
+  `location_id` INT,
   PRIMARY KEY (`id`),
   UNIQUE INDEX `id_UNIQUE` (`id` ASC) VISIBLE,
   INDEX `fk_Work_User1_idx` (`User_id` ASC) VISIBLE,
