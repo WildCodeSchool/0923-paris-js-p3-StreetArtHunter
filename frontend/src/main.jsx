@@ -146,19 +146,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/complimentus",
-        element: (
-          <PrivateRoute>
-            <ComplimentUs />
-          </PrivateRoute>
-        ),
+        element: <ComplimentUs />,
       },
       {
         path: "/reclamation",
-        element: (
-          <PrivateRoute>
-            <Reclamation />
-          </PrivateRoute>
-        ),
+        element: <Reclamation />,
       },
       {
         path: "/spotzonebyid/:location",
