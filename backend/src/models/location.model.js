@@ -16,7 +16,19 @@ const getLocationById = (id) => {
   );
 };
 
+const getLocationByPostalCode = (code) => {
+  return db.query(
+    `
+    SELECT *
+    FROM street_art_hunterz.location AS l
+    WHERE l.postalcode = ?
+  `,
+    [code]
+  );
+};
+
 module.exports = {
   findAll,
   getLocationById,
+  getLocationByPostalCode,
 };

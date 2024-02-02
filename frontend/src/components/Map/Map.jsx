@@ -20,6 +20,7 @@ function StreetMap({
   search = false,
   mapMarker = false,
   works,
+  onMarkerClick,
 }) {
   const mapContainer = useRef(null);
   const map = useRef(null);
@@ -87,6 +88,7 @@ function StreetMap({
     if (event.originalEvent.button === 2) {
       const coordinates = event.lngLat;
       console.info("Lng:", coordinates.lng, "Lat:", coordinates.lat);
+      onMarkerClick(coordinates);
       marker.setLngLat(coordinates).addTo(map.current);
     }
   };
@@ -144,8 +146,10 @@ function StreetMap({
     if (mapMarker) map.current.on("mousedown", addMarker);
 
     // Add marker from data
-    for (const work of works) {
-      loadMarker(work);
+    if (Array.isArray(works)) {
+      for (const work of works) {
+        loadMarker(work);
+      }
     }
     // Set map center and zoom
     map.current.setCenter([UsingLng, UsingLat]);

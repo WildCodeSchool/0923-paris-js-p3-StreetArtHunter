@@ -28,6 +28,8 @@ const isAuth = async (req, res, next) => {
     const decoded = jwt.verify(token, process.env.APP_SECRET);
     req.body.userID = decoded.id;
     req.body.admin = decoded.admin;
+    req.userID = decoded.id;
+    req.admin = decoded.admin;
     next();
   } catch (error) {
     console.error(error);

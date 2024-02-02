@@ -1,8 +1,8 @@
 /* eslint-disable prefer-destructuring */
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
-import { useNavigate, useLoaderData } from "react-router-dom";
-import { useState, useContext } from "react";
+import { useNavigate } from "react-router-dom";
+import { useState, useContext, useEffect } from "react";
 import Pagination from "@mui/material/Pagination";
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
@@ -18,8 +18,26 @@ import "./userProfil.css";
 function UserProfilClassement() {
   const navigate = useNavigate();
   // database //
-  const userClass = useLoaderData();
   const { user } = useContext(AuthContext);
+
+  const [userClass, setUserClass] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const response = await fetch(
+        `${import.meta.env.VITE_BACKEND_URL}/api/user`,
+        {
+          credentials: "include",
+        }
+      );
+
+      if (response.status === 200) {
+        const data = await response.json();
+        setUserClass(data);
+      }
+    };
+    fetchData();
+  }, []);
 
   // search bar //
   const [search, setSearch] = useState("");
