@@ -5,7 +5,7 @@ import mapboxgl from "mapbox-gl";
 import formatDate from "../../utils/FormatDate";
 import "./workCard.css";
 
-function WorkCard({ data, classForWCVADF }) {
+function WorkCard({ data, classForWCVADF, settingValidation = false }) {
   const {
     image,
     entry,
@@ -47,29 +47,29 @@ function WorkCard({ data, classForWCVADF }) {
     <section className={WorkCardContainer}>
       <div className="workCard_content">
         <img className="Work_image" src={image} alt="work" />
-        {/* {!settingValidation && ( */}
-        <div className="work_infos_container">
-          <p className="work_info">
-            <span className="WIC_span">zone:</span> {location_name}
-          </p>
-          <p className="work_info">
-            <span className="WIC_span">adress:</span>
-            {address}
-          </p>
-          {artist_pseudo && (
+        {!settingValidation && (
+          <div className="work_infos_container">
             <p className="work_info">
-              <span className="WIC_span">artist</span>: {artist_pseudo}
+              <span className="WIC_span">zone:</span> {location_name}
             </p>
-          )}
-          <p className="work_info">
-            <span className="WIC_span">submitted by:</span> {user_pseudo}
-          </p>
-          <p className="work_info">
-            <span className="WIC_span">entry: </span> {formattedEntryDate}
-          </p>
-        </div>
-        {/* )} */}
-        {/* {settingValidation && (
+            <p className="work_info">
+              <span className="WIC_span">adress:</span>
+              {address}
+            </p>
+            {artist_pseudo && (
+              <p className="work_info">
+                <span className="WIC_span">artist</span>: {artist_pseudo}
+              </p>
+            )}
+            <p className="work_info">
+              <span className="WIC_span">submitted by:</span> {user_pseudo}
+            </p>
+            <p className="work_info">
+              <span className="WIC_span">entry: </span> {formattedEntryDate}
+            </p>
+          </div>
+        )}
+        {settingValidation && (
           <div className="work_infos_container_settingValidation">
             <div className="work_info_content">
               <p className="work_info">adress:</p>
@@ -88,7 +88,7 @@ function WorkCard({ data, classForWCVADF }) {
               />
             </div>
           </div>
-        )} */}
+        )}
       </div>
     </section>
   );

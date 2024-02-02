@@ -27,7 +27,10 @@ function workCardBloc({
     <section>
       <div className="workCardBloc_container">
         <div className="workCardBloc_content">
-          <WorkCard data={data} settingValidation />
+          <WorkCard
+            data={data}
+            settingValidation={setting || settingValidation}
+          />
           <Map
             UsingLng={mapCoordinates.lng}
             UsingLat={mapCoordinates.lat}
@@ -53,10 +56,7 @@ function workCardBloc({
         )}
         {setting && (
           <section className="setting_btns_WCB">
-            <div
-              className="valid_btn_WCB"
-              // onClick={() => handleValidate(data.id, data.user_id)}
-            >
+            <div className="valid_btn_WCB">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 height="35"

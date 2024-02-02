@@ -42,7 +42,6 @@ const getByUserId = async (req, res, next) => {
 const getAllNoValidate = async (req, res, next) => {
   try {
     const [works] = await imageModel.findAllNoValidate();
-    console.info(works);
     res.json(works);
   } catch (err) {
     next(err);
@@ -52,7 +51,6 @@ const getAllNoValidate = async (req, res, next) => {
 const getAllWUL = async (req, res, next) => {
   try {
     const [works] = await imageModel.findAll();
-    console.info(works);
     res.status(200).json(works);
   } catch (err) {
     next(err);
