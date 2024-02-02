@@ -6,10 +6,18 @@ import Stack from "@mui/material/Stack";
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
 import { Container } from "@mui/material";
+import formatDate from "../../../utils/FormatDate";
 import "./usersListAdBy.css";
 import OtherUserBloc from "../../OtherUserBloc/OtherUserBloc";
 
-function UsersListAdBy({ sortedUsers }) {
+function UsersListAdBy({ sortedUsers, setUserData }) {
+  const updateUserList = (deletedUserId) => {
+    const updatedUsers = sortedUsers.filter(
+      (user) => user.id !== deletedUserId
+    );
+    setUserData(updatedUsers);
+  };
+
   // state pagination table //
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 10;
@@ -48,7 +56,9 @@ function UsersListAdBy({ sortedUsers }) {
             </td>
             <td className="UsersList_Td_ULAF">{user.pseudo}</td>
             <td className="UsersList_Td_ULAF">{user.score}</td>
-            <td className="UsersList_Td_ULAF">{user.registration}</td>
+            <td className="UsersList_Td_ULAF">
+              {formatDate(user.registrationDate)}
+            </td>
           </tr>
         ))}
       </table>
@@ -76,6 +86,8 @@ function UsersListAdBy({ sortedUsers }) {
             {selectedUser && (
               <OtherUserBloc
                 dataUser={selectedUser}
+                handleClose={handleClose}
+                updateUserList={updateUserList}
                 className="OtherUserModal"
               />
             )}

@@ -62,11 +62,12 @@ const router = createBrowserRouter([
       },
       {
         path: "/adminprofil",
-        element: (
-          <PrivateRoute>
-            <AdminProfil />
-          </PrivateRoute>
-        ),
+        element: <AdminProfil />,
+        loader: () => {
+          return fetch(`${import.meta.env.VITE_BACKEND_URL}/api/image`, {
+            credentials: "include",
+          });
+        },
       },
       {
         path: "/classement",

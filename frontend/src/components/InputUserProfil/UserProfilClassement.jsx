@@ -78,7 +78,6 @@ function UserProfilClassement() {
   // state modal //
   const [open, setOpen] = useState(false);
   const handleOpen = (userData) => {
-    console.info(userData);
     setSelectedUser(userData);
     setOpen(true);
   };

@@ -57,6 +57,10 @@
   font-family: var(--font-04);
   font-size: xx-large;
 }
+.intro_btn:hover {
+  background-color: var(--color-01);
+  color: var(--color-00);
+}
 .girl_Ballon {
   display: none;
 }

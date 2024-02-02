@@ -2,18 +2,33 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import UsersListAdBy from "../UserListAdByPseudo/UsersListAdBy";
-import DataUsers from "../../../../data_sample/data_users.json";
 import SmileySearch from "../../../assets/images/ico/smilley.png";
 import "./userListAdminFeat.css";
 import "./userListAdminFeatMediaDesktop.css";
 
 function UserListAdminFeat() {
   // database //
-  const data = DataUsers;
+  const [userData, setUserData] = useState([]);
 
-  const UsersCount = data.length;
+  useEffect(() => {
+    fetch(`${import.meta.env.VITE_BACKEND_URL}/api/user`, {
+      credentials: "include",
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        return response.json();
+      })
+      .then((data) => {
+        setUserData(data);
+      })
+      .catch((error) => {
+        console.error("Error fetching user data:", error);
+      });
+  }, []);
 
   // search bar //
   const [search, setSearch] = useState("");
@@ -24,7 +39,7 @@ function UserListAdminFeat() {
     setSearch(value);
   };
 
-  const filteredUsers = data.filter((dataItem) =>
+  const filteredUsers = userData.filter((dataItem) =>
     dataItem.pseudo
       .toString()
       .toLowerCase()
@@ -32,18 +47,21 @@ function UserListAdminFeat() {
       .includes(search.toLowerCase())
   );
 
+  // UserCounter
+  const UsersCount = filteredUsers.length;
+
   // users alphabetical sorted //
-  const userAlphabeticalSorted = data
+  const userAlphabeticalSorted = userData
     .slice()
     .sort((a, b) => a.pseudo.localeCompare(b.pseudo));
 
   // users score sorted //
-  const userScoreSorted = data.sort((a, b) => b.score - a.score);
+  const userScoreSorted = userData.sort((a, b) => b.score - a.score);
 
   // users score sorted //
-  const userEntrySorted = data.slice().sort((a, b) => {
-    const dateA = new Date(a.registration);
-    const dateB = new Date(b.registration);
+  const userEntrySorted = userData.slice().sort((a, b) => {
+    const dateA = new Date(a.registrationDate);
+    const dateB = new Date(b.registrationDate);
 
     return dateA - dateB;
   });
@@ -117,9 +135,19 @@ function UserListAdminFeat() {
                   ? userEntrySorted
                   : userScoreSorted
               }
+              setUserData={(updatedUsers) => {
+                setUserData(updatedUsers);
+              }}
             />
           )}
-          {search !== "" && <UsersListAdBy sortedUsers={filteredUsers} />}
+          {search !== "" && (
+            <UsersListAdBy
+              sortedUsers={filteredUsers}
+              setUserData={(updatedUsers) => {
+                setUserData(updatedUsers);
+              }}
+            />
+          )}
         </section>
       </section>
     </section>

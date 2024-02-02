@@ -20,8 +20,8 @@
 .VLAF_workcard_container {
   display: flex;
   justify-content: center;
-  flex-wrap: wrap;
   width: 95%;
+  flex-direction: column;
 }
 .VLAF_dashed_line {
   border: none;
@@ -46,10 +46,6 @@
   cursor: pointer;
   background-color: var(--color-00);
 }
-.VLAF_valid_btn:hover {
-  fill: green;
-  border: solid 1px green;
-}
 .VLAF_trash_btn {
   display: flex;
   justify-content: center;
@@ -60,10 +56,6 @@
   margin-bottom: 0.5rem;
   cursor: pointer;
   background-color: var(--color-00);
-}
-.VLAF_trash_btn:hover {
-  fill: red;
-  border: solid 1px red;
 }
 .VLAF_modif_btn {
   display: flex;
@@ -76,7 +68,17 @@
   cursor: pointer;
   background-color: var(--color-00);
 }
+.VLAF_valid_btn:hover {
+  fill: green;
+  background: var(--color-02);
+}
+
 .VLAF_modif_btn:hover {
-  fill: blue;
-  border: solid 1px blue;
+  /* fill: var(--color-04); */
+  background: var(--color-02);
+}
+
+.VLAF_trash_btn:hover {
+  fill: red;
+  background: var(--color-02);
 }
