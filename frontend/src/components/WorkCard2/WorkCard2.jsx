@@ -2,12 +2,22 @@ import { useState } from "react";
 import Modal from "@mui/material/Modal";
 import Box from "@mui/material/Box";
 import { Container } from "@mui/material";
+import formatDate from "../../utils/FormatDate";
 import WorkCardBloc from "../WorkCardBloc/WorkCardBloc";
 import "./workCard2.css";
 
-function WorkCard2({ data }) {
+function WorkCard2({
+  data,
+  admin = false,
+  handleDelete,
+  settingValidation = false,
+}) {
   const [selectedWork, setSelectedWork] = useState(data);
   const [open, setOpen] = useState(false);
+
+  // Format date object:
+
+  const formattedDate = formatDate(data?.entry);
 
   const openModal = () => {
     setSelectedWork(data);
@@ -35,7 +45,7 @@ function WorkCard2({ data }) {
         <div className="workCard2_content">
           <img className="Work2_image" src={data.image} alt="work" />
           <div className="work2_infos_container">
-            <p className="work2_info"> {data.entry} </p>
+            <p className="work2_info"> {formattedDate} </p>
           </div>
         </div>
       </section>
@@ -58,7 +68,13 @@ function WorkCard2({ data }) {
                   X closed
                 </div>
               </div>
-              <WorkCardBloc data={data} />
+              <WorkCardBloc
+                data={data}
+                admin={admin}
+                handleDelete={handleDelete}
+                closeModal={closeModal}
+                settingValidation={settingValidation}
+              />
             </Container>
           </Box>
         </Modal>
