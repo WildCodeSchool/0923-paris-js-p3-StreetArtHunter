@@ -1,3 +1,4 @@
+/* eslint-disable consistent-return */
 const imageModel = require("../models/image.model");
 const locationModel = require("../models/location.model");
 const artistModel = require("../models/artist.model");
@@ -41,18 +42,69 @@ const add = async (req, res, next) => {
 };
 const getAll = async (req, res, next) => {
   try {
-    // Fetch all items from the database
     const [works] = await imageModel.findAll();
-    console.info(works);
-    // Respond with the items in JSON format
+    res.status(200).json(works);
+  } catch (error) {
+    next(error);
+  }
+};
+const getByUserId = async (req, res, next) => {
+  try {
+    const [workByUserId] = await imageModel.findByUserId(req.body.userID);
+    if (workByUserId == null) {
+      res.sendStatus(404);
+    } else {
+      res.json(workByUserId);
+    }
+  } catch (err) {
+    next(err);
+  }
+};
+
+const getAllNoValidate = async (req, res, next) => {
+  try {
+    const [works] = await imageModel.findAllNoValidate();
+    res.json(works);
+  } catch (err) {
+    next(err);
+  }
+};
+
+const getAllWUL = async (req, res, next) => {
+  try {
+    const [works] = await imageModel.findAll();
     res.status(200).json(works);
   } catch (err) {
-    // Pass any errors to the error-handling middleware
     next(err);
+  }
+};
+
+const approve = async (req, res, next) => {
+  try {
+    const workId = req.params.id;
+    await imageModel.validateWork(workId);
+    res.sendStatus(204);
+  } catch (error) {
+    next(error);
+  }
+};
+
+const erase = async (req, res, next) => {
+  try {
+    const workId = req.params.id;
+    await imageModel.deleteWork(workId);
+    res.sendStatus(204);
+  } catch (error) {
+    next(error);
   }
 };
 
 module.exports = {
   add,
   getAll,
+  getByUserId,
+  getAllNoValidate,
+  getAllWUL,
+  approve,
+  erase,
 };

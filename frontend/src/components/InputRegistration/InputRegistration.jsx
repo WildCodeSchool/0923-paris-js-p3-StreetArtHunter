@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import anonymous from "../../assets/images/img/pngwing.com.png";
@@ -58,7 +59,6 @@ function InputRegistration() {
       );
       if (response.status === 201) {
         const user = await response.json();
-        console.info(user);
         navigate("/");
       } else {
         console.error("veuillez verifier votre saisie.");
