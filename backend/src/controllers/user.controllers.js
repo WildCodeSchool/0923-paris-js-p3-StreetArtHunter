@@ -49,8 +49,26 @@ const getAll = async (req, res, next) => {
   }
 };
 
+const getCurrentUser = async (req, res, next) => {
+  try {
+    const [[user]] = await userModel.findById(req.body.userID);
+    res.status(200).json(user);
+  } catch (error) {
+    next(error);
+  }
+};
+const logout = async (req, res, next) => {
+  try {
+    res.clearCookie("auth-token").sendStatus(200);
+  } catch (error) {
+    next(error);
+  }
+};
+
 module.exports = {
   add,
   login,
   getAll,
+  getCurrentUser,
+  logout,
 };
