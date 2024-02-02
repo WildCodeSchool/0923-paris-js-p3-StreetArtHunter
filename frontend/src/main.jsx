@@ -40,15 +40,6 @@ function PrivateRoute({ children }) {
   }, [user, isLoading, location]);
   return page;
 }
-// function PrivateRoute({ children }) {
-//   const { user } = useContext(useUser);
-//   const navigate = useNavigate();
-//   useEffect(() => {
-//     if (!user) navigate("/login");
-//   }, [user]);
-//   return children;
-// }
-
 const router = createBrowserRouter([
   {
     path: "/",
