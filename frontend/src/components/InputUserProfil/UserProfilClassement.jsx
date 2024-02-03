@@ -278,15 +278,15 @@ function UserProfilClassement() {
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
-          <section className="password_change_container">
+          <section className="password_change_container_UP">
             <h1 className="password_change_title">CHANGE YOUR PASSWORD</h1>
             <input
               type="text"
-              className="password_change_placeholder"
+              className="password_change_placeholder_UP"
               placeholder="enter new password"
             />
             <div
-              className="password_change_validbtn"
+              className="password_change_validbtn_UP"
               onClick={handleClose2}
               role="button"
               tabIndex="0"
