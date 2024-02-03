@@ -1,7 +1,6 @@
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
-import { useState } from "react";
-import { useLoaderData } from "react-router-dom";
+import { useState, useEffect } from "react";
 import Pagination from "@mui/material/Pagination";
 import Stack from "@mui/material/Stack";
 import Box from "@mui/material/Box";
@@ -16,8 +15,27 @@ import AnonymousKing from "../../assets/images/img/anonymous_king.png";
 import Crown from "../../assets/images/img/crown.png";
 
 function Classement() {
-  // database //
-  const users = useLoaderData();
+  // works data
+  const [users, setUsers] = useState([]);
+
+  useEffect(() => {
+    fetch(`${import.meta.env.VITE_BACKEND_URL}/api/user`, {
+      credentials: "include",
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        return response.json();
+      })
+      .then((data) => {
+        const sortedUsers = data.sort((a, b) => b.score - a.score);
+        setUsers(sortedUsers);
+      })
+      .catch((error) => {
+        console.error("Error fetching user data:", error);
+      });
+  }, []);
 
   // search bar //
   const [search, setSearch] = useState("");
