@@ -67,7 +67,7 @@ body::-webkit-scrollbar {
     background-size: cover;
   }
   .Global_height {
-    min-height: calc(100vh - 165px);
+    min-height: calc(100vh - 159px);
   }
   /* Modal */
   .modal_closed_btn {

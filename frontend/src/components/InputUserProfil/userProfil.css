@@ -264,6 +264,7 @@
     flex-direction: row;
     align-items: flex-start;
     justify-content: space-evenly;
+    width: 45%;
   }
   .UP_Part1_Flex {
     display: flex;

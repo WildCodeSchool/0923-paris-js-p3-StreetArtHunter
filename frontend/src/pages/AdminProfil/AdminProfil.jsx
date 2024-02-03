@@ -23,7 +23,27 @@ function AdminProfil() {
   const workById = useLoaderData() || [];
   const { user } = useContext(AuthContext);
 
+  // const [workById, setWorkById] = useState();
   const [worksData, setWorkData] = useState(workById);
+
+  // // works data
+  // useEffect(() => {
+  //   fetch(`${import.meta.env.VITE_BACKEND_URL}/api/image`, {
+  //     credentials: "include",
+  //   })
+  //     .then((response) => {
+  //       if (!response.ok) {
+  //         throw new Error("Network response was not ok");
+  //       }
+  //       return response.json();
+  //     })
+  //     .then((data) => {
+  //       setWorkById(data);
+  //     })
+  //     .catch((error) => {
+  //       console.error("Error fetching user data:", error);
+  //     });
+  // }, []);
 
   // simulation de données perso de la l'admin //
   const adminHistoryWork = worksData.filter(
