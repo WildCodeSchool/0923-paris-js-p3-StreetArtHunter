@@ -51,7 +51,7 @@ function StreetMap({
       .then((data) => {
         // Extraire le nom du lieu à partir de la réponse
         const address = data.features[0].place_name;
-        console.info(data.features[0]);
+        // console.info(data.features[0]);
 
         // Afficher les informations dans le popup
         const popup = new mapboxgl.Popup().setHTML(
