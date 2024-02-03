@@ -15,8 +15,6 @@ function workCardBloc({
   handleValidate,
 }) {
   const [setting, setSetting] = useState(false);
-  const accessToken = import.meta.env.VITE_MAPBOX_TOKEN;
-  const [artist, setArtist] = useState("");
 
   // change coordonate on button //
   const [mapCoordinates, setMapCoordinates] = useState({
