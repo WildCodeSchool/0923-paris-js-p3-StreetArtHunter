@@ -77,8 +77,9 @@ function UserProfilHistorical() {
     p: 4,
   };
 
-  const [open, setOpen] = useState(false);
+  const [newPassword, setNewPassword] = useState("");
 
+  const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
@@ -92,6 +93,34 @@ function UserProfilHistorical() {
   // gestion Media Screen //
   const smartphoneScreen = window.matchMedia("(max-width: 770px)").matches;
   const desktopScreen = window.matchMedia("(min-width: 1440px)").matches;
+
+  // change password //
+  const changePassword = async () => {
+    try {
+      const response = await fetch(
+        `${import.meta.env.VITE_BACKEND_URL}/api/user/:id/changePassword`,
+        {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            currentPassword: "oldPassword",
+            newPassword,
+          }),
+          credentials: "include",
+        }
+      );
+      if (response.status === 200) {
+        console.info("Password changed successfully.");
+        handleClose(); // Fermer la modal après la modification
+      } else {
+        console.error("Failed to change password.");
+      }
+    } catch (error) {
+      console.error("Erreur lors de la modification du mot de passe", error);
+    }
+  };
 
   return (
     <section className="UP_Container Global_height">
@@ -219,16 +248,18 @@ function UserProfilHistorical() {
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
-          <section className="password_change_container_UP">
-            <h1 className="password_change_title_UP">CHANGE YOUR PASSWORD</h1>
+          <section className="password_change_container">
+            <h1 className="password_change_title">CHANGE YOUR PASSWORD</h1>
             <input
-              type="text"
-              className="password_change_placeholder_UP"
+              type="password"
+              className="password_change_placeholder"
               placeholder="enter new password"
+              value={newPassword}
+              onChange={(e) => setNewPassword(e.target.value)}
             />
             <div
-              className="password_change_validbtn_UP"
-              onClick={handleClose}
+              className="password_change_validbtn"
+              onClick={changePassword}
               role="button"
               tabIndex="0"
             >

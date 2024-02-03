@@ -85,6 +85,8 @@ function UserProfilClassement() {
     p: 4,
   };
 
+  const [newPassword, setNewPassword] = useState("");
+
   const [open2, setOpen2] = useState(false);
 
   const handleOpen2 = () => setOpen2(true);
@@ -99,10 +101,36 @@ function UserProfilClassement() {
     setSelectedUser(userData);
     setOpen(true);
   };
-  const handleClose = () => setOpen(false);
-
   // Format date object:
   const formattedDate = formatDate(user?.registrationDate);
+
+  // change password //
+  const changePassword = async () => {
+    try {
+      const response = await fetch(
+        `${import.meta.env.VITE_BACKEND_URL}/api/user/:id/changePassword`,
+        {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            currentPassword: "oldPassword",
+            newPassword,
+          }),
+          credentials: "include",
+        }
+      );
+      if (response.status === 200) {
+        console.info("Password changed successfully.");
+        handleClose2(); // Fermer la modal après la modification
+      } else {
+        console.error("Failed to change password.");
+      }
+    } catch (error) {
+      console.error("Erreur lors de la modification du mot de passe", error);
+    }
+  };
 
   return (
     <section className="UP_Container Global_height">
@@ -245,7 +273,7 @@ function UserProfilClassement() {
             </div>
           </div>
         </div>
-        <Modal open={open} onClose={handleClose}>
+        <Modal open={open} onClose={handleClose2}>
           <Box
             sx={{
               position: "absolute",
@@ -259,7 +287,7 @@ function UserProfilClassement() {
           >
             <Container maxWidth="lg">
               <div className="modal_closed_btn_container">
-                <p onClick={handleClose} className="modal_closed_btn">
+                <p onClick={handleClose2} className="modal_closed_btn">
                   X closed
                 </p>
               </div>
@@ -281,13 +309,15 @@ function UserProfilClassement() {
           <section className="password_change_container_UP">
             <h1 className="password_change_title">CHANGE YOUR PASSWORD</h1>
             <input
-              type="text"
+              type="password"
               className="password_change_placeholder_UP"
               placeholder="enter new password"
+              value={newPassword}
+              onChange={(e) => setNewPassword(e.target.value)}
             />
             <div
               className="password_change_validbtn_UP"
-              onClick={handleClose2}
+              onClick={changePassword}
               role="button"
               tabIndex="0"
             >

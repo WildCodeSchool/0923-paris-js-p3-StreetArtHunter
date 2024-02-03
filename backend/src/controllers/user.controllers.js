@@ -99,6 +99,34 @@ const logout = async (req, res, next) => {
     next(error);
   }
 };
+// eslint-disable-next-line consistent-return
+const updatePassword = async (req, res, next) => {
+  try {
+    const userId = req.params.id;
+    const { currentPassword, newPassword } = req.body;
+
+    // Récupérer l'utilisateur actuel
+    const [[user]] = await userModel.findById(userId);
+
+    // Vérifier si le mot de passe actuel correspond
+    const isPasswordMatch = await argon.verify(user.password, currentPassword);
+
+    if (!isPasswordMatch) {
+      return res.status(422).send("password incorect");
+    }
+
+    // Mettre à jour le mot de passe
+    await userModel.updatePassword(userId, await argon.hash(newPassword));
+
+    res.json({
+      success: true,
+      message: "Password updated successfully.",
+    });
+  } catch (error) {
+    console.error("Error updating password", error);
+    next(error);
+  }
+};
 
 module.exports = {
   add,
@@ -109,4 +137,5 @@ module.exports = {
   incrementUserScore,
   getCurrentUser,
   logout,
+  updatePassword,
 };
