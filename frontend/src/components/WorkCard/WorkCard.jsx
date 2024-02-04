@@ -33,7 +33,7 @@ function WorkCard({ data, classForWCVADF, settingValidation = false }) {
     .then((response) => response.json())
     .then((datas) => {
       const address = datas.features[0].place_name;
-      console.info(datas.features[0]);
+      // console.info(datas.features[0]);
       setAddress(address);
     })
     .catch((error) => {
