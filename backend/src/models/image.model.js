@@ -62,6 +62,14 @@ const getImageByLocationId = (id) => {
   );
 };
 
+const updateLocalisation = (latitude, longitude, id) => {
+  return db.query("UPDATE work SET latitude = ?, longitude = ?  WHERE id = ?", [
+    latitude,
+    longitude,
+    id,
+  ]);
+};
+
 module.exports = {
   insert,
   findById,
@@ -71,4 +79,5 @@ module.exports = {
   validateWork,
   deleteWork,
   getImageByLocationId,
+  updateLocalisation,
 };

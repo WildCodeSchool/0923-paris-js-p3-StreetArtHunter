@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 /* eslint-disable consistent-return */
 const imageModel = require("../models/image.model");
 const locationModel = require("../models/location.model");
@@ -99,6 +100,31 @@ const erase = async (req, res, next) => {
   }
 };
 
+const updateWorkLocalisation = async (req, res, next) => {
+  try {
+    const { latitude, longitude, id } = req.body;
+
+    await imageModel.updateLocalisation(latitude, longitude, id);
+
+    res.sendStatus(204);
+  } catch (error) {
+    next(error);
+  }
+};
+
+const updateArtistInAW = async (req, res, next) => {
+  try {
+    const { Artist_id, Work_id } = req.body;
+
+    await artistModel.updateArtistInArtistWork(Artist_id, Work_id);
+
+    res.sendStatus(204);
+    console.info(Artist_id, Work_id);
+  } catch (error) {
+    next(error);
+  }
+};
+
 module.exports = {
   add,
   getAll,
@@ -107,4 +133,6 @@ module.exports = {
   getAllWUL,
   approve,
   erase,
+  updateWorkLocalisation,
+  updateArtistInAW,
 };

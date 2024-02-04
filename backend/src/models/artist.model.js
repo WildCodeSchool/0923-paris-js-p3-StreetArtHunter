@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 const db = require("../../database/client");
 
 const insert = (artist) => {
@@ -18,8 +19,16 @@ const insertInArtistWork = (artist, work) => {
   ]);
 };
 
+const updateArtistInArtistWork = (Artist_id, Work_id) => {
+  return db.query("UPDATE artist_work SET Artist_id = ? WHERE Work_id =?", [
+    Artist_id,
+    Work_id,
+  ]);
+};
+
 module.exports = {
   insert,
   getByName,
   insertInArtistWork,
+  updateArtistInArtistWork,
 };
