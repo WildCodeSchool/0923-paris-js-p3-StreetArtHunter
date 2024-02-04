@@ -2,8 +2,8 @@
 /* eslint-disable prefer-destructuring */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
-import { useState, useContext } from "react";
-import { useLoaderData } from "react-router-dom";
+import { useState, useContext, useEffect } from "react";
+// import { useLoaderData } from "react-router-dom";
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
 import Pagination from "@mui/material/Pagination";
@@ -20,14 +20,34 @@ import WorkCard2 from "../../components/WorkCard2/WorkCard2";
 import MonkeyEmpty from "../../assets/images/img/monkey03.png";
 
 function AdminProfil() {
-  const workById = useLoaderData() || [];
+  // const workById = useLoaderData() || [];
   const { user } = useContext(AuthContext);
 
-  const [worksData, setWorkData] = useState(workById);
+  const [workById, setWorkById] = useState([]);
+  const [worksData, setWorkData] = useState([]);
 
-  const adminHistoryWork = worksData.filter(
-    (work) => work.User_id === user?.id
-  );
+  // works data
+  useEffect(() => {
+    fetch(`${import.meta.env.VITE_BACKEND_URL}/api/image`, {
+      credentials: "include",
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        return response.json();
+      })
+      .then((data) => {
+        setWorkById(data);
+        console.info(data);
+      })
+      .catch((error) => {
+        console.error("Error fetching user data:", error);
+      });
+  }, []);
+
+  // simulation de données perso de la l'admin //
+  const adminHistoryWork = workById.filter((work) => work.User_id === user?.id);
   const adminWorksCount = adminHistoryWork.length;
 
   // Format date object:
