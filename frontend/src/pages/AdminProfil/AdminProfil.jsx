@@ -25,7 +25,6 @@ function AdminProfil() {
 
   const [worksData, setWorkData] = useState(workById);
 
-  // simulation de données perso de la l'admin //
   const adminHistoryWork = worksData.filter(
     (work) => work.User_id === user?.id
   );

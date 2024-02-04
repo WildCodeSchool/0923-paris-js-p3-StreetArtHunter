@@ -202,9 +202,10 @@
 }
 .password_change_placeholder {
   font-family: var(--font-01);
+  border: solid 1px black;
   text-align: center;
   font-size: medium;
-  padding: 5px;
+  padding: 5px 1em;
 }
 .password_change_validbtn {
   font-family: var(--font-03);
