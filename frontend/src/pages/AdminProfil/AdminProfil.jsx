@@ -39,7 +39,6 @@ function AdminProfil() {
       })
       .then((data) => {
         setWorkById(data);
-        console.info(data);
       })
       .catch((error) => {
         console.error("Error fetching user data:", error);
