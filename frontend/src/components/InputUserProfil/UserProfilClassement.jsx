@@ -13,6 +13,7 @@ import imageMonkey from "../../assets/images/img/monkey02.png";
 import SmileySearch from "../../assets/images/ico/smilley.png";
 import AuthContext from "../../context/AuthContext";
 import formatDate from "../../utils/FormatDate";
+import assignLevel from "../../utils/AssignLevel";
 import "./userProfil.css";
 
 function UserProfilClassement() {
@@ -21,6 +22,7 @@ function UserProfilClassement() {
   const { user } = useContext(AuthContext);
 
   const [userClass, setUserClass] = useState([]);
+  const [userLevel, setUserLevel] = useState("");
 
   useEffect(() => {
     const fetchData = async () => {
@@ -34,10 +36,14 @@ function UserProfilClassement() {
       if (response.status === 200) {
         const data = await response.json();
         setUserClass(data);
+
+        // Set user level once when component mounts
+        const level = assignLevel(user.score);
+        setUserLevel(level);
       }
     };
     fetchData();
-  }, []);
+  }, [user.score]);
 
   // search bar //
   const [search, setSearch] = useState("");
@@ -92,7 +98,7 @@ function UserProfilClassement() {
         <div className="UP_Part1_Flex">
           <div className="UP_Title_PseudoName">{user?.pseudo}</div>
           <div className="UP_Level_Score">
-            <div className="UP_Title_Level">level:</div>
+            <div className="UP_Title_Level">level: {userLevel}</div>
             <div className="UP_Title_Score">score: {user?.score}</div>
           </div>
           <div className="UP_Email_Password">
