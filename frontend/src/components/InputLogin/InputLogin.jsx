@@ -10,6 +10,7 @@ function InputLogin() {
   const pseudo = useRef();
   const password = useRef();
   const auth = useContext(AuthContext);
+
   // Gestion soumission de formulaire //
   const handleSubmit = async () => {
     try {
@@ -29,6 +30,17 @@ function InputLogin() {
       if (response.status === 200) {
         const user = await response.json();
         auth.setUser(user);
+        auth.setIsLoading(false);
+        // Vérifier si un nouveau token est renvoyé dans la réponse
+        const newToken = response.headers.get("new-auth-token");
+
+        if (newToken) {
+          // Stocker le nouveau token dans les cookies
+          document.cookie = `auth-token=${newToken}; path=/; max-age=${
+            7 * 24 * 60 * 60
+          }; secure; samesite=strict`;
+        }
+
         if (user.admin) navigate("/adminprofil");
         else navigate("/userprofilhistorical");
       } else {

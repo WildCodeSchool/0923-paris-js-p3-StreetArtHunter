@@ -1,7 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import classement from "../../assets/images/ico/classement.png";
 import graffiti from "../../assets/images/ico/artiste-de-graffiti.png";
-import infos from "../../assets/images/ico/About_ico.png";
 import "./footer.css";
 import "./footerConnected.css";
 
@@ -44,7 +43,7 @@ function FooterConnected() {
           height="30px"
           viewBox="0 -960 960 960"
           width="29.855px"
-          onClick={() => navigate("/submitworkimport")}
+          onClick={() => navigate("/submitwork")}
         >
           <path d="M440-280h80v-160h160v-80H520v-160h-80v160H280v80h160v160Zm40 200q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z" />
         </svg>
@@ -62,18 +61,22 @@ function FooterConnected() {
           <img className="iconClassement" src={classement} alt="classement" />
         </div>
 
-        <div
-          role="button"
+        <svg
+          className="iconContact"
+          xmlns="http://www.w3.org/2000/svg"
+          height="24"
+          viewBox="0 -960 960 960"
+          width="24"
           onClick={() => {
-            navigate("/information");
+            navigate("/contactus");
           }}
           onKeyDown={() => {
-            navigate("/information");
+            navigate("/contactus");
           }}
           tabIndex="0"
         >
-          <img className="iconInfos" src={infos} alt="infos" />
-        </div>
+          <path d="M160-160q-33 0-56.5-23.5T80-240v-480q0-33 23.5-56.5T160-800h640q33 0 56.5 23.5T880-720v480q0 33-23.5 56.5T800-160H160Zm320-280L160-640v400h640v-400L480-440Zm0-80 320-200H160l320 200ZM160-640v-80 480-400Z" />
+        </svg>
       </div>
     </footer>
   );

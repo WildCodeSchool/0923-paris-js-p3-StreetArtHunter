@@ -1,22 +1,41 @@
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Pagination from "@mui/material/Pagination";
 import Stack from "@mui/material/Stack";
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
 import { Container } from "@mui/material";
 import "./classement.css";
+import formatDate from "../../utils/FormatDate";
 import OtherUserBloc from "../../components/OtherUserBloc/OtherUserBloc";
-import DataUsers from "../../../data_sample/data_users.json";
 import MostWanted from "../../assets/images/img/Most_Wanted.png";
 import SmileySearch from "../../assets/images/img/smilley.png";
 import AnonymousKing from "../../assets/images/img/anonymous_king.png";
 import Crown from "../../assets/images/img/crown.png";
 
 function Classement() {
-  // database //
-  const data = DataUsers;
+  // works data
+  const [users, setUsers] = useState([]);
+
+  useEffect(() => {
+    fetch(`${import.meta.env.VITE_BACKEND_URL}/api/user`, {
+      credentials: "include",
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        return response.json();
+      })
+      .then((data) => {
+        const sortedUsers = data.sort((a, b) => b.score - a.score);
+        setUsers(sortedUsers);
+      })
+      .catch((error) => {
+        console.error("Error fetching user data:", error);
+      });
+  }, []);
 
   // search bar //
   const [search, setSearch] = useState("");
@@ -27,7 +46,7 @@ function Classement() {
     setSearch(value);
   };
 
-  const filteredUsers = data.filter((dataItem) =>
+  const filteredUsers = users.filter((dataItem) =>
     dataItem.pseudo
       .toString()
       .toLowerCase()
@@ -41,7 +60,7 @@ function Classement() {
 
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-  const currentItems = data.slice(indexOfFirstItem, indexOfLastItem);
+  const currentItems = users.slice(indexOfFirstItem, indexOfLastItem);
 
   const handlePageChange = (event, value) => {
     setCurrentPage(value);
@@ -109,7 +128,7 @@ function Classement() {
                     <td className="UsersList_Td_Classement">{user.pseudo}</td>
                     <td className="UsersList_Td_Classement">{user.score}</td>
                     <td className="UsersList_Td_Classement">
-                      {user.registration}
+                      {formatDate(user.registrationDate)}
                     </td>
                   </tr>
                 ))}
@@ -129,7 +148,7 @@ function Classement() {
                     <td className="UsersList_Td_Classement">{user.pseudo}</td>
                     <td className="UsersList_Td_Classement">{user.score}</td>
                     <td className="UsersList_Td_Classement">
-                      {user.registration}
+                      {formatDate(user.registrationDate)}
                     </td>
                   </tr>
                 ))}

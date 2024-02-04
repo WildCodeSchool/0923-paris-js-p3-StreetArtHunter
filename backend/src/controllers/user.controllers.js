@@ -40,6 +40,19 @@ const login = async (req, res, next) => {
   }
 };
 
+const getById = async (req, res, next) => {
+  try {
+    const [[user]] = await userModel.findById(req.params.id);
+    if (user == null) {
+      res.sendStatus(404);
+    } else {
+      res.json(user);
+    }
+  } catch (err) {
+    next(err);
+  }
+};
+
 const getAll = async (req, res, next) => {
   try {
     const [user] = await userModel.findAll();
@@ -49,8 +62,51 @@ const getAll = async (req, res, next) => {
   }
 };
 
+const erase = async (req, res, next) => {
+  try {
+    const userId = req.params.id;
+    await userModel.deleteUser(userId);
+    res.sendStatus(204);
+    } catch (error) {
+    next(error);
+  }
+};
+
+const getCurrentUser = async (req, res, next) => {
+  try {
+    const [[user]] = await userModel.findById(req.body.userID);
+    res.status(200).json(user);
+  } catch (error) {
+    next(error);
+  }
+};
+
+const incrementUserScore = async (req, res, next) => {
+  try {
+    const userId = req.params.id;
+    await userModel.incrementScore(userId);
+
+    res.sendStatus(200);
+      } catch (error) {
+    next(error);
+  }
+};
+
+const logout = async (req, res, next) => {
+  try {
+    res.clearCookie("auth-token").sendStatus(200);
+  } catch (error) {
+    next(error);
+  }
+};
+
 module.exports = {
   add,
   login,
+  getById,
   getAll,
+  erase,
+  incrementUserScore,
+  getCurrentUser,
+  logout,
 };

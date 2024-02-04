@@ -1,7 +1,12 @@
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import React from "react";
+import React, { useEffect, useContext, useState } from "react";
+import {
+  createBrowserRouter,
+  RouterProvider,
+  useNavigate,
+  useLocation,
+} from "react-router-dom";
 import ReactDOM from "react-dom/client";
-import { AuthProvider } from "./context/AuthContext";
+import useUser, { AuthProvider } from "./context/AuthContext";
 import App from "./App";
 import IntroPage from "./pages/IntroPage/IntroPage";
 import HomePage from "./pages/HomePage/HomePage";
@@ -10,9 +15,7 @@ import Classement from "./pages/Classement/Classement";
 import Login from "./pages/Login/Login";
 import Register from "./pages/Register/Register";
 import SpotZone from "./pages/SpotZone/SpotZone";
-import SubwitWorkImport from "./components/InputSubmitWork/SubmitWorkImport";
-import SubmitWorkValidation from "./components/InputSubmitWork/SubmitWorkValidation";
-import SubmitWorkThank from "./components/InputSubmitWork/SubmitWorkThank";
+import SubmitWork from "./pages/SubmitWork/SubmitWork";
 import UserProfilHistorical from "./components/InputUserProfil/UserProfilHistorical";
 import UserProfilClassement from "./components/InputUserProfil/UserProfilClassement";
 import Information from "./pages/Information/Information";
@@ -23,10 +26,25 @@ import AskUs from "./pages/Contact/AskUs/AskUs";
 import SpotZoneById from "./pages/SpotZoneById/SpotZoneById";
 import Profil from "./pages/Profil/Profil";
 
+// Route safe //
+function PrivateRoute({ children }) {
+  const { user, isLoading } = useContext(useUser);
+  const navigate = useNavigate();
+  const location = useLocation();
+  const [page, setPage] = useState(null);
+  useEffect(() => {
+    if (isLoading) setPage(<p>Loading...</p>);
+    else if (!user) navigate("/login");
+    else setPage(children);
+    return () => setPage(null);
+  }, [user, isLoading, location]);
+  return page;
+}
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
+
     children: [
       {
         path: "/",
@@ -35,17 +53,29 @@ const router = createBrowserRouter([
       {
         path: "/homepage",
         element: <HomePage />,
+
+        loader: () => {
+          return fetch(`${import.meta.env.VITE_BACKEND_URL}/api/image`, {
+            credentials: "include",
+          });
+        },
       },
       {
         path: "/adminprofil",
-        element: <AdminProfil />,
-        // loader: () => {
-        //   return fetch(`${import.meta.env.VITE_BACKEND_URL}/api/user`);
-        // },
+
+        element: (
+          <PrivateRoute>
+            <AdminProfil />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/classement",
-        element: <Classement />,
+        element: (
+          <PrivateRoute>
+            <Classement />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/login",
@@ -58,31 +88,49 @@ const router = createBrowserRouter([
       {
         path: "/spotzone",
         element: <SpotZone />,
-      },
-      {
-        path: "/submitworkimport",
-        element: <SubwitWorkImport />,
-      },
-      {
-        path: "/submitworkvalidation",
-        element: <SubmitWorkValidation />,
-      },
-      {
-        path: "/submitworkthank",
-        element: <SubmitWorkThank />,
-      },
 
+        loader: () => {
+          return fetch(`${import.meta.env.VITE_BACKEND_URL}/api/location`, {
+            credentials: "include",
+          });
+        },
+      },
+      {
+        path: "/submitwork",
+        element: (
+          <PrivateRoute>
+            <SubmitWork />
+          </PrivateRoute>
+        ),
+      },
       {
         path: "/userprofilhistorical",
-        element: <UserProfilHistorical />,
+        element: (
+          <PrivateRoute>
+            <UserProfilHistorical />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/userprofilclassement",
-        element: <UserProfilClassement />,
+        element: (
+          <PrivateRoute>
+            <UserProfilClassement />
+          </PrivateRoute>
+        ),
+        loader: () => {
+          return fetch(`${import.meta.env.VITE_BACKEND_URL}/api/user`, {
+            credentials: "include",
+          });
+        },
       },
       {
         path: "/information",
-        element: <Information />,
+        element: (
+          <PrivateRoute>
+            <Information />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/contactus",
@@ -94,19 +142,45 @@ const router = createBrowserRouter([
       },
       {
         path: "/complimentus",
-        element: <ComplimentUs />,
+        element: (
+          <PrivateRoute>
+            <ComplimentUs />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/reclamation",
-        element: <Reclamation />,
+        element: (
+          <PrivateRoute>
+            <Reclamation />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/spotzonebyid/:location",
-        element: <SpotZoneById />,
+        element: (
+          <PrivateRoute>
+            <SpotZoneById />
+          </PrivateRoute>
+        ),
+        loader: ({ params }) => {
+          return fetch(
+            `${import.meta.env.VITE_BACKEND_URL}/api/location/${
+              params.location
+            }`,
+            {
+              credentials: "include",
+            }
+          );
+        },
       },
       {
         path: "/profil",
-        element: <Profil />,
+        element: (
+          <PrivateRoute>
+            <Profil />
+          </PrivateRoute>
+        ),
       },
     ],
   },

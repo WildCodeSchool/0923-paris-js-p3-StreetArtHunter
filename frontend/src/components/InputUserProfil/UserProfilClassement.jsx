@@ -2,24 +2,48 @@
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import { useNavigate } from "react-router-dom";
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import Pagination from "@mui/material/Pagination";
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
 import { Container } from "@mui/material";
 import Stack from "@mui/material/Stack";
 import OtherUserBloc from "../OtherUserBloc/OtherUserBloc";
-import DataUsers from "../../../data_sample/data_users.json";
 import imageMonkey from "../../assets/images/img/monkey02.png";
 import SmileySearch from "../../assets/images/ico/smilley.png";
 import AuthContext from "../../context/AuthContext";
+import formatDate from "../../utils/FormatDate";
+import assignLevel from "../../utils/AssignLevel";
 import "./userProfil.css";
 
 function UserProfilClassement() {
   const navigate = useNavigate();
   // database //
-  const data = DataUsers;
   const { user } = useContext(AuthContext);
+
+  const [userClass, setUserClass] = useState([]);
+  const [userLevel, setUserLevel] = useState("");
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const response = await fetch(
+        `${import.meta.env.VITE_BACKEND_URL}/api/user`,
+        {
+          credentials: "include",
+        }
+      );
+
+      if (response.status === 200) {
+        const data = await response.json();
+        setUserClass(data);
+
+        // Set user level once when component mounts
+        const level = assignLevel(user.score);
+        setUserLevel(level);
+      }
+    };
+    fetchData();
+  }, [user.score]);
 
   // search bar //
   const [search, setSearch] = useState("");
@@ -30,7 +54,7 @@ function UserProfilClassement() {
     setSearch(value);
   };
 
-  const filteredUsers = data.filter((dataItem) =>
+  const filteredUsers = userClass.filter((dataItem) =>
     dataItem.pseudo
       .toString()
       .toLowerCase()
@@ -44,7 +68,7 @@ function UserProfilClassement() {
 
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-  const currentItems = data.slice(indexOfFirstItem, indexOfLastItem);
+  const currentItems = userClass.slice(indexOfFirstItem, indexOfLastItem);
 
   const handlePageChange = (event, value) => {
     setCurrentPage(value);
@@ -60,20 +84,13 @@ function UserProfilClassement() {
   // state modal //
   const [open, setOpen] = useState(false);
   const handleOpen = (userData) => {
-    console.info(userData);
     setSelectedUser(userData);
     setOpen(true);
   };
   const handleClose = () => setOpen(false);
 
   // Format date object:
-  const registrationDateObj = user?.registrationDate
-    ? new Date(user.registrationDate)
-    : null;
-  let formattedDate = "";
-  if (registrationDateObj && !Number.isNaN(registrationDateObj.getTime())) {
-    formattedDate = registrationDateObj.toISOString().split("T")[0];
-  }
+  const formattedDate = formatDate(user?.registrationDate);
 
   return (
     <section className="UP_Container Global_height">
@@ -81,7 +98,7 @@ function UserProfilClassement() {
         <div className="UP_Part1_Flex">
           <div className="UP_Title_PseudoName">{user?.pseudo}</div>
           <div className="UP_Level_Score">
-            <div className="UP_Title_Level">level:</div>
+            <div className="UP_Title_Level">level: {userLevel}</div>
             <div className="UP_Title_Score">score: {user?.score}</div>
           </div>
           <div className="UP_Email_Password">
@@ -168,7 +185,7 @@ function UserProfilClassement() {
                           <td className="UPC_Users_List_Td">{users.pseudo}</td>
                           <td className="UPC_Users_List_Td">{users.score}</td>
                           <td className="UPC_Users_List_Td">
-                            {users.registration}
+                            {formatDate(users.registrationDate)}
                           </td>
                         </tr>
                       ))}
@@ -188,7 +205,7 @@ function UserProfilClassement() {
                           <td className="UPC_Users_List_Td">{users.pseudo}</td>
                           <td className="UPC_Users_List_Td">{users.score}</td>
                           <td className="UPC_Users_List_Td">
-                            {users.registration}
+                            {formatDate(users.registrationDate)}
                           </td>
                         </tr>
                       ))}
@@ -212,7 +229,17 @@ function UserProfilClassement() {
           </div>
         </div>
         <Modal open={open} onClose={handleClose}>
-          <Box>
+          <Box
+            sx={{
+              position: "absolute",
+              top: "50%",
+              left: "50%",
+              transform: "translate(-50%, -50%)",
+              overflow: "auto",
+              width: "100%",
+              maxHeight: "80%",
+            }}
+          >
             <Container maxWidth="lg">
               <div className="modal_closed_btn_container">
                 <p onClick={handleClose} className="modal_closed_btn">

@@ -1,9 +1,11 @@
 import * as React from "react";
+import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import Button from "@mui/material/Button";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
+import useUser from "../../context/AuthContext";
 import "./menuBurger.css";
 
 export default function PositionedMenuConnected() {
@@ -16,12 +18,32 @@ export default function PositionedMenuConnected() {
     setAnchorEl(null);
   };
   const navigate = useNavigate();
+  const { setUser, setIsLoading } = useContext(useUser);
 
   const theme = createTheme({
     typography: {
       fontFamily: "Black Ops One",
     },
   });
+
+  const logout = async () => {
+    try {
+      const response = await fetch(
+        `${import.meta.env.VITE_BACKEND_URL}/api/user/logout`,
+        {
+          method: "GET",
+          credentials: "include",
+        }
+      );
+      if (response.status === 200) {
+        setUser(null);
+        setIsLoading(true);
+        navigate("/");
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  };
   return (
     <div>
       <Button
@@ -86,7 +108,7 @@ export default function PositionedMenuConnected() {
           <MenuItem
             className="Police-Burger-Header"
             onClick={() => {
-              navigate("/submitworkimport");
+              navigate("/submitwork");
             }}
           >
             SUBMIT
@@ -109,12 +131,7 @@ export default function PositionedMenuConnected() {
             CONTACT
           </MenuItem>
 
-          <MenuItem
-            className="Police-Burger-Header"
-            onClick={() => {
-              navigate("/");
-            }}
-          >
+          <MenuItem className="Police-Burger-Header" onClick={logout}>
             LOG-OUT
           </MenuItem>
         </Menu>

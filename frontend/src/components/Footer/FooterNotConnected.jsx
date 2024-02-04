@@ -2,7 +2,6 @@ import { useNavigate } from "react-router-dom";
 import "./footer.css";
 import "./footerNotConnectedMobile.css";
 import "./footerNotConnectedDesktop.css";
-import infos from "../../assets/images/ico/About_ico.png";
 
 function FooterNotConnected() {
   const navigate = useNavigate();
@@ -33,19 +32,22 @@ function FooterNotConnected() {
         >
           <path d="m280-40 112-564-72 28v136h-80v-188l202-86q14-6 29.5-7t29.5 4q14 5 26.5 14t20.5 23l40 64q26 42 70.5 69T760-520v80q-70 0-125-29t-94-74l-25 123 84 80v300h-80v-260l-84-64-72 324h-84Zm260-700q-33 0-56.5-23.5T460-820q0-33 23.5-56.5T540-900q33 0 56.5 23.5T620-820q0 33-23.5 56.5T540-740Z" />
         </svg>
-
-        <div
-          role="button"
+        <svg
+          className="iconContact"
+          xmlns="http://www.w3.org/2000/svg"
+          height="24"
+          viewBox="0 -960 960 960"
+          width="24"
           onClick={() => {
-            navigate("/information");
+            navigate("/contactus");
           }}
           onKeyDown={() => {
-            navigate("/information");
+            navigate("/contactus");
           }}
           tabIndex="0"
         >
-          <img className="iconInfos" src={infos} alt="infos" />
-        </div>
+          <path d="M160-160q-33 0-56.5-23.5T80-240v-480q0-33 23.5-56.5T160-800h640q33 0 56.5 23.5T880-720v480q0 33-23.5 56.5T800-160H160Zm320-280L160-640v400h640v-400L480-440Zm0-80 320-200H160l320 200ZM160-640v-80 480-400Z" />
+        </svg>
       </div>
     </footer>
   );
