@@ -112,14 +112,45 @@ const updateWorkLocalisation = async (req, res, next) => {
   }
 };
 
+// const updateArtistInAW = async (req, res, next) => {
+//   try {
+//     const { Artist_id, Work_id } = req.body;
+
+//     await artistModel.updateArtistInArtistWork(Artist_id, Work_id);
+
+//     res.sendStatus(204);
+//     console.info(Artist_id, Work_id);
+//   } catch (error) {
+//     next(error);
+//   }
+// };
+
 const updateArtistInAW = async (req, res, next) => {
   try {
-    const { Artist_id, Work_id } = req.body;
+    const { pseudo, Work_id } = req.body;
 
-    await artistModel.updateArtistInArtistWork(Artist_id, Work_id);
+    // Vérifier si le pseudo de l'artiste existe
+    const [[existingArtist]] = await artistModel.getByName(pseudo);
 
-    res.sendStatus(204);
-    console.info(Artist_id, Work_id);
+    if (existingArtist) {
+      const Artist_id = existingArtist.id;
+      await artistModel.updateArtistInArtistWork(Artist_id, Work_id);
+
+      res.sendStatus(204);
+    } else {
+      const [newArtist] = await artistModel.insert(pseudo);
+
+      if (newArtist && newArtist.insertId) {
+        const Artist_id = newArtist.insertId;
+
+        await artistModel.updateArtistInArtistWork(Artist_id, Work_id);
+
+        res.sendStatus(204);
+      } else {
+        // Si la création de l'artiste échoue, renvoyer une erreur
+        res.status(500).send("Erreur lors de la création de l'artiste");
+      }
+    }
   } catch (error) {
     next(error);
   }
