@@ -1,3 +1,4 @@
+/* eslint-disable no-use-before-define */
 /* eslint-disable prefer-destructuring */
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
@@ -78,6 +79,26 @@ function UserProfilClassement() {
     filteredUsers.length / itemsPerPage
   );
 
+  // gestion modal password
+  const style = {
+    position: "absolute",
+    top: "50%",
+    left: "50%",
+    transform: "translate(-50%, -50%)",
+    width: 400,
+    bgcolor: "background.paper",
+    border: "2px solid #000",
+    boxShadow: 24,
+    p: 4,
+  };
+
+  const [newPassword, setNewPassword] = useState("");
+  const handleClose = () => setOpen(false);
+  const [open2, setOpen2] = useState(false);
+
+  const handleOpen2 = () => setOpen2(true);
+  const handleClose2 = () => setOpen2(false);
+
   // User props Modal //
   const [selectedUser, setSelectedUser] = useState(null);
 
@@ -87,10 +108,41 @@ function UserProfilClassement() {
     setSelectedUser(userData);
     setOpen(true);
   };
-  const handleClose = () => setOpen(false);
-
   // Format date object:
   const formattedDate = formatDate(user?.registrationDate);
+
+  // Function to handle the "Enter" key being pressed in the input field
+  const handleKeyDown = (event) => {
+    if (event.key === "Enter") {
+      changePassword(event);
+    }
+  };
+  // change password //
+  const changePassword = async () => {
+    try {
+      const response = await fetch(
+        `${import.meta.env.VITE_BACKEND_URL}/api/user/changePassword`,
+        {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            newPassword,
+          }),
+          credentials: "include",
+        }
+      );
+      if (response.status === 204) {
+        console.info("Password changed successfully.");
+        handleClose2(); // Fermer la modal après la modification
+      } else {
+        console.error("Failed to change password.", response.statusText);
+      }
+    } catch (error) {
+      console.error("Error changing password", error);
+    }
+  };
 
   return (
     <section className="UP_Container Global_height">
@@ -107,7 +159,14 @@ function UserProfilClassement() {
               <p>password: ********</p>
             </div>
             <div className="UP_Change_Password">
-              <p className="UP_Change_Password_Inside">change password</p>
+              <div
+                className="UP_Change_Password_Inside"
+                onClick={handleOpen2}
+                role="button"
+                tabIndex="0"
+              >
+                <p>change password</p>
+              </div>
             </div>
           </div>
           <div className="UP_Register_Since">
@@ -254,6 +313,35 @@ function UserProfilClassement() {
           </Box>
         </Modal>
       </div>
+      <Modal
+        open={open2}
+        onClose={handleClose2}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+      >
+        <Box sx={style}>
+          <section className="password_change_container_UP">
+            <h1 className="password_change_title">CHANGE YOUR PASSWORD</h1>
+            <input
+              type="password"
+              className="password_change_placeholder_UP"
+              placeholder="enter new password"
+              value={newPassword}
+              onChange={(e) => setNewPassword(e.target.value)}
+              onKeyDown={handleKeyDown}
+            />
+            <div
+              className="password_change_validbtn_UP"
+              onClick={changePassword}
+              onKeyDown={handleKeyDown}
+              role="button"
+              tabIndex="0"
+            >
+              VALIDATION
+            </div>
+          </section>
+        </Box>
+      </Modal>
     </section>
   );
 }

@@ -1,19 +1,43 @@
+/* eslint-disable no-unsafe-optional-chaining */
 /* eslint-disable no-unused-vars */
-import { useState } from "react";
-import { useNavigate, useLoaderData } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { useNavigate, useLoaderData, useParams } from "react-router-dom";
 import Pagination from "@mui/material/Pagination";
 import Stack from "@mui/material/Stack";
 import Map from "../../components/Map/Map";
 import WorkCard from "../../components/WorkCard/WorkCard";
 import WorkCard2 from "../../components/WorkCard2/WorkCard2";
 import PictureMap from "../../assets/images/map_sample/map_sample_1-1.jpg";
-
 import "./spotZoneById.css";
 
 function SpotZoneById() {
-  const { location } = useLoaderData();
-  console.info(location);
+  const { location } = useParams();
   const navigate = useNavigate();
+
+  const [works, setWorks] = useState([]);
+  console.info(works, location);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch(
+          `${import.meta.env.VITE_BACKEND_URL}/api/location/${location}`,
+          {
+            credentials: "include",
+          }
+        );
+        if (response.status === 200) {
+          const data = await response.json();
+          setWorks(data.location);
+        }
+      } catch (error) {
+        console.error("Error fetching works:", error);
+      }
+    };
+
+    fetchData();
+    console.info(fetchData());
+  }, []);
+
   const [currentPage, setCurrentPage] = useState(1);
   const [mapCoordinates, setMapCoordinates] = useState({
     lng: 2.3522,
@@ -27,24 +51,24 @@ function SpotZoneById() {
 
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-  const currentItems = location.slice(indexOfFirstItem, indexOfLastItem);
+  const currentItems = works?.slice(indexOfFirstItem, indexOfLastItem);
 
   // Logique pagination Desktop
 
   const [currentPageDesktop, setCurrentPageDesktop] = useState(1);
   const itemsPerPageDesktop = 6;
-  const countDesktopPages = Math.ceil(location.length / itemsPerPageDesktop);
+  const countDesktopPages = Math.ceil(works?.length / itemsPerPageDesktop);
   const handlePageChangeDesktop = (event, pageNumberDesktop) => {
     setCurrentPageDesktop(pageNumberDesktop);
   };
 
   const indexOfLastItemDesktop = currentPageDesktop * itemsPerPageDesktop;
   const indexOfFirstItemDesktop = indexOfLastItemDesktop - itemsPerPageDesktop;
-  const currentItemsDesktop = location.slice(
+  const currentItemsDesktop = works?.slice(
     indexOfFirstItemDesktop,
     indexOfLastItemDesktop
   );
-
+  console.info(currentItemsDesktop);
   // Gestion Media Screen //
 
   const smartphoneScreen = window.matchMedia("(min-width: 320px)").matches;
@@ -56,15 +80,15 @@ function SpotZoneById() {
       {smartphoneScreen && (
         <div className="Global_container_Smartphone">
           <div className="smartphone_content">
-            <h1 className="Title_SpotZoneById">{location[0].name}</h1>
+            <h1 className="Title_SpotZoneById">{works && works[0]?.name}</h1>
             <div className="text_SpotZoneByid">
-              <p>{location[0]?.description}</p>
+              <p>{works && works[0]?.description}</p>
             </div>
             <hr className="dashed_line_SpotZone" />
             <div className="Pagination_SpotZone_Smartphone">
               <Stack spacing={0} mt={0}>
                 <Pagination
-                  count={location?.length}
+                  count={works?.length}
                   size="small"
                   shape="rounded"
                   variant="outlined"
@@ -78,16 +102,20 @@ function SpotZoneById() {
               <div className="content_Work_City_Zone">
                 {currentItems.map((data, index) => (
                   // eslint-disable-next-line react/no-array-index-key
-                  <WorkCard key={index} data={data} />
+                  <WorkCard2 key={index} data={data} />
                 ))}
               </div>
             </div>
 
             <div className="picture_map_container">
-              <img
-                className="picture_SpotZoneById"
-                src={PictureMap}
-                alt="pictureOne"
+              <Map
+                UsingLng={mapCoordinates?.lng}
+                UsingLat={mapCoordinates?.lat}
+                UsingZoom={mapCoordinates?.zoom}
+                height="300px"
+                width="auto"
+                works={works}
+                className="map_WCB"
               />
             </div>
             <div
@@ -111,20 +139,20 @@ function SpotZoneById() {
         <div className="spotZoneById">
           <div className="spotZoneIDContent">
             <div className="city_zone_container">
-              <h1 className="Title_SpotZoneById">{location[0].name}</h1>
+              <h1 className="Title_SpotZoneById">{works && works[0]?.name}</h1>
               <div className="picture_map_container">
                 <Map
                   UsingLng={mapCoordinates?.lng}
                   UsingLat={mapCoordinates?.lat}
                   UsingZoom={mapCoordinates?.zoom}
-                  height="50%"
-                  width="50%"
-                  works
+                  height="300px"
+                  width="auto"
+                  works={works}
                   className="map_WCB"
                 />
               </div>
               <div className="text_SpotZoneByid">
-                <p>{location[0]?.description}</p>
+                <p>{works[0]?.description}</p>
               </div>
               <div
                 className="Button-Back-Spotzone"

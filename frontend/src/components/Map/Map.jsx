@@ -1,6 +1,7 @@
 /* eslint-disable camelcase */
 /* eslint-disable no-unused-vars */
 import { useEffect, useRef } from "react";
+import { useLocation } from "react-router-dom";
 import mapboxgl from "mapbox-gl";
 import MapboxGeocoder from "@mapbox/mapbox-gl-geocoder";
 import "mapbox-gl/dist/mapbox-gl.css";
@@ -24,6 +25,8 @@ function StreetMap({
   const mapContainer = useRef(null);
   const map = useRef(null);
   const marker = new mapboxgl.Marker({ color: "orange" });
+  const location = useLocation();
+  const markers = [];
 
   const loadMarker = ({
     image,
@@ -68,10 +71,11 @@ function StreetMap({
           </section>`
         );
 
-        new mapboxgl.Marker()
+        const newmarker = new mapboxgl.Marker()
           .setLngLat([longitude, latitude])
-          .setPopup(popup)
-          .addTo(map.current);
+          .setPopup(popup);
+        newmarker.addTo(map.current);
+        markers.push(newmarker);
       })
       .catch((error) => {
         console.error("Error fetching address:", error);
@@ -83,13 +87,24 @@ function StreetMap({
     if (event.originalEvent.button === 2) {
       const coordinates = event.lngLat;
       console.info("Lng:", coordinates.lng, "Lat:", coordinates.lat);
-      onMarkerClick(coordinates);
       marker.setLngLat(coordinates).addTo(map.current);
+      coordinates.zoom = 15;
+      onMarkerClick(coordinates);
     }
   };
 
   useEffect(() => {
-    if (map.current) return; // initialize map only once
+    if (map.current) {
+      for (const m of markers) {
+        m.remove();
+      }
+      if (Array.isArray(works)) {
+        for (const work of works) {
+          loadMarker(work);
+        }
+      }
+      return; // initialize map only once
+    }
 
     // initialize the map
     map.current = new mapboxgl.Map({
@@ -149,7 +164,7 @@ function StreetMap({
     // Set map center and zoom
     map.current.setCenter([UsingLng, UsingLat]);
     map.current.setZoom(UsingZoom);
-  }, [works, search, mapMarker, UsingLng, UsingLat, UsingZoom]);
+  }, [works, search, mapMarker, UsingLng, UsingLat, UsingZoom, location]);
 
   useEffect(() => {
     if (map.current) {

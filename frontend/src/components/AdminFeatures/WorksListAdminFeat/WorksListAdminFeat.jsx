@@ -193,6 +193,8 @@ function WorksListAdminFeat() {
                 data={data}
                 admin
                 handleDelete={handleDelete}
+                workById={worksData}
+                setWorkById={setWorksData}
               />
             ))}
           </div>

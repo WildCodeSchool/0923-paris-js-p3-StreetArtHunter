@@ -250,6 +250,34 @@
   flex-wrap: wrap;
   width: 90%;
 }
+.password_change_container_UP {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+.password_change_title_UP {
+  font-family: var(--font-05);
+  font-size: 1.5em;
+}
+.password_change_placeholder_UP {
+  font-family: var(--font-01);
+  text-align: center;
+  font-size: medium;
+  padding: 5px;
+}
+.password_change_validbtn_UP {
+  font-family: var(--font-03);
+  font-size: large;
+  border: solid 1px black;
+  border-radius: 10px;
+  padding: 10px;
+  cursor: pointer;
+}
+.password_change_validbtn_UP:hover {
+  background: var(--color-02);
+}
+
 /* CSS DESKTOP */
 @media (min-width: 1440px) {
   .UP_Container {
