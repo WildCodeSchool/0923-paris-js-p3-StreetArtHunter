@@ -5,7 +5,12 @@ import mapboxgl from "mapbox-gl";
 import formatDate from "../../utils/FormatDate";
 import "./workCard.css";
 
-function WorkCard({ data, classForWCVADF, settingValidation = false }) {
+function WorkCard({
+  data,
+  classForWCVADF,
+  settingValidation = false,
+  onArtistPseudoChange,
+}) {
   const {
     image,
     entry,
@@ -93,6 +98,9 @@ function WorkCard({ data, classForWCVADF, settingValidation = false }) {
                 className="work_info"
                 type="text"
                 placeholder={` ${artist_pseudo}`}
+                onChange={(e) => {
+                  onArtistPseudoChange(e.target.value);
+                }}
               />
             </div>
           </div>

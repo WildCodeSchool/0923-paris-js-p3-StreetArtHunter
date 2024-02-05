@@ -328,6 +328,8 @@ function AdminProfil() {
                       data={dataAd}
                       admin
                       handleDelete={handleDelete}
+                      workById={workById}
+                      setWorkById={setWorkById}
                     />
                   ))}
                 </div>

@@ -83,8 +83,9 @@ function StreetMap({
     if (event.originalEvent.button === 2) {
       const coordinates = event.lngLat;
       console.info("Lng:", coordinates.lng, "Lat:", coordinates.lat);
-      onMarkerClick(coordinates);
       marker.setLngLat(coordinates).addTo(map.current);
+      coordinates.zoom = 15;
+      onMarkerClick(coordinates);
     }
   };
 

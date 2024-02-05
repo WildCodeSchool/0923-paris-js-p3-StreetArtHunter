@@ -13,8 +13,11 @@ function workCardBloc({
   closeModal,
   handleDelete,
   handleValidate,
+  workById,
+  setWorkById,
 }) {
   const [setting, setSetting] = useState(false);
+  const [artistPseudoInput, setArtistPseudoInput] = useState("");
 
   // change coordonate on button //
   const [mapCoordinates, setMapCoordinates] = useState({
@@ -23,6 +26,65 @@ function workCardBloc({
     zoom: 15,
   });
 
+  // function Update Localisation
+  const updateLocalisation = async (latitude, longitude, id) => {
+    try {
+      const response = await fetch(
+        `${import.meta.env.VITE_BACKEND_URL}/api/image/${id}/localisation`,
+        {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+            // Ajoutez vos headers supplémentaires si nécessaire
+          },
+          body: JSON.stringify({ latitude, longitude }),
+          credentials: "include",
+        }
+      );
+      console.info(id);
+      if (!response.ok) {
+        throw new Error("Erreur lors de la mise à jour de la localisation");
+      }
+
+      // Si la requête réussit, vous pouvez traiter la réponse si nécessaire
+      // Par exemple, vous pouvez vérifier la propriété response.status ou response.json()
+
+      console.info("Localisation mise à jour avec succès");
+    } catch (error) {
+      console.error("Erreur:", error.message);
+      // Gérer les erreurs ici
+    }
+  };
+
+  // Function UPDATE artist
+  const updateArtistInAW = async (pseudo, WorkId) => {
+    try {
+      const response = await fetch(
+        `${import.meta.env.VITE_BACKEND_URL}/api/artist_work/${WorkId}/update`,
+        {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+            // Ajoutez vos headers supplémentaires si nécessaire
+          },
+          body: JSON.stringify({ pseudo, Work_id: WorkId }),
+          credentials: "include",
+        }
+      );
+
+      if (!response.ok) {
+        throw new Error(
+          "Erreur lors de la mise à jour de l'artiste pour l'œuvre"
+        );
+      }
+      if (response.status === 204)
+        console.info("Artiste pour l'œuvre mis à jour avec succès");
+    } catch (error) {
+      console.error("Erreur:", error.message);
+      // Gérer les erreurs ici
+    }
+  };
+
   return (
     <section>
       <div className="workCardBloc_container">
@@ -30,8 +92,11 @@ function workCardBloc({
           <WorkCard
             data={data}
             settingValidation={setting || settingValidation}
+            onArtistPseudoChange={setArtistPseudoInput}
+            setMapCoordinates={setMapCoordinates}
           />
           <Map
+            onMarkerClick={setMapCoordinates}
             UsingLng={mapCoordinates.lng}
             UsingLat={mapCoordinates.lat}
             UsingZoom={mapCoordinates.zoom}
@@ -56,7 +121,30 @@ function workCardBloc({
         )}
         {setting && (
           <section className="setting_btns_WCB">
-            <div className="valid_btn_WCB">
+            <div
+              className="valid_btn_WCB"
+              onClick={async () => {
+                // Appeler Update Localisation avec les coordonnées actuelles
+                await updateLocalisation(
+                  mapCoordinates.lat,
+                  mapCoordinates.lng,
+                  data.id
+                );
+
+                // Ensuite, appeler updateArtistInAW avec le pseudo de l'artiste
+                await updateArtistInAW(artistPseudoInput, data.id);
+
+                const newWork = workById.find((work) => work.id === data.id);
+                newWork.latitude = mapCoordinates.lat;
+                newWork.longitude = mapCoordinates.lng;
+                newWork.artist_pseudo = artistPseudoInput;
+                const works = workById.filter((work) => work.id !== data.id);
+                setWorkById([...works, newWork]);
+
+                // Fermer le modal après les opérations
+                closeModal();
+              }}
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 height="35"
@@ -92,7 +180,20 @@ function workCardBloc({
             <div
               className="valid_btn_WCB"
               onClick={async () => {
+                // Appeler Update Localisation avec les coordonnées actuelles
+                await updateLocalisation(
+                  mapCoordinates.lat,
+                  mapCoordinates.lng,
+                  data.id
+                );
+
+                // Ensuite, appeler updateArtistInAW avec le pseudo de l'artiste
+                await updateArtistInAW(artistPseudoInput, data.id);
+
+                // Enfin, appeler handleValidate
                 await handleValidate(data.id, data.user_id);
+
+                // Fermer le modal après les opérations
                 closeModal();
               }}
             >

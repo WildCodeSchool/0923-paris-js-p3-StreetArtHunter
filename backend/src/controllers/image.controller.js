@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 /* eslint-disable consistent-return */
 const imageModel = require("../models/image.model");
 const locationModel = require("../models/location.model");
@@ -99,6 +100,70 @@ const erase = async (req, res, next) => {
   }
 };
 
+const updateWorkLocalisation = async (req, res, next) => {
+  try {
+    const { latitude, longitude, id } = req.body;
+
+    await imageModel.updateLocalisation(latitude, longitude, id);
+
+    res.sendStatus(204);
+  } catch (error) {
+    next(error);
+  }
+};
+
+// const updateArtistInAW = async (req, res, next) => {
+//   try {
+//     const { Artist_id, Work_id } = req.body;
+
+//     await artistModel.updateArtistInArtistWork(Artist_id, Work_id);
+
+//     res.sendStatus(204);
+//     console.info(Artist_id, Work_id);
+//   } catch (error) {
+//     next(error);
+//   }
+// };
+
+const updateArtistInAW = async (req, res, next) => {
+  try {
+    const { pseudo, Work_id } = req.body;
+
+    // Vérifier si le pseudo de l'artiste existe
+    const [[existingArtist]] = await artistModel.getByName(pseudo);
+    const [[existArtistWork]] = await imageModel.findByIdInWA(Work_id);
+
+    if (existingArtist) {
+      const Artist_id = existingArtist.id;
+      if (existArtistWork) {
+        await artistModel.updateArtistInArtistWork(Artist_id, Work_id);
+      } else {
+        await artistModel.insertInArtistWork(Artist_id, Work_id);
+      }
+      res.sendStatus(204);
+    } else {
+      const [newArtist] = await artistModel.insert(pseudo);
+
+      if (newArtist && newArtist.insertId) {
+        const Artist_id = newArtist.insertId;
+
+        if (existArtistWork) {
+          await artistModel.updateArtistInArtistWork(Artist_id, Work_id);
+        } else {
+          await artistModel.insertInArtistWork(Artist_id, Work_id);
+        }
+
+        res.sendStatus(204);
+      } else {
+        // Si la création de l'artiste échoue, renvoyer une erreur
+        res.status(500).send("Erreur lors de la création de l'artiste");
+      }
+    }
+  } catch (error) {
+    next(error);
+  }
+};
+
 module.exports = {
   add,
   getAll,
@@ -107,4 +172,6 @@ module.exports = {
   getAllWUL,
   approve,
   erase,
+  updateWorkLocalisation,
+  updateArtistInAW,
 };
