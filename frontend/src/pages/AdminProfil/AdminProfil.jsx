@@ -25,6 +25,7 @@ function AdminProfil() {
 
   const [workById, setWorkById] = useState([]);
   const [worksData, setWorkData] = useState([]);
+  const [newPassword, setNewPassword] = useState("");
 
   // works data
   useEffect(() => {
@@ -132,6 +133,34 @@ function AdminProfil() {
       }
     } catch (error) {
       console.error(error);
+    }
+  };
+
+  // change password //
+  const changePassword = async () => {
+    try {
+      const response = await fetch(
+        `${import.meta.env.VITE_BACKEND_URL}/api/user/changePassword`,
+        {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            newPassword,
+          }),
+          credentials: "include",
+        }
+      );
+
+      if (response.status === 204) {
+        console.info("Password changed successfully.");
+        handleClose(); // Fermer la modal après la modification
+      } else {
+        console.error("Failed to change password.", response.statusText);
+      }
+    } catch (error) {
+      console.error("Error changing password", error);
     }
   };
 
@@ -398,11 +427,12 @@ function AdminProfil() {
           <section className="password_change_container">
             <h1 className="password_change_title">CHANGE YOUR PASSWORD</h1>
             <input
-              type="text"
+              type="password"
               className="password_change_placeholder"
               placeholder="enter new password"
+              onChange={(e) => setNewPassword(e.target.value)}
             />
-            <div className="password_change_validbtn" onClick={handleClose}>
+            <div className="password_change_validbtn" onClick={changePassword}>
               VALIDATION
             </div>
           </section>
