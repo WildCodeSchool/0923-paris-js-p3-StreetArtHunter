@@ -19,11 +19,9 @@ const getSpotZoneById = async (req, res, next) => {
     // Vérifiez si l'image est présente dans les données
     const imageData = locationData.work_image || null;
 
-    res.json({ location: locationData, image: imageData });
+    res.status(200).json({ location: locationData, image: imageData });
   } catch (error) {
     console.error("Error in getSpotZoneById:", error);
-
-    // Vérifiez le type d'erreur pour une gestion plus spécifique si nécessaire
     if (error.name === "NotFoundError") {
       res.status(404).json({ error: "Location not found" });
     } else {
