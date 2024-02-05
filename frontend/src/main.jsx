@@ -158,6 +158,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/spotzonebyid/:location",
+
         element: (
           <PrivateRoute>
             <SpotZoneById />
