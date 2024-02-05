@@ -8,12 +8,15 @@ import WorkCard2 from "../WorkCard2/WorkCard2";
 import imageMonkey from "../../assets/images/img/monkey02.png";
 import AuthContext from "../../context/AuthContext";
 import formatDate from "../../utils/FormatDate";
+import assignLevel from "../../utils/AssignLevel";
 import "./userProfil.css";
 
 function UserProfilHistorical() {
   const navigate = useNavigate();
   // database //
   const [works, setWorks] = useState([]);
+  const { user } = useContext(AuthContext);
+  const [userLevel, setUserLevel] = useState("");
 
   useEffect(() => {
     const fetchData = async () => {
@@ -27,15 +30,16 @@ function UserProfilHistorical() {
       if (response.status === 200) {
         const data = await response.json();
         setWorks(data);
+
+        // Set user level once when component mounts
+        const level = assignLevel(user.score);
+        setUserLevel(level);
       }
     };
     fetchData();
-  }, []);
-
-  const { user } = useContext(AuthContext);
+  }, [user.score]);
 
   // Works Count - only the validate //
-
   const UsersWorks = works.filter((work) => work.User_id === user?.id);
 
   // pagination work card //
@@ -78,7 +82,7 @@ function UserProfilHistorical() {
         <div className="UP_Part1_Flex">
           <div className="UP_Title_PseudoName">{user?.pseudo}</div>
           <div className="UP_Level_Score">
-            <div className="UP_Title_Level">level:</div>
+            <div className="UP_Title_Level">level: {userLevel} </div>
             <div className="UP_Title_Score">score: {user?.score}</div>
           </div>
           <div className="UP_Email_Password">

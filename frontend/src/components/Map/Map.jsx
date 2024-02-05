@@ -7,7 +7,6 @@ import "mapbox-gl/dist/mapbox-gl.css";
 import "@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css";
 import formatDate from "../../utils/FormatDate";
 import "./map.css";
-// import works from "../../../data_sample/data_works.json";
 
 mapboxgl.accessToken = import.meta.env.VITE_MAPBOX_TOKEN;
 
@@ -36,10 +35,6 @@ function StreetMap({
     artist_pseudo,
     isValidate,
   }) => {
-    if (isValidate !== 1) {
-      return; // Ne pas charger le marqueur si le travail n'est pas valide
-    }
-
     // Format the entry date
     const formattedEntryDate = formatDate(entry);
 
@@ -56,7 +51,7 @@ function StreetMap({
       .then((data) => {
         // Extraire le nom du lieu à partir de la réponse
         const address = data.features[0].place_name;
-        console.info(data.features[0]);
+        // console.info(data.features[0]);
 
         // Afficher les informations dans le popup
         const popup = new mapboxgl.Popup().setHTML(

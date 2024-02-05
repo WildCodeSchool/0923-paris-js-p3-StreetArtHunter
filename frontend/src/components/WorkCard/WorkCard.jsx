@@ -33,7 +33,7 @@ function WorkCard({ data, classForWCVADF, settingValidation = false }) {
     .then((response) => response.json())
     .then((datas) => {
       const address = datas.features[0].place_name;
-      console.info(datas.features[0]);
+      // console.info(datas.features[0]);
       setAddress(address);
     })
     .catch((error) => {
@@ -46,7 +46,13 @@ function WorkCard({ data, classForWCVADF, settingValidation = false }) {
   return (
     <section className={WorkCardContainer}>
       <div className="workCard_content">
-        <img className="Work_image" src={image} alt="work" />
+        <img
+          className={
+            settingValidation ? "Work_image_settingValidation" : "Work_image"
+          }
+          src={image}
+          alt="work"
+        />
         {!settingValidation && (
           <div className="work_infos_container">
             <p className="work_info">
@@ -72,15 +78,17 @@ function WorkCard({ data, classForWCVADF, settingValidation = false }) {
         {settingValidation && (
           <div className="work_infos_container_settingValidation">
             <div className="work_info_content">
-              <p className="work_info">adress:</p>
-              <input
-                className="work_info"
-                type="text"
-                placeholder={`${address}`}
-              />
+              <p className="work_info">
+                <span className="WIC_span">Change localisation :</span>
+                <span className="WIC_italic_span"> click on the map</span>
+              </p>
             </div>
             <div className="work_info_content">
-              <p className="work_info">artist:</p>
+              <p className="work_info">
+                <span className="WIC_span">
+                  {artist_pseudo ? "Change artist:" : "Add artist:"}
+                </span>
+              </p>
               <input
                 className="work_info"
                 type="text"

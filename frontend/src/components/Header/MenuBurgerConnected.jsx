@@ -18,7 +18,7 @@ export default function PositionedMenuConnected() {
     setAnchorEl(null);
   };
   const navigate = useNavigate();
-  const { setUser } = useContext(useUser);
+  const { setUser, setIsLoading } = useContext(useUser);
 
   const theme = createTheme({
     typography: {
@@ -37,6 +37,7 @@ export default function PositionedMenuConnected() {
       );
       if (response.status === 200) {
         setUser(null);
+        setIsLoading(true);
         navigate("/");
       }
     } catch (error) {

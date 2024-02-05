@@ -1,3 +1,4 @@
+/* eslint-disable import/no-unresolved */
 const router = require("express").Router();
 
 const locationController = require("../controllers/location.controller");

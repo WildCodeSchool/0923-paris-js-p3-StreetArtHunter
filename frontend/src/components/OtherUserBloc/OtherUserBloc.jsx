@@ -4,6 +4,7 @@ import { useEffect, useState, useContext } from "react";
 import Pagination from "@mui/material/Pagination";
 import Stack from "@mui/material/Stack";
 import AuthContext from "../../context/AuthContext";
+import assignLevel from "../../utils/AssignLevel";
 import formatDate from "../../utils/FormatDate";
 import WorkCard from "../WorkCard/WorkCard";
 import WorkCard2 from "../WorkCard2/WorkCard2";
@@ -13,8 +14,10 @@ import TempVisual from "../../assets/images/img/monkey03.png";
 import "./otherUserBloc.css";
 
 function OtherUserBloc({ dataUser, handleClose, updateUserList }) {
+  const { user } = useContext(AuthContext);
   const [selectUser, setSelectUser] = useState([]);
   const [userWorksData, setUserWorksData] = useState([]);
+  const [userLevel, setUserLevel] = useState("");
 
   // works data
   useEffect(() => {
@@ -41,10 +44,12 @@ function OtherUserBloc({ dataUser, handleClose, updateUserList }) {
         (work) => work.User_id === dataUser.id
       );
       setSelectUser(userWorks);
-    }
-  }, [userWorksData, dataUser.id]);
 
-  const { user } = useContext(AuthContext);
+      const level = assignLevel(dataUser.score);
+      setUserLevel(level);
+    }
+  }, [userWorksData, dataUser.id, dataUser.score]);
+
   const isAdmin = user?.admin;
   const userWorkCount = selectUser.length;
 
@@ -61,7 +66,7 @@ function OtherUserBloc({ dataUser, handleClose, updateUserList }) {
       if (response.status === 204) {
         console.info("delete ok");
         updateUserList(id); // Mettre à jour la liste des utilisateu
-        handleClose(); // Fermer la modal
+        handleClose();
       } else {
         console.error("error delete");
       }
@@ -118,7 +123,7 @@ function OtherUserBloc({ dataUser, handleClose, updateUserList }) {
               </div>
               <div className="user_info_OUB_content">
                 <p className="user_info_OUB">email: {dataUser.email} </p>
-                <p className="user_info_OUB">level: </p>
+                <p className="user_info_OUB">level: {userLevel}</p>
                 <p className="user_info_OUB">score: {dataUser.score} pts</p>
               </div>
             </div>
@@ -184,7 +189,7 @@ function OtherUserBloc({ dataUser, handleClose, updateUserList }) {
 
               <div className="user_info_OUB_content">
                 <p className="user_info_OUB">email: {dataUser.email} </p>
-                <p className="user_info_OUB">level: </p>
+                <p className="user_info_OUB">level: {userLevel}</p>
                 <p className="user_info_OUB">score: {dataUser.score} pts</p>
               </div>
 
