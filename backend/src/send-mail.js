@@ -21,14 +21,13 @@ const transporter = nodemailer.createTransport({
 
 const sendEmail = async (mailObj) => {
   const { from, to, subject, text } = mailObj;
-  try {
-    // send mail with defined transport object
-    const info = await transporter.sendMail({
-      from, // sender address
-      to, // list of receivers
-      subject, // Subject line
-      text, // plain text body
-      html: `<div style="text-align: center;"">
+  // send mail with defined transport object
+  return transporter.sendMail({
+    from, // sender address
+    to, // list of receivers
+    subject, // Subject line
+    text, // plain text body
+    html: `<div style="text-align: center;"">
         <h1 style=color: #3584c8;>${subject}</h1>
         
         <p>
@@ -36,16 +35,7 @@ const sendEmail = async (mailObj) => {
           <br />
         </p>
       </div>`, // html body
-    });
-
-    // console.log(`Message sent: ${info.messageId}`);
-    return `Message sent Thank you for your feedback: ${info.messageId}`;
-  } catch (error) {
-    console.error(error);
-    throw new Error(
-      `Something went wrong in the sendmail method. Error: ${error.message}`
-    );
-  }
+  });
 };
 const sendcompliment = async ({
   from,
@@ -53,7 +43,7 @@ const sendcompliment = async ({
   subject = "Streetarthunterz - Compliments",
   text,
 }) => {
-  sendEmail({
+  return sendEmail({
     from,
     to,
     subject,
@@ -66,7 +56,7 @@ const sendquestion = async ({
   subject = "Streetarthunterz - question",
   text,
 }) => {
-  sendEmail({
+  return sendEmail({
     from,
     to,
     subject,
@@ -79,7 +69,7 @@ const sendclaim = async ({
   subject = "Streetarthunterz - Claim",
   text,
 }) => {
-  sendEmail({
+  return sendEmail({
     from,
     to,
     subject,
