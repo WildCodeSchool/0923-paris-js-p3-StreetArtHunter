@@ -137,7 +137,7 @@ const logErrors = (err, req, res, next) => {
   console.error("on req:", req.method, req.path);
 
   // Pass the error to the next middleware in the stack
-  next(err);
+  res.status(500).json(err.message);
 };
 
 // Mount the logErrors middleware globally
