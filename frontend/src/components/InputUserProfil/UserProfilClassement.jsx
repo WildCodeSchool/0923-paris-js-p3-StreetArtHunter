@@ -87,7 +87,7 @@ function UserProfilClassement() {
   };
 
   const [newPassword, setNewPassword] = useState("");
-
+  const handleClose = () => setOpen(false);
   const [open2, setOpen2] = useState(false);
 
   const handleOpen2 = () => setOpen2(true);
@@ -281,7 +281,7 @@ function UserProfilClassement() {
             </div>
           </div>
         </div>
-        <Modal open={open} onClose={handleClose2}>
+        <Modal open={open} onClose={handleClose}>
           <Box
             sx={{
               position: "absolute",
@@ -295,7 +295,7 @@ function UserProfilClassement() {
           >
             <Container maxWidth="lg">
               <div className="modal_closed_btn_container">
-                <p onClick={handleClose2} className="modal_closed_btn">
+                <p onClick={handleClose} className="modal_closed_btn">
                   X closed
                 </p>
               </div>
