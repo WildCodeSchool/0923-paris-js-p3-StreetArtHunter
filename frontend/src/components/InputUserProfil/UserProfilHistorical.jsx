@@ -1,6 +1,10 @@
+/* eslint-disable no-use-before-define */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable prefer-destructuring */
 import { useNavigate } from "react-router-dom";
 import { useState, useContext, useEffect } from "react";
+import Box from "@mui/material/Box";
+import Modal from "@mui/material/Modal";
 import Pagination from "@mui/material/Pagination";
 import Stack from "@mui/material/Stack";
 import WorkCard from "../WorkCard/WorkCard";
@@ -65,16 +69,69 @@ function UserProfilHistorical() {
     indexOfLastItemDesktop
   );
 
+  // gestion modal password
+  const style = {
+    position: "absolute",
+    top: "50%",
+    left: "50%",
+    transform: "translate(-50%, -50%)",
+    width: 400,
+    bgcolor: "background.paper",
+    border: "2px solid #000",
+    boxShadow: 24,
+    p: 4,
+  };
+
+  const [newPassword, setNewPassword] = useState("");
+
+  const [open, setOpen] = useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+
   const handlePageChangeDesktop = (event, pageNumber) => {
     setCurrentPageDesktop(pageNumber);
   };
-
   // Format date object:
   const formattedDate = formatDate(user?.registrationDate);
+
+  // Function to handle the "Enter" key being pressed in the input field
+  const handleKeyDown = (event) => {
+    if (event.key === "Enter") {
+      changePassword(event);
+    }
+  };
 
   // gestion Media Screen //
   const smartphoneScreen = window.matchMedia("(max-width: 770px)").matches;
   const desktopScreen = window.matchMedia("(min-width: 1440px)").matches;
+
+  // change password //
+  const changePassword = async () => {
+    try {
+      const response = await fetch(
+        `${import.meta.env.VITE_BACKEND_URL}/api/user/changePassword`,
+        {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            newPassword,
+          }),
+          credentials: "include",
+        }
+      );
+
+      if (response.status === 204) {
+        console.info("Password changed successfully.");
+        handleClose(); // Fermer la modal après la modification
+      } else {
+        console.error("Failed to change password.", response.statusText);
+      }
+    } catch (error) {
+      console.error("Error changing password", error);
+    }
+  };
 
   return (
     <section className="UP_Container Global_height">
@@ -91,7 +148,14 @@ function UserProfilHistorical() {
               <p>password: ********</p>
             </div>
             <div className="UP_Change_Password">
-              <div className="UP_Change_Password_Inside">change password</div>
+              <div
+                className="UP_Change_Password_Inside"
+                onClick={handleOpen}
+                role="button"
+                tabIndex="0"
+              >
+                <p>change password</p>
+              </div>
             </div>
           </div>
           <div className="UP_Register_Since">
@@ -190,6 +254,35 @@ function UserProfilHistorical() {
           </div>
         </div>
       </div>
+      <Modal
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+      >
+        <Box sx={style}>
+          <section className="password_change_container">
+            <h1 className="password_change_title">CHANGE YOUR PASSWORD</h1>
+            <input
+              type="password"
+              className="password_change_placeholder"
+              placeholder="enter new password"
+              value={newPassword}
+              onChange={(e) => setNewPassword(e.target.value)}
+              onKeyDown={handleKeyDown}
+            />
+            <div
+              className="password_change_validbtn"
+              onClick={changePassword}
+              onKeyDown={handleKeyDown}
+              role="button"
+              tabIndex="0"
+            >
+              VALIDATION
+            </div>
+          </section>
+        </Box>
+      </Modal>
     </section>
   );
 }

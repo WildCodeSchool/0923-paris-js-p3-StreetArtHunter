@@ -205,32 +205,30 @@ const seed = async () => {
       {
         name: "Paris 19",
         description:
-          "Marchez sur les traces du festival Ourcq Living Colors ! Tout au long du parcours, découvrez ou redécouvrez les interventions artistiques, fresques, collaborations qui donnent des couleurs à ce quartier.",
+          "Walk in the footsteps of the Ourcq Living Colors festival! Along the way, discover or rediscover the artistic interventions, murals and collaborations that give color to this neighborhood.",
         image: `${imageBaseUrl}/20231210_143137.jpg`,
         postalcode: "75019",
       },
       {
         name: "Paris 20",
         description:
-          "Découvrez l'histoire et la culture du graffiti parisien dans le 20e arrondissement de Paris, dans les quartiers populaires de Belleville et de Ménilmontant, lieux privilégiés d'expression pour les formes artistiques urbaines.",
+          "Discover the history and culture of Parisian graffiti in the 20th arrondissement of Paris, in the working-class neighborhoods of Belleville and Ménilmontant, ideal places of expression for urban art forms.",
         image: `${imageBaseUrl}/20231203_143211.jpg`,
         postalcode: "75020",
       },
-
-      {
-        name: "Aubervilliers 93",
-        description:
-          "À Aubervilliers, juste là, à la porte de Paris le long du Canal Saint Denis, sous le pont du périphérique vous attendent des blazes qui claquent, des graffitis acidulés extrêmement travaillés, une galerie de portraits réalisée tout en douceur… de l’humour et surtout, surtout un concentré d’Art Urbain comme on en voit rarement à Paris et même en périphérie.",
-        image: `${imageBaseUrl}/20231209_124929.jpg`,
-        postalcode: "93300",
-      },
-
       {
         name: "Paris 13",
         description:
-          "Autour de la Place d'Italie, de grandes tours dessinent un panorama bien différent du 13ème arrondissement de Paris. C'est là que la Mairie d'arrondissement, en collaboration avec la galerie Itinerrance, a permis à une centaine d'artistes de renommée mondiale de recouvrir des muraux immenses, créant ainsi un véritable musée à ciel ouvert dédié au Street Art actuel et au néo-muralisme, un chantier titanesque toujours en cours tout au long de ligne 6 du métro aérien.",
+          "Around the Place d'Italie, tall towers create a very different panorama of Paris's 13th arrondissement. It's here that the Mairie d'arrondissement, in collaboration with the Itinerrance gallery, has allowed some one hundred world-renowned artists to cover huge murals, creating a veritable open-air museum dedicated to contemporary street art and neo-muralism, a titanic project still underway along line 6 of the aerial metro",
         image: `${imageBaseUrl}/20231203_141600.jpg`,
         postalcode: "75013",
+      },
+      {
+        name: "Aubervilliers 93",
+        description:
+          "In Aubervilliers, right there, at the gateway to Paris, along the Canal Saint Denis, under the bridge over the ring road, you'll find clattering blazes, extremely intricate acid graffiti, a portrait gallery created with a gentle touch... humor and, above all, a concentration of Urban Art the likes of which are rarely seen in Paris or even on the outskirts.",
+        image: `${imageBaseUrl}/20231209_124929.jpg`,
+        postalcode: "93300",
       },
     ];
 

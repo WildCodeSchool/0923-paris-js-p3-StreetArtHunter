@@ -163,16 +163,6 @@ const router = createBrowserRouter([
             <SpotZoneById />
           </PrivateRoute>
         ),
-        loader: ({ params }) => {
-          return fetch(
-            `${import.meta.env.VITE_BACKEND_URL}/api/location/${
-              params.location
-            }`,
-            {
-              credentials: "include",
-            }
-          );
-        },
       },
       {
         path: "/profil",
