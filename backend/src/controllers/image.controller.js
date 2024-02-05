@@ -131,11 +131,15 @@ const updateArtistInAW = async (req, res, next) => {
 
     // Vérifier si le pseudo de l'artiste existe
     const [[existingArtist]] = await artistModel.getByName(pseudo);
+    const [[existArtistWork]] = await imageModel.findByIdInWA(Work_id);
 
     if (existingArtist) {
       const Artist_id = existingArtist.id;
-      await artistModel.updateArtistInArtistWork(Artist_id, Work_id);
-
+      if (existArtistWork) {
+        await artistModel.updateArtistInArtistWork(Artist_id, Work_id);
+      } else {
+        await artistModel.insertInArtistWork(Artist_id, Work_id);
+      }
       res.sendStatus(204);
     } else {
       const [newArtist] = await artistModel.insert(pseudo);
@@ -143,7 +147,11 @@ const updateArtistInAW = async (req, res, next) => {
       if (newArtist && newArtist.insertId) {
         const Artist_id = newArtist.insertId;
 
-        await artistModel.updateArtistInArtistWork(Artist_id, Work_id);
+        if (existArtistWork) {
+          await artistModel.updateArtistInArtistWork(Artist_id, Work_id);
+        } else {
+          await artistModel.insertInArtistWork(Artist_id, Work_id);
+        }
 
         res.sendStatus(204);
       } else {

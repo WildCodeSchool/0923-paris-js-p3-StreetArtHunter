@@ -11,6 +11,8 @@ function WorkCard2({
   admin = false,
   handleDelete,
   settingValidation = false,
+  workById,
+  setWorkById,
 }) {
   const [selectedWork, setSelectedWork] = useState(data);
   const [open, setOpen] = useState(false);
@@ -74,6 +76,8 @@ function WorkCard2({
                 handleDelete={handleDelete}
                 closeModal={closeModal}
                 settingValidation={settingValidation}
+                workById={workById}
+                setWorkById={setWorkById}
               />
             </Container>
           </Box>

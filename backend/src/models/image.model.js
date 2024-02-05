@@ -70,6 +70,10 @@ const updateLocalisation = (latitude, longitude, id) => {
   ]);
 };
 
+const findByIdInWA = (WorkID) => {
+  return db.query("SELECT * FROM Artist_Work WHERE Work_id = ?", [WorkID]);
+};
+
 module.exports = {
   insert,
   findById,
@@ -80,4 +84,5 @@ module.exports = {
   deleteWork,
   getImageByLocationId,
   updateLocalisation,
+  findByIdInWA,
 };
