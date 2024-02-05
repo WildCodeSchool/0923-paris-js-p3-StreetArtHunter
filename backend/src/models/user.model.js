@@ -34,10 +34,10 @@ const incrementScore = (id) => {
   return db.query("UPDATE user SET score = score + 100 WHERE id = ?", [id]);
 };
 
-const updatePassword = (id, newPassword) => {
+const updatePassword = (userId, newPassword) => {
   return db.query("UPDATE user SET password = ? WHERE id = ?", [
     newPassword,
-    id,
+    userId,
   ]);
 };
 

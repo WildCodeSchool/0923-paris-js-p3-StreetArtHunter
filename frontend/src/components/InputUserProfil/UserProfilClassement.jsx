@@ -1,3 +1,4 @@
+/* eslint-disable no-use-before-define */
 /* eslint-disable prefer-destructuring */
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
@@ -104,31 +105,36 @@ function UserProfilClassement() {
   // Format date object:
   const formattedDate = formatDate(user?.registrationDate);
 
+  // Function to handle the "Enter" key being pressed in the input field
+  const handleKeyDown = (event) => {
+    if (event.key === "Enter") {
+      changePassword(event);
+    }
+  };
   // change password //
   const changePassword = async () => {
     try {
       const response = await fetch(
-        `${import.meta.env.VITE_BACKEND_URL}/api/user/:id/changePassword`,
+        `${import.meta.env.VITE_BACKEND_URL}/api/user/changePassword`,
         {
           method: "PUT",
           headers: {
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
-            currentPassword: "oldPassword",
             newPassword,
           }),
           credentials: "include",
         }
       );
-      if (response.status === 200) {
+      if (response.status === 204) {
         console.info("Password changed successfully.");
         handleClose2(); // Fermer la modal après la modification
       } else {
-        console.error("Failed to change password.");
+        console.error("Failed to change password.", response.statusText);
       }
     } catch (error) {
-      console.error("Erreur lors de la modification du mot de passe", error);
+      console.error("Error changing password", error);
     }
   };
 
@@ -146,13 +152,15 @@ function UserProfilClassement() {
               <p>email: {user?.email}</p>
               <p>password: ********</p>
             </div>
-            <div
-              className="UP_Change_Password"
-              onClick={handleOpen2}
-              role="button"
-              tabIndex="0"
-            >
-              <p className="UP_Change_Password_Inside">change password</p>
+            <div className="UP_Change_Password">
+              <div
+                className="UP_Change_Password_Inside"
+                onClick={handleOpen2}
+                role="button"
+                tabIndex="0"
+              >
+                <p>change password</p>
+              </div>
             </div>
           </div>
           <div className="UP_Register_Since">
@@ -314,10 +322,12 @@ function UserProfilClassement() {
               placeholder="enter new password"
               value={newPassword}
               onChange={(e) => setNewPassword(e.target.value)}
+              onKeyDown={handleKeyDown}
             />
             <div
               className="password_change_validbtn_UP"
               onClick={changePassword}
+              onKeyDown={handleKeyDown}
               role="button"
               tabIndex="0"
             >
