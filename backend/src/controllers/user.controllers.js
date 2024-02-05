@@ -67,7 +67,7 @@ const erase = async (req, res, next) => {
     const userId = req.params.id;
     await userModel.deleteUser(userId);
     res.sendStatus(204);
-    } catch (error) {
+  } catch (error) {
     next(error);
   }
 };
@@ -87,7 +87,7 @@ const incrementUserScore = async (req, res, next) => {
     await userModel.incrementScore(userId);
 
     res.sendStatus(200);
-      } catch (error) {
+  } catch (error) {
     next(error);
   }
 };

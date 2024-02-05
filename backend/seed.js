@@ -216,21 +216,19 @@ const seed = async () => {
         image: `${imageBaseUrl}/20231203_143211.jpg`,
         postalcode: "75020",
       },
-
-      {
-        name: "Aubervilliers 93",
-        description:
-          "À Aubervilliers, juste là, à la porte de Paris le long du Canal Saint Denis, sous le pont du périphérique vous attendent des blazes qui claquent, des graffitis acidulés extrêmement travaillés, une galerie de portraits réalisée tout en douceur… de l’humour et surtout, surtout un concentré d’Art Urbain comme on en voit rarement à Paris et même en périphérie.",
-        image: `${imageBaseUrl}/20231209_124929.jpg`,
-        postalcode: "93300",
-      },
-
       {
         name: "Paris 13",
         description:
           "Autour de la Place d'Italie, de grandes tours dessinent un panorama bien différent du 13ème arrondissement de Paris. C'est là que la Mairie d'arrondissement, en collaboration avec la galerie Itinerrance, a permis à une centaine d'artistes de renommée mondiale de recouvrir des muraux immenses, créant ainsi un véritable musée à ciel ouvert dédié au Street Art actuel et au néo-muralisme, un chantier titanesque toujours en cours tout au long de ligne 6 du métro aérien.",
         image: `${imageBaseUrl}/20231203_141600.jpg`,
         postalcode: "75013",
+      },
+      {
+        name: "Aubervilliers 93",
+        description:
+          "À Aubervilliers, juste là, à la porte de Paris le long du Canal Saint Denis, sous le pont du périphérique vous attendent des blazes qui claquent, des graffitis acidulés extrêmement travaillés, une galerie de portraits réalisée tout en douceur… de l’humour et surtout, surtout un concentré d’Art Urbain comme on en voit rarement à Paris et même en périphérie.",
+        image: `${imageBaseUrl}/20231209_124929.jpg`,
+        postalcode: "93300",
       },
     ];
 
