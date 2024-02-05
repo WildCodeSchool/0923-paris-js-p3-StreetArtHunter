@@ -67,7 +67,7 @@ const erase = async (req, res, next) => {
     const userId = req.params.id;
     await userModel.deleteUser(userId);
     res.sendStatus(204);
-    } catch (error) {
+  } catch (error) {
     next(error);
   }
 };
@@ -87,7 +87,7 @@ const incrementUserScore = async (req, res, next) => {
     await userModel.incrementScore(userId);
 
     res.sendStatus(200);
-      } catch (error) {
+  } catch (error) {
     next(error);
   }
 };
@@ -95,6 +95,18 @@ const incrementUserScore = async (req, res, next) => {
 const logout = async (req, res, next) => {
   try {
     res.clearCookie("auth-token").sendStatus(200);
+  } catch (error) {
+    next(error);
+  }
+};
+
+const updatePassword = async (req, res, next) => {
+  try {
+    const userId = req.userID;
+    const { newPassword } = req.body;
+    const hashedPassword = await argon.hash(newPassword);
+    await userModel.updatePassword(userId, hashedPassword);
+    res.sendStatus(204);
   } catch (error) {
     next(error);
   }
@@ -109,4 +121,5 @@ module.exports = {
   incrementUserScore,
   getCurrentUser,
   logout,
+  updatePassword,
 };

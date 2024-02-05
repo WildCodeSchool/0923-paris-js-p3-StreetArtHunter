@@ -34,6 +34,13 @@ const incrementScore = (id) => {
   return db.query("UPDATE user SET score = score + 100 WHERE id = ?", [id]);
 };
 
+const updatePassword = (userId, newPassword) => {
+  return db.query("UPDATE user SET password = ? WHERE id = ?", [
+    newPassword,
+    userId,
+  ]);
+};
+
 module.exports = {
   insert,
   findById,
@@ -41,4 +48,5 @@ module.exports = {
   findAll,
   deleteUser,
   incrementScore,
+  updatePassword,
 };
