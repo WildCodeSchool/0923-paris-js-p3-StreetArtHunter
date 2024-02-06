@@ -33,9 +33,16 @@ function Reclamation() {
         console.info("email envoyée");
         setIsEmailSent(true);
         toast.success("Your mail is send");
+      } else {
+        toast.error(
+          "An error occurred while sending the email. Please try again."
+        );
       }
     } catch (error) {
       console.error(error);
+      toast.error(
+        "An error occurred while sending the email. Please try again."
+      );
     }
   }
 
