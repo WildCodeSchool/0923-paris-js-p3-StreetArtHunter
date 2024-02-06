@@ -7,6 +7,8 @@ import {
 } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import ReactDOM from "react-dom/client";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import useUser, { AuthProvider } from "./context/AuthContext";
 import App from "./App";
 import IntroPage from "./pages/IntroPage/IntroPage";
@@ -151,12 +153,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/spotzonebyid/:location",
-
-        element: (
-          <PrivateRoute>
-            <SpotZoneById />
-          </PrivateRoute>
-        ),
+        element: <SpotZoneById />,
       },
       {
         path: "/profil",
