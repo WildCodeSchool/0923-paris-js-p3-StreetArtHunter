@@ -36,16 +36,16 @@ function AskUs() {
 
   return (
     <div className="Main_ContactUs Main_MailUs">
-      {!isEmailSent && (
-        <>
-          <div className="anonymousQuestion_container">
-            <img
-              src={AnonymousQuestion}
-              alt="anonymous question"
-              className="anonymousquestion"
-            />{" "}
-          </div>
-          <div className="MailUs_Form">
+      <div className="anonymousQuestion_container">
+        <img
+          src={AnonymousQuestion}
+          alt="anonymous question"
+          className="anonymousquestion"
+        />{" "}
+      </div>
+      <div className="MailUs_Form">
+        {!isEmailSent && (
+          <>
             <h2
               onClick={() => {
                 navigate("/contactus");
@@ -80,13 +80,27 @@ function AskUs() {
               value="SEND"
               onClick={() => sendEmail()}
             />
-          </div>
-        </>
-      )}
-      {isEmailSent && (
-        <p className="SendEmailConfirmation">Email envoyé avec succès !</p>
-      )}
-
+          </>
+        )}
+        {isEmailSent && (
+          <>
+            <p className="SendEmailConfirmation">Email envoyé avec succès !</p>
+            <div
+              className="contact_back_btn"
+              role="button"
+              tabIndex="0"
+              onClick={() => {
+                navigate("/contactus");
+              }}
+              onKeyDown={() => {
+                navigate("/contactus");
+              }}
+            >
+              BACK
+            </div>
+          </>
+        )}
+      </div>
       <div className="anonymousQuestion_container">
         <img
           src={AnonymousQuestion}

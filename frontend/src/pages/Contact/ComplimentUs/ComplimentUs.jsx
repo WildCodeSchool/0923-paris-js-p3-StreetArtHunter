@@ -40,16 +40,16 @@ function ComplimentUs() {
 
   return (
     <div className="Main_ContactUs Main_MailUs">
-      {!isEmailSent && (
-        <>
-          <div className="anonymousFlower_container">
-            <img
-              src={AnonymousFlower}
-              alt="anonymous flower"
-              className="anonymousFlower anonymousFlower_right"
-            />{" "}
-          </div>
-          <div className="MailUs_Form">
+      <div className="anonymousFlower_container">
+        <img
+          src={AnonymousFlower}
+          alt="anonymous flower"
+          className="anonymousFlower anonymousFlower_right"
+        />{" "}
+      </div>
+      <div className="MailUs_Form">
+        {!isEmailSent && (
+          <>
             <h2
               onClick={() => {
                 navigate("/contactus");
@@ -84,26 +84,26 @@ function ComplimentUs() {
               value="SEND"
               onClick={() => sendEmail()}
             />
-          </div>
-        </>
-      )}
-      {isEmailSent && (
-        <>
-          <p className="SendEmailConfirmation">Email envoyé avec succès !</p>
-          <div
-            className="contact_back_btn"
-            onClick={() => {
-              navigate("/contactus");
-            }}
-            onKeyDown={() => {
-              navigate("/contactus");
-            }}
-          >
-            BACK
-          </div>
-        </>
-      )}
-
+            {/* </div> */}
+          </>
+        )}
+        {isEmailSent && (
+          <>
+            <p className="SendEmailConfirmation">Email envoyé avec succès !</p>
+            <div
+              className="contact_back_btn"
+              onClick={() => {
+                navigate("/contactus");
+              }}
+              onKeyDown={() => {
+                navigate("/contactus");
+              }}
+            >
+              BACK
+            </div>
+          </>
+        )}
+      </div>
       <div className="anonymousFlower_container">
         <img
           src={AnonymousFlower}
