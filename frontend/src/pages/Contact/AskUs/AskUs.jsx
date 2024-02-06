@@ -36,53 +36,57 @@ function AskUs() {
 
   return (
     <div className="Main_ContactUs Main_MailUs">
-      <div className="anonymousQuestion_container">
-        <img
-          src={AnonymousQuestion}
-          alt="anonymous question"
-          className="anonymousquestion"
-        />{" "}
-      </div>
-      <div className="MailUs_Form">
-        <h2
-          onClick={() => {
-            navigate("/contactus");
-          }}
-          onKeyDown={() => {
-            navigate("/contactus");
-          }}
-        >
-          ¿ question ?
-        </h2>
-        <h3>Email</h3>
-        <input
-          value={email}
-          onChange={(event) => setEmail(event.target.value)}
-          type="text"
-          name="email"
-          placeholder="votrenom@domaine.fr"
-        />
-        <input type="hidden" name="object" value="a new question" />
-        <h3>Question</h3>
-        <textarea
-          value={text}
-          onChange={(event) => setText(event.target.value)}
-          type="text"
-          name="body"
-          placeholder="Write your questions !"
-        />
-        {!isEmailSent && (
-          <input
-            type="button"
-            className="contact_send_btn"
-            value="SEND"
-            onClick={() => sendEmail()}
-          />
-        )}
-        {isEmailSent && (
-          <p className="SendEmailConfirmation">Email envoyé avec succès !</p>
-        )}
-      </div>
+      {!isEmailSent && (
+        <>
+          <div className="anonymousQuestion_container">
+            <img
+              src={AnonymousQuestion}
+              alt="anonymous question"
+              className="anonymousquestion"
+            />{" "}
+          </div>
+          <div className="MailUs_Form">
+            <h2
+              onClick={() => {
+                navigate("/contactus");
+              }}
+              onKeyDown={() => {
+                navigate("/contactus");
+              }}
+            >
+              ¿ question ?
+            </h2>
+            <h3>Email</h3>
+            <input
+              value={email}
+              onChange={(event) => setEmail(event.target.value)}
+              type="text"
+              name="email"
+              placeholder="votrenom@domaine.fr"
+            />
+            <input type="hidden" name="object" value="a new question" />
+            <h3>Question</h3>
+            <textarea
+              value={text}
+              onChange={(event) => setText(event.target.value)}
+              type="text"
+              name="body"
+              placeholder="Write your questions !"
+            />
+
+            <input
+              type="button"
+              className="contact_send_btn"
+              value="SEND"
+              onClick={() => sendEmail()}
+            />
+          </div>
+        </>
+      )}
+      {isEmailSent && (
+        <p className="SendEmailConfirmation">Email envoyé avec succès !</p>
+      )}
+
       <div className="anonymousQuestion_container">
         <img
           src={AnonymousQuestion}

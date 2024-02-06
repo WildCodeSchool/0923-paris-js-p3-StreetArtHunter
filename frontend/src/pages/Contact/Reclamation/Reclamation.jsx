@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 /* eslint-disable no-undef */
 import { useState } from "react";
@@ -46,42 +47,58 @@ function Reclamation() {
         />{" "}
       </div>
       <div className="MailUs_Form MailUs_Form_claim">
-        <h2
-          onClick={() => {
-            navigate("/contactus");
-          }}
-          onKeyDown={() => {
-            navigate("/contactus");
-          }}
-        >
-          claim
-        </h2>
-        <h3>Email</h3>
-        <input
-          value={email}
-          onChange={(event) => setEmail(event.target.value)}
-          type="text"
-          name="email"
-          placeholder="votrenom@domaine.fr"
-        />
-        <h3>Question</h3>
-        <textarea
-          value={text}
-          onChange={(event) => setText(event.target.value)}
-          type="text"
-          name="body"
-          placeholder="What is your claim brother ?"
-        />
         {!isEmailSent && (
-          <input
-            type="button"
-            className="contact_send_btn"
-            value="SEND"
-            onClick={() => sendEmail()}
-          />
+          <>
+            <h2
+              onClick={() => {
+                navigate("/contactus");
+              }}
+              onKeyDown={() => {
+                navigate("/contactus");
+              }}
+            >
+              claim
+            </h2>
+            <h3>Email</h3>
+            <input
+              value={email}
+              onChange={(event) => setEmail(event.target.value)}
+              type="text"
+              name="email"
+              placeholder="votrenom@domaine.fr"
+            />
+            <h3>Question</h3>
+            <textarea
+              value={text}
+              onChange={(event) => setText(event.target.value)}
+              type="text"
+              name="body"
+              placeholder="What is your claim brother ?"
+            />
+
+            <input
+              type="button"
+              className="contact_send_btn"
+              value="SEND"
+              onClick={() => sendEmail()}
+            />
+          </>
         )}
         {isEmailSent && (
-          <p className="SendEmailConfirmation">Email envoyé avec succès !</p>
+          <>
+            <p className="SendEmailConfirmation">Email envoyé avec succès !</p>
+            <div
+              className="contact_back_btn"
+              onClick={() => {
+                navigate("/contactus");
+              }}
+              onKeyDown={() => {
+                navigate("/contactus");
+              }}
+            >
+              BACK
+            </div>
+          </>
         )}
       </div>
       <div className="anonymousMegaphone_container">

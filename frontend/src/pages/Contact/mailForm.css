@@ -88,6 +88,22 @@
   text-align: center;
 }
 
+.contact_back_btn {
+  width: 25% !important;
+  background-color: var(--color-00) !important;
+  font-family: var(--font-03);
+  font-size: medium;
+  cursor: pointer;
+  text-align: center;
+  border: solid 1px black;
+  border-radius: 10px;
+  padding: 0.5rem;
+  margin-top: 1rem;
+}
+.contact_back_btn:hover {
+  background-color: var(--color-01) !important;
+  color: var(--color-00) !important;
+}
 @media (min-width: 1440px) {
   .Main_MailUs {
     min-height: calc(100vh - 165px);
