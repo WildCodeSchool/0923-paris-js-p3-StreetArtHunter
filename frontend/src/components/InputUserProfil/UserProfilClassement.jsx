@@ -5,6 +5,7 @@
 import { useNavigate } from "react-router-dom";
 import { useState, useContext, useEffect } from "react";
 import Pagination from "@mui/material/Pagination";
+import { toast } from "react-toastify";
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
 import { Container } from "@mui/material";
@@ -15,6 +16,7 @@ import SmileySearch from "../../assets/images/ico/smilley.png";
 import AuthContext from "../../context/AuthContext";
 import formatDate from "../../utils/FormatDate";
 import assignLevel from "../../utils/AssignLevel";
+import "react-toastify/dist/ReactToastify.css";
 import "./userProfil.css";
 
 function UserProfilClassement() {
@@ -135,12 +137,14 @@ function UserProfilClassement() {
       );
       if (response.status === 204) {
         console.info("Password changed successfully.");
+        toast.success("password changed");
         handleClose2(); // Fermer la modal après la modification
       } else {
         console.error("Failed to change password.", response.statusText);
       }
     } catch (error) {
       console.error("Error changing password", error);
+      toast.danger("Error changing password");
     }
   };
 

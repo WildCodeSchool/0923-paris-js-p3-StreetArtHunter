@@ -1,5 +1,6 @@
 import { useRef, useContext } from "react";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 import anonymous from "../../assets/images/img/pngwing.com.png";
 import loginonymous from "../../assets/images/img/Loginonymous.png";
 import AuthContext from "../../context/AuthContext";
@@ -44,7 +45,8 @@ function InputLogin() {
         if (user.admin) navigate("/adminprofil");
         else navigate("/userprofilhistorical");
       } else {
-        console.error("veuillez verifier votre saisie.");
+        toast.error("invalid password!");
+        console.error("invalid password!");
       }
     } catch (error) {
       console.error(error);
