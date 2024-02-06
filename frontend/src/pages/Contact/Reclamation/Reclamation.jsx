@@ -3,6 +3,7 @@
 /* eslint-disable no-undef */
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 import "../mailForm.css";
 import "./reclamation.css";
 import AnonymousMegaphone from "../../../assets/images/img/anonymous_megaphonev3.png";
@@ -31,6 +32,7 @@ function Reclamation() {
       if (response.status === 200) {
         console.info("email envoyée");
         setIsEmailSent(true);
+        toast.success("Your mail is send");
       }
     } catch (error) {
       console.error(error);
@@ -86,7 +88,7 @@ function Reclamation() {
         )}
         {isEmailSent && (
           <>
-            <p className="SendEmailConfirmation">Email envoyé avec succès !</p>
+            <p className="SendEmailConfirmation">email successfully sent !</p>
             <div
               className="contact_back_btn"
               onClick={() => {

@@ -3,9 +3,9 @@
 /* eslint-disable no-unused-vars */
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 import "../mailForm.css";
 import "./complimentUs.css";
-
 import AnonymousFlower from "../../../assets/images/img/anonymous_flower.png";
 
 function ComplimentUs() {
@@ -32,6 +32,7 @@ function ComplimentUs() {
       if (response.status === 200) {
         console.info("email envoyée");
         setIsEmailSent(true);
+        toast.success("Your mail is send");
       }
     } catch (error) {
       console.error(error);
@@ -89,7 +90,7 @@ function ComplimentUs() {
         )}
         {isEmailSent && (
           <>
-            <p className="SendEmailConfirmation">Email envoyé avec succès !</p>
+            <p className="SendEmailConfirmation">email successfully sent !</p>
             <div
               className="contact_back_btn"
               onClick={() => {

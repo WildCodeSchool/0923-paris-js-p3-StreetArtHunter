@@ -2,6 +2,7 @@
 /* eslint-disable no-unused-vars */
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 import "../mailForm.css";
 import "./askUs.css";
 import AnonymousQuestion from "../../../assets/images/img/anonymous_question.png";
@@ -28,6 +29,7 @@ function AskUs() {
       if (response.status === 200) {
         console.info("email envoyée");
         setIsEmailSent(true);
+        toast.success("Your mail is send");
       }
     } catch (error) {
       console.error(error);
@@ -84,7 +86,7 @@ function AskUs() {
         )}
         {isEmailSent && (
           <>
-            <p className="SendEmailConfirmation">Email envoyé avec succès !</p>
+            <p className="SendEmailConfirmation">email successfully sent !</p>
             <div
               className="contact_back_btn"
               role="button"
