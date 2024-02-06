@@ -1,6 +1,12 @@
 .anonymousFlower_container {
   display: none;
 }
+/* .Validate_compliment {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+} */
 
 @media screen and (min-width: 1439px) {
   .anonymousFlower_container {

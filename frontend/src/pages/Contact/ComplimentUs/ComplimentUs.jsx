@@ -1,13 +1,18 @@
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 /* eslint-disable no-unused-vars */
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 import "../mailForm.css";
 import "./complimentUs.css";
-
 import AnonymousFlower from "../../../assets/images/img/anonymous_flower.png";
 
 function ComplimentUs() {
   const [email, setEmail] = useState("");
   const [text, setText] = useState("");
+  const [isEmailSent, setIsEmailSent] = useState(false);
+  const navigate = useNavigate();
 
   async function sendEmail() {
     console.info(email, text);
@@ -26,9 +31,18 @@ function ComplimentUs() {
 
       if (response.status === 200) {
         console.info("email envoyée");
+        setIsEmailSent(true);
+        toast.success("Your mail is send");
+      } else {
+        toast.error(
+          "An error occurred while sending the email. Please try again."
+        );
       }
     } catch (error) {
       console.error(error);
+      toast.error(
+        "An error occurred while sending the email. Please try again."
+      );
     }
   }
 
@@ -42,27 +56,62 @@ function ComplimentUs() {
         />{" "}
       </div>
       <div className="MailUs_Form">
-        <h2>compliment us</h2>
-        <h3>Email</h3>
-        <input
-          value={email}
-          onChange={(event) => setEmail(event.target.value)}
-          type="text"
-          name="email"
-          placeholder="youradress@adress.fr"
-        />
-        <input type="hidden" name="object" value="a new compliment" />
-        <h3>Message</h3>
-        <textarea
-          value={text}
-          onChange={(event) => setText(event.target.value)}
-          type="text"
-          name="body"
-          placeholder="write your compliments!"
-        />
-        <input type="button" value="SEND" onClick={() => sendEmail()} />
-      </div>
+        {!isEmailSent && (
+          <>
+            <h2
+              onClick={() => {
+                navigate("/contactus");
+              }}
+              onKeyDown={() => {
+                navigate("/contactus");
+              }}
+            >
+              compliment us
+            </h2>
+            <h3>Email</h3>
+            <input
+              value={email}
+              onChange={(event) => setEmail(event.target.value)}
+              type="text"
+              name="email"
+              placeholder="youradress@adress.fr"
+            />
+            <input type="hidden" name="object" value="a new compliment" />
+            <h3>Message</h3>
+            <textarea
+              value={text}
+              onChange={(event) => setText(event.target.value)}
+              type="text"
+              name="body"
+              placeholder="write your compliments!"
+            />
 
+            <input
+              type="button"
+              className="contact_send_btn"
+              value="SEND"
+              onClick={() => sendEmail()}
+            />
+            {/* </div> */}
+          </>
+        )}
+        {isEmailSent && (
+          <>
+            <p className="SendEmailConfirmation">email successfully sent !</p>
+            <div
+              className="contact_back_btn"
+              onClick={() => {
+                navigate("/contactus");
+              }}
+              onKeyDown={() => {
+                navigate("/contactus");
+              }}
+            >
+              BACK
+            </div>
+          </>
+        )}
+      </div>
       <div className="anonymousFlower_container">
         <img
           src={AnonymousFlower}
