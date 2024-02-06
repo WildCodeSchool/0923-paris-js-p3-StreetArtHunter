@@ -4,6 +4,7 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable no-shadow */
 import { useState, useEffect } from "react";
+import { toast } from "react-toastify";
 import Modal from "@mui/material/Modal";
 import Box from "@mui/material/Box";
 import { Container } from "@mui/material";
@@ -54,6 +55,7 @@ function ValidationAdminFeat() {
       );
       if (response.status === 204) {
         console.info("validation ok");
+        toast.success("Work is validate");
 
         // Increment user score by 100 points
         const userScoreResponse = await fetch(
@@ -86,27 +88,36 @@ function ValidationAdminFeat() {
     }
   };
 
-  // Delete function
+  // Delete function with confirmation prompt
   const handleDelete = async (id) => {
-    try {
-      const response = await fetch(
-        `${import.meta.env.VITE_BACKEND_URL}/api/image/${id}/delete`,
-        {
-          method: "delete",
-          credentials: "include",
-        }
-      );
-      if (response.status === 204) {
-        console.info("delete ok");
-        const newUnvalidate = unvalidateWorksData.filter(
-          (work) => work.id !== id
+    // Display confirmation dialog
+    const confirmDelete = window.confirm(
+      "Are you sure you want to delete this work?"
+    );
+
+    // If user confirms deletion
+    if (confirmDelete) {
+      try {
+        const response = await fetch(
+          `${import.meta.env.VITE_BACKEND_URL}/api/image/${id}/delete`,
+          {
+            method: "delete",
+            credentials: "include",
+          }
         );
-        setUnvalidateWorksData(newUnvalidate);
-      } else {
-        console.error("error delete");
+        if (response.status === 204) {
+          console.info("delete ok");
+          const newUnvalidate = unvalidateWorksData.filter(
+            (work) => work.id !== id
+          );
+          setUnvalidateWorksData(newUnvalidate);
+          toast.success("rejected work deleted");
+        } else {
+          console.error("error delete");
+        }
+      } catch (error) {
+        console.error(error);
       }
-    } catch (error) {
-      console.error(error);
     }
   };
 

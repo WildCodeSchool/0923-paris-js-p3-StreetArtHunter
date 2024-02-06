@@ -3,7 +3,6 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import { useState, useContext, useEffect } from "react";
-// import { useLoaderData } from "react-router-dom";
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
 import Pagination from "@mui/material/Pagination";
@@ -20,7 +19,6 @@ import WorkCard2 from "../../components/WorkCard2/WorkCard2";
 import MonkeyEmpty from "../../assets/images/img/monkey03.png";
 
 function AdminProfil() {
-  // const workById = useLoaderData() || [];
   const { user } = useContext(AuthContext);
 
   const [workById, setWorkById] = useState([]);

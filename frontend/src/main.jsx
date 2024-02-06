@@ -5,6 +5,8 @@ import {
   useNavigate,
   useLocation,
 } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import ReactDOM from "react-dom/client";
 import useUser, { AuthProvider } from "./context/AuthContext";
 import App from "./App";
@@ -175,5 +177,6 @@ root.render(
     <AuthProvider>
       <RouterProvider router={router} />
     </AuthProvider>
+    <ToastContainer />
   </React.StrictMode>
 );
