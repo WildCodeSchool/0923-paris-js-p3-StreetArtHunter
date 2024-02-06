@@ -227,7 +227,7 @@
   text-align: center;
   font-family: var(--font-00);
   font-size: 0.75rem;
-  padding: 0.2rem;
+  padding: 4px;
 }
 .UPC_Users_List_Td_container {
   border: solid 1px black;
