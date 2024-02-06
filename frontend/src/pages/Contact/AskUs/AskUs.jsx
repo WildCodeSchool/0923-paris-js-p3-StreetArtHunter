@@ -1,5 +1,7 @@
+/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 /* eslint-disable no-unused-vars */
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "../mailForm.css";
 import "./askUs.css";
 import AnonymousQuestion from "../../../assets/images/img/anonymous_question.png";
@@ -7,9 +9,10 @@ import AnonymousQuestion from "../../../assets/images/img/anonymous_question.png
 function AskUs() {
   const [email, setEmail] = useState("");
   const [text, setText] = useState("");
+  const [isEmailSent, setIsEmailSent] = useState(false);
+  const navigate = useNavigate();
 
   async function sendEmail() {
-    console.info(email, text);
     try {
       const response = await fetch(
         `${import.meta.env.VITE_BACKEND_URL}/api/mail/question`,
@@ -24,6 +27,7 @@ function AskUs() {
       );
       if (response.status === 200) {
         console.info("email envoyée");
+        setIsEmailSent(true);
       }
     } catch (error) {
       console.error(error);
@@ -40,7 +44,16 @@ function AskUs() {
         />{" "}
       </div>
       <div className="MailUs_Form">
-        <h2>¿ question ?</h2>
+        <h2
+          onClick={() => {
+            navigate("/contactus");
+          }}
+          onKeyDown={() => {
+            navigate("/contactus");
+          }}
+        >
+          ¿ question ?
+        </h2>
         <h3>Email</h3>
         <input
           value={email}
@@ -58,7 +71,17 @@ function AskUs() {
           name="body"
           placeholder="Write your questions !"
         />
-        <input type="submit" value="SEND" onClick={() => sendEmail()} />
+        {!isEmailSent && (
+          <input
+            type="button"
+            className="contact_send_btn"
+            value="SEND"
+            onClick={() => sendEmail()}
+          />
+        )}
+        {isEmailSent && (
+          <p className="SendEmailConfirmation">Email envoyé avec succès !</p>
+        )}
       </div>
       <div className="anonymousQuestion_container">
         <img

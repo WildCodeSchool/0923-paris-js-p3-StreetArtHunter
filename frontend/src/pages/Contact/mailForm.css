@@ -59,6 +59,10 @@
   flex-grow: 1;
 }
 
+.MailUs_Form > h2 {
+  cursor: pointer;
+}
+
 .MailUs_Form > h2,
 .MailUs_Form > input {
   margin: 0.4rem 0em 1.3rem;
@@ -66,6 +70,22 @@
 
 .MailUs_Form > textarea {
   margin: 0.4rem 0em 0.6rem;
+}
+
+.contact_send_btn {
+  width: 25% !important;
+  font-family: var(--font-03);
+  font-size: medium;
+  cursor: pointer;
+}
+.contact_send_btn:hover {
+  background-color: var(--color-01) !important;
+  color: var(--color-00) !important;
+}
+
+.SendEmailConfirmation {
+  color: green;
+  text-align: center;
 }
 
 @media (min-width: 1440px) {

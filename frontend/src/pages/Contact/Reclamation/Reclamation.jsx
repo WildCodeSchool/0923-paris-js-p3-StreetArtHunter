@@ -1,4 +1,7 @@
+/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
+/* eslint-disable no-undef */
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "../mailForm.css";
 import "./reclamation.css";
 import AnonymousMegaphone from "../../../assets/images/img/anonymous_megaphonev3.png";
@@ -6,6 +9,8 @@ import AnonymousMegaphone from "../../../assets/images/img/anonymous_megaphonev3
 function Reclamation() {
   const [email, setEmail] = useState("");
   const [text, setText] = useState("");
+  const [isEmailSent, setIsEmailSent] = useState(false);
+  const navigate = useNavigate();
 
   async function sendEmail() {
     console.info(email, text);
@@ -24,6 +29,7 @@ function Reclamation() {
 
       if (response.status === 200) {
         console.info("email envoyée");
+        setIsEmailSent(true);
       }
     } catch (error) {
       console.error(error);
@@ -40,7 +46,16 @@ function Reclamation() {
         />{" "}
       </div>
       <div className="MailUs_Form MailUs_Form_claim">
-        <h2>claim</h2>
+        <h2
+          onClick={() => {
+            navigate("/contactus");
+          }}
+          onKeyDown={() => {
+            navigate("/contactus");
+          }}
+        >
+          claim
+        </h2>
         <h3>Email</h3>
         <input
           value={email}
@@ -57,7 +72,17 @@ function Reclamation() {
           name="body"
           placeholder="What is your claim brother ?"
         />
-        <input type="button" value="SEND" onClick={() => sendEmail()} />
+        {!isEmailSent && (
+          <input
+            type="button"
+            className="contact_send_btn"
+            value="SEND"
+            onClick={() => sendEmail()}
+          />
+        )}
+        {isEmailSent && (
+          <p className="SendEmailConfirmation">Email envoyé avec succès !</p>
+        )}
       </div>
       <div className="anonymousMegaphone_container">
         <img

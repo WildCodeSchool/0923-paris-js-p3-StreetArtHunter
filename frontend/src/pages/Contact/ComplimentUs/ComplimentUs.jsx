@@ -1,5 +1,7 @@
+/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 /* eslint-disable no-unused-vars */
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "../mailForm.css";
 import "./complimentUs.css";
 
@@ -8,6 +10,8 @@ import AnonymousFlower from "../../../assets/images/img/anonymous_flower.png";
 function ComplimentUs() {
   const [email, setEmail] = useState("");
   const [text, setText] = useState("");
+  const [isEmailSent, setIsEmailSent] = useState(false);
+  const navigate = useNavigate();
 
   async function sendEmail() {
     console.info(email, text);
@@ -26,6 +30,7 @@ function ComplimentUs() {
 
       if (response.status === 200) {
         console.info("email envoyée");
+        setIsEmailSent(true);
       }
     } catch (error) {
       console.error(error);
@@ -42,7 +47,16 @@ function ComplimentUs() {
         />{" "}
       </div>
       <div className="MailUs_Form">
-        <h2>compliment us</h2>
+        <h2
+          onClick={() => {
+            navigate("/contactus");
+          }}
+          onKeyDown={() => {
+            navigate("/contactus");
+          }}
+        >
+          compliment us
+        </h2>
         <h3>Email</h3>
         <input
           value={email}
@@ -60,7 +74,17 @@ function ComplimentUs() {
           name="body"
           placeholder="write your compliments!"
         />
-        <input type="button" value="SEND" onClick={() => sendEmail()} />
+        {!isEmailSent && (
+          <input
+            type="button"
+            className="contact_send_btn"
+            value="SEND"
+            onClick={() => sendEmail()}
+          />
+        )}
+        {isEmailSent && (
+          <p className="SendEmailConfirmation">Email envoyé avec succès !</p>
+        )}
       </div>
 
       <div className="anonymousFlower_container">
