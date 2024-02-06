@@ -111,7 +111,9 @@ function ValidationAdminFeat() {
             (work) => work.id !== id
           );
           setUnvalidateWorksData(newUnvalidate);
-          toast.success("rejected work deleted");
+          toast.success("rejected work deleted", {
+            className: "custom-toast",
+          });
         } else {
           console.error("error delete");
         }
