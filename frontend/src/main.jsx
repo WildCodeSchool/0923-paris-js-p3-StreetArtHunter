@@ -26,19 +26,32 @@ import Reclamation from "./pages/Contact/Reclamation/Reclamation";
 import AskUs from "./pages/Contact/AskUs/AskUs";
 import SpotZoneById from "./pages/SpotZoneById/SpotZoneById";
 import Profil from "./pages/Profil/Profil";
+import Loading from "./components/LoadingComponent/Loading";
 
 // Route safe //
 function PrivateRoute({ children }) {
   const { user, isLoading } = useContext(useUser);
+
   const navigate = useNavigate();
   const location = useLocation();
   const [page, setPage] = useState(null);
+  const [loading, setLoading] = useState(true);
+
   useEffect(() => {
-    if (isLoading) setPage(<p>Loading...</p>);
-    else if (!user) navigate("/login");
-    else setPage(children);
-    return () => setPage(null);
-  }, [user, isLoading, location]);
+    if (isLoading || loading) {
+      setPage(<Loading />);
+      if (loading) {
+        setTimeout(() => {
+          setLoading(false);
+        }, 1000);
+      }
+    } else if (!user) {
+      navigate("/login");
+    } else {
+      setPage(children);
+    }
+    return () => clearTimeout();
+  }, [user, isLoading, location, loading]);
   return page;
 }
 const router = createBrowserRouter([
