@@ -88,7 +88,6 @@ function UsersListAdBy({ sortedUsers, setUserData }) {
                 dataUser={selectedUser}
                 handleClose={handleClose}
                 updateUserList={updateUserList}
-                className="OtherUserModal"
               />
             )}
           </Container>

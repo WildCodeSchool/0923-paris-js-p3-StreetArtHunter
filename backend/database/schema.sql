@@ -37,6 +37,8 @@ CREATE TABLE IF NOT EXISTS `street_art_hunterz`.`location` (
   `description` VARCHAR(1000) NOT NULL,
   `image` TEXT NOT NULL,
   `postalcode` TEXT NOT NULL,
+  `lat` DECIMAL(16, 14) NOT NULL,
+  `lng` DECIMAL(15, 14) NOT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB
 AUTO_INCREMENT = 1

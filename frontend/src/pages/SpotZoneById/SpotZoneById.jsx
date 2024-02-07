@@ -1,21 +1,24 @@
 /* eslint-disable no-unsafe-optional-chaining */
 /* eslint-disable no-unused-vars */
-import { useEffect, useState } from "react";
-import { useNavigate, useLoaderData, useParams } from "react-router-dom";
+import { useEffect, useState, useContext } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 import Pagination from "@mui/material/Pagination";
 import Stack from "@mui/material/Stack";
+import AuthContext from "../../context/AuthContext";
 import Map from "../../components/Map/Map";
-import WorkCard from "../../components/WorkCard/WorkCard";
 import WorkCard2 from "../../components/WorkCard2/WorkCard2";
-import PictureMap from "../../assets/images/map_sample/map_sample_1-1.jpg";
 import "./spotZoneById.css";
 
 function SpotZoneById() {
   const { location } = useParams();
+  const { user } = useContext(AuthContext);
   const navigate = useNavigate();
-
   const [works, setWorks] = useState([]);
-  console.info(works, location);
+  const [mapCoordinates, setMapCoordinates] = useState({
+    lng: 2.3522,
+    lat: 48.8566,
+    zoom: 11,
+  });
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -27,7 +30,11 @@ function SpotZoneById() {
         );
         if (response.status === 200) {
           const data = await response.json();
-          setWorks(data.location);
+          const locationData = data.location;
+          const lng = locationData[0]?.lng;
+          const lat = locationData[0]?.lat;
+          setWorks(locationData);
+          setMapCoordinates({ lat, lng, zoom: 13 });
         }
       } catch (error) {
         console.error("Error fetching works:", error);
@@ -35,15 +42,11 @@ function SpotZoneById() {
     };
 
     fetchData();
-    console.info(fetchData());
   }, []);
-
   const [currentPage, setCurrentPage] = useState(1);
-  const [mapCoordinates, setMapCoordinates] = useState({
-    lng: 2.3522,
-    lat: 48.8566,
-    zoom: 11,
-  });
+  // const lng = locationData[0]?.lng;
+  // const lat = locationData[0]?.lat;
+
   const itemsPerPage = 1;
   const handlePageChange = (event, pageNumber) => {
     setCurrentPage(pageNumber);
@@ -68,7 +71,6 @@ function SpotZoneById() {
     indexOfFirstItemDesktop,
     indexOfLastItemDesktop
   );
-  console.info(currentItemsDesktop);
   // Gestion Media Screen //
 
   const smartphoneScreen = window.matchMedia("(min-width: 320px)").matches;
@@ -178,6 +180,7 @@ function SpotZoneById() {
                       // eslint-disable-next-line react/no-array-index-key
                       key={index}
                       data={data}
+                      admin={user}
                     />
                   ))}
                 </div>

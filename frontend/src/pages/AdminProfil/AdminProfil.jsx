@@ -215,7 +215,7 @@ function AdminProfil() {
                 <div className="Profil_infos_content_admin">
                   <p className="admin_infos">email: {user?.email}</p>
                   <p className="admin_infos">password: ******</p>
-                  <div className="admin_infos_btn">
+                  <div className="admin_infos_btn" onClick={handleOpen}>
                     <p className="text_admin_infos_btn">change password</p>
                   </div>
                 </div>
