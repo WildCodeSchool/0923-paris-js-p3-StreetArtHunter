@@ -11,14 +11,13 @@ const getLocationById = (id) => {
   );
 };
 
-const getLocationByPostalCode = () => {
+const getLocationByPostalCode = (postalCode) => {
   return db.query(
     `
-    SELECT w.*
-    FROM street_art_hunterz.work AS w
-    JOIN street_art_hunterz.location AS l ON w.location_id = l.id
+    SELECT l.*
+    FROM street_art_hunterz.location AS l where postalcode = ?
   `,
-    []
+    [postalCode]
   );
 };
 
