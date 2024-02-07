@@ -203,6 +203,7 @@ const seed = async () => {
 
     const LocationData = [
       {
+        id: 1,
         name: "Paris 19",
         description:
           "Walk in the footsteps of the Ourcq Living Colors festival! Along the way, discover or rediscover the artistic interventions, murals and collaborations that give color to this neighborhood.",
@@ -212,6 +213,7 @@ const seed = async () => {
         lng: 2.3788867298701146,
       },
       {
+        id: 2,
         name: "Paris 20",
         description:
           "Discover the history and culture of Parisian graffiti in the 20th arrondissement of Paris, in the working-class neighborhoods of Belleville and Ménilmontant, ideal places of expression for urban art forms.",
@@ -221,6 +223,7 @@ const seed = async () => {
         lng: 2.385479117902744,
       },
       {
+        id: 3,
         name: "Paris 13",
         description:
           "Around the Place d'Italie, tall towers create a very different panorama of Paris's 13th arrondissement. It's here that the Mairie d'arrondissement, in collaboration with the Itinerrance gallery, has allowed some one hundred world-renowned artists to cover huge murals, creating a veritable open-air museum dedicated to contemporary street art and neo-muralism, a titanic project still underway along line 6 of the aerial metro",
@@ -230,13 +233,14 @@ const seed = async () => {
         lng: 2.3671333353492297,
       },
       {
+        id: 4,
         name: "Aubervilliers 93",
         description:
           "In Aubervilliers, right there, at the gateway to Paris, along the Canal Saint Denis, under the bridge over the ring road, you'll find clattering blazes, extremely intricate acid graffiti, a portrait gallery created with a gentle touch... humor and, above all, a concentration of Urban Art the likes of which are rarely seen in Paris or even on the outskirts.",
         image: `${imageBaseUrl}/20231209_124929.jpg`,
         postalcode: "93300",
-        lat: 48.88761235483157,
-        lng: 2.3790936791222546,
+        lat: 48.90064201041082,
+        lng: 2.3812254089234743,
       },
     ];
 
@@ -245,8 +249,9 @@ const seed = async () => {
       // try {
       queries.push(
         database.query(
-          "INSERT INTO location (name, description, image, postalcode, lat, lng) VALUES (?, ?, ?, ?, ?, ?)",
+          "INSERT INTO location (id, name, description, image, postalcode, lat, lng) VALUES (?, ?, ?, ?, ?, ?, ?)",
           [
+            element.id,
             element.name,
             element.description,
             element.image,
@@ -408,7 +413,7 @@ const seed = async () => {
         image: `${imageBaseUrl}/20231203_164644.jpg`,
         User_id: 4,
         isValidate: 1,
-        location_id: 2,
+        location_id: 4,
       },
       {
         latitude: 48.898750241615424,
@@ -416,7 +421,7 @@ const seed = async () => {
         image: `${imageBaseUrl}/20231209_124017.jpg`,
         User_id: 5,
         isValidate: 1,
-        location_id: 3,
+        location_id: 4,
       },
       {
         latitude: 48.89912438988054,
@@ -424,7 +429,7 @@ const seed = async () => {
         image: `${imageBaseUrl}/20231209_124153.jpg`,
         User_id: 6,
         isValidate: 1,
-        location_id: 3,
+        location_id: 4,
       },
       {
         latitude: 48.90064201041082,
@@ -432,7 +437,7 @@ const seed = async () => {
         image: `${imageBaseUrl}/20231209_124609.jpg`,
         User_id: 12,
         isValidate: 1,
-        location_id: 3,
+        location_id: 4,
       },
       {
         latitude: 48.90064201041082,
@@ -440,7 +445,7 @@ const seed = async () => {
         image: `${imageBaseUrl}/20231209_124642.jpg`,
         User_id: 2,
         isValidate: 1,
-        location_id: 3,
+        location_id: 4,
       },
       {
         latitude: 48.90111454447136,
@@ -448,7 +453,7 @@ const seed = async () => {
         image: `${imageBaseUrl}/20231209_124929.jpg`,
         User_id: 8,
         isValidate: 1,
-        location_id: 3,
+        location_id: 4,
       },
       {
         latitude: 48.9048060091657,
@@ -456,7 +461,7 @@ const seed = async () => {
         image: `${imageBaseUrl}/20231209_130034.jpg`,
         User_id: 4,
         isValidate: 1,
-        location_id: 3,
+        location_id: 4,
       },
       {
         latitude: 48.90483312775923,
@@ -464,7 +469,7 @@ const seed = async () => {
         image: `${imageBaseUrl}/20231209_130053.jpg`,
         User_id: 4,
         isValidate: 1,
-        location_id: 3,
+        location_id: 4,
       },
       {
         latitude: 48.9047641327675,
@@ -472,7 +477,7 @@ const seed = async () => {
         image: `${imageBaseUrl}/20231209_130147.jpg`,
         User_id: 5,
         isValidate: 1,
-        location_id: 3,
+        location_id: 4,
       },
       {
         latitude: 48.90475050466249,
@@ -480,7 +485,7 @@ const seed = async () => {
         image: `${imageBaseUrl}/20231209_130215.jpg`,
         User_id: 6,
         isValidate: 1,
-        location_id: 3,
+        location_id: 4,
       },
       {
         latitude: 48.90474735971466,
@@ -488,7 +493,7 @@ const seed = async () => {
         image: `${imageBaseUrl}/20231209_130347.jpg`,
         User_id: 2,
         isValidate: 0,
-        location_id: 3,
+        location_id: 4,
       },
       {
         latitude: 48.90473058665615,
@@ -496,7 +501,7 @@ const seed = async () => {
         image: `${imageBaseUrl}/20231209_130553.jpg`,
         User_id: 6,
         isValidate: 1,
-        location_id: 3,
+        location_id: 4,
       },
       {
         latitude: 48.90472953833983,
@@ -504,7 +509,7 @@ const seed = async () => {
         image: `${imageBaseUrl}/20231209_130652.jpg`,
         User_id: 4,
         isValidate: 1,
-        location_id: 3,
+        location_id: 4,
       },
       {
         latitude: 48.889474940810416,
@@ -608,7 +613,7 @@ const seed = async () => {
         image: `${imageBaseUrl}/20190215_170341.jpg`,
         User_id: 12,
         isValidate: 1,
-        location_id: 1,
+        location_id: 3,
       },
       {
         latitude: 48.83436492769952,
@@ -616,7 +621,7 @@ const seed = async () => {
         image: `${imageBaseUrl}/20190215_170250.jpg`,
         User_id: 4,
         isValidate: 1,
-        location_id: 1,
+        location_id: 3,
       },
       {
         latitude: 48.83320817966546,
@@ -624,7 +629,7 @@ const seed = async () => {
         image: `${imageBaseUrl}/20190215_171030.jpg`,
         User_id: 9,
         isValidate: 1,
-        location_id: 1,
+        location_id: 3,
       },
       {
         latitude: 48.832630794005944,
@@ -632,7 +637,7 @@ const seed = async () => {
         image: `${imageBaseUrl}/20190215_171407.jpg`,
         User_id: 3,
         isValidate: 1,
-        location_id: 1,
+        location_id: 3,
       },
       {
         latitude: 48.832742026249676,
@@ -640,7 +645,7 @@ const seed = async () => {
         image: `${imageBaseUrl}/20190215_171800.jpg`,
         User_id: 11,
         isValidate: 1,
-        location_id: 1,
+        location_id: 3,
       },
       {
         latitude: 48.88687427677575,
@@ -648,7 +653,7 @@ const seed = async () => {
         image: `${imageBaseUrl}/20180627_194907.jpg`,
         User_id: 4,
         isValidate: 1,
-        location_id: 1,
+        // location_id: 1,
       },
       {
         latitude: 48.84833516812926,
@@ -664,7 +669,6 @@ const seed = async () => {
         image: `${imageBaseUrl}/20180627_164855.jpg`,
         User_id: 14,
         isValidate: 1,
-        location_id: 1,
       },
       {
         latitude: 48.85125990140719,
@@ -672,7 +676,6 @@ const seed = async () => {
         image: `${imageBaseUrl}/20210915_163631.jpg`,
         User_id: 5,
         isValidate: 1,
-        location_id: 1,
       },
       {
         latitude: 48.876689537895835,
@@ -680,7 +683,6 @@ const seed = async () => {
         image: `${imageBaseUrl}/20210320_163307.jpg`,
         User_id: 5,
         isValidate: 0,
-        location_id: 1,
       },
     ];
 
