@@ -46,6 +46,12 @@ function StreetMap({
       ? `<p class="Map_work_info"><span class="M_W_I_span">artist</span>: ${artist_pseudo}</p>`
       : "";
 
+    const userPseudo = user_pseudo
+      ? `<p class="Map_work_info">
+        <span class="M_W_I_span">submit by</span>: ${user_pseudo}
+      </p>`
+      : "";
+
     // Effectuer une requête de géocodage inversé pour obtenir le nom du lieu
     fetch(
       `https://api.mapbox.com/geocoding/v5/mapbox.places/${longitude},${latitude}.json?access_token=${mapboxgl.accessToken}`
@@ -65,7 +71,7 @@ function StreetMap({
                 <p class="Map_work_info"><span class="M_W_I_span">entry</span>: ${formattedEntryDate}</p>
                 <p class="Map_work_info"><span class="M_W_I_span">address</span>: ${address}</p>
                 ${artistInfo}
-                <p class="Map_work_info"><span class="M_W_I_span">submit by</span>: ${user_pseudo}</p>
+                ${userPseudo}
               </div>
             </div>
           </section>`

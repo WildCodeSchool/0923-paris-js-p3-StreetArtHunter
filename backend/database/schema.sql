@@ -32,7 +32,7 @@ DEFAULT CHARACTER SET = utf8mb3;
 -- Table `street_art_hunterz`.`location`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `street_art_hunterz`.`location` (
-  `id` INT NOT NULL AUTO_INCREMENT,
+  `id` INT NOT NULL,
   `name` VARCHAR(100) NOT NULL,
   `description` VARCHAR(1000) NOT NULL,
   `image` TEXT NOT NULL,
