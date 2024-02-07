@@ -18,6 +18,8 @@ import assignLevel from "../../utils/AssignLevel";
 import "react-toastify/dist/ReactToastify.css";
 import "./userProfil.css";
 
+import "../LoadingComponent/loading.css";
+
 function UserProfilHistorical() {
   const navigate = useNavigate();
   // database //
