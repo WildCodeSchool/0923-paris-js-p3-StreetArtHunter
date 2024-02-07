@@ -246,7 +246,7 @@ function OtherUserBloc({ dataUser, handleClose, updateUserList }) {
                 </div>
                 <div className="workCard_area_OUB">
                   {currentItemsDesktop.map((data) => (
-                    <WorkCard2 data={data} />
+                    <WorkCard2 admin={isAdmin} data={data} />
                   ))}
                 </div>
                 <Pagination
