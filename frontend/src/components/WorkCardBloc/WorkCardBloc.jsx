@@ -2,6 +2,7 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable no-unused-vars */
 import { useState } from "react";
+import { toast } from "react-toastify";
 import "./workCardBloc.css";
 import WorkCard from "../WorkCard/WorkCard";
 import Map from "../Map/Map";
@@ -79,6 +80,7 @@ function workCardBloc({
       }
       if (response.status === 204)
         console.info("Artiste pour l'œuvre mis à jour avec succès");
+      toast.success("Work is modify");
     } catch (error) {
       console.error("Erreur:", error.message);
       // Gérer les erreurs ici

@@ -628,6 +628,46 @@ const seed = async () => {
         isValidate: 1,
         location_id: 1,
       },
+      {
+        latitude: 48.88687427677575,
+        longitude: 2.3713696689292867,
+        image: `${imageBaseUrl}/20180627_194907.jpg`,
+        User_id: 4,
+        isValidate: 1,
+        location_id: 1,
+      },
+      {
+        latitude: 48.84833516812926,
+        longitude: 2.342719026186191,
+        image: `${imageBaseUrl}/20180627_193655.jpg`,
+        User_id: 8,
+        isValidate: 1,
+        location_id: 1,
+      },
+      {
+        latitude: 48.859282626640265,
+        longitude: 2.351661470964935,
+        image: `${imageBaseUrl}/20180627_164855.jpg`,
+        User_id: 14,
+        isValidate: 1,
+        location_id: 1,
+      },
+      {
+        latitude: 48.85125990140719,
+        longitude: 2.3399041299192618,
+        image: `${imageBaseUrl}/20210915_163631.jpg`,
+        User_id: 5,
+        isValidate: 1,
+        location_id: 1,
+      },
+      {
+        latitude: 48.876689537895835,
+        longitude: 2.35607815312111,
+        image: `${imageBaseUrl}/20210320_163307.jpg`,
+        User_id: 5,
+        isValidate: 0,
+        location_id: 1,
+      },
     ];
 
     for (let i = 0; i < WorksData.length; i += 1) {

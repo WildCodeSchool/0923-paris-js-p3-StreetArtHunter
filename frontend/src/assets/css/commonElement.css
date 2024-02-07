@@ -23,6 +23,10 @@
   --color-03: #f30000;
   --color-04: #820675;
   --color-05: #747474;
+
+  --toastify-font-family: var(--font-03) !important;
+  --toastify-text-color-light: var(--color-01) !important;
+  --toastify-text-color-dark: var(--color-00) !important;
 }
 
 body {
@@ -54,7 +58,6 @@ body::-webkit-scrollbar {
   background-color: var(--color-01);
   border-radius: 10px 10px 0 0;
 }
-
 @media (max-height: 867px) and (min-width: 1440px) {
   .Global_height {
     min-height: calc(100vh - 165px);
