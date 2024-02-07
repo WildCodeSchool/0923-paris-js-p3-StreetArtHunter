@@ -7,12 +7,15 @@ function SpotCard({ location }) {
   const { image } = location;
 
   const navigate = useNavigate();
+  const handleNavigate = () => {
+    navigate(`/spotzonebyid/${location.id}`);
+  };
   return (
     <section>
       <div
         className="SpotCard_section"
-        onClick={() => navigate(`/spotzonebyid/${location.id}`)}
-        onKeyDown={() => navigate(`/spotzonebyid/${location.id}`)}
+        onClick={handleNavigate}
+        onKeyDown={handleNavigate}
         tabIndex="0"
         role="button"
       >

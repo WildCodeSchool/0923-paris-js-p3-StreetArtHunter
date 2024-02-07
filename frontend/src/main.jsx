@@ -152,11 +152,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/spotzonebyid/:location",
-        element: (
-          <PrivateRoute>
-            <SpotZoneById />
-          </PrivateRoute>
-        ),
+        element: <SpotZoneById />,
       },
       {
         path: "/profil",
@@ -176,6 +172,7 @@ root.render(
   <React.StrictMode>
     <AuthProvider>
       <RouterProvider router={router} />
+      <ToastContainer />
     </AuthProvider>
     <ToastContainer />
   </React.StrictMode>
