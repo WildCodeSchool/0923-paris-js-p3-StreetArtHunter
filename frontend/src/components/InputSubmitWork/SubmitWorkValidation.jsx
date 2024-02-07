@@ -89,8 +89,8 @@ function SubmitWorkValidation({ onNextStep, selectedImage }) {
       <center className="title_Image_Content">
         <div className="title_Image">
           <h1 className="titleSubmitWork TSW-correctgap">propose a work</h1>
-          <div className="blocImportImage">
-            <div className="importImageInside">
+          <div className="blocImportImage2">
+            <div className="importImageInside2">
               <Map
                 UsingLng={mapCoordinates.lng}
                 UsingLat={mapCoordinates.lat}
