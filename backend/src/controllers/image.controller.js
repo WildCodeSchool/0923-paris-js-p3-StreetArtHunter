@@ -15,7 +15,7 @@ const add = async (req, res, next) => {
     const [[location]] = await locationModel.getLocationByPostalCode(
       image.postalCode
     );
-    image.location_id = location?.id;
+    image.location_id = location ? location?.id : null;
     const [result] = await imageModel.insert(image);
     if (result.insertId) {
       if (req.body.artist) {
