@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-props-no-spreading */
 /* eslint-disable camelcase */
 /* eslint-disable no-unused-vars */
 import { useEffect, useRef } from "react";
@@ -27,6 +28,7 @@ function StreetMap({
   const marker = new mapboxgl.Marker({ color: "orange" });
   const location = useLocation();
   const markers = [];
+  const smartphoneScreen = window.matchMedia("(max-width: 770px)").matches;
 
   const loadMarker = ({
     image,
@@ -84,7 +86,14 @@ function StreetMap({
 
   const addMarker = (event) => {
     // trigger only for right mouse click
-    if (event.originalEvent.button === 2) {
+    console.info(event);
+    if (event.originalEvent?.button === 2) {
+      const coordinates = event.lngLat;
+      console.info("Lng:", coordinates.lng, "Lat:", coordinates.lat);
+      marker.setLngLat(coordinates).addTo(map.current);
+      coordinates.zoom = 15;
+      onMarkerClick(coordinates);
+    } else if (smartphoneScreen && event.originalEvent?.button === 0) {
       const coordinates = event.lngLat;
       console.info("Lng:", coordinates.lng, "Lat:", coordinates.lat);
       marker.setLngLat(coordinates).addTo(map.current);
@@ -153,7 +162,9 @@ function StreetMap({
     });
 
     // Add marker when click on the map
-    if (mapMarker) map.current.on("mousedown", addMarker);
+    if (mapMarker) {
+      map.current.on("mousedown", addMarker);
+    }
 
     // Add marker from data
     if (Array.isArray(works)) {
