@@ -209,7 +209,7 @@ function workCardBloc({
               </svg>
             </div>
             <div className="abort_btn_WCB" onClick={() => closeModal()}>
-              BACK 2
+              BACK
             </div>
             <div
               className="trash_btn_WCB"

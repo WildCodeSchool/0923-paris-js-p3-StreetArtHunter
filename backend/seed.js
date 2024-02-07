@@ -208,6 +208,8 @@ const seed = async () => {
           "Walk in the footsteps of the Ourcq Living Colors festival! Along the way, discover or rediscover the artistic interventions, murals and collaborations that give color to this neighborhood.",
         image: `${imageBaseUrl}/20231210_143137.jpg`,
         postalcode: "75019",
+        lat: 48.89175015143691,
+        lng: 2.3788867298701146,
       },
       {
         name: "Paris 20",
@@ -215,13 +217,17 @@ const seed = async () => {
           "Discover the history and culture of Parisian graffiti in the 20th arrondissement of Paris, in the working-class neighborhoods of Belleville and Ménilmontant, ideal places of expression for urban art forms.",
         image: `${imageBaseUrl}/20231203_143211.jpg`,
         postalcode: "75020",
+        lat: 48.8714105286253,
+        lng: 2.385479117902744,
       },
       {
         name: "Paris 13",
         description:
           "Around the Place d'Italie, tall towers create a very different panorama of Paris's 13th arrondissement. It's here that the Mairie d'arrondissement, in collaboration with the Itinerrance gallery, has allowed some one hundred world-renowned artists to cover huge murals, creating a veritable open-air museum dedicated to contemporary street art and neo-muralism, a titanic project still underway along line 6 of the aerial metro",
-        image: `${imageBaseUrl}/20231203_141600.jpg`,
+        image: `${imageBaseUrl}/20190215_171407.jpg`,
         postalcode: "75013",
+        lat: 48.83436492769952,
+        lng: 2.3671333353492297,
       },
       {
         name: "Aubervilliers 93",
@@ -229,6 +235,8 @@ const seed = async () => {
           "In Aubervilliers, right there, at the gateway to Paris, along the Canal Saint Denis, under the bridge over the ring road, you'll find clattering blazes, extremely intricate acid graffiti, a portrait gallery created with a gentle touch... humor and, above all, a concentration of Urban Art the likes of which are rarely seen in Paris or even on the outskirts.",
         image: `${imageBaseUrl}/20231209_124929.jpg`,
         postalcode: "93300",
+        lat: 48.88761235483157,
+        lng: 2.3790936791222546,
       },
     ];
 
@@ -237,8 +245,15 @@ const seed = async () => {
       // try {
       queries.push(
         database.query(
-          "INSERT INTO location (name, description, image, postalcode) VALUES (?, ?, ?, ?)",
-          [element.name, element.description, element.image, element.postalcode]
+          "INSERT INTO location (name, description, image, postalcode, lat, lng) VALUES (?, ?, ?, ?, ?, ?)",
+          [
+            element.name,
+            element.description,
+            element.image,
+            element.postalcode,
+            element.lat,
+            element.lng,
+          ]
         )
       );
       // } catch (error) {
@@ -598,7 +613,6 @@ const seed = async () => {
       {
         latitude: 48.83436492769952,
         longitude: 2.3671333353492297,
-
         image: `${imageBaseUrl}/20190215_170250.jpg`,
         User_id: 4,
         isValidate: 1,

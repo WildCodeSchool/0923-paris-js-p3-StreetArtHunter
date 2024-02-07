@@ -3,15 +3,12 @@ import { useLoaderData } from "react-router-dom";
 import Pagination from "@mui/material/Pagination";
 import Stack from "@mui/material/Stack";
 import SpotCard from "../../components/SpotCard/SpotCard";
-// import DataSpots from "../../../data_sample/data_spots.json";
 import PictureBottom from "../../assets/images/img/graph04 (1).png";
 import "./spotZone.css";
 
 function SpotZone() {
   // database //
   const locations = useLoaderData() || [];
-
-  // const Datas = DataSpots;
 
   // Logique pagination smartphone
   const [currentPage, setCurrentPage] = useState(1);
