@@ -52,7 +52,7 @@ CREATE TABLE IF NOT EXISTS `street_art_hunterz`.`user` (
   `email` VARCHAR(120) NOT NULL,
   `password` VARCHAR(250) NOT NULL,
   `registrationDate` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `score` INT NOT NULL DEFAULT '0',
+  `score` INT DEFAULT '0',
   `admin` TINYINT NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   UNIQUE INDEX `email_UNIQUE` (`email` ASC) VISIBLE,
