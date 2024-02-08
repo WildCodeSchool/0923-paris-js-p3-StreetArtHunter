@@ -1,6 +1,8 @@
+/* eslint-disable no-alert */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import { useEffect, useState, useContext } from "react";
+import { toast } from "react-toastify";
 import Pagination from "@mui/material/Pagination";
 import Stack from "@mui/material/Stack";
 import AuthContext from "../../context/AuthContext";
@@ -55,23 +57,31 @@ function OtherUserBloc({ dataUser, handleClose, updateUserList }) {
 
   // Delete function
   const handleDelete = async (id) => {
-    try {
-      const response = await fetch(
-        `${import.meta.env.VITE_BACKEND_URL}/api/user/${id}/delete`,
-        {
-          method: "delete",
-          credentials: "include",
+    const confirmDelete = window.confirm(
+      "Are you sure you want to delete this user?"
+    );
+
+    // If user confirms deletion
+    if (confirmDelete) {
+      try {
+        const response = await fetch(
+          `${import.meta.env.VITE_BACKEND_URL}/api/user/${id}/delete`,
+          {
+            method: "delete",
+            credentials: "include",
+          }
+        );
+        if (response.status === 204) {
+          console.info("delete ok");
+          toast.success("user is delete");
+          updateUserList(id);
+          handleClose();
+        } else {
+          console.error("error delete");
         }
-      );
-      if (response.status === 204) {
-        console.info("delete ok");
-        updateUserList(id); // Mettre à jour la liste des utilisateu
-        handleClose();
-      } else {
-        console.error("error delete");
+      } catch (error) {
+        console.error(error);
       }
-    } catch (error) {
-      console.error(error);
     }
   };
 
@@ -236,7 +246,7 @@ function OtherUserBloc({ dataUser, handleClose, updateUserList }) {
                 </div>
                 <div className="workCard_area_OUB">
                   {currentItemsDesktop.map((data) => (
-                    <WorkCard2 data={data} />
+                    <WorkCard2 admin={isAdmin} data={data} />
                   ))}
                 </div>
                 <Pagination

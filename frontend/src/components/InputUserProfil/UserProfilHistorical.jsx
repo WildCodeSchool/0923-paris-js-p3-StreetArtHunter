@@ -1,8 +1,10 @@
 /* eslint-disable no-use-before-define */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable prefer-destructuring */
+
 import { useNavigate } from "react-router-dom";
 import { useState, useContext, useEffect } from "react";
+import { toast } from "react-toastify";
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
 import Pagination from "@mui/material/Pagination";
@@ -13,7 +15,10 @@ import imageMonkey from "../../assets/images/img/monkey02.png";
 import AuthContext from "../../context/AuthContext";
 import formatDate from "../../utils/FormatDate";
 import assignLevel from "../../utils/AssignLevel";
+import "react-toastify/dist/ReactToastify.css";
 import "./userProfil.css";
+
+import "../LoadingComponent/loading.css";
 
 function UserProfilHistorical() {
   const navigate = useNavigate();
@@ -124,12 +129,14 @@ function UserProfilHistorical() {
 
       if (response.status === 204) {
         console.info("Password changed successfully.");
+        toast.success("password changed");
         handleClose(); // Fermer la modal après la modification
       } else {
         console.error("Failed to change password.", response.statusText);
       }
     } catch (error) {
       console.error("Error changing password", error);
+      toast.error("Error changing password");
     }
   };
 

@@ -1,4 +1,9 @@
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
+/* eslint-disable no-undef */
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 import "../mailForm.css";
 import "./reclamation.css";
 import AnonymousMegaphone from "../../../assets/images/img/anonymous_megaphonev3.png";
@@ -6,6 +11,8 @@ import AnonymousMegaphone from "../../../assets/images/img/anonymous_megaphonev3
 function Reclamation() {
   const [email, setEmail] = useState("");
   const [text, setText] = useState("");
+  const [isEmailSent, setIsEmailSent] = useState(false);
+  const navigate = useNavigate();
 
   async function sendEmail() {
     console.info(email, text);
@@ -24,9 +31,18 @@ function Reclamation() {
 
       if (response.status === 200) {
         console.info("email envoyée");
+        setIsEmailSent(true);
+        toast.success("Your mail is send");
+      } else {
+        toast.error(
+          "An error occurred while sending the email. Please try again."
+        );
       }
     } catch (error) {
       console.error(error);
+      toast.error(
+        "An error occurred while sending the email. Please try again."
+      );
     }
   }
 
@@ -40,24 +56,59 @@ function Reclamation() {
         />{" "}
       </div>
       <div className="MailUs_Form MailUs_Form_claim">
-        <h2>claim</h2>
-        <h3>Email</h3>
-        <input
-          value={email}
-          onChange={(event) => setEmail(event.target.value)}
-          type="text"
-          name="email"
-          placeholder="votrenom@domaine.fr"
-        />
-        <h3>Question</h3>
-        <textarea
-          value={text}
-          onChange={(event) => setText(event.target.value)}
-          type="text"
-          name="body"
-          placeholder="What is your claim brother ?"
-        />
-        <input type="button" value="SEND" onClick={() => sendEmail()} />
+        {!isEmailSent && (
+          <>
+            <h2
+              onClick={() => {
+                navigate("/contactus");
+              }}
+              onKeyDown={() => {
+                navigate("/contactus");
+              }}
+            >
+              claim
+            </h2>
+            <h3>Email</h3>
+            <input
+              value={email}
+              onChange={(event) => setEmail(event.target.value)}
+              type="text"
+              name="email"
+              placeholder="votrenom@domaine.fr"
+            />
+            <h3>Question</h3>
+            <textarea
+              value={text}
+              onChange={(event) => setText(event.target.value)}
+              type="text"
+              name="body"
+              placeholder="What is your claim brother ?"
+            />
+
+            <input
+              type="button"
+              className="contact_send_btn"
+              value="SEND"
+              onClick={() => sendEmail()}
+            />
+          </>
+        )}
+        {isEmailSent && (
+          <>
+            <p className="SendEmailConfirmation">email successfully sent !</p>
+            <div
+              className="contact_back_btn"
+              onClick={() => {
+                navigate("/contactus");
+              }}
+              onKeyDown={() => {
+                navigate("/contactus");
+              }}
+            >
+              BACK
+            </div>
+          </>
+        )}
       </div>
       <div className="anonymousMegaphone_container">
         <img

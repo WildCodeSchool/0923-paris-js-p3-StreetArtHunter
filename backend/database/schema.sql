@@ -32,11 +32,13 @@ DEFAULT CHARACTER SET = utf8mb3;
 -- Table `street_art_hunterz`.`location`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `street_art_hunterz`.`location` (
-  `id` INT NOT NULL AUTO_INCREMENT,
+  `id` INT NOT NULL,
   `name` VARCHAR(100) NOT NULL,
   `description` VARCHAR(1000) NOT NULL,
   `image` TEXT NOT NULL,
   `postalcode` TEXT NOT NULL,
+  `lat` DECIMAL(16, 14) NOT NULL,
+  `lng` DECIMAL(15, 14) NOT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB
 AUTO_INCREMENT = 1
@@ -50,7 +52,7 @@ CREATE TABLE IF NOT EXISTS `street_art_hunterz`.`user` (
   `email` VARCHAR(120) NOT NULL,
   `password` VARCHAR(250) NOT NULL,
   `registrationDate` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `score` INT NOT NULL DEFAULT '0',
+  `score` INT DEFAULT '0',
   `admin` TINYINT NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   UNIQUE INDEX `email_UNIQUE` (`email` ASC) VISIBLE,

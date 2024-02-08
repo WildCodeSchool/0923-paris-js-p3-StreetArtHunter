@@ -3,15 +3,12 @@ import { useLoaderData } from "react-router-dom";
 import Pagination from "@mui/material/Pagination";
 import Stack from "@mui/material/Stack";
 import SpotCard from "../../components/SpotCard/SpotCard";
-// import DataSpots from "../../../data_sample/data_spots.json";
 import PictureBottom from "../../assets/images/img/graph04 (1).png";
 import "./spotZone.css";
 
 function SpotZone() {
   // database //
   const locations = useLoaderData() || [];
-
-  // const Datas = DataSpots;
 
   // Logique pagination smartphone
   const [currentPage, setCurrentPage] = useState(1);
@@ -48,13 +45,13 @@ function SpotZone() {
       <h1 className="title_SpotZone">STREET ART SPOTS</h1>
       <div className="text_SpotZone">
         <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis
-          perferendis repellendus temporibus doloremque fuga quaerat fugit nisi
-          dignissimos molestias quibusdam. Sequi nihil quis nam corporis? Lorem
-          ipsum dolor sit amet consectetur adipisicing elit. Reiciendis
-          perferendis repellendus temporibus doloremque fuga quaerat fugit nisi
-          dignissimos molestias quibusdam. Sequi nihil quis nam corporis? Lorem
-          ipsum dolor sit amet consectetur adipisicing elit.
+          Dive into the heart of street art's creative buzz with our exciting
+          street art strolls. Let us guide you through the most dynamic
+          neighborhoods of the city, where walls become canvases and alleyways
+          become open-air galleries. <br /> Our street art strolls offer you the
+          opportunity to explore authentic artistic expression that emerges from
+          the streets. From monumental murals to more discreet works hidden in
+          corners, each wall tells a story, each tag an emotion.
         </p>
       </div>
 
