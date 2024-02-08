@@ -3,7 +3,7 @@ import "./loading.css";
 
 function Loading() {
   return (
-    <section className="UP_Container Global_height">
+    <section className="Global_height_smartPh Global_height">
       <div id="ying-yang"></div>
     </section>
   );

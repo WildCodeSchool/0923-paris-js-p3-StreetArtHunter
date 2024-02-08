@@ -29,133 +29,133 @@ const seed = async () => {
         pseudo: "Chaton_Brutal",
         email: "chaton@glouglou.fr",
         password: "toto",
-        score: 100,
+        score: 0,
         admin: 0,
       },
       {
         pseudo: "Soleil_Levant",
         email: "Soleil@glouglou.fr",
         password: "toto",
-        score: 200,
+        score: 0,
         admin: 0,
       },
       {
         pseudo: "Ulysse_31",
         email: "Ulysse@glouglou.fr",
         password: "toto",
-        score: 400,
+        score: 0,
         admin: 0,
       },
       {
         pseudo: "Big_Julius",
         email: "julius@glouglou.fr",
         password: "toto",
-        score: 800,
+        score: 0,
         admin: 1,
       },
       {
         pseudo: "RuBeat",
         email: "rubeat@glouglou.fr",
         password: "toto",
-        score: 300,
+        score: 0,
         admin: 0,
       },
       {
         pseudo: "El_Poutros",
         email: "LaPoutre@glouglou.fr",
         password: "toto",
-        score: 500,
+        score: 0,
         admin: 0,
       },
       {
         pseudo: "KoffeeMan",
         email: "kofee@glouglou.fr",
         password: "toto",
-        score: 700,
+        score: 0,
         admin: 0,
       },
       {
         pseudo: "Yax2_94",
         email: "yaya@glouglou.fr",
         password: "toto",
-        score: 600,
+        score: 0,
         admin: 0,
       },
       {
         pseudo: "Tristan",
         email: "tristan@glouglou.fr",
         password: "toto",
-        score: 650,
+        score: 0,
         admin: 0,
       },
       {
         pseudo: "Yseult",
         email: "Yseult@glouglou.fr",
         password: "toto",
-        score: 100,
+        score: 0,
         admin: 0,
       },
       {
         pseudo: "Drifer",
         email: "Drifer@glouglou.fr",
         password: "toto",
-        score: 900,
+        score: 0,
         admin: 0,
       },
       {
         pseudo: "LeoMiaou",
         email: "LeoMiaou@glouglou.fr",
         password: "toto",
-        score: 750,
+        score: 0,
         admin: 0,
       },
       {
         pseudo: "LuLu Star",
         email: "Lulustar@glouglou.fr",
         password: "toto",
-        score: 100,
+        score: 0,
         admin: 0,
       },
       {
         pseudo: "Orel One",
         email: "orel@glouglou.fr",
         password: "toto",
-        score: 150,
+        score: 0,
         admin: 0,
       },
       {
         pseudo: "Mama Seni",
         email: "MamaInes@glouglou.fr",
         password: "toto",
-        score: 250,
+        score: 0,
         admin: 0,
       },
       {
         pseudo: "BrianShine",
         email: "PrinceBrillant@glouglou.fr",
         password: "toto",
-        score: 100,
+        score: 0,
         admin: 0,
       },
       {
         pseudo: "AlexCode",
         email: "AlexCode@glouglou.fr",
         password: "toto",
-        score: 100,
+        score: 0,
         admin: 0,
       },
       {
         pseudo: "TidusLove",
         email: "Tidus@glouglou.fr",
         password: "toto",
-        score: 100,
+        score: 0,
         admin: 0,
       },
       {
         pseudo: "SelineBoss",
         email: "Celine@glouglou.fr",
         password: "toto",
-        score: 100,
+        score: 0,
         admin: 0,
       },
       {
@@ -203,6 +203,7 @@ const seed = async () => {
 
     const LocationData = [
       {
+        id: 1,
         name: "Paris 19",
         description:
           "Walk in the footsteps of the Ourcq Living Colors festival! Along the way, discover or rediscover the artistic interventions, murals and collaborations that give color to this neighborhood.",
@@ -212,6 +213,7 @@ const seed = async () => {
         lng: 2.3788867298701146,
       },
       {
+        id: 2,
         name: "Paris 20",
         description:
           "Discover the history and culture of Parisian graffiti in the 20th arrondissement of Paris, in the working-class neighborhoods of Belleville and Ménilmontant, ideal places of expression for urban art forms.",
@@ -221,6 +223,7 @@ const seed = async () => {
         lng: 2.385479117902744,
       },
       {
+        id: 3,
         name: "Paris 13",
         description:
           "Around the Place d'Italie, tall towers create a very different panorama of Paris's 13th arrondissement. It's here that the Mairie d'arrondissement, in collaboration with the Itinerrance gallery, has allowed some one hundred world-renowned artists to cover huge murals, creating a veritable open-air museum dedicated to contemporary street art and neo-muralism, a titanic project still underway along line 6 of the aerial metro",
@@ -230,13 +233,14 @@ const seed = async () => {
         lng: 2.3671333353492297,
       },
       {
+        id: 4,
         name: "Aubervilliers 93",
         description:
           "In Aubervilliers, right there, at the gateway to Paris, along the Canal Saint Denis, under the bridge over the ring road, you'll find clattering blazes, extremely intricate acid graffiti, a portrait gallery created with a gentle touch... humor and, above all, a concentration of Urban Art the likes of which are rarely seen in Paris or even on the outskirts.",
         image: `${imageBaseUrl}/20231209_124929.jpg`,
         postalcode: "93300",
-        lat: 48.88761235483157,
-        lng: 2.3790936791222546,
+        lat: 48.90064201041082,
+        lng: 2.3812254089234743,
       },
     ];
 
@@ -245,8 +249,9 @@ const seed = async () => {
       // try {
       queries.push(
         database.query(
-          "INSERT INTO location (name, description, image, postalcode, lat, lng) VALUES (?, ?, ?, ?, ?, ?)",
+          "INSERT INTO location (id, name, description, image, postalcode, lat, lng) VALUES (?, ?, ?, ?, ?, ?, ?)",
           [
+            element.id,
             element.name,
             element.description,
             element.image,
@@ -326,7 +331,7 @@ const seed = async () => {
         latitude: 48.87261592246546,
         longitude: 2.376940626111713,
         image: `${imageBaseUrl}/20231203_141600.jpg`,
-        User_id: 7,
+        User_id: 12,
         isValidate: 1,
         location_id: 2,
       },
@@ -382,7 +387,7 @@ const seed = async () => {
         latitude: 48.87165035798295,
         longitude: 2.3854193494781155,
         image: `${imageBaseUrl}/20231203_151510.jpg`,
-        User_id: 17,
+        User_id: 12,
         isValidate: 1,
         location_id: 2,
       },
@@ -408,7 +413,7 @@ const seed = async () => {
         image: `${imageBaseUrl}/20231203_164644.jpg`,
         User_id: 4,
         isValidate: 1,
-        location_id: 2,
+        location_id: 4,
       },
       {
         latitude: 48.898750241615424,
@@ -416,7 +421,7 @@ const seed = async () => {
         image: `${imageBaseUrl}/20231209_124017.jpg`,
         User_id: 5,
         isValidate: 1,
-        location_id: 3,
+        location_id: 4,
       },
       {
         latitude: 48.89912438988054,
@@ -424,7 +429,7 @@ const seed = async () => {
         image: `${imageBaseUrl}/20231209_124153.jpg`,
         User_id: 6,
         isValidate: 1,
-        location_id: 3,
+        location_id: 4,
       },
       {
         latitude: 48.90064201041082,
@@ -432,7 +437,7 @@ const seed = async () => {
         image: `${imageBaseUrl}/20231209_124609.jpg`,
         User_id: 12,
         isValidate: 1,
-        location_id: 3,
+        location_id: 4,
       },
       {
         latitude: 48.90064201041082,
@@ -440,15 +445,15 @@ const seed = async () => {
         image: `${imageBaseUrl}/20231209_124642.jpg`,
         User_id: 2,
         isValidate: 1,
-        location_id: 3,
+        location_id: 4,
       },
       {
         latitude: 48.90111454447136,
         longitude: 2.3810108322153307,
         image: `${imageBaseUrl}/20231209_124929.jpg`,
-        User_id: 8,
+        User_id: 12,
         isValidate: 1,
-        location_id: 3,
+        location_id: 4,
       },
       {
         latitude: 48.9048060091657,
@@ -456,7 +461,7 @@ const seed = async () => {
         image: `${imageBaseUrl}/20231209_130034.jpg`,
         User_id: 4,
         isValidate: 1,
-        location_id: 3,
+        location_id: 4,
       },
       {
         latitude: 48.90483312775923,
@@ -464,7 +469,7 @@ const seed = async () => {
         image: `${imageBaseUrl}/20231209_130053.jpg`,
         User_id: 4,
         isValidate: 1,
-        location_id: 3,
+        location_id: 4,
       },
       {
         latitude: 48.9047641327675,
@@ -472,15 +477,15 @@ const seed = async () => {
         image: `${imageBaseUrl}/20231209_130147.jpg`,
         User_id: 5,
         isValidate: 1,
-        location_id: 3,
+        location_id: 4,
       },
       {
         latitude: 48.90475050466249,
         longitude: 2.3798816173152173,
         image: `${imageBaseUrl}/20231209_130215.jpg`,
-        User_id: 6,
+        User_id: 2,
         isValidate: 1,
-        location_id: 3,
+        location_id: 4,
       },
       {
         latitude: 48.90474735971466,
@@ -488,7 +493,7 @@ const seed = async () => {
         image: `${imageBaseUrl}/20231209_130347.jpg`,
         User_id: 2,
         isValidate: 0,
-        location_id: 3,
+        location_id: 4,
       },
       {
         latitude: 48.90473058665615,
@@ -496,15 +501,15 @@ const seed = async () => {
         image: `${imageBaseUrl}/20231209_130553.jpg`,
         User_id: 6,
         isValidate: 1,
-        location_id: 3,
+        location_id: 4,
       },
       {
         latitude: 48.90472953833983,
         longitude: 2.3802053720530405,
         image: `${imageBaseUrl}/20231209_130652.jpg`,
-        User_id: 4,
+        User_id: 6,
         isValidate: 1,
-        location_id: 3,
+        location_id: 4,
       },
       {
         latitude: 48.889474940810416,
@@ -526,7 +531,7 @@ const seed = async () => {
         latitude: 48.888805298533676,
         longitude: 2.386240553206446,
         image: `${imageBaseUrl}/20231210_143012.jpg`,
-        User_id: 8,
+        User_id: 5,
         isValidate: 1,
         location_id: 1,
       },
@@ -534,15 +539,15 @@ const seed = async () => {
         latitude: 48.888805298533676,
         longitude: 2.386240553206446,
         image: `${imageBaseUrl}/20231210_143031.jpg`,
-        User_id: 11,
-        isValidate: 0,
+        User_id: 20,
+        isValidate: 1,
         location_id: 1,
       },
       {
         latitude: 48.88876165132823,
         longitude: 2.3860414093593407,
         image: `${imageBaseUrl}/20231210_143137.jpg`,
-        User_id: 8,
+        User_id: 5,
         isValidate: 1,
         location_id: 1,
       },
@@ -558,7 +563,7 @@ const seed = async () => {
         latitude: 48.890223945336984,
         longitude: 2.38385455802745,
         image: `${imageBaseUrl}/20231210_144909.jpg`,
-        User_id: 6,
+        User_id: 12,
         isValidate: 1,
         location_id: 1,
       },
@@ -599,16 +604,16 @@ const seed = async () => {
         longitude: 2.3749212016067967,
         image: `${imageBaseUrl}/20231210_145852.jpg`,
         User_id: 7,
-        isValidate: 0,
+        isValidate: 1,
         location_id: 1,
       },
       {
         latitude: 48.834286216214046,
         longitude: 2.366804147149494,
         image: `${imageBaseUrl}/20190215_170341.jpg`,
-        User_id: 12,
+        User_id: 13,
         isValidate: 1,
-        location_id: 1,
+        location_id: 3,
       },
       {
         latitude: 48.83436492769952,
@@ -616,15 +621,15 @@ const seed = async () => {
         image: `${imageBaseUrl}/20190215_170250.jpg`,
         User_id: 4,
         isValidate: 1,
-        location_id: 1,
+        location_id: 3,
       },
       {
         latitude: 48.83320817966546,
         longitude: 2.363505639603704,
         image: `${imageBaseUrl}/20190215_171030.jpg`,
-        User_id: 9,
+        User_id: 4,
         isValidate: 1,
-        location_id: 1,
+        location_id: 3,
       },
       {
         latitude: 48.832630794005944,
@@ -632,22 +637,22 @@ const seed = async () => {
         image: `${imageBaseUrl}/20190215_171407.jpg`,
         User_id: 3,
         isValidate: 1,
-        location_id: 1,
+        location_id: 3,
       },
       {
         latitude: 48.832742026249676,
         longitude: 2.3625499372732586,
         image: `${imageBaseUrl}/20190215_171800.jpg`,
-        User_id: 11,
+        User_id: 4,
         isValidate: 1,
-        location_id: 1,
+        location_id: 3,
       },
       {
         latitude: 48.88687427677575,
         longitude: 2.3713696689292867,
         image: `${imageBaseUrl}/20180627_194907.jpg`,
         User_id: 4,
-        isValidate: 1,
+        isValidate: 0,
         location_id: 1,
       },
       {
@@ -656,15 +661,14 @@ const seed = async () => {
         image: `${imageBaseUrl}/20180627_193655.jpg`,
         User_id: 8,
         isValidate: 1,
-        location_id: 1,
+        location_id: 3,
       },
       {
         latitude: 48.859282626640265,
         longitude: 2.351661470964935,
         image: `${imageBaseUrl}/20180627_164855.jpg`,
-        User_id: 14,
+        User_id: 13,
         isValidate: 1,
-        location_id: 1,
       },
       {
         latitude: 48.85125990140719,
@@ -672,15 +676,14 @@ const seed = async () => {
         image: `${imageBaseUrl}/20210915_163631.jpg`,
         User_id: 5,
         isValidate: 1,
-        location_id: 1,
       },
       {
         latitude: 48.876689537895835,
         longitude: 2.35607815312111,
         image: `${imageBaseUrl}/20210320_163307.jpg`,
-        User_id: 5,
+        User_id: 19,
         isValidate: 0,
-        location_id: 1,
+        location_id: 3,
       },
     ];
 
@@ -803,10 +806,25 @@ const seed = async () => {
     // Wait for all the insertion queries to complete
     await Promise.all(queries);
 
+    // Execute the UPDATE query
+    await database.query(`
+      UPDATE user AS u
+      JOIN (
+        SELECT User_id, COUNT(*) * 100 AS new_score
+        FROM work
+        GROUP BY User_id
+      ) AS works_count ON u.id = works_count.User_id
+      SET u.score = u.score + works_count.new_score
+    `);
+
+    // Execute the SELECT query to get updated user data
+    const users = await database.query("SELECT * FROM user");
+    console.info("Updated user data:", users);
+
     // Close the database connection
     database.end();
 
-    // console.info(`${database.databaseName} filled from ${__filename} 🌱`);
+    console.info(`${database.databaseName} filled from ${__filename} 🌱`);
   } catch (err) {
     console.error("Error filling the database:", err.message);
   }

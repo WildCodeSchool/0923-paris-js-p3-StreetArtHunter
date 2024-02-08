@@ -1,5 +1,6 @@
 /* eslint-disable no-unused-vars */
 import { useState } from "react";
+import { toast } from "react-toastify";
 import Map from "../Map/Map";
 import ratPhotographer from "../../assets/images/img/Rat_photograph.png";
 import "./submitWorkDesktop.css";
@@ -46,8 +47,10 @@ function SubmitWorkValidation({ onNextStep, selectedImage }) {
           );
 
           if (response.status === 201) {
+            toast.success("Image inserted successfully!");
             console.info("Image inserted successfully");
           } else {
+            toast.error("Error inserting image!");
             console.error("Error inserting image");
           }
         });
@@ -89,8 +92,8 @@ function SubmitWorkValidation({ onNextStep, selectedImage }) {
       <center className="title_Image_Content">
         <div className="title_Image">
           <h1 className="titleSubmitWork TSW-correctgap">propose a work</h1>
-          <div className="blocImportImage">
-            <div className="importImageInside">
+          <div className="blocImportImage2">
+            <div className="importImageInside2">
               <Map
                 UsingLng={mapCoordinates.lng}
                 UsingLat={mapCoordinates.lat}
