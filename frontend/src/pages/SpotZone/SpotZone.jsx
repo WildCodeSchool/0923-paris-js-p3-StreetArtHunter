@@ -48,10 +48,7 @@ function SpotZone() {
           Dive into the heart of street art's creative buzz with our exciting
           street art strolls. Let us guide you through the most dynamic
           neighborhoods of the city, where walls become canvases and alleyways
-          become open-air galleries. <br /> Our street art strolls offer you the
-          opportunity to explore authentic artistic expression that emerges from
-          the streets. From monumental murals to more discreet works hidden in
-          corners, each wall tells a story, each tag an emotion.
+          become open-air galleries.
         </p>
       </div>
 

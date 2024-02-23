@@ -66,7 +66,7 @@ function HomePage() {
   };
 
   // gestion Media Screen //
-  const smartphoneScreen = window.matchMedia("(max-width: 770px)").matches;
+  const smartphoneScreen = window.matchMedia("(max-width: 1439px)").matches;
   const desktopScreen = window.matchMedia("(min-width: 1440px)").matches;
 
   // >>> return <<< //
