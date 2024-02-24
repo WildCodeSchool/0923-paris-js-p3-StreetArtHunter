@@ -71,7 +71,7 @@ function SubmitWorkValidation({ onNextStep, selectedImage }) {
     setMapCoordinates({
       lng: coordinates.lng,
       lat: coordinates.lat,
-      zoom: mapCoordinates.zoom,
+      zoom: coordinates.zoom,
     });
   };
 

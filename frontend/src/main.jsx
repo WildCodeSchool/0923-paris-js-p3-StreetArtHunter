@@ -55,6 +55,7 @@ function PrivateRoute({ children }) {
   }, [user, isLoading, location, loading]);
   return page;
 }
+
 const router = createBrowserRouter([
   {
     path: "/",

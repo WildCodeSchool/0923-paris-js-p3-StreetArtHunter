@@ -15,7 +15,6 @@ function ComplimentUs() {
   const navigate = useNavigate();
 
   async function sendEmail() {
-    console.info(email, text);
     try {
       const response = await fetch(
         `${import.meta.env.VITE_BACKEND_URL}/api/mail/compliment`,
