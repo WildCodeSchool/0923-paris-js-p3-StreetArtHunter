@@ -1,6 +1,4 @@
 /* eslint-disable no-use-before-define */
-/* eslint-disable jsx-a11y/click-events-have-key-events */
-
 import { useState, useContext, useEffect } from "react";
 import { toast } from "react-toastify";
 import Box from "@mui/material/Box";
@@ -18,7 +16,7 @@ function UserProfil() {
   // database //
   const { user } = useContext(AuthContext);
 
-  // Toggle Admin feature //
+  // Toggle feature //
   const [activeComponent, setActiveComponent] = useState("historicalList");
   const handleToggle = (id) => {
     setActiveComponent(id);
@@ -41,10 +39,6 @@ function UserProfil() {
       );
 
       if (response.status === 200) {
-        // const data = await response.json();
-        // setUserClass(data);
-
-        // Set user level once when component mounts
         const level = assignLevel(user.score);
         setUserLevel(level);
       }
@@ -55,7 +49,7 @@ function UserProfil() {
   // Format date object:
   const formattedDate = formatDate(user?.registrationDate);
 
-  // Function to handle the "Enter" key being pressed in the input field
+  // Function to handle the "Enter" key being
   const handleKeyDown = (event) => {
     if (event.key === "Enter") {
       changePassword(event);
@@ -121,6 +115,7 @@ function UserProfil() {
               <div
                 className="UP_Change_Password_Inside"
                 onClick={handleOpen}
+                onKeyDown={handleOpen}
                 role="button"
                 tabIndex="0"
               >
@@ -145,10 +140,11 @@ function UserProfil() {
           <div className="UP_Historical_Classement_Flex">
             <section className="UP_Historical_Classement">
               <div
-                className={`UP_Title_Historical  ${
+                className={`UP_Title_Historical ${
                   activeComponent === "historicalList" ? "active" : ""
                 }`}
                 onClick={() => handleToggle("historicalList")}
+                onKeyDown={(event) => handleToggle(event, "historicalList")}
                 role="button"
                 tabIndex="0"
               >
@@ -159,6 +155,7 @@ function UserProfil() {
                   activeComponent === "classementList" ? "active" : ""
                 }`}
                 onClick={() => handleToggle("classementList")}
+                onKeyDown={(event) => handleToggle(event, "classementList")}
                 role="button"
                 tabIndex="0"
               >

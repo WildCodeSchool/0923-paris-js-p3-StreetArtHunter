@@ -5,6 +5,7 @@ import WorkCard from "../WorkCard/WorkCard";
 import WorkCard2 from "../WorkCard2/WorkCard2";
 import AuthContext from "../../context/AuthContext";
 import "react-toastify/dist/ReactToastify.css";
+import Monkey from "../../assets/images/img/monkey03.png";
 
 function UserProfilHistorical() {
   // database //
@@ -70,25 +71,47 @@ function UserProfilHistorical() {
           <span className="font_info_color">{UsersWorks.length}</span>
         </div>
 
+        {smartphoneScreen && UsersWorks.length === 0 && (
+          <div className="UPH_Workcard_Container">
+            <div className="monkeyNoWork_Position">
+              <img
+                src={Monkey}
+                alt="monkey keep it real"
+                className="monkey_no_work_UPH"
+              />
+            </div>
+          </div>
+        )}
+
         {smartphoneScreen && (
           <div className="UPH_Workcard_Container">
             {currentItems.map((data) => (
               <WorkCard key={data.id} data={data} />
             ))}
+            <Stack spacing={0} mt={0}>
+              <Pagination
+                count={Math.ceil(UsersWorks.length / itemsPerPage)}
+                size="small"
+                shape="rounded"
+                variant="outlined"
+                siblingCount={0}
+                page={currentPage}
+                onChange={handlePageChange}
+              />
+            </Stack>
           </div>
         )}
-        {smartphoneScreen && (
-          <Stack spacing={0} mt={0}>
-            <Pagination
-              count={Math.ceil(UsersWorks.length / itemsPerPage)}
-              size="small"
-              shape="rounded"
-              variant="outlined"
-              siblingCount={0}
-              page={currentPage}
-              onChange={handlePageChange}
-            />
-          </Stack>
+
+        {desktopScreen && UsersWorks.length === 0 && (
+          <div className="UPH_Workcard_Container">
+            <div className="monkeyNoWork_Position">
+              <img
+                src={Monkey}
+                alt="monkey keep it real"
+                className="monkey_no_work_UPH"
+              />
+            </div>
+          </div>
         )}
 
         {desktopScreen && (

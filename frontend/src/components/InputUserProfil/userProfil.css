@@ -290,6 +290,15 @@
   background: var(--color-02);
 }
 
+.monkeyNoWork_Position {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.monkey_no_work_UPH {
+  width: 60%;
+}
 /* CSS DESKTOP */
 @media (min-width: 1440px) {
   .UP_Container {
@@ -529,5 +538,9 @@
     font-family: var(--font-00);
     font-size: 1rem;
     cursor: pointer;
+  }
+
+  .monkey_no_work_UPH {
+    width: 60%;
   }
 }

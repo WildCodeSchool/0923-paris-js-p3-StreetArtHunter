@@ -27,6 +27,8 @@ function UserProfilClassement() {
 
       if (response.status === 200) {
         const data = await response.json();
+
+        data.sort((a, b) => b.score - a.score);
         setUserClass(data);
       }
     };
