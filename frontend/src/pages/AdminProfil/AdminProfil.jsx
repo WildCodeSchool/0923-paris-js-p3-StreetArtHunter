@@ -1,7 +1,3 @@
-/* eslint-disable react/no-array-index-key */
-/* eslint-disable prefer-destructuring */
-/* eslint-disable jsx-a11y/no-static-element-interactions */
-/* eslint-disable jsx-a11y/click-events-have-key-events */
 import { useState, useContext, useEffect } from "react";
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
@@ -176,11 +172,13 @@ function AdminProfil() {
   return (
     <section className="AdminProfilContainer Global_height">
       <div className="AdminProfil_content">
+        {/* SECTION profil info */}
         <section className="admin_infos_bloc">
           <h1 className="Pseudo_admin">{user?.pseudo}</h1>
           <div className="Seniority_admin_container">
             <p className="Seniority_admin"> admin since {formattedDate}</p>
           </div>
+          {/* CONTENT profil infos smartphone */}
           {smartphoneScreen && (
             <div className="ProfilInfos_container_admin">
               <div className="admin_title_box">
@@ -215,13 +213,24 @@ function AdminProfil() {
                 <div className="Profil_infos_content_admin">
                   <p className="admin_infos">email: {user?.email}</p>
                   <p className="admin_infos">password: ******</p>
-                  <div className="admin_infos_btn" onClick={handleOpen}>
+                  <div
+                    className="admin_infos_btn"
+                    onClick={handleOpen}
+                    onKeyDown={(event) => {
+                      if (event.key === "Enter") {
+                        handleOpen();
+                      }
+                    }}
+                    role="button"
+                    tabIndex={0}
+                  >
                     <p className="text_admin_infos_btn">change password</p>
                   </div>
                 </div>
               )}
             </div>
           )}
+          {/* CONTENT profil infos desktop */}
           {desktopScreen && (
             <div className="ProfilInfos_container_admin">
               <div className="Profil_infos_content_admin">
@@ -235,12 +244,23 @@ function AdminProfil() {
                     <span className="admin_infos_desk_font">******</span>
                   </p>
                 </div>
-                <div className="admin_infos_btn" onClick={handleOpen}>
+                <div
+                  className="admin_infos_btn"
+                  onClick={handleOpen}
+                  onKeyDown={(event) => {
+                    if (event.key === "Enter") {
+                      handleOpen();
+                    }
+                  }}
+                  role="button"
+                  tabIndex={0}
+                >
                   <p className="text_admin_infos_btn">change password</p>
                 </div>
               </div>
             </div>
           )}
+          {/* CONTENT historical smartphone */}
           {smartphoneScreen && (
             <div className="history_container_admin">
               <div className="admin_history_title_box">
@@ -278,16 +298,22 @@ function AdminProfil() {
                     <span className="font_info_color"> {adminWorksCount}</span>
                   </div>
                   <div className="admin_workcard_container">
-                    {currentItems.map((dataAd, index) => (
-                      // eslint-disable-next-line react/no-array-index-key
+                    {currentItems.map((dataAd) => (
                       <>
-                        <WorkCard key={index} data={dataAd} />
+                        <WorkCard key={dataAd.id} data={dataAd} />
 
                         <div
                           className="admin_trash_btn"
                           onClick={() => {
                             handleDelete(dataAd.id);
                           }}
+                          onKeyDown={(event) => {
+                            if (event.key === "Enter") {
+                              handleDelete(dataAd.id);
+                            }
+                          }}
+                          role="button"
+                          tabIndex={0}
                         >
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -321,6 +347,7 @@ function AdminProfil() {
               )}
             </div>
           )}
+          {/* CONTENT historical desktop */}
           {desktopScreen && (
             <div className="history_container_admin">
               <div className="admin_history_title_box">
@@ -348,10 +375,9 @@ function AdminProfil() {
                   )}
                 </div>
                 <div className="admin_workcard_container">
-                  {currentItemsDesktop.map((dataAd, index) => (
-                    // eslint-disable-next-line react/no-array-index-key
+                  {currentItemsDesktop.map((dataAd) => (
                     <WorkCard2
-                      key={index}
+                      key={dataAd.id}
                       data={dataAd}
                       admin
                       handleDelete={handleDelete}
@@ -380,13 +406,22 @@ function AdminProfil() {
             </div>
           )}
         </section>
+        {/* SECTION admin features */}
         <section className="admin_features">
+          {/* toggle features */}
           <div className="Line_BtnToggle_adminFeat">
             <div
               className={`BtnToggle_adminFeat ${
                 activeComponent === "usersList" ? "active" : ""
               }`}
               onClick={() => handleToggle("usersList")}
+              onKeyDown={(event) => {
+                if (event.key === "Enter") {
+                  handleToggle("usersList");
+                }
+              }}
+              role="button"
+              tabIndex={0}
               id="usersList_admin"
             >
               users list
@@ -397,6 +432,13 @@ function AdminProfil() {
               }`}
               id="worksList_admin"
               onClick={() => handleToggle("worksList")}
+              onKeyDown={(event) => {
+                if (event.key === "Enter") {
+                  handleToggle("worksList");
+                }
+              }}
+              role="button"
+              tabIndex={0}
             >
               works list
             </div>
@@ -406,15 +448,24 @@ function AdminProfil() {
               }`}
               id="workValidation_admin"
               onClick={() => handleToggle("workValidation")}
+              onKeyDown={(event) => {
+                if (event.key === "Enter") {
+                  handleToggle("workValidation");
+                }
+              }}
+              role="button"
+              tabIndex={0}
             >
               validation
             </div>
           </div>
+          {/* admin features COMPONENTS */}
           {activeComponent === "usersList" && <UserListAdminFeat data={user} />}
           {activeComponent === "worksList" && <WorksListAdminFeat />}
           {activeComponent === "workValidation" && <ValidationAdminFeat />}
         </section>
       </div>
+      {/* MODAL change Password */}
       <Modal
         open={open}
         onClose={handleClose}
@@ -430,7 +481,17 @@ function AdminProfil() {
               placeholder="enter new password"
               onChange={(e) => setNewPassword(e.target.value)}
             />
-            <div className="password_change_validbtn" onClick={changePassword}>
+            <div
+              className="password_change_validbtn"
+              onClick={changePassword}
+              onKeyDown={(event) => {
+                if (event.key === "Enter") {
+                  changePassword();
+                }
+              }}
+              role="button"
+              tabIndex={0}
+            >
               VALIDATION
             </div>
           </section>

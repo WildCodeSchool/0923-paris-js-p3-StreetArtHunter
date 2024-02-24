@@ -1,6 +1,3 @@
-/* eslint-disable jsx-a11y/no-static-element-interactions */
-/* eslint-disable jsx-a11y/click-events-have-key-events */
-/* eslint-disable no-unused-vars */
 import { useState } from "react";
 import { toast } from "react-toastify";
 import "./workCardBloc.css";
@@ -115,6 +112,13 @@ function workCardBloc({
             <div
               className="workCardBloc__modif_btn"
               onClick={() => setSetting(true)}
+              onKeyDown={(event) => {
+                if (event.key === "Enter") {
+                  setSetting(true);
+                }
+              }}
+              role="button"
+              tabIndex={0}
               style={{ display: setting ? "none" : "block" }}
             >
               MODIFY
@@ -146,6 +150,31 @@ function workCardBloc({
                 // Fermer le modal après les opérations
                 closeModal();
               }}
+              role="button"
+              tabIndex={0}
+              onKeyDown={async (event) => {
+                if (event.key === "Enter") {
+                  // Appeler Update Localisation avec les coordonnées actuelles
+                  await updateLocalisation(
+                    mapCoordinates.lat,
+                    mapCoordinates.lng,
+                    data.id
+                  );
+
+                  // Ensuite, appeler updateArtistInAW avec le pseudo de l'artiste
+                  await updateArtistInAW(artistPseudoInput, data.id);
+
+                  const newWork = workById.find((work) => work.id === data.id);
+                  newWork.latitude = mapCoordinates.lat;
+                  newWork.longitude = mapCoordinates.lng;
+                  newWork.artist_pseudo = artistPseudoInput;
+                  const works = workById.filter((work) => work.id !== data.id);
+                  setWorkById([...works, newWork]);
+
+                  // Fermer le modal après les opérations
+                  closeModal();
+                }
+              }}
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -156,7 +185,17 @@ function workCardBloc({
                 <path d="M382-240 154-468l57-57 171 171 367-367 57 57-424 424Z" />
               </svg>
             </div>
-            <div className="abort_btn_WCB" onClick={() => setSetting(false)}>
+            <div
+              className="abort_btn_WCB"
+              onClick={() => setSetting(false)}
+              onKeyDown={(event) => {
+                if (event.key === "Enter") {
+                  setSetting(false);
+                }
+              }}
+              role="button"
+              tabIndex={0}
+            >
               BACK
             </div>
             <div
@@ -165,6 +204,14 @@ function workCardBloc({
                 await handleDelete(data.id);
                 closeModal();
               }}
+              onKeyDown={(event) => {
+                if (event.key === "Enter") {
+                  handleDelete(data.id);
+                  closeModal();
+                }
+              }}
+              role="button"
+              tabIndex={0}
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -198,6 +245,27 @@ function workCardBloc({
                 // Fermer le modal après les opérations
                 closeModal();
               }}
+              onKeyDown={(event) => {
+                if (event.key === "Enter") {
+                  // Appeler Update Localisation avec les coordonnées actuelles
+                  updateLocalisation(
+                    mapCoordinates.lat,
+                    mapCoordinates.lng,
+                    data.id
+                  );
+
+                  // Ensuite, appeler updateArtistInAW avec le pseudo de l'artiste
+                  updateArtistInAW(artistPseudoInput, data.id);
+
+                  // Enfin, appeler handleValidate
+                  handleValidate(data.id, data.user_id);
+
+                  // Fermer le modal après les opérations
+                  closeModal();
+                }
+              }}
+              role="button"
+              tabIndex={0}
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -208,7 +276,17 @@ function workCardBloc({
                 <path d="M382-240 154-468l57-57 171 171 367-367 57 57-424 424Z" />
               </svg>
             </div>
-            <div className="abort_btn_WCB" onClick={() => closeModal()}>
+            <div
+              className="abort_btn_WCB"
+              onClick={() => setSetting(false)}
+              onKeyDown={(event) => {
+                if (event.key === "Enter") {
+                  setSetting(false);
+                }
+              }}
+              role="button"
+              tabIndex={0}
+            >
               BACK
             </div>
             <div
@@ -217,6 +295,14 @@ function workCardBloc({
                 await handleDelete(data.id);
                 closeModal();
               }}
+              onKeyDown={(event) => {
+                if (event.key === "Enter") {
+                  handleDelete(data.id);
+                  closeModal();
+                }
+              }}
+              role="button"
+              tabIndex={0}
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"

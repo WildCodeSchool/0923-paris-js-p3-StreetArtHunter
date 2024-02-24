@@ -1,5 +1,3 @@
-/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
-/* eslint-disable jsx-a11y/click-events-have-key-events */
 import { useState, useEffect } from "react";
 import Pagination from "@mui/material/Pagination";
 import Stack from "@mui/material/Stack";
@@ -15,7 +13,7 @@ import AnonymousKing from "../../assets/images/img/anonymous_king.png";
 import Crown from "../../assets/images/img/crown.png";
 
 function Classement() {
-  // works data
+  // data
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
@@ -172,9 +170,19 @@ function Classement() {
             <Box>
               <Container maxWidth="lg">
                 <div className="modal_closed_btn_container">
-                  <p onClick={handleClose} className="modal_closed_btn">
+                  <div
+                    onClick={handleClose}
+                    onKeyDown={(event) => {
+                      if (event.key === "Enter") {
+                        handleClose();
+                      }
+                    }}
+                    className="modal_closed_btn"
+                    role="button"
+                    tabIndex={0}
+                  >
                     X closed
-                  </p>
+                  </div>
                 </div>
                 {selectedUser && (
                   <OtherUserBloc

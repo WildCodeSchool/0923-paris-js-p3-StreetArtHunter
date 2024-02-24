@@ -1,9 +1,4 @@
 /* eslint-disable no-alert */
-/* eslint-disable import/no-named-as-default */
-/* eslint-disable jsx-a11y/no-noninteractive-tabindex */
-/* eslint-disable jsx-a11y/no-static-element-interactions */
-/* eslint-disable jsx-a11y/click-events-have-key-events */
-/* eslint-disable no-shadow */
 import { useState, useEffect } from "react";
 import { toast } from "react-toastify";
 import Modal from "@mui/material/Modal";
@@ -150,10 +145,10 @@ function ValidationAdminFeat() {
   const smartphoneScreen = window.matchMedia("(max-width: 770px)").matches;
   const desktopScreen = window.matchMedia("(min-width: 1440px)").matches;
 
+  // gestion modal //
   const openModal = (data) => {
     setSelectedWork(data);
     setOpen(true);
-    console.info(data);
   };
 
   const closeModal = () => {
@@ -180,6 +175,13 @@ function ValidationAdminFeat() {
                     <div
                       className="VLAF_valid_btn"
                       onClick={() => handleValidate(data.id, data.user_id)}
+                      onKeyDown={(event) => {
+                        if (event.key === "Enter") {
+                          handleValidate(data.id, data.user_id);
+                        }
+                      }}
+                      role="button"
+                      tabIndex={0}
                     >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -193,6 +195,13 @@ function ValidationAdminFeat() {
                     <div
                       className="VLAF_trash_btn"
                       onClick={() => handleDelete(data.id)}
+                      onKeyDown={(event) => {
+                        if (event.key === "Enter") {
+                          handleDelete(data.id);
+                        }
+                      }}
+                      role="button"
+                      tabIndex={0}
                     >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -243,6 +252,13 @@ function ValidationAdminFeat() {
                             onClick={() =>
                               handleValidate(data.id, data.user_id)
                             }
+                            onKeyDown={(event) => {
+                              if (event.key === "Enter") {
+                                handleValidate(data.id, data.user_id);
+                              }
+                            }}
+                            role="button"
+                            tabIndex={0}
                           >
                             <svg
                               xmlns="http://www.w3.org/2000/svg"
@@ -261,7 +277,8 @@ function ValidationAdminFeat() {
                             onKeyDown={() => {
                               openModal(data);
                             }}
-                            tabIndex="0"
+                            role="button"
+                            tabIndex={0}
                           >
                             <svg
                               xmlns="http://www.w3.org/2000/svg"
@@ -275,6 +292,13 @@ function ValidationAdminFeat() {
                           <div
                             className="VLAF_trash_btn"
                             onClick={() => handleDelete(data.id)}
+                            onKeyDown={(event) => {
+                              if (event.key === "Enter") {
+                                handleDelete(data.id);
+                              }
+                            }}
+                            role="button"
+                            tabIndex={0}
                           >
                             <svg
                               xmlns="http://www.w3.org/2000/svg"

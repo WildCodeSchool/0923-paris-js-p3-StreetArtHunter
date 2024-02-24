@@ -1,7 +1,4 @@
 /* eslint-disable no-nested-ternary */
-/* eslint-disable jsx-a11y/no-static-element-interactions */
-/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
-/* eslint-disable jsx-a11y/click-events-have-key-events */
 import { useState, useEffect } from "react";
 import UsersListAdBy from "../UserListAdByPseudo/UsersListAdBy";
 import SmileySearch from "../../../assets/images/ico/smilley.png";
@@ -58,7 +55,7 @@ function UserListAdminFeat() {
   // users score sorted //
   const userScoreSorted = userData.sort((a, b) => b.score - a.score);
 
-  // users score sorted //
+  // users entry sorted //
   const userEntrySorted = userData.slice().sort((a, b) => {
     const dateA = new Date(a.registrationDate);
     const dateB = new Date(b.registrationDate);
@@ -76,6 +73,7 @@ function UserListAdminFeat() {
   // >>> return <<< //
   return (
     <section className="ULAF_container">
+      {/* searchbar */}
       <div className="searchBar_ULAF_container">
         <input
           type="text"
@@ -90,16 +88,26 @@ function UserListAdminFeat() {
           className="Smiley_Search_ULAF"
         />
       </div>
+      {/* hunters count */}
       <div className="hunters_count_ULAF">
         hunters : <span className="font_info_color">{UsersCount}</span>
       </div>
+      {/* SECTION users lists */}
       <section className="ULAF_content">
+        {/* Toggle sorted users list */}
         <div className="ULAF_toogle_Line">
           <div
             className={`ULAF_toogle ${
               activeComponent === "pseudo" ? "active" : ""
             }`}
             onClick={() => handleToggle("pseudo")}
+            onKeyDown={(event) => {
+              if (event.key === "Enter") {
+                handleToggle("pseudo");
+              }
+            }}
+            role="button"
+            tabIndex={0}
             id="ULAF_by_pseudo"
           >
             pseudo
@@ -110,6 +118,13 @@ function UserListAdminFeat() {
               activeComponent === "score" ? "active" : ""
             }`}
             onClick={() => handleToggle("score")}
+            onKeyDown={(event) => {
+              if (event.key === "Enter") {
+                handleToggle("score");
+              }
+            }}
+            role="button"
+            tabIndex={0}
             id="ULAF_by_score"
           >
             score
@@ -120,11 +135,19 @@ function UserListAdminFeat() {
               activeComponent === "entry" ? "active" : ""
             }`}
             onClick={() => handleToggle("entry")}
+            onKeyDown={(event) => {
+              if (event.key === "Enter") {
+                handleToggle("entry");
+              }
+            }}
+            role="button"
+            tabIndex={0}
             id="ULAF_by_entry"
           >
             entry
           </div>
         </div>
+        {/* users list */}
         <section className="Users_List_ULAF">
           {search === "" && (
             <UsersListAdBy

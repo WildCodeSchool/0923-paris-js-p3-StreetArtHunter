@@ -1,6 +1,4 @@
 /* eslint-disable no-alert */
-/* eslint-disable jsx-a11y/no-static-element-interactions */
-/* eslint-disable jsx-a11y/click-events-have-key-events */
 import { useEffect, useState, useContext } from "react";
 import { toast } from "react-toastify";
 import Pagination from "@mui/material/Pagination";
@@ -21,7 +19,7 @@ function OtherUserBloc({ dataUser, handleClose, updateUserList }) {
   const [userWorksData, setUserWorksData] = useState([]);
   const [userLevel, setUserLevel] = useState("");
 
-  // works data
+  // DATA
   useEffect(() => {
     fetch(`${import.meta.env.VITE_BACKEND_URL}/api/image`, {
       credentials: "include",
@@ -85,11 +83,10 @@ function OtherUserBloc({ dataUser, handleClose, updateUserList }) {
     }
   };
 
-  // Format date object:
-
+  // Format date object
   const formattedDate = formatDate(dataUser?.registrationDate);
 
-  // pagination work card //
+  // pagination workcard smartphone
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 1;
 
@@ -101,7 +98,7 @@ function OtherUserBloc({ dataUser, handleClose, updateUserList }) {
     setCurrentPage(pageNumber);
   };
 
-  // pagination work card for desktopScreen //
+  // pagination workcard desktop
   const [currentPageDesktop, setCurrentPageDesktop] = useState(1);
   const itemsPerPageDesktop = 6;
 
@@ -116,7 +113,7 @@ function OtherUserBloc({ dataUser, handleClose, updateUserList }) {
     setCurrentPageDesktop(pageNumber);
   };
 
-  // gestion Media Screen //
+  // gestion Media Screen
   const smartphoneScreen = window.matchMedia("(max-width: 770px)").matches;
   const desktopScreen = window.matchMedia("(min-width: 1440px)").matches;
 
@@ -183,8 +180,14 @@ function OtherUserBloc({ dataUser, handleClose, updateUserList }) {
                   <div
                     className="OUB_trash_btn"
                     onClick={() => handleDelete(dataUser.id)}
+                    onKeyDown={(event) => {
+                      if (event.key === "Enter") {
+                        handleDelete(dataUser.id);
+                      }
+                    }}
+                    role="button"
+                    tabIndex={0}
                   >
-                    {" "}
                     DELETE USER
                   </div>
                 </div>
@@ -219,8 +222,14 @@ function OtherUserBloc({ dataUser, handleClose, updateUserList }) {
                       <div
                         className="OUB_trash_btn"
                         onClick={() => handleDelete(dataUser.id)}
+                        onKeyDown={(event) => {
+                          if (event.key === "Enter") {
+                            handleDelete(dataUser.id);
+                          }
+                        }}
+                        role="button"
+                        tabIndex={0}
                       >
-                        {" "}
                         DELETE USER
                       </div>
                     </div>

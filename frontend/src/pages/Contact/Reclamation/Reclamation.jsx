@@ -1,6 +1,4 @@
-/* eslint-disable jsx-a11y/no-static-element-interactions */
-/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
-/* eslint-disable no-undef */
+/* eslint-disable jsx-a11y/no-noninteractive-element-to-interactive-role */
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
@@ -65,6 +63,8 @@ function Reclamation() {
               onKeyDown={() => {
                 navigate("/contactus");
               }}
+              role="button"
+              tabIndex={0}
             >
               claim
             </h2>
@@ -104,6 +104,8 @@ function Reclamation() {
               onKeyDown={() => {
                 navigate("/contactus");
               }}
+              role="button"
+              tabIndex={0}
             >
               BACK
             </div>

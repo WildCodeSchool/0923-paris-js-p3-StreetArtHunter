@@ -70,7 +70,6 @@ function SpotZone() {
           </div>
           <div className="spotZone_workcard_container">
             {currentItems.map((location) => (
-              // eslint-disable-next-line react/no-array-index-key
               <SpotCard
                 className="SpotCard_content"
                 key={location.id}

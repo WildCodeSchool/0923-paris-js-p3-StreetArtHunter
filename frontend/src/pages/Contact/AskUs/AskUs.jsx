@@ -1,5 +1,4 @@
-/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
-/* eslint-disable no-unused-vars */
+/* eslint-disable jsx-a11y/no-noninteractive-element-to-interactive-role */
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
@@ -62,6 +61,8 @@ function AskUs() {
               onKeyDown={() => {
                 navigate("/contactus");
               }}
+              role="button"
+              tabIndex={0}
             >
               ¿ question ?
             </h2>

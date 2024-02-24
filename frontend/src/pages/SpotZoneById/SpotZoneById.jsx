@@ -1,5 +1,3 @@
-/* eslint-disable no-unsafe-optional-chaining */
-/* eslint-disable no-unused-vars */
 import { useEffect, useState, useContext } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import Pagination from "@mui/material/Pagination";
@@ -19,6 +17,7 @@ function SpotZoneById() {
     lat: 48.8566,
     zoom: 11,
   });
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -43,10 +42,9 @@ function SpotZoneById() {
 
     fetchData();
   }, []);
-  const [currentPage, setCurrentPage] = useState(1);
-  // const lng = locationData[0]?.lng;
-  // const lat = locationData[0]?.lat;
 
+  // Logique pagination smartphone
+  const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 1;
   const handlePageChange = (event, pageNumber) => {
     setCurrentPage(pageNumber);
@@ -60,7 +58,9 @@ function SpotZoneById() {
 
   const [currentPageDesktop, setCurrentPageDesktop] = useState(1);
   const itemsPerPageDesktop = 6;
-  const countDesktopPages = Math.ceil(works?.length / itemsPerPageDesktop);
+  const countDesktopPages = Math.ceil(
+    (works?.length ?? 0) / itemsPerPageDesktop
+  );
   const handlePageChangeDesktop = (event, pageNumberDesktop) => {
     setCurrentPageDesktop(pageNumberDesktop);
   };
@@ -102,9 +102,8 @@ function SpotZoneById() {
             </div>
             <div className="works_city_zone_container_Smartphone">
               <div className="content_Work_City_Zone">
-                {currentItems.map((data, index) => (
-                  // eslint-disable-next-line react/no-array-index-key
-                  <WorkCard2 key={index} data={data} />
+                {currentItems.map((data) => (
+                  <WorkCard2 key={data.id} data={data} />
                 ))}
               </div>
             </div>
@@ -174,11 +173,10 @@ function SpotZoneById() {
             <div className="Global_container_desktop">
               <div className="works_city_zone_container_Desktop">
                 <div className="content_Work_City_Zone">
-                  {currentItemsDesktop.map((data, index) => (
+                  {currentItemsDesktop.map((data) => (
                     <WorkCard2
                       className="Workcard_SpotZone_Desktop"
-                      // eslint-disable-next-line react/no-array-index-key
-                      key={index}
+                      key={data.id}
                       data={data}
                       admin={user}
                     />

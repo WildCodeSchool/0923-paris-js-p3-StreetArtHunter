@@ -1,5 +1,3 @@
-/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
-/* eslint-disable jsx-a11y/click-events-have-key-events */
 import { useState } from "react";
 import Pagination from "@mui/material/Pagination";
 import Stack from "@mui/material/Stack";
@@ -31,6 +29,7 @@ function UsersListAdBy({ sortedUsers, setUserData }) {
   };
 
   const totalFilteredUsersPages = Math.ceil(sortedUsers.length / itemsPerPage);
+
   // User props Modal //
   const [selectedUser, setSelectedUser] = useState(null);
 
@@ -79,9 +78,19 @@ function UsersListAdBy({ sortedUsers, setUserData }) {
         <Box>
           <Container maxWidth="lg">
             <div className="modal_closed_btn_container">
-              <p onClick={handleClose} className="modal_closed_btn">
+              <div
+                onClick={handleClose}
+                onKeyPress={(event) => {
+                  if (event.key === "Enter") {
+                    handleClose();
+                  }
+                }}
+                role="button"
+                tabIndex={0}
+                className="modal_closed_btn"
+              >
                 X closed
-              </p>
+              </div>
             </div>
             {selectedUser && (
               <OtherUserBloc

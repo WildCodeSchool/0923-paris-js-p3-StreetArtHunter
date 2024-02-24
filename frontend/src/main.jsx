@@ -76,31 +76,6 @@ const router = createBrowserRouter([
         },
       },
       {
-        path: "/adminprofil",
-
-        element: (
-          <PrivateRoute>
-            <AdminProfil />
-          </PrivateRoute>
-        ),
-      },
-      {
-        path: "/classement",
-        element: (
-          <PrivateRoute>
-            <Classement />
-          </PrivateRoute>
-        ),
-      },
-      {
-        path: "/login",
-        element: <Login />,
-      },
-      {
-        path: "/register",
-        element: <Register />,
-      },
-      {
         path: "/spotzone",
         element: <SpotZone />,
 
@@ -111,10 +86,22 @@ const router = createBrowserRouter([
         },
       },
       {
-        path: "/submitwork",
+        path: "/spotzonebyid/:location",
+        element: <SpotZoneById />,
+      },
+      {
+        path: "/login",
+        element: <Login />,
+      },
+      {
+        path: "/register",
+        element: <Register />,
+      },
+      {
+        path: "/profil",
         element: (
           <PrivateRoute>
-            <SubmitWork />
+            <Profil />
           </PrivateRoute>
         ),
       },
@@ -132,10 +119,27 @@ const router = createBrowserRouter([
         },
       },
       {
-        path: "/information",
+        path: "/adminprofil",
+
         element: (
           <PrivateRoute>
-            <Information />
+            <AdminProfil />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/classement",
+        element: (
+          <PrivateRoute>
+            <Classement />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/submitwork",
+        element: (
+          <PrivateRoute>
+            <SubmitWork />
           </PrivateRoute>
         ),
       },
@@ -156,14 +160,10 @@ const router = createBrowserRouter([
         element: <Reclamation />,
       },
       {
-        path: "/spotzonebyid/:location",
-        element: <SpotZoneById />,
-      },
-      {
-        path: "/profil",
+        path: "/information",
         element: (
           <PrivateRoute>
-            <Profil />
+            <Information />
           </PrivateRoute>
         ),
       },
