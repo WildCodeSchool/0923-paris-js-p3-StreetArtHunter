@@ -18,8 +18,7 @@ import Login from "./pages/Login/Login";
 import Register from "./pages/Register/Register";
 import SpotZone from "./pages/SpotZone/SpotZone";
 import SubmitWork from "./pages/SubmitWork/SubmitWork";
-import UserProfilHistorical from "./components/InputUserProfil/UserProfilHistorical";
-import UserProfilClassement from "./components/InputUserProfil/UserProfilClassement";
+import UserProfil from "./pages/UserProfil/UserProfil";
 import Information from "./pages/Information/Information";
 import ContactUs from "./pages/Contact/ContactUs/ContactUs";
 import ComplimentUs from "./pages/Contact/ComplimentUs/ComplimentUs";
@@ -120,18 +119,10 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: "/userprofilhistorical",
+        path: "/userProfil",
         element: (
           <PrivateRoute>
-            <UserProfilHistorical />
-          </PrivateRoute>
-        ),
-      },
-      {
-        path: "/userprofilclassement",
-        element: (
-          <PrivateRoute>
-            <UserProfilClassement />
+            <UserProfil />
           </PrivateRoute>
         ),
         loader: () => {
