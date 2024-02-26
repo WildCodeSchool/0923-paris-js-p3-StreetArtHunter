@@ -1,6 +1,5 @@
 /* eslint-disable no-use-before-define */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
-
 import { useState, useContext, useEffect } from "react";
 import { toast } from "react-toastify";
 import Box from "@mui/material/Box";
@@ -18,7 +17,7 @@ function UserProfil() {
   // database //
   const { user } = useContext(AuthContext);
 
-  // Toggle Admin feature //
+  // Toggle User feature //
   const [activeComponent, setActiveComponent] = useState("historicalList");
   const handleToggle = (id) => {
     setActiveComponent(id);
