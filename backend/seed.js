@@ -355,7 +355,7 @@ const seed = async () => {
         latitude: 48.872165897007264,
         longitude: 2.378325264218084,
         image: `${imageBaseUrl}/20231203_142754.jpg`,
-        User_id: 2,
+        User_id: 6,
         isValidate: 1,
         location_id: 2,
       },
@@ -419,7 +419,7 @@ const seed = async () => {
         latitude: 48.898750241615424,
         longitude: 2.3823250071999387,
         image: `${imageBaseUrl}/20231209_124017.jpg`,
-        User_id: 5,
+        User_id: 6,
         isValidate: 1,
         location_id: 4,
       },
@@ -492,7 +492,7 @@ const seed = async () => {
         longitude: 2.379942221650376,
         image: `${imageBaseUrl}/20231209_130347.jpg`,
         User_id: 2,
-        isValidate: 0,
+        isValidate: 1,
         location_id: 4,
       },
       {
@@ -531,7 +531,7 @@ const seed = async () => {
         latitude: 48.888805298533676,
         longitude: 2.386240553206446,
         image: `${imageBaseUrl}/20231210_143012.jpg`,
-        User_id: 5,
+        User_id: 6,
         isValidate: 1,
         location_id: 1,
       },
@@ -571,7 +571,7 @@ const seed = async () => {
         latitude: 48.88761235483157,
         longitude: 2.3790936791222546,
         image: `${imageBaseUrl}/20231210_145717.jpg`,
-        User_id: 7,
+        User_id: 6,
         isValidate: 1,
         location_id: 1,
       },
@@ -651,7 +651,7 @@ const seed = async () => {
         latitude: 48.88687427677575,
         longitude: 2.3713696689292867,
         image: `${imageBaseUrl}/20180627_194907.jpg`,
-        User_id: 4,
+        User_id: 13,
         isValidate: 0,
         location_id: 1,
       },
@@ -808,14 +808,15 @@ const seed = async () => {
 
     // Execute the UPDATE query
     await database.query(`
-      UPDATE user AS u
-      JOIN (
-        SELECT User_id, COUNT(*) * 100 AS new_score
-        FROM work
-        GROUP BY User_id
-      ) AS works_count ON u.id = works_count.User_id
-      SET u.score = u.score + works_count.new_score
-    `);
+    UPDATE user AS u
+    JOIN (
+      SELECT User_id, COUNT(*) * 100 AS new_score
+      FROM work
+      WHERE isValidate = 1
+      GROUP BY User_id
+    ) AS works_count ON u.id = works_count.User_id
+    SET u.score = u.score + works_count.new_score
+  `);
 
     // Execute the SELECT query to get updated user data
     const users = await database.query("SELECT * FROM user");
