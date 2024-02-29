@@ -131,6 +131,7 @@ app.use(express.static(publicFolderPath));
 // Important: Error-handling middleware should be defined last, after other app.use() and routes calls.
 
 // Define a middleware function to log errors
+// eslint-disable-next-line no-unused-vars
 const logErrors = (err, req, res, next) => {
   // Log the error to the console for debugging purposes
   console.error(err);

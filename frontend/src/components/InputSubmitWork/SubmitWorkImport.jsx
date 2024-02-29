@@ -6,10 +6,6 @@ function SubmitWorkImport({ onNextStep, onImageSelect }) {
   const [selectedImage, setSelectedImage] = useState(null);
   const fileInputRef = useRef(null);
 
-  // const handleFileChange = (e) => {
-  //   const image = e.target.files[0];
-  //   setSelectedImage(URL.createObjectURL(image));
-  // };
   const handleFileChange = (e) => {
     console.info(fileInputRef.current.files, e.target.files);
     const image = e.target.files[0];

@@ -19,7 +19,6 @@ router.put(
   auth.isAdmin,
   imageController.approve
 );
-
 router.delete(
   "/image/:id/delete",
   auth.isAuth,

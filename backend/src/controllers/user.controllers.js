@@ -92,7 +92,7 @@ const incrementUserScore = async (req, res, next) => {
   }
 };
 
-const logout = async (req, res, next) => {
+const logout = (req, res, next) => {
   try {
     res.clearCookie("auth-token").sendStatus(200);
   } catch (error) {
