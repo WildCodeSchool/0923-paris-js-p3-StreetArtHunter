@@ -43,7 +43,7 @@ function InputLogin() {
         }
 
         if (user.admin) navigate("/adminprofil");
-        else navigate("/userprofilhistorical");
+        else navigate("/userprofil");
       } else {
         toast.error("invalid password!");
         console.error("invalid password!");
