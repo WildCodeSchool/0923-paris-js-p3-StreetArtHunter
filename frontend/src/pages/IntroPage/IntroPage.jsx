@@ -1,8 +1,8 @@
 import { useNavigate } from "react-router-dom";
-import "./introPage.css";
 import WallIntro from "../../assets/images/img/wall05.png";
 import Crocodile from "../../assets/images/img/bomb04-2.png";
 import GirlBalloon from "../../assets/images/img/little_girl_ballon.png";
+import "./introPage.css";
 
 function IntroPage() {
   const navigate = useNavigate();
