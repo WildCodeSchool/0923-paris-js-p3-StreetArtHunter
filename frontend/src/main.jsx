@@ -178,6 +178,5 @@ root.render(
       <RouterProvider router={router} />
       <ToastContainer />
     </AuthProvider>
-    <ToastContainer />
   </React.StrictMode>
 );

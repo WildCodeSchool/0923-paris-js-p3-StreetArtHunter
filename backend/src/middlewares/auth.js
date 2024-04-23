@@ -22,9 +22,15 @@ const hashPassword = async (req, res, next) => {
 };
 
 // Vérification utilisateur authentifié //
+// eslint-disable-next-line consistent-return
 const isAuth = async (req, res, next) => {
   try {
     const token = req.cookies["auth-token"];
+    if (!token) {
+      return res
+        .status(401)
+        .json({ message: "Authentication required. Please log in." });
+    }
     const decoded = jwt.verify(token, process.env.APP_SECRET);
     req.body.userID = decoded.id;
     req.body.admin = decoded.admin;
@@ -33,7 +39,9 @@ const isAuth = async (req, res, next) => {
     next();
   } catch (error) {
     console.error(error);
-    res.status(401).json(error.message);
+    res.status(401).json({
+      message: "Invalid authentication. Please log in again.",
+    });
   }
 };
 

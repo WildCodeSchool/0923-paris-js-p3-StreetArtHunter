@@ -2,7 +2,7 @@
   background-image: url(../../assets/images/img/city05-footer_smartphone.png);
   background-size: 100%;
   background-repeat: no-repeat;
-  height: 2.375rem;
+  height: 5rem;
 }
 .footer_link {
   display: flex;
@@ -11,6 +11,8 @@
   width: 100%;
   padding: 0.24rem 0;
   align-items: center;
+  position: fixed;
+  bottom: 0;
 }
 
 @media screen and (min-width: 1440px) {

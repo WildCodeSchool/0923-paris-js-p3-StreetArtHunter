@@ -16,7 +16,7 @@ const findById = (id) => {
 };
 
 const findByEmail = (pseudo, email) => {
-  return db.query("SELECT * FROM user WHERE pseudo= ? OR email = ?", [
+  return db.query("SELECT * FROM user WHERE pseudo = ? OR email = ?", [
     pseudo,
     email,
   ]);
