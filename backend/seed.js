@@ -29,7 +29,7 @@ const seed = async () => {
         pseudo: "Chaton_Brutal",
         email: "chaton@glouglou.fr",
         password: "toto",
-        score: 0,
+        score: 300,
         admin: 0,
       },
       {
